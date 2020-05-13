@@ -1,0 +1,161 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#head_mv {
+    height: 400px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center -140px;
+    background-size: cover;
+    position: relative;
+
+    &:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        // background-color: rgba(0, 0, 0, .5);
+        background-image: linear-gradient(-45deg,
+                #000 25%,
+                rgba(0, 0, 0, .3) 25%,
+                rgba(0, 0, 0, .3) 50%,
+                #000 50%,
+                #000 75%,
+                rgba(0, 0, 0, .3) 75%,
+                rgba(0, 0, 0, .3));
+        background-size: 3px 3px;
+        background-attachment: fixed;
+    }
+
+    .head_mv_area {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        z-index: 99;
+
+        h2.h_logo {
+            width: 100%;
+            text-align: center;
+            margin-top: 95px;
+
+            a {
+                display: block;
+                width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        p.h_ttl {
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+    }
+
+}
+
+
+.wrap {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1240px;
+}
+
+main#top {
+    width: 100%;
+
+    section.top_col {
+        @extend .wrap;
+    }
+
+    section.main_col {
+        @extend .wrap;
+
+        .left_col {
+            width: 100%;
+            max-width: 860px;
+            float: left;
+
+            .item_wrap {
+                width: 33%;
+                padding: 15px;
+                line-height: 100%;
+                display: inline-block;
+                vertical-align: top;
+
+                span.date {
+                    display: inline-block;
+                    font-size: 10px;
+                    color: #1d1d1d;
+                    font-weight: 400;
+                    letter-spacing: 1px;
+                    line-height: 100%;
+                    padding: 6px 5px;
+                    border-top: 1px solid #dc2e65;
+                }
+
+                a {
+                    display: block;
+
+                    img {
+                        width: 100%;
+                        float: left;
+                    }
+
+                    .clap {
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                    }
+
+                    .ttl {
+                        width: 100%;
+                        float: left;
+                        padding: 0 5px;
+                        color: #1d1d1d;
+                        font-size: 14px;
+                        @extend .clap;
+                        -webkit-line-clamp: 2;
+                        line-height: 22px;
+                        margin: 13px 0 8px;
+                    }
+
+                    .artist {
+                        width: 100%;
+                        float: left;
+                        @extend .clap;
+                        -webkit-line-clamp: 1;
+                        padding: 0 5px;
+                        font-size: 11px;
+                        color: #969696;
+                    }
+
+                    .song {
+                        width: 100%;
+                        float: left;
+                        @extend .clap;
+                        -webkit-line-clamp: 1;
+                        padding: 0 5px;
+                        font-size: 11px;
+                        color: #969696;
+                        margin: 5px 0 0 0;
+                    }
+                }
+            }
+        }
+
+        .right_col {
+            width: 100%;
+            max-width: 380px;
+            float: left;
+            min-height: 800px;
+            background-color: #ddd;
+        }
+    }
+}

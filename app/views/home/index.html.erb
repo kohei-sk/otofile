@@ -1,0 +1,61 @@
+<div id="head_mv" class="clearfix">
+    <div class="head_mv_area">
+        <h2 class="h_logo">
+            <%= link_to "/", class: "nav_btn nav_btn_logo", data: {"turbolinks" => false} do %>
+            <%= image_tag "logo.svg" %>
+            <% end %>
+        </h2>
+        <p class="h_ttl">
+            あなたの FAVOTIRE ROCK シェアしませんか？
+        </p>
+    </div>
+</div>
+
+
+<main id="top">
+    <section class="top_col">
+        <!-- あとで -->
+    </section>
+    <section class="main_col clearfix">
+        <div class="left_col clearfix">
+            <% @posts.each do |post| %>
+            <div class="item_wrap clearfix">
+                <span class="date"><%= l post.created_at, format: "%Y-%m-%d" %></span>
+                <%= link_to "/p/#{post.id}", {class: "clearfix"} do %>
+                <% ytid = 'https://img.youtube.com/vi/' + post.ytid + '/mqdefault.jpg' %>
+                <%= image_tag ytid %>
+                <p class="ttl"><%= post.title %></p>
+                <p class="artist">
+                    <% if post.artist.empty? %>
+                    NO ARTIST
+                    <% else %>
+                    <%= post.artist %>
+                    <% end %>
+                </p>
+                <p class="song">
+                    <% if post.song.empty? %>
+                    NO SONG
+                    <% else %>
+                    <%= post.song %>
+                    <% end %>
+                </p>
+                <% end %>
+            </div>
+            <% end %>
+        </div>
+        <div class="right_col clearfix"></div>
+    </section>
+
+    <% if user_signed_in? %>
+
+    <p>ログインしているときはこっちを表示</p>
+    <p>ログインOK!!</p>
+    <% else %>
+
+    <p>ログインしていないときはこっちを表示</p>
+    <p>ログインまだ＞＜</p>
+
+    <% end %>
+
+
+    <main>

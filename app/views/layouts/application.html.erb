@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OTOFILE</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="clearfix">
+            <div class="nav_l clearfix">
+                <%= link_to "/", class: "nav_btn nav_btn_logo", data: {"turbolinks" => false} do %>
+                <%= image_tag "logo.svg" %>
+                <% end %>
+            </div>
+            <div class="nav_r clearfix">
+                <%= link_to 'ロックをシェア', p_new_path, class: "nav_btn nav_btn_post_new" %>
+                <%= link_to '検索', root_path, class: "nav_btn nav_btn_search" %>
+                <% if user_signed_in? %>
+                <%= link_to "/#{current_user.userid}", class: "nav_btn nav_btn_username" do %>
+                <% if current_user.username.empty? %>
+                <%= current_user.userid %>
+                <% else %>
+                <%= current_user.username %>
+                <% end %>
+                <% end %>
+                <%= link_to 'ログアウト', destroy_user_session_path, class: "nav_btn nav_btn_logout", method: :delete %>
+                <% else %>
+                <%= link_to 'アカウント登録', new_user_registration_path, class: "nav_btn nav_btn_signup" %>
+                <%= link_to 'ログイン', new_user_session_path, class: "nav_btn nav_btn_login" %>
+                <% end %>
+            </div>
+        </nav>
+        <% if notice %>
+        <p class="notice clearfix"><%= notice %></p>
+        <% end %>
+        <% if alert  %>
+        <p class="alert clearfix"><%= alert %></p>
+        <% end %>
+    </header>
+
+
+    <%= yield %>
+
+    <%= Gon::Base.render_data %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>
+        $(document).on('turbolinks:load', function() {
+
+            $(function() {
+                setTimeout("$('.notice, .alert').fadeOut('slow')", 2500)
+            })
+
+            $(function() {
+                $("#head_mv").css({
+                    "background-image": gon.yt_head_img
+                });
+            });
+
+            $('document').ready(function() {
+                if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+                    //モバイルの記述
+                } else {
+                    var options = {
+                        videoId: gon.ytid
+                    };
+                    $('#head_mv').tubular(options);
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
