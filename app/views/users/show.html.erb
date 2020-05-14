@@ -14,6 +14,6 @@
 
 <p><%= @user.userid %></p>
 
-<% if @user.message.present? %>
-<p><%=safe_join(@user.profile.split("\n"),tag(:br))%></p>
-<% end %>
+<%# if @user.message.present? %>
+<%=#safe_join(@user.profile.split("\n"),tag(:br))%>
+<%# end %>
