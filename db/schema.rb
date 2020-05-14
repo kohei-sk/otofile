@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_103340) do
+ActiveRecord::Schema.define(version: 2020_05_14_142040) do
+
+  create_table "onemessages", force: :cascade do |t|
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
@@ -21,6 +27,33 @@ ActiveRecord::Schema.define(version: 2020_05_08_103340) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "song"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.text "sns_t"
+    t.text "sns_f"
+    t.text "sns_i"
+    t.text "sns_l"
+    t.text "userlink"
+    t.text "trendartist"
+    t.text "torendsong"
+    t.string "fvcate"
+    t.text "fvartist"
+    t.text "fvsong"
+    t.string "fvmv"
+    t.text "myband"
+    t.string "h_year1"
+    t.string "h_year2"
+    t.string "h_year3"
+    t.string "h_year4"
+    t.string "h_year5"
+    t.text "h_content1"
+    t.text "h_content2"
+    t.text "h_content3"
+    t.text "h_content4"
+    t.text "h_content5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,7 +81,6 @@ ActiveRecord::Schema.define(version: 2020_05_08_103340) do
     t.string "username"
     t.string "userid"
     t.string "userimg"
-    t.text "profile"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
