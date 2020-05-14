@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  #get "/" => "home#index"
   root :to => "home#index"
+  get "users/show" => "users#show"
+  get "users/nouser" => "users#nouser"
 
   get "p/new" => "posts#new"
   post "p/new" => "posts#create"
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
 
   get "p/:id" => "posts#show"
 
-  get "mypage" => "users#mypage"
   resources :users, param: :userid, path: "/", only: [:show]
 
   devise_for :users, :controllers => {

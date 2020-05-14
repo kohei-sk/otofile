@@ -1,0 +1,2 @@
+class Onemessage < ApplicationRecord
+end

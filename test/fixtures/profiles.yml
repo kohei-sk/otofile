@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sns_t: MyText
+  sns_f: MyText
+  sns_i: MyText
+  sns_l: MyText
+  userlink: MyText
+  trendartist: MyText
+  torendsong: MyText
+  fvcate: MyString
+  fvartist: MyText
+  fvsong: MyText
+  fvmv: MyString
+  myband: MyText
+  h_year1: MyString
+  h_year2: MyString
+  h_year3: MyString
+  h_year4: MyString
+  h_year5: MyString
+  h_content1: MyText
+  h_content2: MyText
+  h_content3: MyText
+  h_content4: MyText
+  h_content5: MyText
+
+two:
+  sns_t: MyText
+  sns_f: MyText
+  sns_i: MyText
+  sns_l: MyText
+  userlink: MyText
+  trendartist: MyText
+  torendsong: MyText
+  fvcate: MyString
+  fvartist: MyText
+  fvsong: MyText
+  fvmv: MyString
+  myband: MyText
+  h_year1: MyString
+  h_year2: MyString
+  h_year3: MyString
+  h_year4: MyString
+  h_year5: MyString
+  h_content1: MyText
+  h_content2: MyText
+  h_content3: MyText
+  h_content4: MyText
+  h_content5: MyText
