@@ -1,0 +1,144 @@
+<p>profile_new</p>
+
+
+<% if @profile.errors.any? %>
+<ul>
+    <% @profile.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+</ul>
+<% end %>
+
+<%= form_for @profile,:url => {controller: "profiles", action: "create"} do |f| %>
+
+<div class="field">
+    <%= f.label :sns_t, "Twitter" %><br />
+    <%= f.text_field :sns_t %>
+</div>
+
+<div class="field">
+    <%= f.label :sns_f, "Facebook" %><br />
+    <%= f.text_field :sns_f %>
+</div>
+
+<div class="field">
+    <%= f.label :sns_i, "Instagram" %><br />
+    <%= f.text_field :sns_i %>
+</div>
+
+<div class="field">
+    <%= f.label :sns_l, "LINE" %><br />
+    <%= f.text_field :sns_l %>
+</div>
+
+<div class="field">
+    <%= f.label :userlink, "Link" %><br />
+    <%= f.text_field :userlink %>
+</div>
+
+<div class="field">
+    <%= f.label :trendartist, "ハマっているアーティスト" %><br />
+    <%= f.text_area :trendartist %>
+</div>
+
+<div class="field">
+    <%= f.label :trendsong, "ハマっている曲" %><br />
+    <%= f.text_area :trendsong %>
+</div>
+
+<div class="field">
+    <%= f.label :fvcate, "好きなジャンル" %><br />
+    <%= f.text_field :fvcate %>
+</div>
+
+<div class="field">
+    <%= f.label :fvartist, "好きなアーテイスト" %><br />
+    <%= f.text_area :fvartist %>
+</div>
+
+<div class="field">
+    <%= f.label :fvsong, "好きな曲" %><br />
+    <%= f.text_area :fvsong %>
+</div>
+
+<script>
+    function func_id() {
+        var i = document.getElementById("ytid");
+        var t = i.value;
+        if (/watch\?v=/.test(t)) {
+            var index = t.indexOf('watch?v=');
+            i.value = t.slice(index + 8);
+        } else if (/youtu\.be\//.test(t)) {
+            var index = t.indexOf('youtu.be/');
+            i.value = t.slice(index + 9);
+        } else {
+            i.value = '正しいURLを入力してください';
+        }
+    }
+</script>
+
+<div class="field">
+    <%= f.label :fvmv, "好きなMV" %><br />
+    <%= f.text_field :fvmv, placeholder: "YouTubeのURLをペースト", oninput: "func_id()", id: "ytid" %>
+</div>
+
+<div class="field">
+    <%= f.label :myband, "活動中のマイバンド" %><br />
+    <%= f.text_area :myband %>
+</div>
+
+<div class="field">
+    <%= f.label :h_year1, "年代" %><br />
+    <%= f.text_field :h_year1 %>
+</div>
+
+<div class="field">
+    <%= f.label :h_content1, "曲・エピソードなど" %><br />
+    <%= f.text_area :h_content1 %>
+</div>
+
+<div class="field">
+    <%= f.label :h_year2, "年代" %><br />
+    <%= f.text_field :h_year2 %>
+</div>
+
+<div class="field">
+    <%= f.label :h_content2, "曲・エピソードなど" %><br />
+    <%= f.text_area :h_content2 %>
+</div>
+
+<div class="field">
+    <%= f.label :h_year3, "年代" %><br />
+    <%= f.text_field :h_year3 %>
+</div>
+
+<div class="field">
+    <%= f.label :h_content3, "曲・エピソードなど" %><br />
+    <%= f.text_area :h_content3 %>
+</div>
+
+<div class="field">
+    <%= f.label :h_year4, "年代" %><br />
+    <%= f.text_field :h_year4 %>
+</div>
+
+<div class="field">
+    <%= f.label :h_content4, "曲・エピソードなど" %><br />
+    <%= f.text_area :h_content4 %>
+</div>
+
+<div class="field">
+    <%= f.label :h_year5, "年代" %><br />
+    <%= f.text_field :h_year5 %>
+</div>
+
+<div class="field">
+    <%= f.label :h_content5, "曲・エピソードなど" %><br />
+    <%= f.text_area :h_content5 %>
+</div>
+
+<div class="actions">
+    <%= f.submit "保存" %>
+</div>
+
+<% end %>

@@ -1,0 +1,23 @@
+<p>onemessage_edit</p>
+
+
+<% if @msg.errors.any? %>
+<ul>
+    <% @msg.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+</ul>
+<% end %>
+
+<%= form_for @msg,:url => {controller: "onemessages", action: "edit"} do |f| %>
+
+<div class="field">
+    <%= f.label :message, "ひとこと" %><br />
+    <%= f.text_area :message %>
+</div>
+
+<div class="actions">
+    <%= f.submit "保存" %>
+</div>
+
+<% end %>

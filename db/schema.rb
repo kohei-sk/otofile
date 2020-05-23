@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_142040) do
+ActiveRecord::Schema.define(version: 2020_05_18_150703) do
 
   create_table "onemessages", force: :cascade do |t|
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "onemessage_uid"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -36,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_05_14_142040) do
     t.text "sns_l"
     t.text "userlink"
     t.text "trendartist"
-    t.text "torendsong"
+    t.text "trendsong"
     t.string "fvcate"
     t.text "fvartist"
     t.text "fvsong"
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_05_14_142040) do
     t.text "h_content5"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_uid"
   end
 
   create_table "users", force: :cascade do |t|

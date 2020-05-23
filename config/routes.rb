@@ -3,6 +3,16 @@ Rails.application.routes.draw do
   get "users/show" => "users#show"
   get "users/nouser" => "users#nouser"
 
+  get "m/new" => "onemessages#new"
+  post "m/new" => "onemessages#create"
+  get "m/edit" => "onemessages#edit"
+  patch "m/edit" => "onemessages#update"
+
+  get "pr/new" => "profiles#new"
+  post "pr/new" => "profiles#create"
+  get "pr/edit" => "profiles#edit"
+  patch "pr/edit" => "profiles#update"
+
   get "p/new" => "posts#new"
   post "p/new" => "posts#create"
   get "p/:id/edit" => "posts#edit"

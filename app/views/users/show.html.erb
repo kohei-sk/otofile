@@ -1,19 +1,115 @@
 <h1>Users#show</h1>
 
-<% if user_signed_in? %>
-<%= link_to 'プロフィール変更', edit_user_registration_path %>
+<% if current_user.id == @user.id %>
+<%= link_to 'ユーザー情報変更', edit_user_registration_path %>
 <% end %>
 
 <p><%= image_tag "#{@user.userimg}" %></p>
 
 <% if @user.username.empty? %>
-<%= @user.userid %>
+<p><%= @user.userid %></p>
 <% else %>
-<%= @user.username %>
+<p><%= @user.username %></p>
 <% end %>
 
 <p><%= @user.userid %></p>
 
-<%# if @user.message.present? %>
-<%=#safe_join(@user.profile.split("\n"),tag(:br))%>
-<%# end %>
+
+<% if @msg.present? %>
+<% if @msg.message.blank? %>
+<% if current_user.id == @user.id %>
+<%= link_to 'ひとことを投稿', "/m/edit" %>
+<% end %>
+<% else %>
+<p>ひとこと</p>
+<p><%= safe_join(@msg.message.split("\n"),tag(:br)) %></p>
+<% if current_user.id == @user.id %>
+<p><%= link_to '編集', "/m/edit" %></p>
+<% end %>
+<% end %>
+<% else %>
+<% if current_user.id == @user.id %>
+<%= link_to 'ひとことを投稿', "/m/new" %>
+<% end %>
+<% end %>
+
+
+<% if @profile.present? %>
+
+<p>プロフィール</p>
+
+<% if @profile.sns_t.present? %>
+<p><%= @profile.sns_t %></p>
+<% end %>
+
+<% if @profile.sns_f.present? %>
+<p><%= @profile.sns_f %></p>
+<% end %>
+
+<% if @profile.sns_i.present? %>
+<p><%= @profile.sns_i %></p>
+<% end %>
+
+<% if @profile.sns_l.present? %>
+<p><%= @profile.sns_l %></p>
+<% end %>
+
+<% if @profile.trendartist.present? %>
+<p><%= safe_join(@profile.trendartist.split("\n"),tag(:br)) %></p>
+<% end %>
+
+<% if @profile.trendsong.present? %>
+<p><%= safe_join(@profile.trendsong.split("\n"),tag(:br)) %></p>
+<% end %>
+
+<% if @profile.fvcate.present? %>
+<p><%= safe_join(@profile.fvcate.split("\n"),tag(:br)) %></p>
+<% end %>
+
+<% if @profile.fvartist.present? %>
+<p><%= safe_join(@profile.fvartist.split("\n"),tag(:br)) %></p>
+<% end %>
+
+<% if @profile.fvsong.present? %>
+<p><%= safe_join(@profile.fvsong.split("\n"),tag(:br)) %></p>
+<% end %>
+
+<% if @profile.fvmv.present? %>
+<iframe width="854" height="480" src="https://www.youtube.com/embed/<%= @profile.fvmv %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<% end %>
+
+<% if @profile.h_year1.present? && @profile.h_content1.present? %>
+<p><%= @profile.h_year1 %></p>
+<p><%= safe_join(@profile.h_content1.split("\n"),tag(:br)) %></p>
+<% end %>
+
+<% if @profile.h_year2.present? && @profile.h_content2.present? %>
+<p><%= @profile.h_year2 %></p>
+<p><%= safe_join(@profile.h_content2.split("\n"),tag(:br)) %></p>
+<% end %>
+
+<% if @profile.h_year3.present? && @profile.h_content3.present? %>
+<p><%= @profile.h_year3 %></p>
+<p><%= safe_join(@profile.h_content3.split("\n"),tag(:br)) %></p>
+<% end %>
+
+<% if @profile.h_year4.present? && @profile.h_content4.present? %>
+<p><%= @profile.h_year4 %></p>
+<p><%= safe_join(@profile.h_content4.split("\n"),tag(:br)) %></p>
+<% end %>
+
+<% if @profile.h_year5.present? && @profile.h_content5.present? %>
+<p><%= @profile.h_year5 %></p>
+<p><%= safe_join(@profile.h_content5.split("\n"),tag(:br)) %></p>
+<% end %>
+
+
+
+<% if current_user.id == @user.id %>
+<p><%= link_to '編集', "/pr/edit" %></p>
+<% end %>
+<% else %>
+<% if current_user.id == @user.id %>
+<%= link_to 'プロフィールを投稿', "/pr/new" %>
+<% end %>
+<% end %>
