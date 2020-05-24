@@ -1,4 +1,5 @@
 class OnemessagesController < ApplicationController
+  before_action :sign_in_required
 
   def new
     msg = Onemessage.find_by(onemessage_uid: current_user.id)

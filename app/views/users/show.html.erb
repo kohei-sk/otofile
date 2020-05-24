@@ -18,10 +18,10 @@
 <% if @msg.present? %>
 <% if @msg.message.blank? %>
 <% if current_user.id == @user.id %>
-<%= link_to 'ひとことを投稿', "/m/edit" %>
+<p><br><br><br><br><%= link_to 'ひとことを投稿', "/m/edit" %></p>
 <% end %>
 <% else %>
-<p>ひとこと</p>
+<p><br><br><br><br>ひとこと</p>
 <p><%= safe_join(@msg.message.split("\n"),tag(:br)) %></p>
 <% if current_user.id == @user.id %>
 <p><%= link_to '編集', "/m/edit" %></p>
@@ -29,14 +29,14 @@
 <% end %>
 <% else %>
 <% if current_user.id == @user.id %>
-<%= link_to 'ひとことを投稿', "/m/new" %>
+<p><br><br><br><br><%= link_to 'ひとことを投稿', "/m/new" %></p>
 <% end %>
 <% end %>
 
 
 <% if @profile.present? %>
 
-<p>プロフィール</p>
+<p><br><br><br><br>プロフィール</p>
 
 <% if @profile.sns_t.present? %>
 <p><%= @profile.sns_t %></p>
@@ -54,6 +54,10 @@
 <p><%= @profile.sns_l %></p>
 <% end %>
 
+<% if @profile.userlink.present? %>
+<p><%= @profile.userlink %></p>
+<% end %>
+
 <% if @profile.trendartist.present? %>
 <p><%= safe_join(@profile.trendartist.split("\n"),tag(:br)) %></p>
 <% end %>
@@ -63,7 +67,7 @@
 <% end %>
 
 <% if @profile.fvcate.present? %>
-<p><%= safe_join(@profile.fvcate.split("\n"),tag(:br)) %></p>
+<p><%= @profile.fvcate%></p>
 <% end %>
 
 <% if @profile.fvartist.present? %>
@@ -110,6 +114,39 @@
 <% end %>
 <% else %>
 <% if current_user.id == @user.id %>
-<%= link_to 'プロフィールを投稿', "/pr/new" %>
+<p><%= link_to 'プロフィールを投稿', "/pr/new" %></p>
 <% end %>
+<% end %>
+
+
+
+
+
+
+<% if current_user.id == @user.id %>
+<p><br><br><br><br><%= link_to 'アクティビティを投稿', p_new_path %></p>
+<% end %>
+
+
+<% if @post %>
+
+<% @post.each do |posts| %>
+
+<div style="margin: 100px 0;">
+
+    <p class="ttl"><%= posts.title %><br><br></p>
+    <p><%=safe_join(posts.comment.split("\n"),tag(:br))%></p>
+    <p class="data"><%= l posts.created_at, format: "%Y-%m-%d" %></p>
+
+    <% if user_signed_in? %>
+    <% if @user.id == current_user.id %>
+    <%= link_to "EDIT", "/p/#{posts.id}/edit", class: 'edit' %>
+    <%= link_to "DELETE", "/p/#{posts.id}/destroy", class: 'delete', data: {confirm: "本当に削除しますか？"} %>
+    <% end %>
+    <% end %>
+
+</div>
+
+<% end %>
+
 <% end %>

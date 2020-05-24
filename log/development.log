@@ -53965,3 +53965,2617 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 85ms (Views: 79.1ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/suyama" for ::1 at 2020-05-23 23:55:47 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"suyama"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "suyama"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.4ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  Rendered users/show.html.erb within layouts/application (29.8ms)
+Completed 200 OK in 102ms (Views: 84.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-23 23:56:03 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:21
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:21
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 58ms (Views: 53.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-23 23:56:08 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  Rendered users/show.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 98ms (Views: 92.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-23 23:58:43 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 202ms (Views: 197.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-23 23:58:59 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:21
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:21
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 73ms (Views: 67.0ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-23 23:59:05 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mx2uuCws9rct6GrgTWz7m/OBjU8rgQcKpZuttroOA3Uyk0n7z26ugjGF8XAvH9zZAkabuEZ3Y71s6UT8dc8Eig==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"d6i4AtCxrDo", "myband"=>"バンドは解散したよ！", "h_year1"=>"2000", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"2010", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:28
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:28
+Unpermitted parameter: :trendsong
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:29
+  [1m[36mProfile Update (1.0ms)[0m  [1m[33mUPDATE "profiles" SET "userlink" = ?, "updated_at" = ? WHERE "profiles"."id" = ?[0m  [["userlink", "http://www.kohei.com"], ["updated_at", "2020-05-23 14:59:05.914816"], ["id", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/profiles_controller.rb:29
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/" for ::1 at 2020-05-23 23:59:05 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-23 23:59:05 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  Rendered users/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 62ms (Views: 52.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 00:36:22 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (334.5ms)
+Completed 200 OK in 485ms (Views: 366.5ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 00:37:55 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 71ms (Views: 63.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 00:38:06 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (28.9ms)
+Completed 200 OK in 88ms (Views: 82.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 00:38:36 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 73ms (Views: 63.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 00:38:48 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 108ms (Views: 99.4ms | ActiveRecord: 2.4ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveColumnspostFromPosts (20200523154247)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "artist" varchar DEFAULT NULL, "ytid" varchar DEFAULT NULL, "comment" text DEFAULT NULL, "p_userid" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "song" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:3
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aposts" ("id","title","artist","ytid","comment","p_userid","created_at","updated_at","song")
+                     SELECT "id","title","artist","ytid","comment","p_userid","created_at","updated_at","song" FROM "posts"[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "ytid" varchar DEFAULT NULL, "comment" text DEFAULT NULL, "p_userid" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "song" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("id","title","ytid","comment","p_userid","created_at","updated_at","song")
+                     SELECT "id","title","ytid","comment","p_userid","created_at","updated_at","song" FROM "aposts"[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aposts"[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "ytid" varchar DEFAULT NULL, "comment" text DEFAULT NULL, "p_userid" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "song" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:4
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aposts" ("id","title","ytid","comment","p_userid","created_at","updated_at","song")
+                     SELECT "id","title","ytid","comment","p_userid","created_at","updated_at","song" FROM "posts"[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:4
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "ytid" varchar DEFAULT NULL, "comment" text DEFAULT NULL, "p_userid" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:4
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("id","title","ytid","comment","p_userid","created_at","updated_at")
+                     SELECT "id","title","ytid","comment","p_userid","created_at","updated_at" FROM "aposts"[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aposts"[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "ytid" varchar DEFAULT NULL, "comment" text DEFAULT NULL, "p_userid" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:5
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aposts" ("id","title","ytid","comment","p_userid","created_at","updated_at")
+                     SELECT "id","title","ytid","comment","p_userid","created_at","updated_at" FROM "posts"[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "comment" text DEFAULT NULL, "p_userid" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:5
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("id","title","comment","p_userid","created_at","updated_at")
+                     SELECT "id","title","comment","p_userid","created_at","updated_at" FROM "aposts"[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aposts"[0m
+  ↳ db/migrate/20200523154247_remove_columnspost_from_posts.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200523154247"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+Started GET "/kohei" for ::1 at 2020-05-24 00:46:50 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.1ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 100ms (Views: 38.4ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 00:46:54 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.9ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 40ms (Views: 34.2ms | ActiveRecord: 1.7ms)
+
+
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Started GET "/suyama" for ::1 at 2020-05-24 00:55:49 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"suyama"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "suyama"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (1.7ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.8ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "2"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 85ms (Views: 72.9ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/p/new" for ::1 at 2020-05-24 00:55:58 +0900
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (6.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 72ms (Views: 69.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/suyama" for ::1 at 2020-05-24 00:56:08 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"suyama"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "suyama"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.7ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "2"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 78ms (Views: 70.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:02:30 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.1ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 105ms (Views: 38.8ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/p/26/edit" for ::1 at 2020-05-24 01:02:35 +0900
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (4.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 73ms (Views: 67.0ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/p/26/edit" for ::1 at 2020-05-24 01:02:49 +0900
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bXkhwdh/gxHY3x2OM6a1dwjIx9QptM69HVDJKMPRclDlYLE8rCy17WsoDrHmQTdns1JlTE0bLAV5WBDtPA3mPw==", "post"=>{"title"=>"やる気になる曲やる気になる曲", "comment"=>"2018年7月5日（木）　千葉LOOK\r\n2018年7月11日（水）　名古屋APOLLO BASE\r\n2018年7月13日（金）　F.A.D YOKOHAMA\r\n2018年7月19日（木）　高知X-pt.\r\n2018年7月20日（金）　高松DIME\r\n2018年7月27日（金）　水戸LIGHT HOUSE\r\n2018年7月28日（土）　八戸ROXX\r\n2018年7月30日（月）　仙台CLUB JUNK BOX\r\n2018年8月1日（水）　札幌BESSIE HALL\r\n2018年8月14日（火）　京都MUSE\r\n2018年8月22日（水）　福岡Queblick\r\n2018年8月24日（金）　広島4.14\r\n2018年8月31日（金）　渋谷TSUTAYA O-EAST"}, "commit"=>"更新", "id"=>"26"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:21
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:41
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/posts_controller.rb:22
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `ytid' for #<Post:0x00007fcf4d2d6e68>):
+  
+app/controllers/posts_controller.rb:22:in `update'
+Started GET "/kohei" for ::1 at 2020-05-24 01:04:39 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 105ms (Views: 38.5ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/p/31/edit" for ::1 at 2020-05-24 01:04:47 +0900
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 32ms (Views: 27.7ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/p/31/edit" for ::1 at 2020-05-24 01:04:55 +0900
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XljasSCng+HmnsMZAOMS548UGfOhuBZrKv9paBtuVsjm+r9+IlaGSjgr6aj2uZr5r99fFV2e5gBpp3omWVpW+g==", "post"=>{"title"=>"ユニゾンかっこいい", "comment"=>"「UNISON SQUARE GARDEN TOUR 2018 MODE MOOD MODE at Omiya Sonic City 2018.06.29」より、「Dizzy Trickster～桜のあと（all quartets lead to the?）」を公開！\r\n\r\nUNISON SQUARE GARDEN LIVE Blu-ray / DVD \r\n「UNISON SQUARE GARDEN TOUR 2018 MODE MOOD MODE at Omiya Sonic City 2018.06.29」\r\nhttps://amzn.to/2zRT2Gf"}, "commit"=>"更新", "id"=>"31"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:21
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:41
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:22
+  [1m[36mPost Update (0.7ms)[0m  [1m[33mUPDATE "posts" SET "comment" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["comment", "「UNISON SQUARE GARDEN TOUR 2018 MODE MOOD MODE at Omiya Sonic City 2018.06.29」より、「Dizzy Trickster～桜のあと（all quartets lead to the?）」を公開！\r\n\r\nUNISON SQUARE GARDEN LIVE Blu-ray / DVD \r\n「UNISON SQUARE GARDEN TOUR 2018 MODE MOOD MODE at Omiya Sonic City 2018.06.29」\r\nhttps://amzn.to/2zRT2Gf"], ["updated_at", "2020-05-23 16:04:55.943872"], ["id", 31]]
+  ↳ app/controllers/posts_controller.rb:22
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:22
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 01:04:55 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:04:55 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (1.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 58ms (Views: 47.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/p/32/edit" for ::1 at 2020-05-24 01:05:06 +0900
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 66ms (Views: 61.0ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/p/32/edit" for ::1 at 2020-05-24 01:05:17 +0900
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rgdSVPPTPSq/4p/fKiFFEayEra2nGupr+3GjCdT97aavkaIlQhw34ci8yQFeKePTn4czB8cwUKcx6+j5WhQaPA==", "post"=>{"title"=>"この組み合わせは最高", "comment"=>"白いスタジオに置かれた、一本のマイク。\r\nここでのルールは、ただ一つ。\r\n一発撮りのパフォーマンスをすること。\r\n\r\nTHE FIRST TAKE is a YouTube Channel dedicated to shooting musicians and\r\nsingers performing in a single take."}, "commit"=>"更新", "id"=>"32"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:21
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:41
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:22
+  [1m[36mPost Update (0.5ms)[0m  [1m[33mUPDATE "posts" SET "comment" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["comment", "白いスタジオに置かれた、一本のマイク。\r\nここでのルールは、ただ一つ。\r\n一発撮りのパフォーマンスをすること。\r\n\r\nTHE FIRST TAKE is a YouTube Channel dedicated to shooting musicians and\r\nsingers performing in a single take."], ["updated_at", "2020-05-23 16:05:17.913893"], ["id", 32]]
+  ↳ app/controllers/posts_controller.rb:22
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:22
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 01:05:17 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:05:17 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 40ms (Views: 35.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/p/32/destroy" for ::1 at 2020-05-24 01:05:31 +0900
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:31
+  [1m[36mPost Destroy (0.6ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 32]]
+  ↳ app/controllers/posts_controller.rb:31
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:31
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 01:05:31 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:05:31 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.8ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 44ms (Views: 37.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/suyama" for ::1 at 2020-05-24 01:05:47 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"suyama"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "suyama"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "2"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 55ms (Views: 47.9ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2020-05-24 01:06:14 +0900
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xavqeyAgRab21PonaoSLiZQlezV6QF8Dl5bN9fEp9cRXuWYMA2s4Jym/fou880V63Pm3Lo5/YrPGovGQotjQmQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_created_at", nil], ["updated_at", "2020-05-23 16:06:14.185309"], ["id", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 01:06:14 +0900
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-05-24 01:06:17 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 94ms (Views: 58.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-05-24 01:06:24 +0900
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+ktiqYbztD7vEv1N6vLMOXysom2tHSnLZxX9k70wUwmzzfosNn0V+SYlJmcmgRrlnOusw2ZSqeBwmboY1Ods0Q==", "user"=>{"email"=>"suyama@foodconnection.jp", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "suyama@foodconnection.jp"], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2020-05-23 16:06:24.540417"], ["last_sign_in_at", "2020-05-23 14:16:29.410648"], ["sign_in_count", 7], ["updated_at", "2020-05-23 16:06:24.541984"], ["id", 2]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/suyama
+Completed 302 Found in 168ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/suyama" for ::1 at 2020-05-24 01:06:24 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"suyama"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "suyama"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "2"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 40ms (Views: 35.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/p/new" for ::1 at 2020-05-24 01:06:30 +0900
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/p/new" for ::1 at 2020-05-24 01:06:47 +0900
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b2R0dEBWe5isUtiFNXawllByWjTxe7SfZwfASuGR+W2D1L8ouE64n6Ru/z1Vh3061En6VMERG2ErYKAIjoZfSA==", "post"=>{"title"=>"タイトルテストタイトルテストタイトルテストタイトルテスト", "comment"=>"タイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテスト\r\n\r\nタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテスト"}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:41
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:9
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "comment", "p_userid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "タイトルテストタイトルテストタイトルテストタイトルテスト"], ["comment", "タイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテスト\r\n\r\nタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテストタイトルテスト"], ["p_userid", "2"], ["created_at", "2020-05-23 16:06:47.606181"], ["updated_at", "2020-05-23 16:06:47.606181"]]
+  ↳ app/controllers/posts_controller.rb:9
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 01:06:47 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/suyama
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/suyama" for ::1 at 2020-05-24 01:06:47 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"suyama"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "suyama"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "2"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 54ms (Views: 48.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/p/32/edit" for ::1 at 2020-05-24 01:06:53 +0900
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 40ms (Views: 37.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/suyama" for ::1 at 2020-05-24 01:06:54 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"suyama"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "suyama"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "2"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (53.2ms)
+Completed 200 OK in 106ms (Views: 100.1ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2020-05-24 01:06:58 +0900
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"BjJWMpwxPpdEcMBJdeh8SbO5Cci0ndWfwGqPjYTDJfdu/b/l6w17ufLsAar/JG/ZYZCjJb01PIEfyiVWoo9+vw=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 01:06:58 +0900
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:07:06 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (1.0ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <h1>Users#show</h1>
+    2: 
+    3: <% if current_user.id == @user.id %>
+    4: <%= link_to 'ユーザー情報変更', edit_user_registration_path %>
+    5: <% end %>
+    6: 
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb__2982182685106426531_70264193959980'
+Started GET "/users/sign_in" for ::1 at 2020-05-24 01:07:12 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 47ms (Views: 44.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-05-24 01:07:25 +0900
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ph9WFKwJJOgkk+MPCYMusJ7oPzVPaiKmRdxrDC3+l8XYH3rrOtp11IZPJblkrEg5GAhjEQKOgwdMMbuBn7IMcA==", "user"=>{"email"=>"soo.kohei@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "soo.kohei@gmail.com"], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2020-05-23 16:07:25.586415"], ["last_sign_in_at", "2020-05-23 14:24:44.511680"], ["sign_in_count", 79], ["updated_at", "2020-05-23 16:07:25.587991"], ["id", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 141ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:07:25 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 41ms (Views: 37.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/suyama" for ::1 at 2020-05-24 01:07:29 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"suyama"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "suyama"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "2"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 41ms (Views: 35.9ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2020-05-24 01:15:49 +0900
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TS1fX26LRkohJLEmPw01v71XiLbBlp6QmrAuJ1S+PLMscQDcP7ynVpUfFWvFd5hV+3cJZBsvMHOxg4WU4NxfbA=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 49ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 01:15:49 +0900
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/p/new" for ::1 at 2020-05-24 01:15:57 +0900
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 40ms (Views: 26.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/m/new" for ::1 at 2020-05-24 01:24:20 +0900
+Processing by OnemessagesController#new as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :sign_in_required rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-05-24 01:24:20 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 70ms (Views: 48.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/p/new" for ::1 at 2020-05-24 01:25:56 +0900
+Processing by PostsController#new as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :sign_in_required rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-05-24 01:25:56 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 51ms (Views: 28.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/p/new" for ::1 at 2020-05-24 01:26:01 +0900
+Processing by PostsController#new as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :sign_in_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-05-24 01:26:01 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 45ms (Views: 43.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-05-24 01:35:51 +0900
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"l2FmRdQKzoNddH1ffZ7kbuuP1sO9oetkn6BgyGZ0V5uyk9go8DZ8fwOdRn9aNpa8G+b6RHfrMWoR1JMMBx9a5A==", "user"=>{"email"=>"soo.kohei@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "soo.kohei@gmail.com"], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_created_at", "2020-05-23 16:35:52.196271"], ["updated_at", "2020-05-23 16:35:52.200114"], ["id", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 80], ["current_sign_in_at", "2020-05-23 16:35:52.209486"], ["last_sign_in_at", "2020-05-23 16:07:25.586415"], ["updated_at", "2020-05-23 16:35:52.210250"], ["id", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 178ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:35:52 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.4ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.9ms)
+
+
+  
+SyntaxError (/Users/kohei/Desktop/OTOFILE/otofile/app/models/profile.rb:2: syntax error, unexpected tIDENTIFIER, expecting end
+...ear3, :h_year4, :h_year5 length:{is: 4}
+...                         ^~~~~~):
+  
+app/models/profile.rb:2: syntax error, unexpected tIDENTIFIER, expecting end
+app/controllers/users_controller.rb:11:in `show'
+Started GET "/kohei" for ::1 at 2020-05-24 01:36:45 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 240ms (Views: 39.4ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 01:36:55 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 33ms (Views: 29.3ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-24 01:37:02 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gN1e8251g7IE6R6McwEUAikrL5bLmCLXIexNCi1CuITrJ1vbp8E24r0XTAhSve2ayPz2ozmA1iCLq6Jkep6f+Q==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"d6i4AtCxrDo", "myband"=>"バンドは解散したよ！", "h_year1"=>"200", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"2010", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+Unpermitted parameter: :trendsong
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 48ms (Views: 36.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 01:38:18 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 58ms (Views: 49.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:38:19 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 76ms (Views: 63.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/edit" for ::1 at 2020-05-24 01:38:21 +0900
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.6ms)
+  Rendered devise/registrations/edit.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 87ms (Views: 83.1ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/users" for ::1 at 2020-05-24 01:38:40 +0900
+Processing by Users::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pSlK0g3mTuLjSOmzMAWE/FB2szi8b4p3thmeMTBWG7ShxW9JqDF40/oGV/Z5T9sYeeLoWEMFOsRsy0+h5hHIRw==", "user"=>{"username"=>"こーへい", "userid"=>"koheiあ", "email"=>"soo.kohei@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"プロフィールを保存"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."userid" = ? AND "users"."id" != ? LIMIT ?[0m  [["userid", "koheiあ"], ["id", 1], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.5ms)
+  Rendered devise/registrations/edit.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 181ms (Views: 33.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:38:53 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 48ms (Views: 37.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-05-24 01:38:54 +0900
+Processing by Users::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/kohei
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 01:42:43 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 53ms (Views: 46.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 01:44:33 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 145ms (Views: 40.4ms | ActiveRecord: 3.0ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-24 01:44:41 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kD12WOzzIK9GqRw//j1zk+vhYgH2uXpDJE1rYZS9SKl5YQzOyrVrhmHlTxieGm5go+876a47w8M0Yx9Kr865aA==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"d6i4AtCxrDo", "myband"=>"バンドは解散したよ！", "h_year1"=>"2000", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"201", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+Unpermitted parameter: :trendsong
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 292ms (Views: 64.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:44:59 +0900
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (1.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (167.6ms)
+Completed 200 OK in 625ms (Views: 468.5ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 01:45:05 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (40.3ms)
+Completed 200 OK in 123ms (Views: 117.5ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-24 01:45:12 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3Lb3ydYFQWirfOrNUN7wUeNHP6cXBIu2gi4be5vzZBG3TPLhH7H0OBKCuElxYgnJApDmkuUcf0EoafQVzC9DbA==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"d6i4AtCxrDo", "myband"=>"バンドは解散したよ！", "h_year1"=>"200", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"2010", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+Unpermitted parameter: :trendsong
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 81ms (Views: 59.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:46:09 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (116.6ms)
+Completed 200 OK in 281ms (Views: 147.7ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 01:46:11 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (68.6ms)
+Completed 200 OK in 146ms (Views: 138.7ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-24 01:46:16 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dzLzyR2EOuYzO/LaZzACQDPr7KUP57R/c/bN4/UOluMcyPbh1DCPtorFoF5GjPvY0jw1kP3/QIjZsSKNotKxng==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"d6i4AtCxrDo", "myband"=>"バンドは解散したよ！", "h_year1"=>"200", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"2010", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (1.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+Unpermitted parameter: :trendsong
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 84ms (Views: 63.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 01:49:13 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 150ms (Views: 75.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:49:15 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (30.5ms)
+Completed 200 OK in 110ms (Views: 77.5ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 01:49:18 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 135ms (Views: 130.6ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-24 01:49:25 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ldJYq5DE8JphpU6XwMznb1WET/JuM6rFbK8maaZbAjf+KF2DWXBFythbHBPhcB73tFOWx5wrXjLG6MkH8YclSg==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"d6i4AtCxrDo", "myband"=>"バンドは解散したよ！", "h_year1"=>"2000", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"201", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+Unpermitted parameter: :trendsong
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 109ms (Views: 80.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:49:44 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.4ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (209.5ms)
+Completed 200 OK in 647ms (Views: 492.5ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:49:47 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 94ms (Views: 79.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 01:49:50 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 74ms (Views: 65.4ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-24 01:49:57 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZoULOVWlUSSblg8PeVRWryvfZ+a2Gh+LYlPUYgIsBgANfw4RnBHkdCJoXYtY6K83ygi+00QC63zIFDsMVfAhfQ==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"d6i4AtCxrDo", "myband"=>"バンドは解散したよ！", "h_year1"=>"200", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"2010", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+Unpermitted parameter: :trendsong
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 43ms (Views: 30.9ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-24 01:50:19 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SOsWfEGafC0lBS3nOGJtrnJGS5Q1wMTqbGlEoZ/2iV+ht2zqZ9w3BAJJfsBYRXBdOkgSfG1CfWp8RzCKpIV4ng==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"d6i4AtCxrDo", "myband"=>"バンドは解散したよ！", "h_year1"=>"あああ", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"2010", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+Unpermitted parameter: :trendsong
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 83ms (Views: 64.6ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-24 01:50:48 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P7/qIYhxvlREBMtHdgXOntOhNu9Nyw8ZlFFNG22KwmrW45C3rjf1fWNImGAWItNtm69vBxVJtpmEfzkwVvkzqw==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"d6i4AtCxrDo", "myband"=>"バンドは解散したよ！", "h_year1"=>"", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"2010", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.8ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+Unpermitted parameter: :trendsong
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[36mProfile Update (1.0ms)[0m  [1m[33mUPDATE "profiles" SET "h_year1" = ?, "updated_at" = ? WHERE "profiles"."id" = ?[0m  [["h_year1", ""], ["updated_at", "2020-05-23 16:50:48.797921"], ["id", 1]]
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[35m (8.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+Redirected to http://localhost:3000/
+Completed 302 Found in 26ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 01:50:48 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:50:48 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 49ms (Views: 43.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 01:50:54 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 72ms (Views: 65.2ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-24 01:51:03 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e//CsDk0p7FjuvEjbW0KX4A07Ib5XYEBpZsk/Fu0A4gQBceY8IAS4dpEo6dM0fPHYeM1swtFdfYP3MuSDGgk9Q==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"d6i4AtCxrDo", "myband"=>"バンドは解散したよ！", "h_year1"=>"2000", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"2010", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (1.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+Unpermitted parameter: :trendsong
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[36mProfile Update (0.9ms)[0m  [1m[33mUPDATE "profiles" SET "h_year1" = ?, "updated_at" = ? WHERE "profiles"."id" = ?[0m  [["h_year1", "2000"], ["updated_at", "2020-05-23 16:51:03.523268"], ["id", 1]]
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 01:51:03 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:51:03 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:130
+  Rendered users/show.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 93ms (Views: 79.9ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:58:11 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.8ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (1.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 65ms (Views: 52.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/p/new" for ::1 at 2020-05-24 01:58:16 +0900
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 53ms (Views: 47.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:58:19 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 149ms (Views: 135.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:59:11 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 63ms (Views: 56.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 01:59:51 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 75ms (Views: 64.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 02:01:27 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 63ms (Views: 54.7ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2020-05-24 02:02:23 +0900
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sPSYsPDND3F5yT9tENGH/jFcPAD/2TP+x1jFA55KHAhZqOIm1otEWF6FbEpw9poNeVJl6Kdbin7XdrEopTntyQ=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_created_at", nil], ["updated_at", "2020-05-23 17:02:23.860620"], ["id", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 02:02:23 +0900
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 51ms (Views: 45.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-05-24 02:02:25 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 67ms (Views: 66.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-05-24 02:02:33 +0900
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FY6bS8oOM5ZLM/Zwyo7h6ON9j9kgtFYR8TiAuK+JRJINQiK6pIpO1Lg37+ZcSdstB7WJnTRXtoEFdjB0CdXCeA==", "user"=>{"email"=>"soo.kohei@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "soo.kohei@gmail.com"], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_created_at", "2020-05-23 17:02:33.221085"], ["updated_at", "2020-05-23 17:02:33.221936"], ["id", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 81], ["current_sign_in_at", "2020-05-23 17:02:33.226815"], ["last_sign_in_at", "2020-05-23 16:35:52.209486"], ["updated_at", "2020-05-23 17:02:33.228375"], ["id", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 182ms (ActiveRecord: 11.1ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 02:02:33 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.5ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 100ms (Views: 91.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/koheiaaa" for ::1 at 2020-05-24 02:04:36 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"koheiaaa"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "koheiaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Redirected to http://localhost:3000/users/nouser
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/users_controller.rb:10:in `show'
+Started GET "/koheiaaa" for ::1 at 2020-05-24 02:04:43 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"koheiaaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "koheiaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Redirected to http://localhost:3000/users/nouser
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/users_controller.rb:10:in `show'
+Started GET "/aaaaaa" for ::1 at 2020-05-24 02:08:28 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"aaaaaa"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "aaaaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Redirected to http://localhost:3000/users/nouser
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/users_controller.rb:10:in `show'
+Started GET "/aaaaaa" for ::1 at 2020-05-24 02:08:31 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"aaaaaa"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "aaaaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Redirected to http://localhost:3000/users/nouser
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/users_controller.rb:10:in `show'
+Started GET "/users/edit" for ::1 at 2020-05-24 02:10:07 +0900
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/kohei/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.5ms)
+  Rendered devise/registrations/edit.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 157ms (Views: 99.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 02:10:08 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.4ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mProfile Load (2.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 192ms (Views: 68.5ms | ActiveRecord: 25.6ms)
+
+
+Started GET "/koheiaaa" for ::1 at 2020-05-24 02:11:09 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"koheiaaa"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "koheiaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Redirected to http://localhost:3000/users/nouser
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/users_controller.rb:10:in `show'
+Started GET "/koheiaaa" for ::1 at 2020-05-24 02:12:12 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"koheiaaa"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "koheiaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Redirected to http://localhost:3000/users/nouser
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 1.8ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/users_controller.rb:10:in `show'
+Started GET "/koheiaaa" for ::1 at 2020-05-24 02:12:16 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"koheiaaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "koheiaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Redirected to http://localhost:3000/users/nouser
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/users_controller.rb:10:in `show'
+Started GET "/koheiaaa" for ::1 at 2020-05-24 02:12:48 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"koheiaaa"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "koheiaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Redirected to http://localhost:3000/users/nouser
+Completed 302 Found in 43ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/users/nouser" for ::1 at 2020-05-24 02:12:48 +0900
+Processing by UsersController#nouser as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  Rendering users/nouser.html.erb within layouts/application
+  Rendered users/nouser.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 35ms (Views: 32.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/us" for ::1 at 2020-05-24 02:13:52 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"us"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "us"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Redirected to http://localhost:3000/u/nouser
+Completed 302 Found in 38ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/u/nouser" for ::1 at 2020-05-24 02:13:52 +0900
+Processing by UsersController#nouser as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  Rendering users/nouser.html.erb within layouts/application
+  Rendered users/nouser.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 35ms (Views: 32.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/suyama" for ::1 at 2020-05-24 02:15:00 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"suyama"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "suyama"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "2"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (24.8ms)
+Completed 200 OK in 225ms (Views: 67.0ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/sdfgh" for ::1 at 2020-05-24 02:15:01 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"sdfgh"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "sdfgh"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/nouser.html.erb within layouts/application
+  Rendered users/nouser.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 66ms (Views: 60.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sdfghdgfhk" for ::1 at 2020-05-24 02:15:14 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"sdfghdgfhk"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "sdfghdgfhk"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/nouser.html.erb within layouts/application
+  Rendered users/nouser.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 60ms (Views: 56.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/sdfghdgfhk" for ::1 at 2020-05-24 02:16:41 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"sdfghdgfhk"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "sdfghdgfhk"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/nouser.html.erb within layouts/application
+  Rendered users/nouser.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 103ms (Views: 60.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 02:16:46 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.9ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 163ms (Views: 79.3ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/koheixcvbn" for ::1 at 2020-05-24 02:16:49 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"koheixcvbn"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "koheixcvbn"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/nouser.html.erb within layouts/application
+  Rendered users/nouser.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 63ms (Views: 57.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 02:31:45 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.8ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (2.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (2.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 138ms (Views: 107.7ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 02:31:57 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.1ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 107ms (Views: 100.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 02:32:01 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 86ms (Views: 76.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/suyama" for ::1 at 2020-05-24 02:32:09 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"suyama"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "suyama"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.4ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "2"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (41.5ms)
+Completed 200 OK in 116ms (Views: 107.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 02:54:22 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (2.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 92ms (Views: 80.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 02:54:27 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 63ms (Views: 59.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 02:55:56 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (67.1ms)
+Completed 200 OK in 301ms (Views: 276.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 02:55:56 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 329ms (Views: 168.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 02:55:57 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 66ms (Views: 58.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 02:56:02 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 71ms (Views: 64.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 02:57:23 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 57ms (Views: 53.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 02:58:53 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 92ms (Views: 85.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:06:22 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 88ms (Views: 81.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:06:52 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 67ms (Views: 61.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:09:52 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 91ms (Views: 86.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:10:17 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 69ms (Views: 63.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pr/new" for ::1 at 2020-05-24 03:12:58 +0900
+Processing by ProfilesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:5
+Redirected to http://localhost:3000/pr/edit
+Completed 302 Found in 13ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:12:58 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 97ms (Views: 90.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:13:36 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 83ms (Views: 71.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:29:59 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (1.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (41.7ms)
+Completed 200 OK in 232ms (Views: 204.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:33:49 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (3.8ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 147ms (Views: 116.3ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:36:34 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 113ms (Views: 103.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:37:12 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (1.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (42.9ms)
+Completed 200 OK in 275ms (Views: 263.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:37:30 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 95ms (Views: 89.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:37:33 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 69ms (Views: 65.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:37:53 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 91ms (Views: 86.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:38:26 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 67ms (Views: 58.6ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-24 03:46:20 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"50IeZVt9qybPZX0Z6y4ItGwhG67BJK8HVIut4hyt48DS3vbfsjbWoid5KHYZxJ5nnNTy2VxKPlfO7nmZuRh5bw==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"正しいURLを入力してください", "myband"=>"バンドは解散したよ！", "h_year1"=>"2000", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"2010", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (1.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+Unpermitted parameter: :trendsong
+  [1m[35m (1.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[36mProfile Update (0.9ms)[0m  [1m[33mUPDATE "profiles" SET "fvmv" = ?, "updated_at" = ? WHERE "profiles"."id" = ?[0m  [["fvmv", "正しいURLを入力してください"], ["updated_at", "2020-05-23 18:46:20.995412"], ["id", 1]]
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+Redirected to http://localhost:3000/
+Completed 302 Found in 99ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 03:46:21 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 03:46:21 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (2.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (37.1ms)
+Completed 200 OK in 117ms (Views: 105.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:46:46 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 73ms (Views: 67.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:50:28 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 70ms (Views: 64.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:52:28 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 60ms (Views: 56.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:54:29 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 54ms (Views: 48.7ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-24 03:56:49 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7s49K2ZDTNJMlTZLq3DY9QMExCNxOaNXJeHvu+IDPQTbUtWRjwgxVqSJYyRZmk4m8/EtVOxXMge/hDvAR7anqw==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"_ZyD4n5zqxA", "myband"=>"バンドは解散したよ！", "h_year1"=>"2000", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"2010", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+Unpermitted parameter: :trendsong
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[36mProfile Update (0.4ms)[0m  [1m[33mUPDATE "profiles" SET "fvmv" = ?, "updated_at" = ? WHERE "profiles"."id" = ?[0m  [["fvmv", "_ZyD4n5zqxA"], ["updated_at", "2020-05-23 18:56:49.524108"], ["id", 1]]
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 03:56:49 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 03:56:49 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (2.8ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 99ms (Views: 81.0ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:56:59 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 91ms (Views: 85.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 03:58:50 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 68ms (Views: 63.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 04:00:18 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 69ms (Views: 64.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 04:04:44 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 95ms (Views: 88.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 04:06:52 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 66ms (Views: 59.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 04:07:55 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 62ms (Views: 57.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 04:08:29 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 57ms (Views: 54.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 04:12:32 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 78ms (Views: 71.3ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-24 04:12:58 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CJYaKttruY7y6wE8hBjq2s031PlYshW3N5U0qN9w/Po9CvKQMiDEChr3VFN28nwJPcI9jsXchOet8ODTesVmVQ==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"", "myband"=>"バンドは解散したよ！", "h_year1"=>"2000", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"2010", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (2.9ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+Unpermitted parameter: :trendsong
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[36mProfile Update (0.4ms)[0m  [1m[33mUPDATE "profiles" SET "fvmv" = ?, "updated_at" = ? WHERE "profiles"."id" = ?[0m  [["fvmv", ""], ["updated_at", "2020-05-23 19:12:58.841667"], ["id", 1]]
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 04:12:58 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 41ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 04:12:58 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 60ms (Views: 52.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 04:13:05 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 73ms (Views: 67.6ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/pr/edit" for ::1 at 2020-05-24 04:13:46 +0900
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KLQsSCBeUetxVJsJZwd+ThtZtoqXoGRjEjEdZa8RAP21RB3qRCnPdHfaX+/owDI/NS6HsVYGZ5gTv0I6KkDEVQ==", "profile"=>{"sns_t"=>"@kohei_web", "sns_f"=>"こうへいのフェイスブック", "sns_i"=>"kohei_web", "sns_l"=>"@kohei", "userlink"=>"http://www.kohei.com", "trendartist"=>"Hump Buck", "trendsong"=>"拝啓少年よ", "fvcate"=>"ロック", "fvartist"=>"ブルーハーツ", "fvsong"=>"情熱の薔薇", "fvmv"=>"_ZyD4n5zqxA", "myband"=>"バンドは解散したよ！", "h_year1"=>"2000", "h_content1"=>"エルレガーデンにハマる", "h_year2"=>"2005", "h_content2"=>"ブルーハーツにハマる", "h_year3"=>"2010", "h_content3"=>"アニソンにハマる", "h_year4"=>"2015", "h_content4"=>"ギターロックにハマる", "h_year5"=>"2020", "h_content5"=>"ハンプバックにハマる"}, "commit"=>"更新"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:29
+Unpermitted parameter: :trendsong
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[36mProfile Update (0.5ms)[0m  [1m[33mUPDATE "profiles" SET "fvmv" = ?, "updated_at" = ? WHERE "profiles"."id" = ?[0m  [["fvmv", "_ZyD4n5zqxA"], ["updated_at", "2020-05-23 19:13:46.597578"], ["id", 1]]
+  ↳ app/controllers/profiles_controller.rb:30
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/profiles_controller.rb:30
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 04:13:46 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 04:13:46 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 94ms (Views: 84.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 04:14:31 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 96ms (Views: 90.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 04:14:44 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 40ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 04:14:44 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.2ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 78ms (Views: 66.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/pr/edit" for ::1 at 2020-05-24 04:15:51 +0900
+Processing by ProfilesController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:22
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 85ms (Views: 81.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-05-24 04:16:01 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/kohei
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/kohei" for ::1 at 2020-05-24 04:16:01 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"userid"=>"kohei"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userid" = ? LIMIT ?[0m  [["userid", "kohei"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mOnemessage Load (0.3ms)[0m  [1m[34mSELECT  "onemessages".* FROM "onemessages" WHERE "onemessages"."onemessage_uid" = ? LIMIT ?[0m  [["onemessage_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."profile_uid" = ? LIMIT ?[0m  [["profile_uid", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."p_userid" = ? ORDER BY "posts"."created_at" DESC[0m  [["p_userid", "1"]]
+  ↳ app/views/users/show.html.erb:133
+  Rendered users/show.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 88ms (Views: 77.2ms | ActiveRecord: 1.6ms)
+
+

@@ -1,24 +1,20 @@
 class UsersController < ApplicationController
-  
-  def index
-  end
+  before_action :sign_in_required
 
   def show
-      @user = User.find_by(userid: params[:userid])
-      if @user.nil?
-        redirect_to "/users/nouser", notice: '存在しないアカウントです'
-      end
-
+    @user = User.find_by(userid: params[:userid])
+    if !@user
+      render "/users/nouser"
+    else
       @msg = Onemessage.find_by(onemessage_uid: @user.id)
       @profile = Profile.find_by(profile_uid: @user.id)
-  end
-
-  def nouser
+      @post = Post.where(p_userid: @user.id).order(created_at: "DESC")
+    end
   end
 
   private
-    def onemessage_params
-      params.require(:onemessage).permit(:message).merge(onemessage_uid: current_user.id)
-    end
 
+  def onemessage_params
+    params.require(:onemessage).permit(:message).merge(onemessage_uid: current_user.id)
+  end
 end

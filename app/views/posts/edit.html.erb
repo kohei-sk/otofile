@@ -18,38 +18,6 @@
 </div>
 
 <div class="field">
-    <%= f.label :artist, "アーティスト名" %><br />
-    <%= f.text_field :artist %>
-</div>
-
-<div class="field">
-    <%= f.label :song, "曲名" %><br />
-    <%= f.text_field :song %>
-</div>
-
-<script>
-    function func_id() {
-        var i = document.getElementById("ytid");
-        var t = i.value;
-        if (/watch\?v=/.test(t)) {
-            var index = t.indexOf('watch?v=');
-            i.value = t.slice(index + 8);
-        } else if (/youtu\.be\//.test(t)) {
-            var index = t.indexOf('youtu.be/');
-            i.value = t.slice(index + 9);
-        } else {
-            i.value = '正しいURLを入力してください';
-        }
-    }
-</script>
-
-<div class="field">
-    <%= f.label :ytid, "動画ID" %><br />
-    <%= f.text_field :ytid, placeholder: "必須です", oninput: "func_id()", id: "ytid" %>
-    <p>YouTubeのURLをペーストしてください</p>
-</div>
-
-<div class="field">
     <%= f.label :comment, "コメント" %><br />
     <%= f.text_area :comment %>
 </div>

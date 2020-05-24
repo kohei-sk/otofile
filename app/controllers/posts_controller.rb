@@ -1,9 +1,5 @@
 class PostsController < ApplicationController
-  def show
-    @post = Post.find_by(id: params[:id])
-    @userid = @post.p_userid.to_i
-    @user = User.find(@userid)
-  end
+  before_action :sign_in_required
 
   def new
     @post = Post.new
@@ -25,7 +21,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
     if @post.update(post_params)
-      redirect_to "/p/#{params[:id]}", notice: '更新しました'
+      redirect_to root_path, notice: '更新しました'
     else
       render "posts/edit"
     end
@@ -43,6 +39,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :artist, :song, :ytid, :comment).merge(p_userid: current_user.id)
+      params.require(:post).permit(:title, :comment).merge(p_userid: current_user.id)
     end
 end

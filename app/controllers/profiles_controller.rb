@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_action :sign_in_required
 
   def new
     profile = Profile.find_by(profile_uid: current_user.id)
