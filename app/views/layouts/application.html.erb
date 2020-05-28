@@ -9,75 +9,60 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
 
 </head>
 
 <body>
 
-    <header>
-        <nav class="clearfix">
-            <div class="nav_l clearfix">
-                <%= link_to "/", class: "nav_btn nav_btn_logo", data: {"turbolinks" => false} do %>
+    <div class="container clearfix">
+
+        <header class="clearfix">
+            <nav class="clearfix">
+                <%= link_to "/", data: {'turbolinks' => false}, class: "nav_logo" do %>
                 <%= image_tag "logo.svg" %>
                 <% end %>
-            </div>
-            <div class="nav_r clearfix">
-                <%= link_to '検索', root_path, class: "nav_btn nav_btn_search" %>
-                <% if user_signed_in? %>
-                <%= link_to "/#{current_user.userid}", class: "nav_btn nav_btn_username" do %>
-                <% if current_user.username.empty? %>
-                <%= current_user.userid %>
-                <% else %>
-                <%= current_user.username %>
-                <% end %>
-                <% end %>
-                <%= link_to 'ログアウト', destroy_user_session_path, class: "nav_btn nav_btn_logout", method: :delete %>
-                <% else %>
-                <%= link_to 'アカウント登録', new_user_registration_path, class: "nav_btn nav_btn_signup" %>
-                <%= link_to 'ログイン', new_user_session_path, class: "nav_btn nav_btn_login" %>
-                <% end %>
-            </div>
-        </nav>
-        <% if notice %>
-        <p class="notice clearfix"><%= notice %></p>
-        <% end %>
-        <% if alert  %>
-        <p class="alert clearfix"><%= alert %></p>
-        <% end %>
-    </header>
+
+                <%= link_to '', root_path, data: {'turbolinks' => false}, class: "btn_search" %>
+
+                <a class="nav_btn_trriger"><span></span><span></span><span></span></a>
+                <div class="nav_content clearfix">
+                    <% if user_signed_in? %>
+                    <%= link_to 'マイプロフィール', root_path, data: {'turbolinks' => false}, class: 'nav_peaple' %>
+                    <%= link_to 'アカウント設定', edit_user_registration_path, data: {'turbolinks' => false}, class: 'nav_setting' %>
+                    <%= link_to 'ひとこと', "/m/new", data: {'turbolinks' => false}, class: "nav_edit" %>
+                    <%= link_to 'プロフィール', '/pr/new', data: {'turbolinks' => false}, class: "nav_edit" %>
+                    <%= link_to 'アクティビティ', '/p/new', data: {'turbolinks' => false}, class: "nav_edit" %>
+                    <%= link_to 'ログアウト', destroy_user_session_path, data: {'turbolinks' => false}, class: "nav_signout", method: :delete %>
+                    <% else %>
+                    <%= link_to 'アカウント登録', new_user_registration_path, data: {'turbolinks' => false}, class: "nav_signup" %>
+                    <%= link_to 'ログイン', new_user_session_path, data: {'turbolinks' => false}, class: "nav_signin" %>
+                    <% end %>
+                    <%= link_to 'お問い合わせ', '#', data: {'turbolinks' => false}, class: "nav_contact" %>
+                </div>
+            </nav>
 
 
-    <%= yield %>
+            <% if notice %>
+            <p class="notice clearfix"><%= notice %></p>
+            <% end %>
+            <% if alert  %>
+            <p class="alert clearfix"><%= alert %></p>
+            <% end %>
+        </header>
+
+        <main class="clearfix">
+
+            <%= yield %>
+
+        </main>
+
+    </div>
 
     <%= Gon::Base.render_data %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script>
-        $(document).on('turbolinks:load', function() {
-
-            $(function() {
-                setTimeout("$('.notice, .alert').fadeOut('slow')", 2500)
-            })
-
-            $(function() {
-                $("#head_mv").css({
-                    "background-image": gon.yt_head_img
-                });
-            });
-
-            $('document').ready(function() {
-                if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
-                    //モバイルの記述
-                } else {
-                    var options = {
-                        videoId: gon.ytid
-                    };
-                    $('#head_mv').tubular(options);
-                }
-            });
-        });
-    </script>
 
 </body>
 

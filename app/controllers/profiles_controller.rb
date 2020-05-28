@@ -36,7 +36,7 @@ class ProfilesController < ApplicationController
 
   private
     def profile_params
-      params.require(:profile).permit(:sns_t, :sns_f, :sns_i, :sns_l, :userlink, :trendartist, :torendsong, :fvcate, :fvartist, :fvsong, :fvmv, :myband, :h_year1, :h_year2, :h_year3, :h_year4, :h_year5, :h_content1, :h_content2, :h_content3, :h_content4, :h_content5).merge(profile_uid: current_user.id)
+      params.require(:profile).permit(:sns_t, :sns_f, :sns_i, :sns_l, :userlink, :trendartist, :trendsong, :fvcate, :fvartist, :fvsong, :fvmv, :myband, :h_year1, :h_year2, :h_year3, :h_year4, :h_year5, :h_content1, :h_content2, :h_content3, :h_content4, :h_content5).merge(profile_uid: current_user.id)
     end
 
 end

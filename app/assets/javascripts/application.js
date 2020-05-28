@@ -16,4 +16,40 @@
 //= require_tree .
 
 
+$(document).on('turbolinks:load', function () {
 
+    //フラッシュフェードアウト
+    $(function () {
+        setTimeout("$('.notice, .alert').fadeOut('slow')", 2500)
+    })
+
+    //ハンバーガー
+    $('.nav_content').hide();
+
+    $('.nav_btn_trriger').click(function () {
+        if ($('.nav_btn_trriger').hasClass('active')) {
+            $('.nav_content').fadeOut();
+            $('.nav_btn_trriger').removeClass('active');
+            $('body').removeClass('nav--opened');
+        } else {
+            $('.nav_content').fadeIn();
+            $('.nav_btn_trriger').addClass('active');
+            $('body').addClass('nav--opened');
+        }
+    });
+
+    //タブ切り替え
+    $(document).ready(function () {
+        $('.is-show').show();
+        $('.tab').click(function () {
+            $('.is-active').removeClass('is-active');
+            $(this).addClass('is-active');
+            $('.panel').fadeOut(300);
+            // クリックしたタブからインデックス番号を取得
+            const index = $(this).index();
+            // クリックしたタブと同じインデックス番号をもつコンテンツを表示
+            $('.panel').eq(index).fadeIn(300);
+        });
+    });
+
+});

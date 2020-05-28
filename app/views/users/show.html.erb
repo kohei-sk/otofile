@@ -1,152 +1,198 @@
-<h1>Users#show</h1>
+<section class="head clearfix">
 
-<% if current_user.id == @user.id %>
-<%= link_to 'ユーザー情報変更', edit_user_registration_path %>
-<% end %>
+    <div class="head_l clearfix">
+        <p class="head_img"><%= image_tag "#{@user.userimg}" %></p>
+    </div>
+    <div class="head_r clearfix">
+        <p class="head_name">
+            <% if @user.username.empty? %>
+            <%= @user.userid %>
+            <% else %>
+            <%= @user.username %>
+            <% end %>
+        </p>
 
-<p><%= image_tag "#{@user.userimg}" %></p>
+        <p class="head_id"><%= @user.userid %></p>
 
-<% if @user.username.empty? %>
-<p><%= @user.userid %></p>
-<% else %>
-<p><%= @user.username %></p>
-<% end %>
+        <p class="head_message">
+            <% if @msg.present? %>
+            <% if @msg.message.blank? %>
+            <span class="none">投稿がありません</span>
+            <% else %>
+            <%= safe_join(@msg.message.split("\n"),tag(:br)) %>
+            <span class="date"><%= l @msg.updated_at, format: "%Y-%m-%d" %></span>
+            <% end %>
+            <% else %>
+            <span class="none">投稿がありません</span>
+            <% end %>
+            <% if current_user.id == @user.id %>
+            <%= link_to "", "/m/edit", class: "head_message_edit" %>
+            <% end %>
+        </p>
 
-<p><%= @user.userid %></p>
+        <div class="head_sns">
+            <% if @profile.present? %>
+            <% if @profile.sns_t.present? %>
+            <%= link_to "", "#{@profile.sns_t}",target: "_blank", class: "head_snst" %>
+            <% end %>
+            <% if @profile.sns_f.present? %>
+            <%= link_to "", "#{@profile.sns_f}",target: "_blank", class: "head_snsf" %>
+            <% end %>
+            <% if @profile.sns_i.present? %>
+            <%= link_to "", "#{@profile.sns_i}",target: "_blank", class: "head_snsi" %>
+            <% end %>
+            <% if @profile.sns_l.present? %>
+            <%= link_to "", "#{@profile.sns_l}",target: "_blank", class: "head_snsl" %>
+            <% end %>
+            <% if @profile.userlink.present? %>
+            <%= link_to "", "#{@profile.userlink}",target: "_blank", class: "head_userlink" %>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
 
-
-<% if @msg.present? %>
-<% if @msg.message.blank? %>
-<% if current_user.id == @user.id %>
-<p><br><br><br><br><%= link_to 'ひとことを投稿', "/m/edit" %></p>
-<% end %>
-<% else %>
-<p><br><br><br><br>ひとこと</p>
-<p><%= safe_join(@msg.message.split("\n"),tag(:br)) %></p>
-<% if current_user.id == @user.id %>
-<p><%= link_to '編集', "/m/edit" %></p>
-<% end %>
-<% end %>
-<% else %>
-<% if current_user.id == @user.id %>
-<p><br><br><br><br><%= link_to 'ひとことを投稿', "/m/new" %></p>
-<% end %>
-<% end %>
-
-
-<% if @profile.present? %>
-
-<p><br><br><br><br>プロフィール</p>
-
-<% if @profile.sns_t.present? %>
-<p><%= @profile.sns_t %></p>
-<% end %>
-
-<% if @profile.sns_f.present? %>
-<p><%= @profile.sns_f %></p>
-<% end %>
-
-<% if @profile.sns_i.present? %>
-<p><%= @profile.sns_i %></p>
-<% end %>
-
-<% if @profile.sns_l.present? %>
-<p><%= @profile.sns_l %></p>
-<% end %>
-
-<% if @profile.userlink.present? %>
-<p><%= @profile.userlink %></p>
-<% end %>
-
-<% if @profile.trendartist.present? %>
-<p><%= safe_join(@profile.trendartist.split("\n"),tag(:br)) %></p>
-<% end %>
-
-<% if @profile.trendsong.present? %>
-<p><%= safe_join(@profile.trendsong.split("\n"),tag(:br)) %></p>
-<% end %>
-
-<% if @profile.fvcate.present? %>
-<p><%= @profile.fvcate%></p>
-<% end %>
-
-<% if @profile.fvartist.present? %>
-<p><%= safe_join(@profile.fvartist.split("\n"),tag(:br)) %></p>
-<% end %>
-
-<% if @profile.fvsong.present? %>
-<p><%= safe_join(@profile.fvsong.split("\n"),tag(:br)) %></p>
-<% end %>
-
-<% if @profile.fvmv.present? %>
-<iframe width="854" height="480" src="https://www.youtube.com/embed/<%= @profile.fvmv %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<% end %>
-
-<% if @profile.h_year1.present? && @profile.h_content1.present? %>
-<p><%= @profile.h_year1 %></p>
-<p><%= safe_join(@profile.h_content1.split("\n"),tag(:br)) %></p>
-<% end %>
-
-<% if @profile.h_year2.present? && @profile.h_content2.present? %>
-<p><%= @profile.h_year2 %></p>
-<p><%= safe_join(@profile.h_content2.split("\n"),tag(:br)) %></p>
-<% end %>
-
-<% if @profile.h_year3.present? && @profile.h_content3.present? %>
-<p><%= @profile.h_year3 %></p>
-<p><%= safe_join(@profile.h_content3.split("\n"),tag(:br)) %></p>
-<% end %>
-
-<% if @profile.h_year4.present? && @profile.h_content4.present? %>
-<p><%= @profile.h_year4 %></p>
-<p><%= safe_join(@profile.h_content4.split("\n"),tag(:br)) %></p>
-<% end %>
-
-<% if @profile.h_year5.present? && @profile.h_content5.present? %>
-<p><%= @profile.h_year5 %></p>
-<p><%= safe_join(@profile.h_content5.split("\n"),tag(:br)) %></p>
-<% end %>
+</section>
 
 
+<section class="profile clearfix">
 
-<% if current_user.id == @user.id %>
-<p><%= link_to '編集', "/pr/edit" %></p>
-<% end %>
-<% else %>
-<% if current_user.id == @user.id %>
-<p><%= link_to 'プロフィールを投稿', "/pr/new" %></p>
-<% end %>
-<% end %>
+    <ul class="tab-group">
+        <li class="tab tab-A is-active">Profile</li>
+        <li class="tab tab-B">Activity</li>
+    </ul>
+
+    <div class="panel-group">
+
+        <div class="panel is-show">
+
+            <% if @profile.present? %>
+
+            <div class="pr_head">
+                <p class="last_update">Update : <%= l @profile.updated_at, format: "%Y-%m-%d" %></p>
+                <% if current_user.id == @user.id %>
+                <%= link_to 'Edit', "/pr/edit", class: "pr_edit" %>
+                <% end %>
+            </div>
+
+            <% if @profile.trendartist.present? %>
+            <p class="pr_ttl">Trend artist</p>
+            <p class="pr_content"><%= safe_join(@profile.trendartist.split("\n"),tag(:br)) %></p>
+            <% end %>
+
+            <% if @profile.trendsong.present? %>
+            <p class="pr_ttl">Trend song</p>
+            <p class="pr_content"><%= safe_join(@profile.trendsong.split("\n"),tag(:br)) %></p>
+            <% end %>
+
+            <% if @profile.fvcate.present? %>
+            <p class="pr_ttl">Favorite genre</p>
+            <p class="pr_content"><%= @profile.fvcate%></p>
+            <% end %>
+
+            <% if @profile.fvartist.present? %>
+            <p class="pr_ttl">Favorite artist</p>
+            <p class="pr_content"><%= safe_join(@profile.fvartist.split("\n"),tag(:br)) %></p>
+            <% end %>
+
+            <% if @profile.fvsong.present? %>
+            <p class="pr_ttl">Favorite song</p>
+            <p class="pr_content"><%= safe_join(@profile.fvsong.split("\n"),tag(:br)) %></p>
+            <% end %>
+
+            <% if @profile.fvmv.present? %>
+            <p class="pr_ttl">Favorite video</p>
+            <div class="yt_wrap">
+                <iframe width="854" height="480" src="https://www.youtube.com/embed/<%= @profile.fvmv %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <% else %>
+
+            <%= link_to 'Add profile', "/pr/new", class: "pr_post" %>
+
+            <% end %>
 
 
+            <p class="pr_ttl">History</p>
+
+            <table border="0">
+
+                <tr>
+                    <% if @profile.h_year1.present? && @profile.h_content1.present? %>
+                    <td><span><%= @profile.h_year1 %></span></td>
+                    <td><%= safe_join(@profile.h_content1.split("\n"),tag(:br)) %></td>
+                    <% end %>
+                </tr>
+
+                <tr>
+                    <% if @profile.h_year2.present? && @profile.h_content2.present? %>
+                    <td><span><%= @profile.h_year2 %></span></td>
+                    <td><%= safe_join(@profile.h_content2.split("\n"),tag(:br)) %></td>
+                    <% end %>
+                </tr>
+
+                <tr>
+                    <% if @profile.h_year3.present? && @profile.h_content3.present? %>
+                    <td><span><%= @profile.h_year3 %></span></td>
+                    <td><%= safe_join(@profile.h_content3.split("\n"),tag(:br)) %></td>
+                    <% end %>
+                </tr>
+
+                <tr>
+                    <% if @profile.h_year4.present? && @profile.h_content4.present? %>
+                    <td><span><%= @profile.h_year4 %></span></td>
+                    <td><%= safe_join(@profile.h_content4.split("\n"),tag(:br)) %></td>
+                    <% end %>
+                </tr>
+
+                <tr>
+                    <% if @profile.h_year5.present? && @profile.h_content5.present? %>
+                    <td><span><%= @profile.h_year5 %></span></td>
+                    <td><%= safe_join(@profile.h_content5.split("\n"),tag(:br)) %></td>
+                    <% end %>
+                </tr>
+
+                <tr>
+                    <td><span>Start</span></td>
+                    <td></td>
+                </tr>
+
+            </table>
+
+            <% end %>
+
+        </div>
 
 
+        <div class="panel">
+
+            <% if current_user.id == @user.id %>
+            <p><%= link_to 'アクティビティを投稿', p_new_path %></p>
+            <% end %>
 
 
-<% if current_user.id == @user.id %>
-<p><br><br><br><br><%= link_to 'アクティビティを投稿', p_new_path %></p>
-<% end %>
+            <% if @post %>
 
+            <% @post.each do |posts| %>
 
-<% if @post %>
+            <div style="margin: 100px 0;">
 
-<% @post.each do |posts| %>
+                <p class="ttl"><%= posts.title %><br><br></p>
+                <p><%=safe_join(posts.comment.split("\n"),tag(:br))%></p>
+                <p class="data"><%= l posts.created_at, format: "%Y-%m-%d" %></p>
 
-<div style="margin: 100px 0;">
+                <% if @user.id == current_user.id %>
+                <%= link_to "EDIT", "/p/#{posts.id}/edit", class: 'edit' %>
+                <%= link_to "DELETE", "/p/#{posts.id}/destroy", class: 'delete', data: {confirm: "本当に削除しますか？"} %>
+                <% end %>
 
-    <p class="ttl"><%= posts.title %><br><br></p>
-    <p><%=safe_join(posts.comment.split("\n"),tag(:br))%></p>
-    <p class="data"><%= l posts.created_at, format: "%Y-%m-%d" %></p>
+            </div>
 
-    <% if user_signed_in? %>
-    <% if @user.id == current_user.id %>
-    <%= link_to "EDIT", "/p/#{posts.id}/edit", class: 'edit' %>
-    <%= link_to "DELETE", "/p/#{posts.id}/destroy", class: 'delete', data: {confirm: "本当に削除しますか？"} %>
-    <% end %>
-    <% end %>
+            <% end %>
 
-</div>
+            <% end %>
 
-<% end %>
+        </div>
 
-<% end %>
+    </div>
+
+</section>

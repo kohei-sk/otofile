@@ -1,0 +1,308 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "config";
+
+html,
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    color: $main-color;
+    background-color: $base-color2;
+    position: relative;
+    height: 100%;
+    font-size: 14px;
+}
+
+body.nav--opened {
+    touch-action: none !important;
+    pointer-events: none !important;
+    height: 100% !important;
+    overflow: hidden !important;
+}
+
+body.nav--opened header {
+    touch-action: auto !important;
+    pointer-events: visible !important;
+}
+
+.container {
+    width: 100%;
+    max-width: $main-wrap;
+    margin: 0 auto;
+    background-color: $base-color;
+    min-height: 100%;
+
+
+    header {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        z-index: 99999;
+        max-width: $main-wrap;
+
+        nav {
+            width: 100%;
+            height: auto;
+            background-color: $base-color;
+
+            a.nav_logo {
+                display: block;
+                width: 140px;
+                height: auto;
+                padding: 15px 20px;
+            }
+
+            a.nav_btn_trriger {
+                display: inline-block;
+                transition: all .4s;
+                box-sizing: border-box;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                width: 30px;
+                height: 23px;
+
+                span {
+                    display: inline-block;
+                    transition: all .4s;
+                    box-sizing: border-box;
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background-color: $main-color;
+                }
+
+                span:nth-of-type(1) {
+                    top: 0;
+                }
+
+                span:nth-of-type(2) {
+                    top: 10px;
+                }
+
+                span:nth-of-type(3) {
+                    bottom: 0;
+                }
+
+                &.active span:nth-of-type(1) {
+                    -webkit-transform: translateY(10px) rotate(-315deg);
+                    transform: translateY(10px) rotate(-315deg);
+                }
+
+                &.active span:nth-of-type(2) {
+                    opacity: 0;
+                }
+
+                &.active span:nth-of-type(3) {
+                    -webkit-transform: translateY(-10px) rotate(315deg);
+                    transform: translateY(-10px) rotate(315deg);
+                }
+
+            }
+
+            a.btn_search {
+                position: absolute;
+                right: 68px;
+                top: 20px;
+                width: 23px;
+                height: 23px;
+
+                &:before {
+                    font-family: "Font Awesome 5 Free";
+                    content: '\f002';
+                    font-weight: 900;
+                    color: $main-color;
+                    font-size: 24px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    line-height: 100%;
+                }
+            }
+
+            .nav_content {
+                -webkit-overflow-scrolling: touch;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                padding: 30px 0;
+                box-sizing: border-box;
+                background-color: $base-color;
+                overflow-y: auto;
+                max-width: $main-wrap;
+
+                a {
+                    display: inline-block;
+                    width: 100%;
+                    position: relative;
+                    color: $main-color;
+                    font-size: 14px;
+                    line-height: 100%;
+                    padding: 15px 45px;
+                    letter-spacing: .3px;
+
+                    &:before {
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        color: $main-color;
+                        font-size: 14px;
+                        position: absolute;
+                        top: 16px;
+                        left: 20px;
+                        line-height: 100%;
+                    }
+
+                    &.nav_peaple:before {
+                        content: '\f007';
+                    }
+
+                    &.nav_setting:before {
+                        content: '\f4fe';
+                    }
+
+                    &.nav_edit:before {
+                        content: '\f044';
+                    }
+
+                    &.nav_signout:before {
+                        content: '\f2f5';
+                    }
+
+                    &.nav_signup:before {
+                        content: '\f234';
+                    }
+
+                    &.nav_signin:before {
+                        content: '\f2f6';
+                    }
+
+                    &.nav_contact:before {
+                        content: '\f0e0';
+                    }
+
+                    &:hover {
+                        background-color: $base-color2;
+                    }
+                }
+
+
+            }
+
+        }
+
+
+
+    }
+
+    p.notice,
+    p.alert {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background-color: $accent-color;
+        color: $base-color;
+        line-height: 100%;
+        font-weight: 300;
+        font-size: 15px;
+        padding: 10px 0;
+        letter-spacing: 0.5px;
+    }
+
+    form {
+        @include wrap();
+
+        p.s_ttl {
+            margin: 0 0 15px 0;
+        }
+
+        .field {
+            margin-bottom: 30px;
+
+            label {
+                line-height: 100%;
+                padding: 0 3px;
+                margin: 0 0 15px 0;
+                display: block;
+            }
+
+            .year {
+                width: 70px;
+                margin: 0 10px 4px 0;
+            }
+
+            input,
+            textarea {
+                border: 1px solid $base-color;
+                transition: all 0.3s;
+                width: 100%;
+                box-sizing: border-box;
+                outline: 0;
+                font-size: 14px;
+                padding: 12px 16px;
+                line-height: 180%;
+                letter-spacing: .5px;
+                @include bg_grd();
+            }
+
+            input:focus,
+            textarea:focus {
+                border: 1px solid $accent-color;
+            }
+
+            textarea {
+                resize: vertical;
+                min-height: 110px;
+            }
+
+            #ytid_confirm_now,
+            #ytid_confirm {
+                width: calc(100% - 2px);
+                margin: 10px 0 0 1px;
+                @include yt_wrap();
+            }
+
+            #ytid_confirm {
+                display: none;
+            }
+
+            #yt_error {
+                color: $accent-color;
+                margin-top: 10px;
+            }
+        }
+
+        [type="submit"] {
+            width: 100%;
+            background: $accent-color;
+            border-radius: 5px;
+            border: 0;
+            cursor: pointer;
+            color: $base-color;
+            transition: all 0.3s;
+            padding: 12px 0;
+            margin-bottom: 30px;
+            border: 1px solid $base-color;
+        }
+
+        [type="submit"]:hover {
+            border: 1px solid $accent-color;
+            background-color: $base-color;
+            color: $accent-color;
+        }
+
+    }
+
+    main {
+
+        position: relative;
+        width: 100%;
+        margin: 62px 0 0 0;
+        padding: 25px 0;
+
+    }
+
+}
