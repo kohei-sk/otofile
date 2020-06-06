@@ -1,20 +1,22 @@
-<p>記事編集</p>
-
-
-
-<% if @post.errors.any? %>
-<ul>
-    <% @post.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-</ul>
-<% end %>
+<div class="form_head">
+    <h2>アクティビティ編集</h2>
+</div>
 
 <%= form_for @post,:url => {controller: "posts", action: "edit"} do |f| %>
 
+<% if @post.errors.any? %>
+<div id="error_explanation">
+    <ul>
+        <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
 <div class="field">
     <%= f.label :title, "タイトル" %><br />
-    <%= f.text_field :title, placeholder: "必須です" %>
+    <%= f.text_field :title, placeholder: "必須" %>
 </div>
 
 <div class="field">
@@ -25,5 +27,7 @@
 <div class="actions">
     <%= f.submit "更新" %>
 </div>
+
+<%= link_to "削除", "/p/#{@post.id}/destroy", class: 'delete', data: {confirm: "本当に削除しますか？"} %>
 
 <% end %>

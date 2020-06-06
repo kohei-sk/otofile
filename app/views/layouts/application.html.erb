@@ -30,16 +30,19 @@
                 <div class="nav_content clearfix">
                     <% if user_signed_in? %>
                     <%= link_to 'マイプロフィール', root_path, data: {'turbolinks' => false}, class: 'nav_peaple' %>
-                    <%= link_to 'アカウント設定', edit_user_registration_path, data: {'turbolinks' => false}, class: 'nav_setting' %>
-                    <%= link_to 'ひとこと', "/m/new", data: {'turbolinks' => false}, class: "nav_edit" %>
+                    <%= link_to 'ひとこと', "/m/new", data: {'turbolinks' => false}, class: "nav_msg" %>
                     <%= link_to 'プロフィール', '/pr/new', data: {'turbolinks' => false}, class: "nav_edit" %>
-                    <%= link_to 'アクティビティ', '/p/new', data: {'turbolinks' => false}, class: "nav_edit" %>
+                    <%= link_to 'アクティビティ', '/p/new', data: {'turbolinks' => false}, class: "nav_act" %>
+                    <%= link_to 'フレンド', '#', data: {'turbolinks' => false}, class: "nav_friend" %>
+                    <%= link_to 'アカウント設定', edit_user_registration_path, data: {'turbolinks' => false}, class: 'nav_setting' %>
                     <%= link_to 'ログアウト', destroy_user_session_path, data: {'turbolinks' => false}, class: "nav_signout", method: :delete %>
+                    <%= link_to 'お問い合わせ', '#', data: {'turbolinks' => false}, class: "nav_contact" %>
+
                     <% else %>
                     <%= link_to 'アカウント登録', new_user_registration_path, data: {'turbolinks' => false}, class: "nav_signup" %>
                     <%= link_to 'ログイン', new_user_session_path, data: {'turbolinks' => false}, class: "nav_signin" %>
-                    <% end %>
                     <%= link_to 'お問い合わせ', '#', data: {'turbolinks' => false}, class: "nav_contact" %>
+                    <% end %>
                 </div>
             </nav>
 
@@ -61,7 +64,6 @@
     </div>
 
     <%= Gon::Base.render_data %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 </body>

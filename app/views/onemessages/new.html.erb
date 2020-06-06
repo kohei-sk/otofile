@@ -1,15 +1,18 @@
-<p>onemessage_new</p>
-
-
-<% if @msg.errors.any? %>
-<ul>
-    <% @msg.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-</ul>
-<% end %>
+<div class="form_head">
+    <h2>ひとこと</h2>
+</div>
 
 <%= form_for @msg,:url => {controller: "onemessages", action: "create"} do |f| %>
+
+<% if @msg.errors.any? %>
+<div id="error_explanation">
+    <ul>
+        <% @msg.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
 
 <div class="field">
     <%= f.label :message, "ひとこと" %><br />

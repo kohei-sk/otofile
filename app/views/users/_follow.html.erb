@@ -1,0 +1,7 @@
+<% @user = User.find_by(userid: params[:userid]) %>
+<% follow = Follow.find_by(u_id: @user.id, f_id: current_user.id) %>
+<% if !follow %>
+<%= link_to "", "/#{params[:userid]}/follow", class: "follow_btn follow", remote: true %>
+<% else %>
+<%= link_to "", "/#{params[:userid]}/unfollow", class: "follow_btn unfollow", remote: true %>
+<% end %>

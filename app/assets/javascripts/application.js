@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -49,6 +50,37 @@ $(document).on('turbolinks:load', function () {
             const index = $(this).index();
             // クリックしたタブと同じインデックス番号をもつコンテンツを表示
             $('.panel').eq(index).fadeIn(300);
+        });
+    });
+
+    //アコーディオン
+    $(document).ready(function () {
+        var btn = $('form .down_btn')
+        var box = '.down_content'
+        btn.click(function () {
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active')
+                $(this).next(box).slideUp();
+            } else {
+                $(this).addClass('active')
+                $(this).next(box).slideDown();
+            }
+        });
+    });
+
+    //URL自動
+    $(function () {
+        $('.pr_content, .ac_txt, .panel-group td').each(function () {
+            $(this).html($(this).html().replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, "<a href='$1' target='_blank'>$1</a>"));
+        });
+    });
+
+    //likes Modal
+    $('.m_btn').show(function () {
+        const m_btn = $(this)
+        const m_content = m_btn.next();
+        m_btn.modaal({
+            content_source: m_content
         });
     });
 

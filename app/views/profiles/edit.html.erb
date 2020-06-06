@@ -1,37 +1,19 @@
-<% if @profile.errors.any? %>
-<ul>
-    <% @profile.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-</ul>
-<% end %>
+<div class="form_head">
+    <h2>プロフィール変更</h2>
+</div>
+
 
 <%= form_for @profile,:url => {controller: "profiles", action: "edit"} do |f| %>
 
-<div class="field">
-    <%= f.label :sns_t, "Twitter" %>
-    <%= f.text_field :sns_t, placeholder: "URL" %>
+<% if @profile.errors.any? %>
+<div id="error_explanation">
+    <ul>
+        <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
 </div>
-
-<div class="field">
-    <%= f.label :sns_f, "Facebook" %>
-    <%= f.text_field :sns_f, placeholder: "URL" %>
-</div>
-
-<div class="field">
-    <%= f.label :sns_i, "Instagram" %>
-    <%= f.text_field :sns_i, placeholder: "URL" %>
-</div>
-
-<div class="field">
-    <%= f.label :sns_l, "Line" %>
-    <%= f.text_field :sns_l, placeholder: "URL" %>
-</div>
-
-<div class="field">
-    <%= f.label :userlink, "Link" %>
-    <%= f.text_field :userlink, placeholder: "URL" %>
-</div>
+<% end %>
 
 <div class="field">
     <%= f.label :trendartist, "最近ハマっているアーティストは？" %>

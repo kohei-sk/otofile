@@ -9,6 +9,8 @@ class UsersController < ApplicationController
       @msg = Onemessage.find_by(onemessage_uid: @user.id)
       @profile = Profile.find_by(profile_uid: @user.id)
       @post = Post.where(p_userid: @user.id).order(created_at: "DESC")
+      @user_like = Like.where(l_uid: @user.id).order(created_at: "DESC")
+      @follow = Follow.find_by(u_id: @user.id, f_id: current_user.id)
     end
   end
 

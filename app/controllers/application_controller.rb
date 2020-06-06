@@ -12,6 +12,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:userid])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:userimg])
     devise_parameter_sanitizer.permit(:account_update, keys: [:userimg])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:sns_t])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:sns_f])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:sns_i])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:sns_l])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:userlink])
   end
 
   private

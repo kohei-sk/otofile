@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_154247) do
+ActiveRecord::Schema.define(version: 2020_06_03_114938) do
+
+  create_table "follows", force: :cascade do |t|
+    t.string "u_id"
+    t.string "f_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.string "l_pid"
+    t.string "l_uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "onemessages", force: :cascade do |t|
     t.text "message"
@@ -28,11 +42,6 @@ ActiveRecord::Schema.define(version: 2020_05_23_154247) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.text "sns_t"
-    t.text "sns_f"
-    t.text "sns_i"
-    t.text "sns_l"
-    t.text "userlink"
     t.text "trendartist"
     t.text "trendsong"
     t.string "fvcate"
@@ -80,6 +89,11 @@ ActiveRecord::Schema.define(version: 2020_05_23_154247) do
     t.string "username"
     t.string "userid"
     t.string "userimg"
+    t.string "sns_t"
+    t.string "sns_f"
+    t.string "sns_i"
+    t.string "sns_l"
+    t.string "userlink"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

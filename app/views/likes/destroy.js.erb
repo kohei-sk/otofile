@@ -1,0 +1,10 @@
+<% posts = Post.find_by(id: params[:id]) %>
+$('#ac_post_<%= posts.id %>').html("<%= j(render partial: 'users/like', locals: {posts: posts}) %>");
+
+$('.m_btn').show(function () {
+    const m_btn = $(this)
+    const m_content = m_btn.next();
+    m_btn.modaal({
+        content_source: m_content
+    });
+});

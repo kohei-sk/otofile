@@ -1,0 +1,43 @@
+<div class="p_like_box_wrap">
+    <% if Like.find_by(l_pid: posts.id, l_uid: current_user.id) %>
+    <%= link_to "/p/#{posts.id}/unlike", class:'like', remote: true do %>
+    <i class="fas fa-heart"></i>
+    <span><%= Like.where(l_pid: posts.id).count %></span>
+    <% end %>
+    <% else %>
+    <%= link_to "/p/#{posts.id}/like", class:'unlike', remote: true do %>
+    <i class="fas fa-heart"></i>
+    <span><%= Like.where(l_pid: posts.id).count %></span>
+    <% end %>
+    <% end %>
+</div>
+<div class="like_user m_btn">
+    <% like = Like.where(l_pid: posts.id).order(created_at: "DESC") %>
+    <% like.each do |likes| %>
+    <% l_user = User.find_by(id: likes.l_uid) %>
+    <span class="like_user_in"><%= image_tag "#{l_user.userimg}" %></span>
+    <% end %>
+</div>
+<div class="m_content">
+    <ul>
+        <% like.each do |likes| %>
+        <% l_user = User.find_by(id: likes.l_uid) %>
+        <% msg = Onemessage.find_by(onemessage_uid: likes.l_uid) %>
+        <li>
+            <%= link_to "/#{l_user.userid}", data: {'turbolinks' => false} do %>
+            <span><%= image_tag "#{l_user.userimg}" %></span>
+            <div>
+                <span>
+                    <% if l_user.username.empty? %>
+                    <%= l_user.userid %>
+                    <% else %>
+                    <%= l_user.username %>
+                    <% end %>
+                </span>
+                <span><%= msg.message %></span>
+            </div>
+            <% end %>
+        </li>
+        <% end %>
+    </ul>
+</div>

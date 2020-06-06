@@ -111,6 +111,7 @@ $main-color: #000000;
 $accent-color: #ff533d;
 $sub-color: #adadad;
 $sub-color2: #e0e0e0;
+$attention-color: #ca0000;
 $main-wrap: 550px;
 
 @mixin wrap() {
@@ -136,4 +137,13 @@ $main-wrap: 550px;
         width: 100% !important;
         height: 100% !important;
     }
+}
+
+@mixin btn() {
+    display: inline-block;
+    color: $base-color;
+    background-color: $accent-color;
+    line-height: 100%;
+    padding: 16px 20px 16px 37px;
+    border-radius: 5px;
 }

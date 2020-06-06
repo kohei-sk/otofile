@@ -30,25 +30,31 @@
             <% end %>
         </p>
 
+
+        <% if @user.sns_t.present? %>
         <div class="head_sns">
-            <% if @profile.present? %>
-            <% if @profile.sns_t.present? %>
-            <%= link_to "", "#{@profile.sns_t}",target: "_blank", class: "head_snst" %>
+            <%= link_to "", "#{@user.sns_t}",target: "_blank", class: "head_snst" %>
             <% end %>
-            <% if @profile.sns_f.present? %>
-            <%= link_to "", "#{@profile.sns_f}",target: "_blank", class: "head_snsf" %>
+            <% if @user.sns_f.present? %>
+            <%= link_to "", "#{@user.sns_f}",target: "_blank", class: "head_snsf" %>
             <% end %>
-            <% if @profile.sns_i.present? %>
-            <%= link_to "", "#{@profile.sns_i}",target: "_blank", class: "head_snsi" %>
+            <% if @user.sns_i.present? %>
+            <%= link_to "", "#{@user.sns_i}",target: "_blank", class: "head_snsi" %>
             <% end %>
-            <% if @profile.sns_l.present? %>
-            <%= link_to "", "#{@profile.sns_l}",target: "_blank", class: "head_snsl" %>
+            <% if @user.sns_l.present? %>
+            <%= link_to "", "#{@user.sns_l}",target: "_blank", class: "head_snsl" %>
             <% end %>
-            <% if @profile.userlink.present? %>
-            <%= link_to "", "#{@profile.userlink}",target: "_blank", class: "head_userlink" %>
-            <% end %>
-            <% end %>
+            <% if @user.userlink.present? %>
+            <%= link_to "", "#{@user.userlink}",target: "_blank", class: "head_userlink" %>
         </div>
+        <% end %>
+
+        <% if @user.id != current_user.id %>
+        <div class="follow_wrap clearfix">
+            <%= render partial: "users/follow", locals: { follow: @follow } %>
+        </div>
+        <% end %>
+
     </div>
 
 </section>
@@ -57,8 +63,9 @@
 <section class="profile clearfix">
 
     <ul class="tab-group">
-        <li class="tab tab-A is-active">Profile</li>
-        <li class="tab tab-B">Activity</li>
+        <li class="tab is-active">Profile</li>
+        <li class="tab">Activity</li>
+        <li class="tab"><i class="far fa-heart"></i></li>
     </ul>
 
     <div class="panel-group">
@@ -67,8 +74,8 @@
 
             <% if @profile.present? %>
 
-            <div class="pr_head">
-                <p class="last_update">Update : <%= l @profile.updated_at, format: "%Y-%m-%d" %></p>
+            <div class="pl_head">
+                <p class="sttl">Update : <%= l @profile.updated_at, format: "%Y-%m-%d" %></p>
                 <% if current_user.id == @user.id %>
                 <%= link_to 'Edit', "/pr/edit", class: "pr_edit" %>
                 <% end %>
@@ -165,30 +172,115 @@
 
         <div class="panel">
 
-            <% if current_user.id == @user.id %>
-            <p><%= link_to 'アクティビティを投稿', p_new_path %></p>
-            <% end %>
+            <div class="pl_head">
+                <p class="sttl">
+                    <% if @user.username.empty? %>
+                    <%= @user.userid %>
+                    <% else %>
+                    <%= @user.username %>
+                    <% end %>
+                    's &nbsp; Activity
+                </p>
+                <% if current_user.id == @user.id %>
+                <p><%= link_to 'Post', p_new_path, class: "ac_post" %></p>
+                <% end %>
+            </div>
 
 
             <% if @post %>
 
             <% @post.each do |posts| %>
 
-            <div style="margin: 100px 0;">
+            <div class="ac_content clearfix">
 
-                <p class="ttl"><%= posts.title %><br><br></p>
-                <p><%=safe_join(posts.comment.split("\n"),tag(:br))%></p>
-                <p class="data"><%= l posts.created_at, format: "%Y-%m-%d" %></p>
+                <span class="date"><%= l posts.created_at, format: "%Y-%m-%d" %></span>
+                <div class="ac_content_wrap">
 
-                <% if @user.id == current_user.id %>
-                <%= link_to "EDIT", "/p/#{posts.id}/edit", class: 'edit' %>
-                <%= link_to "DELETE", "/p/#{posts.id}/destroy", class: 'delete', data: {confirm: "本当に削除しますか？"} %>
-                <% end %>
+                    <p class="ac_ttl"><%= posts.title %></p>
+
+                    <p class="ac_txt"><%=safe_join(posts.comment.split("\n"),tag(:br))%></p>
+
+                    <% if @user.id == current_user.id %>
+                    <%= link_to "Edit", "/p/#{posts.id}/edit", class: 'ac_in_edit' %>
+                    <% end %>
+
+                    <div class="p_like_box" id="ac_post_<%= posts.id %>">
+
+                        <%= render partial: 'users/like', locals: { posts: posts} %>
+
+                    </div>
+
+                </div>
 
             </div>
 
             <% end %>
 
+            <% else %>
+            <%= link_to 'Post activity', "/p/new", class: "pr_post" %>
+            <% end %>
+
+        </div>
+
+        <div class="panel like_list">
+
+            <div class="pl_head">
+                <p class="sttl">
+                    <% if @user.username.empty? %>
+                    <%= @user.userid %>
+                    <% else %>
+                    <%= @user.username %>
+                    <% end %>
+                    's &nbsp; Favorite
+                </p>
+            </div>
+
+
+            <% if @user_like.count != 0 %>
+
+            <% @user_like.each do |user_likes| %>
+
+            <div class="ac_content clearfix">
+
+                <% post_likes = Post.find_by(id: user_likes.l_pid) %>
+                <% likes_post = Like.find_by(l_pid: post_likes.id) %>
+                <% likes_user = User.find_by(id: likes_post.l_uid) %>
+
+                <span class="date"><%= l likes_post.created_at, format: "%Y-%m-%d" %></span>
+                <div class="ac_content_wrap">
+
+                    <p class="like_p_user clearfix">
+                        <%= link_to "/#{likes_user.userid}", data: {'turbolinks' => false} do %>
+                        <span><%= image_tag "#{likes_user.userimg}" %></span>
+                        <span>
+                            <% if likes_user.username.empty? %>
+                            <%= likes_user.userid %>
+                            <% else %>
+                            <%= likes_user.username %>
+                            <span><%= likes_user.userid %></span>
+                            <% end %>
+                        </span>
+                        <% end %>
+                    </p>
+
+                    <p class="ac_ttl"><%= post_likes.title %></p>
+
+                    <p class="ac_txt"><%=safe_join(post_likes.comment.split("\n"),tag(:br))%></p>
+
+                    <div class="p_like_box" id="ac_post_<%= post_likes.id %>">
+
+                        <%= render partial: 'users/like', locals: { posts: post_likes} %>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <% end %>
+
+            <% else %>
+            いいねした投稿がありません
             <% end %>
 
         </div>

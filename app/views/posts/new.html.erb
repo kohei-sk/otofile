@@ -1,20 +1,22 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
-
-
-<% if @post.errors.any? %>
-<ul>
-    <% @post.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-</ul>
-<% end %>
+<div class="form_head">
+    <h2>アクティビティ</h2>
+</div>
 
 <%= form_for @post,:url => {controller: "posts", action: "create"} do |f| %>
 
+<% if @post.errors.any? %>
+<div id="error_explanation">
+    <ul>
+        <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
 <div class="field">
     <%= f.label :title, "タイトル" %><br />
-    <%= f.text_field :title, placeholder: "必須です" %>
+    <%= f.text_field :title, placeholder: "必須" %>
 </div>
 
 <div class="field">

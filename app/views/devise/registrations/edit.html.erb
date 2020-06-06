@@ -1,60 +1,103 @@
-<h2>ユーザー情報変更</h2>
-
-<%= image_tag "#{current_user.userimg}" %>
+<div class="form_head">
+    <h2>ユーザー情報変更</h2>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
 
 <div class="field">
-    <%= f.label :username %><br />
+    <%= f.label :username %>
     <%= f.text_field :username %>
 </div>
 
 <div class="field">
-    <%= f.label :userid %><br />
-    <%= f.text_field :userid %>
+    <%= f.label :userid %>
+    <%= f.text_field :userid, placeholder: "必須" %>
 </div>
 
 <div class="field">
-    <%= f.label :userimg %><br />
+    <%= f.label :userimg %>
+    <div class="pr_img"><%= image_tag "#{current_user.userimg}" %></div>
     <%= f.file_field :userimg %>
 </div>
 
 <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email %>
+    <%= f.email_field :email, autocomplete: "email", placeholder: "必須" %>
 </div>
 
 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-<div><%= resource.unconfirmed_email %>（確認中です）</div>
+<div><%= resource.unconfirmed_email %><span>（確認中です）</span></div>
 <% end %>
 
-<div class="field">
-    <%= f.label :password %> <i>（変更しない場合は空白にしてください）</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-    <br />
-    <em>（<%= @minimum_password_length %>文字以上で入力してください）</em>
-    <% end %>
+<div class="down_btn">SNS / LINK</div>
+
+<div class="down_content">
+
+    <div class="field">
+        <%= f.label :sns_t, "Twitter" %>
+        <%= f.text_field :sns_t, placeholder: "URL" %>
+    </div>
+
+    <div class="field">
+        <%= f.label :sns_f, "Facebook" %>
+        <%= f.text_field :sns_f, placeholder: "URL" %>
+    </div>
+
+    <div class="field">
+        <%= f.label :sns_i, "Instagram" %>
+        <%= f.text_field :sns_i, placeholder: "URL" %>
+    </div>
+
+    <div class="field">
+        <%= f.label :sns_l, "Line" %>
+        <%= f.text_field :sns_l, placeholder: "URL" %>
+    </div>
+
+    <div class="field">
+        <%= f.label :userlink, "Link" %>
+        <%= f.text_field :userlink, placeholder: "URL" %>
+    </div>
+
+</div>
+
+<div class="down_btn">パスワード変更</div>
+
+<div class="down_content">
+
+    <div class="field">
+        <%= f.label :password %><span>（変更しない場合は空白にしてください）</span>
+        <% if @minimum_password_length %>
+        <span>（<%= @minimum_password_length %>文字以上）</span>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+
+    </div>
+
+    <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
 </div>
 
 <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-</div>
-
-<div class="field">
-    <%= f.label :current_password %> <i>（プロフィールを変更するためには現在のパスワードを入力してください）</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.label :current_password %>
+    <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "必須" %>
 </div>
 
 <div class="actions">
     <%= f.submit "プロフィールを保存" %>
 </div>
+
+<div class="down_btn">退会</div>
+
+<div class="down_content">
+
+    <div class="field">
+        <%= link_to 'アカウントを削除', destroy_user_registration_path, data: { confirm: "本当に退会しますか？" }, class: "delete", method: :delete %>
+        <span>（アカウントを削除すると二度と元にに戻せません）</span>
+    </div>
+
+</div>
 <% end %>
-
-<h3>アカウントを削除</h3>
-
-<p>削除しますか？<%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当に削除しますか？" }, method: :delete %></p>
-
-<%= link_to "戻る", :back %>
