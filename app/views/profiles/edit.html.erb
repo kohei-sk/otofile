@@ -2,8 +2,8 @@
     <h2>プロフィール変更</h2>
 </div>
 
-
-<%= form_for @profile,:url => {controller: "profiles", action: "edit"} do |f| %>
+<%= nested_form_for @profile,:url => {controller: "profiles", action: "edit"} do |f| %>
+<%#= form_for @profile,:url => {controller: "profiles", action: "edit"} do |f| %>
 
 <% if @profile.errors.any? %>
 <div id="error_explanation">
@@ -14,6 +14,11 @@
     </ul>
 </div>
 <% end %>
+
+<div class="field">
+    <%= f.label :free_area, "フリースペースです。好きなことを書きましょう！" %>
+    <%= f.text_area :free_area, placeholder: "About me" %>
+</div>
 
 <div class="field">
     <%= f.label :trendartist, "最近ハマっているアーティストは？" %>
@@ -40,7 +45,15 @@
     <%= f.text_area :fvsong, placeholder: "Favorite artist" %>
 </div>
 
+<div class="field">
+    <%= f.label :fes_sche, "参加予定のライブ・フェスは？" %>
+    <%= f.text_area :fes_sche, placeholder: "Live / Fes Schedule" %>
+</div>
 
+<div class="field">
+    <%= f.label :fes_his, "最近参加したライブ・フェスは？" %>
+    <%= f.text_area :fes_his, placeholder: "Live / Fes History" %>
+</div>
 
 <div class="field">
     <%= f.label :fvmv, "好きなMVは？" %>
@@ -91,31 +104,20 @@
     }
 </script>
 
+<div class="field">
+    <%= f.label :fav_playlist, "お気に入りのプレイリストは？" %>
+    <%= f.text_area :fav_playlist, placeholder: "Favorite playlist" %>
+</div>
+
 <p class="s_ttl">どんな音楽史を歩みましたか？</p>
 
 <div class="field">
-    <%= f.text_field :h_year1, placeholder: "1990", class: "year" %>年
-    <%= f.text_area :h_content1, placeholder: "ハマっていた音楽やエピソードは？" %>
-</div>
-
-<div class="field">
-    <%= f.text_field :h_year2,  placeholder: "1990", class: "year" %>年
-    <%= f.text_area :h_content2, placeholder: "ハマっていた音楽やエピソードは？" %>
-</div>
-
-<div class="field">
-    <%= f.text_field :h_year3, placeholder: "1990", class: "year" %>年
-    <%= f.text_area :h_content3, placeholder: "ハマっていた音楽やエピソードは？" %>
-</div>
-
-<div class="field">
-    <%= f.text_field :h_year4, placeholder: "1990", class: "year" %>年
-    <%= f.text_area :h_content4, placeholder: "ハマっていた音楽やエピソードは？" %>
-</div>
-
-<div class="field">
-    <%= f.text_field :h_year5, placeholder: "1990", class: "year" %>年
-    <%= f.text_area :h_content5, placeholder: "ハマっていた音楽やエピソードは？" %>
+    <%= f.fields_for :histories do |f| %>
+    <%= f.text_field :year, placeholder: "Year", class: "year" %>年
+    <%= f.text_area :event, placeholder: "Event" %>
+    <%= f.link_to_remove "" %>
+    <% end %>
+    <%= f.link_to_add "イベントを追加", :histories %>
 </div>
 
 <div class="actions">

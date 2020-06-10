@@ -1,0 +1,231 @@
+<section class="head clearfix">
+
+    <h3>Recommended users</h3>
+
+    <% if !@reco_users.nil? %>
+
+    <div class="reco_wrap clearfix">
+        <% @reco_users.each do |reco_user| %>
+
+        <%= link_to "/#{reco_user.userid}",class: "reco_item_wrap", data: {'turbolinks' => false} do %>
+
+        <div class="reco_item_img"><%= image_tag "#{reco_user.userimg}" %></div>
+        <p class="reco_item_name">
+            <% if reco_user.username.empty? %>
+            <%= reco_user.userid %>
+            <% else %>
+            <%= reco_user.username %>
+            <% end %>
+        </p>
+        <p class="reco_item_id"><%= reco_user.userid %></p>
+        <% reco_msg = Onemessage.find_by(onemessage_uid: reco_user.id) %>
+        <% if !reco_msg.message.empty? %>
+        <p class="reco_item_msg"><%= safe_join(reco_msg.message.split("\n"),tag(:br)) %></p>
+        <% else %>
+        ひとことがありません
+        <% end %>
+
+        <% end %>
+
+        <% end %>
+
+        <% else %>
+        おすすめユーザーはいません
+        <% end %>
+    </div>
+
+</section>
+
+<section class="tab_content_wrap clearfix">
+
+    <ul class="tab-group">
+        <li class="tab is-active">Timeline</li>
+        <li class="tab">Following</i></li>
+        <li class="tab">Follower</i></li>
+    </ul>
+
+    <div class="panel-group">
+
+        <div class="panel is-show">
+
+            <% if !@post.empty? %>
+
+            <% @post.each do |posts| %>
+
+            <% if posts.has_attribute?(:p_userid) %>
+            <div class="ac_content clearfix">
+
+                <span class="date"><%= l posts.created_at, format: "%Y-%m-%d" %></span>
+                <div class="ac_content_wrap">
+
+                    <p class="p_user_wrap clearfix">
+                        <% p_user = User.find(posts.p_userid) %>
+                        <%= link_to "/#{p_user.userid}", data: {'turbolinks' => false} do %>
+                        <span><%= image_tag "#{p_user.userimg}" %></span>
+                        <span>
+                            <% if p_user.username.empty? %>
+                            <%= p_user.userid %>
+                            <% else %>
+                            <%= p_user.username %>
+                            <span><%= p_user.userid %></span>
+                            <% end %>
+                        </span>
+                        <% end %>
+                    </p>
+
+                    <p class="ac_ttl"><%= posts.title %></p>
+
+                    <p class="ac_txt"><%=safe_join(posts.comment.split("\n"),tag(:br))%></p>
+
+                    <div class="p_like_box" id="ac_post_<%= posts.id %>">
+
+                        <%= render partial: 'users/like', locals: { posts: posts} %>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <% elsif posts.has_attribute?(:profile_uid) %>
+            <div class="ac_content clearfix">
+
+                <span class="date"><%= l posts.updated_at, format: "%Y-%m-%d" %></span>
+                <div class="ac_content_wrap">
+
+                    <p class="p_user_wrap clearfix">
+                        <% p_user = User.find(posts.profile_uid) %>
+                        <%= link_to "/#{p_user.userid}", data: {'turbolinks' => false} do %>
+                        <span><%= image_tag "#{p_user.userimg}" %></span>
+                        <span class="prf_up">
+                            <% if p_user.username.empty? %>
+                            <%= p_user.userid %>
+                            <% else %>
+                            <%= p_user.username %>
+                            さんが<br>プロフィールを変更しました
+                            <% end %>
+                        </span>
+                        <% end %>
+                    </p>
+
+                </div>
+
+            </div>
+
+            <% elsif posts.has_attribute?(:onemessage_uid) %>
+            <div class="ac_content clearfix">
+
+                <span class="date"><%= l posts.updated_at, format: "%Y-%m-%d" %></span>
+                <div class="ac_content_wrap">
+
+                    <p class="p_user_wrap clearfix">
+                        <% p_user = User.find(posts.onemessage_uid) %>
+                        <%= link_to "/#{p_user.userid}", data: {'turbolinks' => false} do %>
+                        <span><%= image_tag "#{p_user.userimg}" %></span>
+                        <span class="prf_up">
+                            <% if p_user.username.empty? %>
+                            <%= p_user.userid %>
+                            <% else %>
+                            <%= p_user.username %>
+                            さんが<br>ひとことを変更しました
+                            <% end %>
+                        </span>
+                        <% end %>
+                    </p>
+
+
+
+                    <p class="ac_txt msg_up"><%=safe_join(posts.message.split("\n"),tag(:br))%></p>
+
+
+
+
+                </div>
+
+            </div>
+
+            <% end %>
+
+            <% end %>
+
+            <% else %>
+            タイムラインがありません
+            <% end %>
+
+        </div>
+
+        <div class="panel f_l_user_list">
+
+            <div class="pl_head">
+                <p class="sttl">Following : <%= @fing_users.count %></p>
+            </div>
+
+            <% if !@fing_users.empty? %>
+
+            <ul>
+                <% @fing_users.each do |fing_user| %>
+                <% user = User.find(fing_user.u_id) %>
+                <% msg = Onemessage.find_by(onemessage_uid: fing_user.u_id) %>
+                <li>
+                    <%= link_to "/#{user.userid}", data: {'turbolinks' => false} do %>
+                    <span><%= image_tag "#{user.userimg}" %></span>
+                    <div>
+                        <span>
+                            <% if user.username.empty? %>
+                            <%= user.userid %>
+                            <% else %>
+                            <%= user.username %>
+                            <% end %>
+                        </span>
+                        <span><%= msg.message %></span>
+                    </div>
+                    <% end %>
+                </li>
+                <% end %>
+            </ul>
+
+            <% else %>
+            フォローしているユーザーはいません
+            <% end %>
+        </div>
+
+        <div class="panel f_l_user_list">
+
+            <div class="pl_head">
+                <p class="sttl">Follower : <%= @fer_users.count %></p>
+            </div>
+
+            <% if !@fer_users.empty? %>
+
+            <ul>
+                <% @fer_users.each do |fer_user| %>
+                <% user = User.find(fer_user.f_id) %>
+                <% msg = Onemessage.find_by(onemessage_uid: fer_user.f_id) %>
+                <li>
+                    <%= link_to "/#{user.userid}", data: {'turbolinks' => false} do %>
+                    <span><%= image_tag "#{user.userimg}" %></span>
+                    <div>
+                        <span>
+                            <% if user.username.empty? %>
+                            <%= user.userid %>
+                            <% else %>
+                            <%= user.username %>
+                            <% end %>
+                        </span>
+                        <span><%= msg.message %></span>
+                    </div>
+                    <% end %>
+                </li>
+                <% end %>
+            </ul>
+
+            <% else %>
+            フォローされているユーザーはいません
+            <% end %>
+
+        </div>
+
+    </div>
+
+</section>

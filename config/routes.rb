@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get "p/:id/like" => "likes#create"
   get "p/:id/unlike" => "likes#destroy"
 
+  get "f/list" => "friends#show"
+
   resources :users, param: :userid, path: "/", only: [:show]
 
   get ":userid/follow" => "follows#create"

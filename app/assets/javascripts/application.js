@@ -15,6 +15,39 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery_nested_form
+
+//nested_form setting（フェードアウトできない）
+// window.NestedFormEvents.prototype.insertFields = function (content, assoc, link) {
+//     var target = $(link).data('target');
+//     if (target) {
+//         return $(content).appendTo($(target)).hide().fadeIn();
+//     } else {
+//         return $(content).insertBefore(link).hide().fadeIn();
+//     }
+// }
+// window.NestedFormEvents.prototype.removeFields = function (e) {
+//     var $link = $(e.currentTarget),
+//         assoc = $link.data('association'); // Name of child to be removed
+
+//     var hiddenField = $link.prev('input[type=hidden]');
+//     hiddenField.val('1');
+
+//     var field = $link.closest('.fields');
+//     field.fadeOut();
+
+//     field
+//         .trigger({
+//             type: 'nested:fieldRemoved',
+//             field: field
+//         })
+//         .trigger({
+//             type: 'nested:fieldRemoved:' + assoc,
+//             field: field
+//         });
+//     return false;
+// }
+
 
 
 $(document).on('turbolinks:load', function () {
@@ -46,9 +79,7 @@ $(document).on('turbolinks:load', function () {
             $('.is-active').removeClass('is-active');
             $(this).addClass('is-active');
             $('.panel').fadeOut(300);
-            // クリックしたタブからインデックス番号を取得
             const index = $(this).index();
-            // クリックしたタブと同じインデックス番号をもつコンテンツを表示
             $('.panel').eq(index).fadeIn(300);
         });
     });
@@ -81,6 +112,22 @@ $(document).on('turbolinks:load', function () {
         const m_content = m_btn.next();
         m_btn.modaal({
             content_source: m_content
+        });
+    });
+
+    //タブ固定
+    $(function () {
+        var nav = $('ul.tab-group');
+        var nav_p = nav.offset().top;
+        $(window).on('scroll', function () {
+            var scroll = $(window).scrollTop() + 63;
+            if (scroll >= nav_p) {
+                nav.addClass('tab_fixed');
+                $('.panel-group').addClass('pt');
+            } else {
+                nav.removeClass('tab_fixed');
+                $('.panel-group').removeClass('pt');
+            }
         });
     });
 

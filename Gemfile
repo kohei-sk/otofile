@@ -77,3 +77,5 @@ gem 'carrierwave'
 gem 'rmagick'
 
 gem 'gon'
+
+gem "nested_form"

@@ -14,14 +14,14 @@
 <div class="like_user m_btn">
     <% like = Like.where(l_pid: posts.id).order(created_at: "DESC") %>
     <% like.each do |likes| %>
-    <% l_user = User.find_by(id: likes.l_uid) %>
+    <% l_user = User.find(likes.l_uid) %>
     <span class="like_user_in"><%= image_tag "#{l_user.userimg}" %></span>
     <% end %>
 </div>
 <div class="m_content">
     <ul>
         <% like.each do |likes| %>
-        <% l_user = User.find_by(id: likes.l_uid) %>
+        <% l_user = User.find(likes.l_uid) %>
         <% msg = Onemessage.find_by(onemessage_uid: likes.l_uid) %>
         <li>
             <%= link_to "/#{l_user.userid}", data: {'turbolinks' => false} do %>

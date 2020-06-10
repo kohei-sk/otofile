@@ -129,12 +129,13 @@ body.nav--opened header {
                 -webkit-overflow-scrolling: touch;
                 position: fixed;
                 width: 100%;
-                height: 100%;
+                height: calc(100% - 1px);
                 padding: 30px 0;
                 box-sizing: border-box;
                 background-color: $base-color;
                 overflow-y: auto;
                 max-width: $main-wrap;
+                margin-top: 1px;
 
                 a {
                     display: inline-block;
@@ -262,6 +263,68 @@ body.nav--opened header {
             .year {
                 width: 70px;
                 margin: 0 10px 4px 0;
+            }
+
+            .fields {
+                margin-bottom: 15px;
+                position: relative;
+
+                a.remove_nested_fields {
+                    @include btn();
+                    padding: 8px 10px;
+                    transition: all 0.3s;
+                    position: absolute;
+                    top: 17px;
+                    right: 1px;
+                    background-color: $base-color;
+                    border: 1px solid $main-color;
+                    color: $main-color;
+
+                    &:before {
+                        font-family: "Font Awesome 5 free";
+                        font-weight: 900;
+                        content: '\f2ed';
+                        font-size: 12px;
+                        line-height: 100%;
+                    }
+
+                    &:hover {
+                        background-color: $main-color;
+                        color: $base-color;
+                    }
+
+                }
+
+            }
+
+            a.add_nested_fields {
+                @include btn();
+                position: relative;
+                padding: 10px 20px 10px 37px;
+                margin: 0 0 10px 1px;
+                transition: all 0.3s;
+                background-color: $base-color;
+                border: 1px solid $accent-color;
+                color: $accent-color;
+
+                &:before {
+                    font-family: "Font Awesome 5 free";
+                    font-weight: 900;
+                    content: '\f055';
+                    font-size: 14px;
+                    line-height: 100%;
+                    padding: 7px;
+                    width: 25px;
+                    height: 25px;
+                    position: absolute;
+                    left: 13px;
+                    top: 4px;
+                }
+
+                &:hover {
+                    background-color: $accent-color;
+                    color: $base-color;
+                }
             }
 
             input,
@@ -411,8 +474,8 @@ body.nav--opened header {
 
         a.delete {
             display: inline-block;
-            background-color: $attention-color;
-            color: $base-color;
+            border: 1px solid $attention-color;
+            color: $attention-color;
             line-height: 100%;
             padding: 8px 12px;
             border-radius: 5px;
@@ -443,7 +506,7 @@ body.nav--opened header {
 
         position: relative;
         width: 100%;
-        margin: 65px 0 0 0;
+        margin: 63px 0 0 0;
         padding: 52px 0;
 
     }

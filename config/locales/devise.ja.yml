@@ -4,12 +4,8 @@ ja:
       post:
         title: "タイトル"
         ytid: "動画ID"
-      profile:
-        h_year1: "年代"
-        h_year2: "年代"
-        h_year3: "年代"
-        h_year4: "年代"
-        h_year5: "年代"
+      histories:
+        year: "年代"
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン

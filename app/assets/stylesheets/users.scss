@@ -217,14 +217,23 @@ section.head {
 
 }
 
-section.profile {
+section.tab_content_wrap {
     padding: 60px 0 0 0;
 
     ul.tab-group {
         display: flex;
         justify-content: center;
+        background-color: $base-color;
         border-top: 1px solid $main-color;
         border-bottom: 1px solid $main-color;
+
+        &.tab_fixed {
+            position: fixed;
+            z-index: 99;
+            width: 100%;
+            top: 63px;
+            max-width: $main-wrap;
+        }
 
         li.tab {
             flex-grow: 1;
@@ -239,6 +248,7 @@ section.profile {
                 transition: all 0.3s ease-in-out;
                 position: relative;
                 border-bottom: 3px solid $main-color;
+                pointer-events: none;
             }
         }
     }
@@ -246,8 +256,14 @@ section.profile {
     .panel-group {
         @include wrap();
 
+        &.pt {
+            padding-top: 42px;
+            box-sizing: border-box;
+        }
+
         .panel {
             display: none;
+            min-height: calc(100vh - 100px);
 
             .pr_content a,
             .ac_txt a,
@@ -306,6 +322,9 @@ section.profile {
             a.pr_post {
                 position: relative;
                 @include btn();
+                position: absolute;
+                right: 0;
+                top: -3px;
 
                 &:before {
                     font-family: "Font Awesome 5 free";
@@ -359,6 +378,10 @@ section.profile {
                     &:first-child {
                         td {
                             padding-top: 24px;
+
+                            &:nth-child(1):before {
+                                display: none;
+                            }
                         }
 
                     }
@@ -368,7 +391,7 @@ section.profile {
                         td {
                             padding-bottom: 24px;
 
-                            &:nth-child(1):before {
+                            &:nth-child(1):after {
                                 display: none;
                             }
                         }
@@ -383,6 +406,17 @@ section.profile {
                             z-index: 9;
 
                             &:before {
+                                content: "";
+                                width: 2px;
+                                height: 100%;
+                                background-color: $sub-color;
+                                position: absolute;
+                                left: calc(50% - 1px);
+                                bottom: 50%;
+                                z-index: -1;
+                            }
+
+                            &:after {
                                 content: "";
                                 width: 2px;
                                 height: 100%;
@@ -429,13 +463,13 @@ section.profile {
                     padding: 12px 16px;
                     @include bg_grd();
 
-                    p.like_p_user {
+                    p.p_user_wrap {
                         width: 100%;
                         margin: 7px 0;
 
                         a {
                             display: inline-block;
-                            width: 100%;
+                            width: auto;
 
                             >span {
                                 display: inline-block;
@@ -443,6 +477,10 @@ section.profile {
                                 line-height: 100%;
                                 color: $main-color;
                                 font-size: 13px;
+
+                                &.prf_up {
+                                    line-height: 130%;
+                                }
 
                                 &:nth-child(1) {
                                     width: 34px;
@@ -480,14 +518,12 @@ section.profile {
                         letter-spacing: .5px;
                         padding: 5px 0 15px 3px;
                         border-bottom: 1px solid $sub-color;
-                        margin-bottom: 17px;
                     }
 
                     .p_like_box {
                         display: block;
                         width: auto;
                         padding: 17px 4px 8px 4px;
-                        margin: 16px 0 0 0;
                         border-top: $sub-color solid 1px;
 
                         .p_like_box_wrap {
@@ -561,7 +597,13 @@ section.profile {
                         font-size: 14px;
                         line-height: 180%;
                         letter-spacing: .5px;
-                        padding: 0 4px;
+                        padding: 17px 4px;
+
+                        &.msg_up {
+                            border-top: 1px solid $sub-color;
+                            padding: 12px 3px 5px 3px;
+                            margin-top: 15px;
+                        }
                     }
 
                     .ac_in_edit {
@@ -572,7 +614,7 @@ section.profile {
                         color: $main-color;
                         display: inline-block;
                         padding: 5px 10px;
-                        margin: 15px 0 5px;
+                        margin: 0 0 25px;
                     }
                 }
             }
@@ -580,7 +622,8 @@ section.profile {
     }
 }
 
-.modaal-content-container {
+.modaal-content-container,
+.f_l_user_list {
 
     ul {
         width: 100%;

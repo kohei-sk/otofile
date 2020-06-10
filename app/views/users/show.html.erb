@@ -17,13 +17,13 @@
         <p class="head_message">
             <% if @msg.present? %>
             <% if @msg.message.blank? %>
-            <span class="none">投稿がありません</span>
+            <span class="none">ひとことがありません</span>
             <% else %>
             <%= safe_join(@msg.message.split("\n"),tag(:br)) %>
             <span class="date"><%= l @msg.updated_at, format: "%Y-%m-%d" %></span>
             <% end %>
             <% else %>
-            <span class="none">投稿がありません</span>
+            <span class="none">ひとことがありません</span>
             <% end %>
             <% if current_user.id == @user.id %>
             <%= link_to "", "/m/edit", class: "head_message_edit" %>
@@ -60,7 +60,7 @@
 </section>
 
 
-<section class="profile clearfix">
+<section class="tab_content_wrap clearfix">
 
     <ul class="tab-group">
         <li class="tab is-active">Profile</li>
@@ -72,7 +72,7 @@
 
         <div class="panel is-show">
 
-            <% if @profile.present? %>
+            <% if !@profile.nil? %>
 
             <div class="pl_head">
                 <p class="sttl">Update : <%= l @profile.updated_at, format: "%Y-%m-%d" %></p>
@@ -80,6 +80,11 @@
                 <%= link_to 'Edit', "/pr/edit", class: "pr_edit" %>
                 <% end %>
             </div>
+
+            <% if @profile.free_area.present? %>
+            <p class="pr_ttl">About me</p>
+            <p class="pr_content"><%= safe_join(@profile.free_area.split("\n"),tag(:br)) %></p>
+            <% end %>
 
             <% if @profile.trendartist.present? %>
             <p class="pr_ttl">Trend artist</p>
@@ -106,57 +111,42 @@
             <p class="pr_content"><%= safe_join(@profile.fvsong.split("\n"),tag(:br)) %></p>
             <% end %>
 
+            <% if @profile.fes_sche.present? %>
+            <p class="pr_ttl">Live / Fes Schedule</p>
+            <p class="pr_content"><%= safe_join(@profile.fes_sche.split("\n"),tag(:br)) %></p>
+            <% end %>
+
+            <% if @profile.fes_his.present? %>
+            <p class="pr_ttl">Live / Fes History</p>
+            <p class="pr_content"><%= safe_join(@profile.fes_his.split("\n"),tag(:br)) %></p>
+            <% end %>
+
             <% if @profile.fvmv.present? %>
             <p class="pr_ttl">Favorite video</p>
             <div class="yt_wrap">
                 <iframe width="854" height="480" src="https://www.youtube.com/embed/<%= @profile.fvmv %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-
-            <% else %>
-
-            <%= link_to 'Add profile', "/pr/new", class: "pr_post" %>
-
             <% end %>
 
+            <% if @profile.fav_playlist.present? %>
+            <p class="pr_ttl">Favorite playlist</p>
+            <p class="pr_content"><%= safe_join(@profile.fav_playlist.split("\n"),tag(:br)) %></p>
+            <% end %>
+
+            <% if @profile.histories.present? %>
 
             <p class="pr_ttl">History</p>
 
             <table border="0">
 
-                <tr>
-                    <% if @profile.h_year1.present? && @profile.h_content1.present? %>
-                    <td><span><%= @profile.h_year1 %></span></td>
-                    <td><%= safe_join(@profile.h_content1.split("\n"),tag(:br)) %></td>
-                    <% end %>
-                </tr>
+                <% @histories.each do |history| %>
 
                 <tr>
-                    <% if @profile.h_year2.present? && @profile.h_content2.present? %>
-                    <td><span><%= @profile.h_year2 %></span></td>
-                    <td><%= safe_join(@profile.h_content2.split("\n"),tag(:br)) %></td>
-                    <% end %>
+                    <td><span><%= history.year %></span></td>
+                    <td><%= safe_join(history.event.split("\n"),tag(:br)) %></td>
                 </tr>
 
-                <tr>
-                    <% if @profile.h_year3.present? && @profile.h_content3.present? %>
-                    <td><span><%= @profile.h_year3 %></span></td>
-                    <td><%= safe_join(@profile.h_content3.split("\n"),tag(:br)) %></td>
-                    <% end %>
-                </tr>
-
-                <tr>
-                    <% if @profile.h_year4.present? && @profile.h_content4.present? %>
-                    <td><span><%= @profile.h_year4 %></span></td>
-                    <td><%= safe_join(@profile.h_content4.split("\n"),tag(:br)) %></td>
-                    <% end %>
-                </tr>
-
-                <tr>
-                    <% if @profile.h_year5.present? && @profile.h_content5.present? %>
-                    <td><span><%= @profile.h_year5 %></span></td>
-                    <td><%= safe_join(@profile.h_content5.split("\n"),tag(:br)) %></td>
-                    <% end %>
-                </tr>
+                <% end %>
 
                 <tr>
                     <td><span>Start</span></td>
@@ -165,6 +155,17 @@
 
             </table>
 
+            <% end %>
+
+
+
+            <% else %>
+            <div class="pl_head">
+                <p class="sttl">None profile</p>
+                <% if current_user.id == @user.id %>
+                <%= link_to 'Post profile', "/pr/new", class: "pr_post" %>
+                <% end %>
+            </div>
             <% end %>
 
         </div>
@@ -187,7 +188,7 @@
             </div>
 
 
-            <% if @post %>
+            <% if !@post.empty? %>
 
             <% @post.each do |posts| %>
 
@@ -249,7 +250,7 @@
                 <span class="date"><%= l likes_post.created_at, format: "%Y-%m-%d" %></span>
                 <div class="ac_content_wrap">
 
-                    <p class="like_p_user clearfix">
+                    <p class="p_user_wrap clearfix">
                         <%= link_to "/#{likes_user.userid}", data: {'turbolinks' => false} do %>
                         <span><%= image_tag "#{likes_user.userimg}" %></span>
                         <span>

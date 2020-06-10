@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
       redirect_to "/pr/edit"
     else
       @profile = Profile.new
+      @history = @profile.histories.build
     end
   end
   def create
@@ -27,7 +28,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find_by(profile_uid: current_user.id)
-    if @profile.update(profile_params)
+    if @profile.update(profile_params_up)
       redirect_to root_path, notice: '更新しました'
     else
       render "profiles/edit"
@@ -36,7 +37,10 @@ class ProfilesController < ApplicationController
 
   private
     def profile_params
-      params.require(:profile).permit(:trendartist, :trendsong, :fvcate, :fvartist, :fvsong, :fvmv, :myband, :h_year1, :h_year2, :h_year3, :h_year4, :h_year5, :h_content1, :h_content2, :h_content3, :h_content4, :h_content5).merge(profile_uid: current_user.id)
+      params.require(:profile).permit(:trendartist, :trendsong, :fvcate, :fvartist, :fvsong, :fvmv, :free_area, :fes_sche, :fes_his, :fav_playlist, :h_content4, :h_content5, histories_attributes: [:year, :event]).merge(profile_uid: current_user.id)
+    end
+    def profile_params_up
+      params.require(:profile).permit(:trendartist, :trendsong, :fvcate, :fvartist, :fvsong, :fvmv, :free_area, :fes_sche, :fes_his, :fav_playlist, :h_content4, :h_content5, histories_attributes: [:year, :event, :_destroy, :id]).merge(profile_uid: current_user.id)
     end
 
 end

@@ -33,7 +33,7 @@
                     <%= link_to 'ひとこと', "/m/new", data: {'turbolinks' => false}, class: "nav_msg" %>
                     <%= link_to 'プロフィール', '/pr/new', data: {'turbolinks' => false}, class: "nav_edit" %>
                     <%= link_to 'アクティビティ', '/p/new', data: {'turbolinks' => false}, class: "nav_act" %>
-                    <%= link_to 'フレンド', '#', data: {'turbolinks' => false}, class: "nav_friend" %>
+                    <%= link_to 'フレンド', '/f/list', data: {'turbolinks' => false}, class: "nav_friend" %>
                     <%= link_to 'アカウント設定', edit_user_registration_path, data: {'turbolinks' => false}, class: 'nav_setting' %>
                     <%= link_to 'ログアウト', destroy_user_session_path, data: {'turbolinks' => false}, class: "nav_signout", method: :delete %>
                     <%= link_to 'お問い合わせ', '#', data: {'turbolinks' => false}, class: "nav_contact" %>

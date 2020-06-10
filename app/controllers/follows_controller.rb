@@ -5,7 +5,7 @@ class FollowsController < ApplicationController
     user = User.find_by(userid: params[:userid])
     follow = Follow.find_by(u_id: user.id, f_id: current_user.id)
     if !follow
-      Follow.create(u_id: user.id, f_id: current_user.id)
+      Follow.create(u_id: user.id, f_id: current_user.id, user_id: current_user.id)
     else
       redirect_to "/#{params[:userid]}/unfollow"
     end

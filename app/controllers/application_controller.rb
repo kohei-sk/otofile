@@ -6,17 +6,17 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     #ユーザー登録のパラメーター追加
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:userid])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:userid])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:userimg])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:userimg])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:sns_t])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:sns_f])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:sns_i])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:sns_l])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:userlink])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :userid, :userimg])
+    devise_parameter_sanitizer.permit(:account_update, keys: [
+                                                         :username,
+                                                         :userid,
+                                                         :userimg,
+                                                         :sns_t,
+                                                         :sns_f,
+                                                         :sns_i,
+                                                         :sns_l,
+                                                         :userlink,
+                                                       ])
   end
 
   private

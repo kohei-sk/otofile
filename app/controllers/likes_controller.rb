@@ -4,7 +4,7 @@ class LikesController < ApplicationController
   def create
     like = Like.find_by(l_pid: params[:id], l_uid: current_user.id)
     if !like
-      Like.create(l_pid: params[:id], l_uid: current_user.id)
+      Like.create(l_pid: params[:id], l_uid: current_user.id, post_id: params[:id])
     else
       redirect_to "/p/#{params[:id]}/unlike"
     end
