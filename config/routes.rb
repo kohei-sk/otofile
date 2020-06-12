@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  root :to => "home#index"
+  get "welcome" => "welcome#index"
+
   get "follows/create"
   get "follows/destroy"
-  root :to => "home#index"
 
   get "m/new" => "onemessages#new"
   post "m/new" => "onemessages#create"

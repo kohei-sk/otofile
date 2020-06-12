@@ -13,6 +13,10 @@
 
 section.head {
 
+    &.reco {
+        padding: 0 !important;
+    }
+
     h3 {
         font-weight: 300;
         text-align: center;
@@ -22,21 +26,28 @@ section.head {
     }
 
     .reco_wrap {
-        display: flex;
-        justify-content: center;
 
         a.reco_item_wrap {
             text-align: center;
             color: $main-color;
-            margin: 0 12px;
-            width: calc(100% / 3);
+            border: 1px solid $sub-color2;
+            padding: 12px 10px;
+            width: calc(100% / 4);
+            margin: 0 5px;
+
+            @include sp {
+                width: calc(100% / 2.5);
+                margin: 0 3px;
+            }
+
+            ;
 
             .reco_item_img {
                 display: inline-block;
                 width: calc(100vw / 3 - 45px);
                 height: calc(100vw / 3 - 45px);
-                max-width: 120px;
-                max-height: 120px;
+                max-width: 90px;
+                max-height: 90px;
                 border-radius: 100%;
                 overflow: hidden;
 
@@ -56,8 +67,6 @@ section.head {
             .reco_item_id {
                 line-height: 100%;
                 font-size: 11px;
-                border-bottom: 1px solid $sub-color2;
-                padding-bottom: 8px;
                 color: $sub-color;
             }
 

@@ -1,18 +1,18 @@
 <section class="head clearfix">
 
     <div class="head_l clearfix">
-        <p class="head_img"><%= image_tag "#{@user.userimg}" %></p>
+        <p class="head_img"><%= image_tag "#{@user_name.userimg}" %></p>
     </div>
     <div class="head_r clearfix">
         <p class="head_name">
-            <% if @user.username.empty? %>
-            <%= @user.userid %>
+            <% if @user_name.username.empty? %>
+            <%= @user_name.userid %>
             <% else %>
-            <%= @user.username %>
+            <%= @user_name.username %>
             <% end %>
         </p>
 
-        <p class="head_id"><%= @user.userid %></p>
+        <p class="head_id"><%= @user_name.userid %></p>
 
         <p class="head_message">
             <% if @msg.present? %>
@@ -20,38 +20,37 @@
             <span class="none">ひとことがありません</span>
             <% else %>
             <%= safe_join(@msg.message.split("\n"),tag(:br)) %>
-            <span class="date"><%= l @msg.updated_at, format: "%Y-%m-%d" %></span>
             <% end %>
             <% else %>
             <span class="none">ひとことがありません</span>
             <% end %>
-            <% if current_user.id == @user.id %>
+            <% if current_user.id == @user_name.id %>
             <%= link_to "", "/m/edit", class: "head_message_edit" %>
             <% end %>
         </p>
 
 
-        <% if @user.sns_t.present? %>
+        <% if @user_name.sns_t.present? %>
         <div class="head_sns">
-            <%= link_to "", "#{@user.sns_t}",target: "_blank", class: "head_snst" %>
+            <%= link_to "", "#{@user_name.sns_t}",target: "_blank", class: "head_snst" %>
             <% end %>
-            <% if @user.sns_f.present? %>
-            <%= link_to "", "#{@user.sns_f}",target: "_blank", class: "head_snsf" %>
+            <% if @user_name.sns_f.present? %>
+            <%= link_to "", "#{@user_name.sns_f}",target: "_blank", class: "head_snsf" %>
             <% end %>
-            <% if @user.sns_i.present? %>
-            <%= link_to "", "#{@user.sns_i}",target: "_blank", class: "head_snsi" %>
+            <% if @user_name.sns_i.present? %>
+            <%= link_to "", "#{@user_name.sns_i}",target: "_blank", class: "head_snsi" %>
             <% end %>
-            <% if @user.sns_l.present? %>
-            <%= link_to "", "#{@user.sns_l}",target: "_blank", class: "head_snsl" %>
+            <% if @user_name.sns_l.present? %>
+            <%= link_to "", "#{@user_name.sns_l}",target: "_blank", class: "head_snsl" %>
             <% end %>
-            <% if @user.userlink.present? %>
-            <%= link_to "", "#{@user.userlink}",target: "_blank", class: "head_userlink" %>
+            <% if @user_name.userlink.present? %>
+            <%= link_to "", "#{@user_name.userlink}",target: "_blank", class: "head_userlink" %>
         </div>
         <% end %>
 
-        <% if @user.id != current_user.id %>
+        <% if @user_name.id != current_user.id %>
         <div class="follow_wrap clearfix">
-            <%= render partial: "users/follow", locals: { follow: @follow } %>
+            <%= render partial: "users/follow", locals: { follow: @following } %>
         </div>
         <% end %>
 
@@ -76,7 +75,7 @@
 
             <div class="pl_head">
                 <p class="sttl">Update : <%= l @profile.updated_at, format: "%Y-%m-%d" %></p>
-                <% if current_user.id == @user.id %>
+                <% if current_user.id == @user_name.id %>
                 <%= link_to 'Edit', "/pr/edit", class: "pr_edit" %>
                 <% end %>
             </div>
@@ -112,12 +111,12 @@
             <% end %>
 
             <% if @profile.fes_sche.present? %>
-            <p class="pr_ttl">Live / Fes Schedule</p>
+            <p class="pr_ttl">Live / Fes schedule</p>
             <p class="pr_content"><%= safe_join(@profile.fes_sche.split("\n"),tag(:br)) %></p>
             <% end %>
 
             <% if @profile.fes_his.present? %>
-            <p class="pr_ttl">Live / Fes History</p>
+            <p class="pr_ttl">Live / Fes history</p>
             <p class="pr_content"><%= safe_join(@profile.fes_his.split("\n"),tag(:br)) %></p>
             <% end %>
 
@@ -134,27 +133,24 @@
             <% end %>
 
             <% if @profile.histories.present? %>
+            <p class="pr_ttl">Your history</p>
 
-            <p class="pr_ttl">History</p>
-
-            <table border="0">
+            <div class="pr_content_his">
 
                 <% @histories.each do |history| %>
 
-                <tr>
-                    <td><span><%= history.year %></span></td>
-                    <td><%= safe_join(history.event.split("\n"),tag(:br)) %></td>
-                </tr>
+                <div class="history_wrap">
+                    <p class="year"><span></span><%= history.year %></p>
+                    <p class="event"><%= safe_join(history.event.split("\n"),tag(:br)) %></p>
+                </div>
 
                 <% end %>
 
-                <tr>
-                    <td><span>Start</span></td>
-                    <td></td>
-                </tr>
+                <div class="history_wrap">
+                    <p class="year"><span></span>Start</p>
+                </div>
 
-            </table>
-
+            </div>
             <% end %>
 
 
@@ -162,7 +158,7 @@
             <% else %>
             <div class="pl_head">
                 <p class="sttl">None profile</p>
-                <% if current_user.id == @user.id %>
+                <% if current_user.id == @user_name.id %>
                 <%= link_to 'Post profile', "/pr/new", class: "pr_post" %>
                 <% end %>
             </div>
@@ -175,39 +171,46 @@
 
             <div class="pl_head">
                 <p class="sttl">
-                    <% if @user.username.empty? %>
-                    <%= @user.userid %>
+                    <% if @user_name.username.empty? %>
+                    <%= @user_name.userid %>
                     <% else %>
-                    <%= @user.username %>
+                    <%= @user_name.username %>
                     <% end %>
                     's &nbsp; Activity
                 </p>
-                <% if current_user.id == @user.id %>
+                <% if current_user.id == @user_name.id %>
                 <p><%= link_to 'Post', p_new_path, class: "ac_post" %></p>
                 <% end %>
             </div>
 
 
-            <% if !@post.empty? %>
+            <% if !@posts.empty? %>
 
-            <% @post.each do |posts| %>
+            <% @posts.each do |post| %>
 
             <div class="ac_content clearfix">
 
-                <span class="date"><%= l posts.created_at, format: "%Y-%m-%d" %></span>
                 <div class="ac_content_wrap">
 
-                    <p class="ac_ttl"><%= posts.title %></p>
+                    <p class="ac_ttl"><%= post.title %></p>
 
-                    <p class="ac_txt"><%=safe_join(posts.comment.split("\n"),tag(:br))%></p>
+                    <p class="ac_txt">
+                        <%=safe_join(post.comment.split("\n"),tag(:br))%>
+                        <span class="date"><%= l post.created_at, format: "%Y-%m-%d" %></span>
+                    </p>
 
-                    <% if @user.id == current_user.id %>
-                    <%= link_to "Edit", "/p/#{posts.id}/edit", class: 'ac_in_edit' %>
+                    <% if post.img.present? %>
+                    <p class="ac_img m_btn"><%= image_tag "#{post.img}"%></p>
+                    <p class="m_content"><%= image_tag "#{post.img}" %></p>
                     <% end %>
 
-                    <div class="p_like_box" id="ac_post_<%= posts.id %>">
+                    <% if @user_name.id == current_user.id %>
+                    <%= link_to "Edit", "/p/#{post.id}/edit", class: 'ac_in_edit' %>
+                    <% end %>
 
-                        <%= render partial: 'users/like', locals: { posts: posts} %>
+                    <div class="p_like_box" id="ac_post_<%= post.id %>">
+
+                        <%= render partial: 'users/like', locals: { post: post} %>
 
                     </div>
 
@@ -227,27 +230,25 @@
 
             <div class="pl_head">
                 <p class="sttl">
-                    <% if @user.username.empty? %>
-                    <%= @user.userid %>
+                    <% if @user_name.username.empty? %>
+                    <%= @user_name.userid %>
                     <% else %>
-                    <%= @user.username %>
+                    <%= @user_name.username %>
                     <% end %>
                     's &nbsp; Favorite
                 </p>
             </div>
 
 
-            <% if @user_like.count != 0 %>
+            <% if !@user_likes.empty? %>
 
-            <% @user_like.each do |user_likes| %>
+            <% @user_likes.each do |user_like| %>
 
             <div class="ac_content clearfix">
 
-                <% post_likes = Post.find_by(id: user_likes.l_pid) %>
-                <% likes_post = Like.find_by(l_pid: post_likes.id) %>
-                <% likes_user = User.find_by(id: likes_post.l_uid) %>
+                <% post = Post.find_by(id: user_like.post_id) %>
+                <% likes_user = User.find_by(id: post.user_id) %>
 
-                <span class="date"><%= l likes_post.created_at, format: "%Y-%m-%d" %></span>
                 <div class="ac_content_wrap">
 
                     <p class="p_user_wrap clearfix">
@@ -264,13 +265,21 @@
                         <% end %>
                     </p>
 
-                    <p class="ac_ttl"><%= post_likes.title %></p>
+                    <p class="ac_ttl"><%= post.title %></p>
 
-                    <p class="ac_txt"><%=safe_join(post_likes.comment.split("\n"),tag(:br))%></p>
+                    <p class="ac_txt">
+                        <%=safe_join(post.comment.split("\n"),tag(:br))%>
+                        <span class="date"><%= l user_like.created_at, format: "%Y-%m-%d" %></span>
+                    </p>
 
-                    <div class="p_like_box" id="ac_post_<%= post_likes.id %>">
+                    <% if post.img.present? %>
+                    <p class="ac_img m_btn"><%= image_tag "#{post.img}"%></p>
+                    <p class="m_content"><%= image_tag "#{post.img}" %></p>
+                    <% end %>
 
-                        <%= render partial: 'users/like', locals: { posts: post_likes} %>
+                    <div class="p_like_box" id="ac_post_<%= post.id %>">
+
+                        <%= render partial: 'users/like', locals: { post: post} %>
 
                     </div>
 

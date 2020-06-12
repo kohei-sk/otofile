@@ -113,6 +113,7 @@ $sub-color: #adadad;
 $sub-color2: #e0e0e0;
 $attention-color: #ca0000;
 $main-wrap: 550px;
+$sp: 550px;
 
 @mixin wrap() {
     width: 100%;
@@ -120,9 +121,9 @@ $main-wrap: 550px;
 }
 
 @mixin bg_grd() {
-    background-color: $sub-color2;
+    background-color: #eaeaea;
     background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, $base-color), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, $base-color), color-stop(.75, $base-color), color-stop(.75, transparent), to(transparent));
-    -webkit-background-size: 3px 3px;
+    -webkit-background-size: 4px 4px;
 }
 
 @mixin yt_wrap() {
@@ -144,6 +145,12 @@ $main-wrap: 550px;
     color: $base-color;
     background-color: $accent-color;
     line-height: 100%;
-    padding: 16px 20px 16px 37px;
+    padding: 12px 20px 12px 37px;
     border-radius: 5px;
+}
+
+@mixin sp {
+    @media (max-width: ($sp)) {
+        @content;
+    }
 }

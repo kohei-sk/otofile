@@ -1,19 +1,23 @@
 class LikesController < ApplicationController
   before_action :sign_in_required
+  before_action :common
+  before_action :like_check
+
+  def like_check
+    @like = Like.find_by(post_id: params[:id], l_uid: current_user.id)
+  end
 
   def create
-    like = Like.find_by(l_pid: params[:id], l_uid: current_user.id)
-    if !like
-      Like.create(l_pid: params[:id], l_uid: current_user.id, post_id: params[:id])
+    if !@like
+      Like.create(post_id: params[:id], l_uid: current_user.id)
     else
       redirect_to "/p/#{params[:id]}/unlike"
     end
   end
 
   def destroy
-    like = Like.find_by(l_pid: params[:id], l_uid: current_user.id)
-    if like
-      like.destroy
+    if @like
+      @like.destroy
     else
       redirect_to "/p/#{params[:id]}/like"
     end

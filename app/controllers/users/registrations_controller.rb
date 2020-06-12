@@ -61,6 +61,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def after_update_path_for(resource)
-    "/#{current_user.userid}"
+    root_path
   end
 end

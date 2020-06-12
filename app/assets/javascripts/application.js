@@ -101,7 +101,7 @@ $(document).on('turbolinks:load', function () {
 
     //URL自動
     $(function () {
-        $('.pr_content, .ac_txt, .panel-group td').each(function () {
+        $('.pr_content, .ac_txt, .panel-group p.event').each(function () {
             $(this).html($(this).html().replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, "<a href='$1' target='_blank'>$1</a>"));
         });
     });
@@ -115,20 +115,19 @@ $(document).on('turbolinks:load', function () {
         });
     });
 
-    //タブ固定
-    $(function () {
-        var nav = $('ul.tab-group');
-        var nav_p = nav.offset().top;
-        $(window).on('scroll', function () {
-            var scroll = $(window).scrollTop() + 63;
-            if (scroll >= nav_p) {
-                nav.addClass('tab_fixed');
-                $('.panel-group').addClass('pt');
-            } else {
-                nav.removeClass('tab_fixed');
-                $('.panel-group').removeClass('pt');
-            }
-        });
+    //recommendスライダー
+    var flkty = new Flickity('.main-carousel', {
+        cellAlign: 'center',
+        wrapAround: true,
+        contain: true,
+        prevNextButtons: false,
+        pageDots: false
+    });
+
+    //ファイルアップロード ファイル名表示
+    $('input').on('change', function () {
+        var file = $(this).prop('files')[0];
+        $('span.file').text(file.name);
     });
 
 });

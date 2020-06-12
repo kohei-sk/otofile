@@ -1,9 +1,13 @@
 class OnemessagesController < ApplicationController
   before_action :sign_in_required
+  before_action :msg_check
+
+  def msg_check
+    @msg = Onemessage.find_by(user_id: current_user.id)
+  end
 
   def new
-    msg = Onemessage.find_by(onemessage_uid: current_user.id)
-    if msg
+    if @msg
       redirect_to "/m/edit"
     else
       @msg = Onemessage.new
@@ -12,23 +16,21 @@ class OnemessagesController < ApplicationController
   def create
     @msg = Onemessage.new(onemessage_params)
     if @msg.save
-      redirect_to root_path, notice: '更新しました'
+      redirect_to "/#{current_user.userid}", notice: '更新しました'
     else
       render "onemessages/new"
     end
   end
 
   def edit
-    @msg = Onemessage.find_by(onemessage_uid: current_user.id)
     if !@msg
       redirect_to "/m/new"
     end
   end
 
   def update
-    @msg = Onemessage.find_by(onemessage_uid: current_user.id)
     if @msg.update(onemessage_params)
-      redirect_to root_path, notice: '更新しました'
+      redirect_to "/#{current_user.userid}", notice: '更新しました'
     else
       render "onemessages/edit"
     end
@@ -36,7 +38,7 @@ class OnemessagesController < ApplicationController
 
   private
     def onemessage_params
-      params.require(:onemessage).permit(:message).merge(onemessage_uid: current_user.id)
+      params.require(:onemessage).permit(:message).merge(user_id: current_user.id)
     end
 
 end

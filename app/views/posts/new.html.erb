@@ -15,13 +15,21 @@
 <% end %>
 
 <div class="field">
-    <%= f.label :title, "タイトル" %><br />
+    <%= f.label :title, "タイトル" %>
     <%= f.text_field :title, placeholder: "必須" %>
 </div>
 
 <div class="field">
-    <%= f.label :comment, "コメント" %><br />
+    <%= f.label :comment, "コメント" %>
     <%= f.text_area :comment %>
+</div>
+
+<div class="field_img">
+    <%= f.label :img do %>
+    <%= f.file_field :img %>
+    <i class="fas fa-images"></i>画像を選択
+    <% end %>
+    <span class="file"></span>
 </div>
 
 <div class="actions">

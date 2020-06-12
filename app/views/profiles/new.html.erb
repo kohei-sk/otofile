@@ -3,7 +3,6 @@
 </div>
 
 <%= nested_form_for @profile,:url => {controller: "profiles", action: "create"} do |f| %>
-<%#= form_for @profile,:url => {controller: "profiles", action: "create"} do |f| %>
 
 <% if @profile.errors.any? %>
 <div id="error_explanation">
@@ -47,12 +46,12 @@
 
 <div class="field">
     <%= f.label :fes_sche, "参加予定のライブ・フェスは？" %>
-    <%= f.text_area :fes_sche, placeholder: "Live / Fes Schedule" %>
+    <%= f.text_area :fes_sche, placeholder: "Live / Fes hchedule" %>
 </div>
 
 <div class="field">
     <%= f.label :fes_his, "最近参加したライブ・フェスは？" %>
-    <%= f.text_area :fes_his, placeholder: "Live / Fes History" %>
+    <%= f.text_area :fes_his, placeholder: "Live / Fes history" %>
 </div>
 
 <div class="field">
