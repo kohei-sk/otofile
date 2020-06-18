@@ -25,13 +25,19 @@
 </div>
 
 <div class="field_img">
-    <%= f.label :img do %>
+    <div class="img_wrap_confirm">
+        <% if @post.img.present? %>
+        <%= image_tag "#{@post.img}"%>
+        <% end %>
+    </div>
+    <%= f.label :img, class: "img_select" do %>
     <%= f.file_field :img %>
     <i class="fas fa-images"></i>画像を選択
     <% end %>
-    <span class="file"></span>
-    <% if @post.img.present? %>
-    <div class="img_wrap_confirm"> <%= image_tag "#{@post.img}"%></div>
+    <span class="file"></span><br>
+    <%= f.label :remove_img, class: 'img_delete' do %>
+    <%= f.check_box :remove_img %>画像を削除する
+    <div class="indicator"></div>
     <% end %>
 </div>
 

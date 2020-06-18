@@ -39,7 +39,7 @@ class HomeController < ApplicationController
       @fing_users = Follow.where(user_id: current_user.id)
       @fer_users = Follow.where(f_id: current_user.id)
 
-      @reco_users = User.order("RANDOM()").limit(3)
+      @reco_users = User.where.not(id: current_user.id).order("RANDOM()").limit(30)
     end
   end
 end

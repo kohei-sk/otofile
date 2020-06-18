@@ -1,0 +1,22 @@
+<section class="search">
+
+    <div class="panel f_l_user_list">
+
+        <div class="pl_head">
+            <p class="ttl"><%= @w %></p>
+            <p class="sttl"><%= @search.count %> results</p>
+        </div>
+
+        <% if !@search.empty? %>
+
+        <% @search.each do |post| %>
+        <%= render partial: 'posts/activity', locals: { post: post} %>
+        <% end %>
+
+        <% else %>
+        該当する投稿は見つかりません
+        <% end %>
+
+    </div>
+
+</section>

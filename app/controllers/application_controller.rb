@@ -9,11 +9,14 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :userid, :userimg])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :userid])
     devise_parameter_sanitizer.permit(:account_update, keys: [
                                                          :username,
                                                          :userid,
                                                          :userimg,
+                                                         :remove_userimg,
+                                                         :hdrimg,
+                                                         :remove_hdrimg,
                                                          :sns_t,
                                                          :sns_f,
                                                          :sns_i,

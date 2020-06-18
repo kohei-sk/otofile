@@ -1,0 +1,25 @@
+<section class="search">
+
+    <div class="panel f_l_user_list">
+
+        <div class="pl_head">
+            <p class="ttl"><%= @w %></p>
+            <p class="sttl"><%= @search.count %> results</p>
+        </div>
+
+        <% if !@search.empty? %>
+
+        <ul>
+            <% @search.each do |user| %>
+            <% msg = Onemessage.find_by(user_id: user.id) %>
+            <%= render partial: "users/user_list", locals: { user: user, msg: msg } %>
+            <% end %>
+        </ul>
+
+        <% else %>
+        該当するユーザーは見つかりません
+        <% end %>
+
+    </div>
+
+</section>

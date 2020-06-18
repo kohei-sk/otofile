@@ -14,66 +14,112 @@
 section.head {
 
     &.reco {
-        padding: 0 !important;
+        padding: 10px 0 30px 0;
+        margin: 0;
+
+        &:after {
+            display: none;
+        }
     }
 
     h3 {
         font-weight: 300;
-        text-align: center;
-        font-size: 20px;
+        font-size: 18px;
         line-height: 100%;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
+        padding-left: 15px;
+        letter-spacing: .5px;
     }
 
     .reco_wrap {
 
-        a.reco_item_wrap {
-            text-align: center;
-            color: $main-color;
-            border: 1px solid $sub-color2;
-            padding: 12px 10px;
-            width: calc(100% / 4);
-            margin: 0 5px;
+        .reco_item_container {
+            width: 172px;
+            padding: 0 0 0 15px;
 
             @include sp {
                 width: calc(100% / 2.5);
-                margin: 0 3px;
+                padding: 0 0 0 6px;
             }
 
-            ;
+            .reco_item_wrap {
+                text-align: center;
+                color: $main-color;
+                border: 1px solid $sub-color2;
+                padding: 12px 10px;
+                width: 100%;
 
-            .reco_item_img {
-                display: inline-block;
-                width: calc(100vw / 3 - 45px);
-                height: calc(100vw / 3 - 45px);
-                max-width: 90px;
-                max-height: 90px;
-                border-radius: 100%;
-                overflow: hidden;
+                a {
+                    color: $main-color;
+                }
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
+                ;
+
+                .reco_item_img {
+                    display: inline-block;
+                    width: calc(100vw / 3 - 45px);
+                    height: calc(100vw / 3 - 45px);
+                    max-width: 90px;
+                    max-height: 90px;
+                    border-radius: 100%;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .reco_item_name {
+                    line-height: 130%;
+                    padding: 5px 0;
+                    font-size: 13px;
+                }
+
+                .reco_item_id {
+                    line-height: 100%;
+                    font-size: 11px;
+                    color: $sub-color;
+                }
+
+                .reco_item_msg {
+                    line-height: 140%;
+                    font-size: 11px;
+                    margin: 7px 0 0 0;
                 }
             }
+        }
 
-            .reco_item_name {
-                line-height: 130%;
-                padding: 5px 0;
-                font-size: 13px;
-            }
+        .follow_wrap {
+            margin: 11px 0 2px 0;
+            width: 100%;
+            @include btn_follow();
 
-            .reco_item_id {
-                line-height: 100%;
+            .follow_btn {
                 font-size: 11px;
-                color: $sub-color;
-            }
+                height: 25px;
+                line-height: 25px;
 
-            .reco_item_msg {
-                line-height: 140%;
-                font-size: 11px;
-                margin: 7px 0 0 0;
+                &.follow {
+                    &:before {
+                        content: 'Follow?';
+                    }
+
+                    &:hover:before {
+                        content: 'Follow?';
+                    }
+                }
+
+                &.unfollow {
+                    &:before {
+                        content: 'Following';
+                    }
+
+                    &:hover:before {
+                        content: 'Unfollow?';
+                    }
+                }
             }
         }
     }

@@ -5,70 +5,72 @@
     <% if !@reco_users.nil? %>
 
     <div class="reco_wrap main-carousel">
-        <% @reco_users.each do |reco_user| %>
+        <% @reco_users.each do |user| %>
 
-        <%= link_to "/#{reco_user.userid}",class: "reco_item_wrap swiper-slide", data: {'turbolinks' => false} do %>
+        <div class="reco_item_container">
+            <div class="reco_item_wrap">
 
-        <div class="reco_item_img"><%= image_tag "#{reco_user.userimg}" %></div>
-        <p class="reco_item_name">
-            <% if reco_user.username.empty? %>
-            <%= reco_user.userid %>
-            <% else %>
-            <%= reco_user.username %>
-            <% end %>
-        </p>
-        <p class="reco_item_id"><%= reco_user.userid %></p>
-        <%
-=begin%>
-        <% reco_msg = Onemessage.find_by(user_id: reco_user.id) %>
-        <% if !reco_msg.message.empty? %>
-        <p class="reco_item_msg"><%= safe_join(reco_msg.message.split("\n"),tag(:br)) %></p>
-        <% else %>
-        ひとことがありません
+                <%= link_to "/#{user.userid}", data: {'turbolinks' => false} do %>
+
+                <div class="reco_item_img"><%= image_tag "#{user.userimg.l}" %></div>
+                <p class="reco_item_name">
+                    <% if user.username.empty? %>
+                    <%= user.userid %>
+                    <% else %>
+                    <%= user.username %>
+                    <% end %>
+                </p>
+                <p class="reco_item_id"><%= user.userid %></p>
+
+                <% end %>
+
+                <div class="follow_wrap clearfix" id="follow_user_<%= user.id %>">
+                    <%= render partial: "follows/follow", locals: { user: user } %>
+                </div>
+
+            </div>
+        </div>
+
         <% end %>
-        <%
-=end%>
 
-        <% end %>
-
+        <% if @reco_users.count < 5 %>
+        <div class="reco_item_container">
+            <div class="reco_item_wrap">
+                <div class="reco_item_img"><%= image_tag "fallback/default_userimg" %></div>
+                <p class="reco_item_name">Sample user</p>
+                <p class="reco_item_id">sample_user</p>
+                <div class="follow_wrap clearfix"><span class="follow_btn follow"></span></div>
+            </div>
+        </div>
+        <div class="reco_item_container">
+            <div class="reco_item_wrap">
+                <div class="reco_item_img"><%= image_tag "fallback/default_userimg" %></div>
+                <p class="reco_item_name">Sample user</p>
+                <p class="reco_item_id">sample_user</p>
+                <div class="follow_wrap clearfix"><span class="follow_btn follow"></span></div>
+            </div>
+        </div>
+        <div class="reco_item_container">
+            <div class="reco_item_wrap">
+                <div class="reco_item_img"><%= image_tag "fallback/default_userimg" %></div>
+                <p class="reco_item_name">Sample user</p>
+                <p class="reco_item_id">sample_user</p>
+                <div class="follow_wrap clearfix"><span class="follow_btn follow"></span></div>
+            </div>
+        </div>
+        <div class="reco_item_container">
+            <div class="reco_item_wrap">
+                <div class="reco_item_img"><%= image_tag "fallback/default_userimg" %></div>
+                <p class="reco_item_name">Sample user</p>
+                <p class="reco_item_id">sample_user</p>
+                <div class="follow_wrap clearfix"><span class="follow_btn follow"></span></div>
+            </div>
+        </div>
         <% end %>
 
         <% else %>
         おすすめユーザーはいません
         <% end %>
-
-
-
-        <!-- テスト用 -->
-        <% @reco_users.each do |reco_user| %>
-        <%= link_to "/#{reco_user.userid}",class: "reco_item_wrap swiper-slide", data: {'turbolinks' => false} do %>
-        <div class="reco_item_img"><%= image_tag "#{reco_user.userimg}" %></div>
-        <p class="reco_item_name">
-            <% if reco_user.username.empty? %>
-            <%= reco_user.userid %>
-            <% else %>
-            <%= reco_user.username %>
-            <% end %>
-        </p>
-        <p class="reco_item_id"><%= reco_user.userid %></p>
-        <% end %>
-        <% end %>
-        <% @reco_users.each do |reco_user| %>
-        <%= link_to "/#{reco_user.userid}",class: "reco_item_wrap swiper-slide", data: {'turbolinks' => false} do %>
-        <div class="reco_item_img"><%= image_tag "#{reco_user.userimg}" %></div>
-        <p class="reco_item_name">
-            <% if reco_user.username.empty? %>
-            <%= reco_user.userid %>
-            <% else %>
-            <%= reco_user.username %>
-            <% end %>
-        </p>
-        <p class="reco_item_id"><%= reco_user.userid %></p>
-        <% end %>
-        <% end %>
-
-
-
 
     </div>
 
@@ -91,6 +93,10 @@
             <% @posts.each do |post| %>
 
             <% if post.has_attribute?(:title) %>
+
+            <%= render partial: 'posts/activity', locals: { post: post} %>
+
+            <% elsif post.has_attribute?(:trendartist) %>
             <div class="ac_content clearfix">
 
                 <div class="ac_content_wrap">
@@ -98,7 +104,7 @@
                     <p class="p_user_wrap clearfix">
                         <% p_user = User.find(post.user_id) %>
                         <%= link_to "/#{p_user.userid}", data: {'turbolinks' => false} do %>
-                        <span><%= image_tag "#{p_user.userimg}" %></span>
+                        <span><%= image_tag "#{p_user.userimg.m}" %></span>
                         <span>
                             <% if p_user.username.empty? %>
                             <%= p_user.userid %>
@@ -110,50 +116,13 @@
                         <% end %>
                     </p>
 
-                    <p class="ac_ttl"><%= post.title %></p>
+                    <p class="ac_ttl"><%= link_to "プロフールを更新しました", "/#{p_user.userid}", data: {'turbolinks' => false} %></p>
 
-                    <p class="ac_txt">
-                        <%=safe_join(post.comment.split("\n"),tag(:br))%>
-                        <span class="date"><%= l post.created_at, format: "%Y-%m-%d" %></span>
-                    </p>
+                    <div class="ac_content_inner tl">
 
-                    <% if post.img.present? %>
-                    <p class="ac_img m_btn"><%= image_tag "#{post.img}"%></p>
-                    <p class="m_content"><%= image_tag "#{post.img}" %></p>
-                    <% end %>
-
-                    <div class="p_like_box" id="ac_post_<%= post.id %>">
-
-                        <%= render partial: 'users/like', locals: { post: post} %>
+                        <span class="date"><%= l post.updated_at, format: "%Y-%m-%d" %></span>
 
                     </div>
-
-
-                </div>
-
-            </div>
-
-            <% elsif post.has_attribute?(:trendartist) %>
-            <div class="ac_content clearfix">
-
-                <div class="ac_content_wrap">
-
-                    <p class="p_user_wrap clearfix">
-                        <% p_user = User.find(post.user_id) %>
-                        <%= link_to "/#{p_user.userid}", data: {'turbolinks' => false} do %>
-                        <span><%= image_tag "#{p_user.userimg}" %></span>
-                        <span class="prf_up">
-                            <% if p_user.username.empty? %>
-                            <%= p_user.userid %>
-                            <% else %>
-                            <%= p_user.username %>
-                            さんが<br>プロフィールを変更しました
-                            <% end %>
-                        </span>
-                        <% end %>
-                    </p>
-
-                    <span class="date"><%= l post.updated_at, format: "%Y-%m-%d" %></span>
 
                 </div>
 
@@ -167,22 +136,27 @@
                     <p class="p_user_wrap clearfix">
                         <% p_user = User.find(post.user_id) %>
                         <%= link_to "/#{p_user.userid}", data: {'turbolinks' => false} do %>
-                        <span><%= image_tag "#{p_user.userimg}" %></span>
-                        <span class="prf_up">
+                        <span><%= image_tag "#{p_user.userimg.m}" %></span>
+                        <span>
                             <% if p_user.username.empty? %>
                             <%= p_user.userid %>
                             <% else %>
                             <%= p_user.username %>
-                            さんが<br>ひとことを変更しました
+                            <span><%= p_user.userid %></span>
                             <% end %>
                         </span>
                         <% end %>
                     </p>
 
-                    <p class="ac_txt msg_up">
-                        <%=safe_join(post.message.split("\n"),tag(:br))%>
+                    <p class="ac_ttl"><%= link_to "ひとことを更新しました", "/#{p_user.userid}", data: {'turbolinks' => false} %></p>
+
+                    <div class="ac_content_inner tl">
+
+                        <p class="ac_txt"><%=safe_join(post.message.split("\n"),tag(:br))%></p>
+
                         <span class="date"><%= l post.updated_at, format: "%Y-%m-%d" %></span>
-                    </p>
+
+                    </div>
 
                 </div>
 
@@ -210,21 +184,7 @@
                 <% @fing_users.each do |fing_user| %>
                 <% user = User.find(fing_user.f_id) %>
                 <% msg = Onemessage.find_by(user_id: fing_user.f_id) %>
-                <li>
-                    <%= link_to "/#{user.userid}", data: {'turbolinks' => false} do %>
-                    <span><%= image_tag "#{user.userimg}" %></span>
-                    <div>
-                        <span>
-                            <% if user.username.empty? %>
-                            <%= user.userid %>
-                            <% else %>
-                            <%= user.username %>
-                            <% end %>
-                        </span>
-                        <span><%= msg.message %></span>
-                    </div>
-                    <% end %>
-                </li>
+                <%= render partial: "users/user_list", locals: { user: user, msg: msg } %>
                 <% end %>
             </ul>
 
@@ -245,21 +205,7 @@
                 <% @fer_users.each do |fer_user| %>
                 <% user = User.find(fer_user.user_id) %>
                 <% msg = Onemessage.find_by(user_id: fer_user.user_id) %>
-                <li>
-                    <%= link_to "/#{user.userid}", data: {'turbolinks' => false} do %>
-                    <span><%= image_tag "#{user.userimg}" %></span>
-                    <div>
-                        <span>
-                            <% if user.username.empty? %>
-                            <%= user.userid %>
-                            <% else %>
-                            <%= user.username %>
-                            <% end %>
-                        </span>
-                        <span><%= msg.message %></span>
-                    </div>
-                    <% end %>
-                </li>
+                <%= render partial: "users/user_list", locals: { user: user, msg: msg } %>
                 <% end %>
             </ul>
 

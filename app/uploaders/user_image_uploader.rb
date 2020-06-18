@@ -33,7 +33,17 @@ class UserImageUploader < CarrierWave::Uploader::Base
   #   process resize_to_fit: [50, 50]
   # end
 
-  process resize_to_fit: [500, 500]
+  process resize_to_fill: [500, 500]
+
+  version :l do
+    process resize_to_fill: [200, 200]
+  end
+  version :m do
+    process resize_to_fill: [100, 100]
+  end
+  version :s do
+    process resize_to_fill: [50, 50]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -43,9 +53,9 @@ class UserImageUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+    "icon.#{file.extension}" if original_filename.present?
+  end
 
   def size_range
     0..5.megabytes

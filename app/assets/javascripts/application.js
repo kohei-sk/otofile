@@ -55,20 +55,66 @@ $(document).on('turbolinks:load', function () {
     //フラッシュフェードアウト
     $(function () {
         setTimeout("$('.notice, .alert').fadeOut('slow')", 2500)
-    })
+    });
 
-    //ハンバーガー
-    $('.nav_content').hide();
+    //メニュー
+    $(function () {
+        var btn1 = $('.nav_btn_trriger')
+        var cont1 = $('.nav_content')
+        var btn2 = $('.search_btn_trriger')
+        var cont2 = $('.search_content')
+        //ハンバーガー
+        btn1.click(function () {
+            if (btn1.hasClass('active')) {
+                cont1.fadeOut();
+                btn1.removeClass('active');
+                $('body').removeClass('nav--opened');
+            } else {
+                cont1.fadeIn();
+                btn1.addClass('active');
+                $('body').addClass('nav--opened');
+            }
+            if (btn2.hasClass('active')) {
+                cont2.fadeOut();
+                btn2.removeClass('active');
+            }
+        });
+        //検索
+        btn2.click(function () {
+            if (btn2.hasClass('active')) {
+                cont2.fadeOut();
+                btn2.removeClass('active');
+                $('body').removeClass('nav--opened');
+            } else {
+                cont2.fadeIn();
+                btn2.addClass('active');
+                $('body').addClass('nav--opened');
+            }
+            if (btn1.hasClass('active')) {
+                cont1.fadeOut();
+                btn1.removeClass('active');
+            }
+        });
+    });
 
-    $('.nav_btn_trriger').click(function () {
-        if ($('.nav_btn_trriger').hasClass('active')) {
-            $('.nav_content').fadeOut();
-            $('.nav_btn_trriger').removeClass('active');
-            $('body').removeClass('nav--opened');
-        } else {
-            $('.nav_content').fadeIn();
-            $('.nav_btn_trriger').addClass('active');
-            $('body').addClass('nav--opened');
+    //検索フォーム空白
+    $('.head_search').submit(function () {
+        if ($(this).children("input[type='text']").val() === '') {
+            return false;
+        }
+    });
+    $('.head_search').children("input[type='text']").keypress(function (e) {
+        if (e.which && e.which === 13 || e.keyCode && e.keyCode === 13) {
+            if (!$(this).val().match(/\S/g)) {
+                return false;
+            }
+        }
+    });
+
+    //コメントフォーム空白
+    $('.comment_area').submit(function () {
+        if ($(this).children('.field').children('textarea').val() === '') {
+            return false;
         }
     });
 
@@ -76,11 +122,14 @@ $(document).on('turbolinks:load', function () {
     $(document).ready(function () {
         $('.is-show').show();
         $('.tab').click(function () {
-            $('.is-active').removeClass('is-active');
+
+            $(this).siblings('.is-active').removeClass('is-active');
             $(this).addClass('is-active');
-            $('.panel').fadeOut(300);
+
+            const panel = $(this).parent().next().children('.panel');
             const index = $(this).index();
-            $('.panel').eq(index).fadeIn(300);
+            panel.hide();
+            panel.eq(index).show();
         });
     });
 
@@ -117,17 +166,139 @@ $(document).on('turbolinks:load', function () {
 
     //recommendスライダー
     var flkty = new Flickity('.main-carousel', {
-        cellAlign: 'center',
+        cellAlign: 'left',
         wrapAround: true,
         contain: true,
         prevNextButtons: false,
         pageDots: false
     });
 
-    //ファイルアップロード ファイル名表示
+    //ファイルアップロード ファイル名&サムネ表示
     $('input').on('change', function () {
-        var file = $(this).prop('files')[0];
-        $('span.file').text(file.name);
+        var btn = this
+        var file = $(btn).prop('files')[0];
+        $(btn).parent().next().text(file.name).hide().fadeIn();
+
+        var reader = new FileReader();
+        reader.readAsDataURL(btn.files[0]);
+        reader.onload = function () {
+            $(btn).parent().prev().html('<img src="' + reader.result + '">').hide().fadeIn();
+        }
     });
+
+    //コメント非同期
+    $(function () {
+        function buildHTML(comments) {
+            var html = `<li class="comment_wrap clearfix" id="comment_id_${comments.id}">
+                            <a href="/${comments.userid}" class="comment_user">
+                                <span class="com_l"><img src="${comments.userimg}"></span>
+                                <span class="com_r">
+                                    <span>${comments.username}</span>
+                                    <span>${comments.userid}</span>
+                                </span>
+                            </a>
+                            <p class="comment_content">
+                                ${comments.comment}
+                                <span class="date">${comments.created_at}</span>
+                                <a href="/c/${comments.id}/edit" class="cmt_in_edit">Edit</a>
+                            </p>
+                        </li>`;
+            return html
+        }
+
+        function buildCount(comments) {
+            var count = `<a href="/p/${comments.post_id}" class="cmt">
+                            <i class="fas fa-comment"></i>
+                            <span>${comments.count}</span>
+                        </a>`
+            return count;
+        }
+
+        function buildPostIdArea(comments) {
+            var postIdArea = comments.post_id
+            return postIdArea;
+        }
+
+        $(".comment_area").on("submit", function (e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            var url = $(this).attr('action');
+            $.ajax({
+                    url: url,
+                    type: "POST",
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false
+                })
+                .done(function (data) {
+                    var html = buildHTML(data);
+                    var count = buildCount(data);
+                    var postIdArea = buildPostIdArea(data);
+                    $('.comment_container').prepend(html).hide().fadeIn();
+                    $('.p_cmt_box').html(count).hide().fadeIn();
+                    $('textarea#post_id_' + postIdArea).val("")
+                })
+                .fail(function () {
+                    location.reload();
+                })
+        })
+    });
+
+    //コメント編集非同期
+    $('.cmt_in_edit').click(function () {
+        var edit = $(this).parent('p')
+        edit.hide();
+        edit.next('form').show();
+        $('.cmt_close_btn').click(function () {
+            var close = $(this).parent('form')
+            close.hide();
+            close.prev('p').show();
+        });
+    });
+
+    // $(function () {
+    //     function buildHTML(comments) {
+    //         var html = `<li class="comment_wrap clearfix" id="comment_id_${comments.id}">
+    //                         <a href="/${comments.userid}" class="comment_user">
+    //                             <span class="com_l"><img src="${comments.userimg}"></span>
+    //                             <span class="com_r">
+    //                                 <span>${comments.username}</span>
+    //                                 <span>${comments.userid}</span>
+    //                             </span>
+    //                         </a>
+    //                         <p class="comment_content">
+    //                             ${comments.comment}
+    //                             <span class="date">${comments.created_at}</span>
+    //                             <a href="/c/${comments.id}/edit" class="cmt_in_edit">Edit</a>
+    //                         </p>
+    //                     </li>`;
+    //         return html
+    //     }
+
+    //     $(".comment_area").on("submit", function (e) {
+    //         e.preventDefault();
+    //         var formData = new FormData(this);
+    //         var url = $(this).attr('action');
+    //         $.ajax({
+    //                 url: url,
+    //                 type: "POST",
+    //                 data: formData,
+    //                 dataType: 'json',
+    //                 processData: false,
+    //                 contentType: false
+    //             })
+    //             .done(function (data) {
+    //                 var html = buildHTML(data);
+    //                 $('.comment_container').prepend(html);
+    //                 $('.p_cmt_box').html(count);
+    //                 $('textarea#post_id_' + postIdArea).val("")
+    //             })
+    //             .fail(function () {
+    //                 location.reload();
+    //             })
+    //     })
+    // });
+
 
 });

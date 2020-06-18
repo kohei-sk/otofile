@@ -1,5 +1,9 @@
 <% post = Post.find_by(id: params[:id]) %>
-$('#ac_post_<%= post.id %>').html("<%= j(render partial: 'users/like', locals: {post: post}) %>").hide().fadeIn(200);
+  $('.ac_post_<%= post.id %>').each(function(){
+    $(this).html(
+      "<%= j(render partial: 'likes/like', locals: {post: post}) %>"
+    ).hide().fadeIn(200);
+  });
 
 $('.m_btn').show(function () {
     const m_btn = $(this)

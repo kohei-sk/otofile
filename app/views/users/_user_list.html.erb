@@ -1,0 +1,22 @@
+<li>
+    <%= link_to "/#{user.userid}" do %>
+    <span><%= image_tag "#{user.userimg.m}" %></span>
+    <div>
+        <span>
+            <% if user.username.empty? %>
+            <%= user.userid %>
+            <% else %>
+            <%= user.username %>
+            <% end %>
+        </span>
+        <span><%= user.userid %></span>
+
+        <% if current_page?("/pr/search/#{params[:word]}") %>
+        <span><%= profile.free_area %></span>
+        <% else %>
+        <span><%= msg.message %></span>
+        <% end %>
+
+    </div>
+    <% end %>
+</li>

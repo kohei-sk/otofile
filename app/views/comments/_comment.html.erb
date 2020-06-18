@@ -1,0 +1,19 @@
+<%= form_for @cmt,:url => {controller: "comments", action: "create"}, :html =>{class: "comment_area"} do |f| %>
+
+<div class="field">
+    <%= f.text_area :comment, placeholder: "comment :D", id: "post_id_#{params[:id]}" %>
+    <label>
+        <button type="submit"></button>
+        <span class="btn"><i class="fas fa-paper-plane"></i></span>
+    </label>
+</div>
+
+<% end %>
+
+<% if !p_cmt.empty? %>
+
+<ul class="comment_container clearfix">
+    <%= render partial: 'comments/comment_list', locals: { p_cmt: p_cmt } %>
+</ul>
+
+<% end %>

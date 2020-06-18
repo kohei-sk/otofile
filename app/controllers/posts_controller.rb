@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to "/#{current_user.userid}", notice: '投稿しました'
+      redirect_to "/p/#{@post.id}", notice: '投稿しました'
     else
       render "posts/new"
     end
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to "/#{current_user.userid}", notice: '更新しました'
+      redirect_to "/p/#{params[:id]}", notice: '更新しました'
     else
       render "posts/edit"
     end
@@ -38,9 +38,16 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    if !@post
+      render "posts/nopost"
+    end
+    @cmt = Comment.new
+    @p_cmt = Comment.where(post_id: params[:id]).order(created_at: "DESC")
+  end
 
   private
     def post_params
-      params.require(:post).permit(:title, :comment, :img).merge( user_id: current_user.id)
+      params.require(:post).permit(:title, :comment, :img, :remove_img).merge( user_id: current_user.id)
     end
 end

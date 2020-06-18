@@ -1,50 +1,14 @@
-<main id="post_show">
+<section class="post">
 
-    <section class="mv_wrap">
-        <iframe width="854" height="480" src="https://www.youtube.com/embed/<%= @post.ytid %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </section>
-    <section class="desc_t">
-        <% if user_signed_in? %>
-        <% if @userid == current_user.id %>
-        <%= link_to "EDIT", "/p/#{params[:id]}/edit", class: 'edit' %>
-        <%= link_to "DELETE", "/p/#{params[:id]}/destroy", class: 'delete', data: {confirm: "本当に削除しますか？"} %>
-        <% end %>
-        <% end %>
-        <p class="ttl"><%= @post.title %></p>
-        <p class="data"><%= l @post.created_at, format: "%Y-%m-%d" %></p>
+    <div class="panel p_show">
 
-        <%= link_to "/#{@user.userid}", class: 'user_wrap clearfix' do %>
-        <%= image_tag "#{@user.userimg}" %>
-        <div class="user_inner">
-            <p class="username">
-                <% if @user.username.empty? %>
-                <%= @user.userid %>
-                <% else %>
-                <%= @user.username %>
-                <% end %>
-            </p>
-            <p class="userid"><%= @user.userid %></p>
+        <div class="pl_head">
         </div>
-        <% end %>
-    </section>
-    <section class="desc_c">
-        <p class="artist">
-            <% if @post.artist.empty? %>
-            NO ARTIST
-            <% else %>
-            <%= @post.artist %>
-            <% end %>
-        </p>
-        <p class="song">
-            <% if @post.song.empty? %>
-            NO SONG
-            <% else %>
-            <%= @post.song %>
-            <% end %>
-        </p>
-    </section>
-    <section class="desc_b">
-        <p class="comment"><%=safe_join(@post.comment.split("\n"),tag(:br))%></p>
-    </section>
 
-</main>
+        <% post = @post %>
+
+        <%= render partial: 'posts/activity', locals: { post: post, p_cmt: @p_cmt} %>
+
+    </div>
+
+</section>

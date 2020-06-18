@@ -18,11 +18,29 @@
 <div class="field_img">
     <p>プロフィール画像</p>
     <div class="pr_img"><%= image_tag "#{current_user.userimg}" %></div>
-    <%= f.label :userimg do %>
+    <%= f.label :userimg, class: 'img_select' do %>
     <%= f.file_field :userimg %>
     <i class="fas fa-images"></i>画像を選択
     <% end %>
-    <span class="file"></span>
+    <span class="file"></span><br>
+    <%= f.label :remove_userimg, class: 'img_delete' do %>
+    <%= f.check_box :remove_userimg %>画像を削除する
+    <div class="indicator"></div>
+    <% end %>
+</div>
+
+<div class="field_img">
+    <p>ヘッダー画像</p>
+    <div class="hdr_img"><%= image_tag "#{current_user.hdrimg}" %></div>
+    <%= f.label :hdrimg, class: 'img_select' do %>
+    <%= f.file_field :hdrimg %>
+    <i class="fas fa-images"></i>画像を選択
+    <% end %>
+    <span class="file"></span><br>
+    <%= f.label :remove_hdrimg, class: 'img_delete' do %>
+    <%= f.check_box :remove_hdrimg %>画像を削除する
+    <div class="indicator"></div>
+    <% end %>
 </div>
 
 <div class="field">

@@ -1,6 +1,6 @@
 class PostImgUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -33,7 +33,7 @@ class PostImgUploader < CarrierWave::Uploader::Base
   #   process resize_to_fit: [50, 50]
   # end
 
-  process resize_to_fit: [1000, 1000]
+  process resize_to_fit: [1000, 1700]
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -46,6 +46,10 @@ class PostImgUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  def filename
+    "img.#{file.extension}" if original_filename.present?
+  end
 
   def size_range
     0..5.megabytes

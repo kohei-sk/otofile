@@ -32,4 +32,5 @@ class User < ApplicationRecord
   end
 
   mount_uploader :userimg, UserImageUploader
+  mount_uploader :hdrimg, UserHdrimgUploader
 end
