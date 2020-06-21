@@ -54,7 +54,7 @@
                 <% end %>
             </div>
 
-            <div class="p_like_box ac_post_<%= post.id %>">
+            <div class="p_like_box" id="ac_post_<%= post.id %>">
                 <%= render partial: 'likes/like', locals: { post: post} %>
             </div>
 

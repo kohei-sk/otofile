@@ -175,7 +175,7 @@
         </div>
 
 
-        <div class="panel">
+        <div class="panel timeline">
 
             <div class="pl_head">
                 <p class="sttl">
@@ -194,11 +194,15 @@
 
             <% if !@posts.empty? %>
 
-            <% @posts.each do |post| %>
+            <div class="page_wrap clearfix">
+                <% @posts.each do |post| %>
 
-            <%= render partial: 'posts/activity', locals: { post: post} %>
+                <%= render partial: 'posts/activity', locals: { post: post} %>
 
-            <% end %>
+                <% end %>
+
+                <span class="next"><%= link_to_next_page @posts, 'next'%></span>
+            </div>
 
             <% else %>
             <%= link_to 'Post activity', "/p/new", class: "pr_post" %>
@@ -206,7 +210,7 @@
 
         </div>
 
-        <div class="panel like_list">
+        <div class="panel timeline">
 
             <div class="pl_head">
                 <p class="sttl">
@@ -231,11 +235,13 @@
 
             <% end %>
 
-            <% else %>
-            いいねした投稿がありません
-            <% end %>
-
         </div>
+
+        <% else %>
+        いいねした投稿がありません
+        <% end %>
+
+    </div>
 
     </div>
 

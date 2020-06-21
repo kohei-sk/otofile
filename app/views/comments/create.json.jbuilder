@@ -5,5 +5,11 @@ json.created_at @cmt.created_at.strftime("%Y-%m-%d")
 json.count @count.count
 
 json.userid @user.userid
-json.username @user.username
+
+if @user.username.empty?
+  json.username @user.userid
+else
+  json.username @user.username
+end
+
 json.userimg @user.userimg.url(:m)

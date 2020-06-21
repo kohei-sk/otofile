@@ -1,6 +1,6 @@
 <% following = Follow.find_by(f_id: user.id, user_id: current_user.id) %>
 <% if !following %>
-<%= link_to "", "/#{user.userid}/follow", class: "follow_btn follow", remote: true %>
+<%= link_to "", "/#{user.userid}/follow", class: "follow_btn follow" %>
 <% else %>
-<%= link_to "", "/#{user.userid}/unfollow", class: "follow_btn unfollow", remote: true %>
+<%= link_to "", "/#{user.userid}/unfollow", class: "follow_btn unfollow" %>
 <% end %>

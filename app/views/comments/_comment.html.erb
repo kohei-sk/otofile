@@ -10,10 +10,8 @@
 
 <% end %>
 
-<% if !p_cmt.empty? %>
-
 <ul class="comment_container clearfix">
+    <% if !p_cmt.empty? %>
     <%= render partial: 'comments/comment_list', locals: { p_cmt: p_cmt } %>
+    <% end %>
 </ul>
-
-<% end %>

@@ -84,10 +84,9 @@
     position: relative;
 
     .ac_content_wrap {
-        padding: 17px 15px 15px 80px;
-        margin: 25px 0 0 0;
+        padding: 25px 25px 25px 90px;
+        margin: 0;
         position: relative;
-        @include bg_grd();
 
         p.p_user_wrap {
             width: 100%;
@@ -236,7 +235,7 @@
                     }
 
                     &.cmt {
-                        color: #32c5b2;
+                        color: #26c5b1;
                     }
 
                     &.uncmt {
@@ -463,34 +462,50 @@
                         font-size: 12px;
                         line-height: 100%;
                         position: absolute;
-                        right: 5px;
-                        bottom: 5px;
+                        right: 25px;
+                        bottom: 3px;
                         text-decoration: underline;
                         cursor: pointer;
 
+                    }
+
+                    .cmt_dlete_btn {
+                        color: $sub-color;
+                        font-size: 12px;
+                        line-height: 100%;
+                        position: absolute;
+                        right: 5px;
+                        bottom: 3px;
+                        text-decoration: underline;
+                        cursor: pointer;
                     }
 
                 }
 
                 form.comment_edit {
                     display: none;
-                    margin: 15px 0 5px;
-                    padding: 0 0 0 40px !important;
+                    margin: 8px 0;
+                    padding: 0 0 0 38px !important;
                     position: relative;
 
-                    textarea {
-                        height: 50px !important;
-                        min-height: 50px !important;
-                        border: 1px solid $sub-color2;
-                        padding: 12px 40px 12px 16px;
-                        transition: all .2s;
+                    .field {
+                        margin: 0;
 
-                        &:hover,
-                        &:focus {
-                            height: auto !important;
-                            min-height: 100px !important;
-                            border: 1px solid $accent-color;
+                        textarea {
+                            height: 50px !important;
+                            min-height: 50px !important;
+                            border: 1px solid $sub-color2;
+                            padding: 12px 40px 12px 16px;
+                            transition: all .2s;
+
+                            &:hover,
+                            &:focus {
+                                height: auto !important;
+                                min-height: 100px !important;
+                                border: 1px solid $accent-color;
+                            }
                         }
+
                     }
 
                     label {
@@ -505,9 +520,9 @@
                             display: none;
                         }
 
-                        span.btn {
+                        .cmt_send_btn {
                             color: $main-color;
-                            font-size: 20px;
+                            font-size: 15px;
                             transition: all .2s;
 
                             &:hover {
@@ -519,7 +534,14 @@
 
                     .cmt_close_btn {
                         cursor: pointer;
+                        display: block;
+                        line-height: 100%;
+                        position: absolute;
+                        right: 15px;
+                        top: -25px;
+                        font-size: 15px;
                     }
+
                 }
             }
         }
@@ -533,6 +555,11 @@
             left: 0;
             top: 0;
             z-index: 1;
+            transition: all .2s;
+
+            &:hover {
+                background-color: rgba(224, 224, 224, .2);
+            }
         }
     }
 }
@@ -775,11 +802,25 @@ section.tab_content_wrap {
     }
 
     .panel-group {
-        @include wrap();
 
         .panel {
             display: none;
             min-height: calc(100vh - 100px);
+            @include wrap();
+
+            &.timeline {
+                padding: 0;
+
+                .pl_head {
+                    @include wrap();
+
+                    a.pr_edit,
+                    a.ac_post {
+                        right: 25px;
+                    }
+                }
+
+            }
 
             .pr_content a,
             .ac_txt a,
@@ -869,10 +910,10 @@ section.tab_content_wrap {
             }
 
             p.pr_content {
-                padding: 12px 16px;
+                padding: 12px 3px 20px;
                 line-height: 180%;
                 letter-spacing: .5px;
-                @include bg_grd();
+                border-bottom: 1px dashed $sub-color2
             }
 
             .yt_wrap {
@@ -880,11 +921,10 @@ section.tab_content_wrap {
             }
 
             .pr_content_his {
-                padding: 20px 16px 20px 32px;
+                padding: 20px 3px 20px 19px;
                 width: 100%;
                 line-height: 180%;
                 letter-spacing: .5px;
-                @include bg_grd();
 
                 .history_wrap {
                     position: relative;
@@ -932,6 +972,11 @@ section.tab_content_wrap {
 
             .ac_content {
                 @include ac_content();
+                border-bottom: 1px dashed $sub-color2;
+
+                &:last-child {
+                    border: none;
+                }
             }
         }
     }

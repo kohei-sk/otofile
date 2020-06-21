@@ -13,8 +13,8 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+//= require jquery.jscroll.min.js
 //= require jquery_nested_form
 
 //nested_form setting（フェードアウトできない）
@@ -48,9 +48,7 @@
 //     return false;
 // }
 
-
-
-$(document).on('turbolinks:load', function () {
+$(document).ready(function () {
 
     //フラッシュフェードアウト
     $(function () {
@@ -63,6 +61,7 @@ $(document).on('turbolinks:load', function () {
         var cont1 = $('.nav_content')
         var btn2 = $('.search_btn_trriger')
         var cont2 = $('.search_content')
+
         //ハンバーガー
         btn1.click(function () {
             if (btn1.hasClass('active')) {
@@ -79,6 +78,7 @@ $(document).on('turbolinks:load', function () {
                 btn2.removeClass('active');
             }
         });
+
         //検索
         btn2.click(function () {
             if (btn2.hasClass('active')) {
@@ -108,13 +108,6 @@ $(document).on('turbolinks:load', function () {
             if (!$(this).val().match(/\S/g)) {
                 return false;
             }
-        }
-    });
-
-    //コメントフォーム空白
-    $('.comment_area').submit(function () {
-        if ($(this).children('.field').children('textarea').val() === '') {
-            return false;
         }
     });
 
@@ -155,12 +148,22 @@ $(document).on('turbolinks:load', function () {
         });
     });
 
-    //likes Modal
-    $('.m_btn').show(function () {
-        const m_btn = $(this)
-        const m_content = m_btn.next();
-        m_btn.modaal({
-            content_source: m_content
+    //Likes Modal
+    // $('.m_btn').show(function () {
+    //     const m_btn = $(this)
+    //     const m_content = m_btn.next();
+    //     m_btn.modaal({
+    //         content_source: m_content
+    //     });
+    // });
+
+    $(window).on('scroll', function () {
+        $('.m_btn').show(function () {
+            const m_btn = $(this)
+            const m_content = m_btn.next();
+            m_btn.modaal({
+                content_source: m_content
+            });
         });
     });
 
@@ -186,6 +189,70 @@ $(document).on('turbolinks:load', function () {
         }
     });
 
+    //無限スクロール
+    $(function () {
+        $('.page_wrap').jscroll({
+            contentSelector: '.page_wrap',
+            nextSelector: 'span.next a',
+            autoTrigger: true,
+            padding: 500,
+            loadingHtml: '<div class="loader"></div>'
+        });
+    });
+
+    //フォローボタン非同期
+    $(function () {
+        function followHTML(follow) {
+            var html = `<a href="${follow.path}" class="follow_btn ${follow.class}"></a>`;
+            return html
+        }
+
+        //Follow
+        $(document).on("click", '.follow_btn.unfollow', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            console.log(url);
+            $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false
+                })
+                .done(function (data) {
+                    var html = followHTML(data);
+                    $("#follow_user_" + data.id).html(html);
+                    unfollowBtn();
+                })
+                .fail(function () {
+                    location.reload();
+                })
+        })
+
+        //Unfollow
+        $(document).on("click", '.follow_btn.follow', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            console.log(url);
+            $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false
+                })
+                .done(function (data) {
+                    var html = followHTML(data);
+                    $("#follow_user_" + data.id).html(html);
+                    followBtn();
+                })
+                .fail(function () {
+                    location.reload();
+                })
+        })
+
+    });
+
     //コメント非同期
     $(function () {
         function buildHTML(comments) {
@@ -198,10 +265,26 @@ $(document).on('turbolinks:load', function () {
                                 </span>
                             </a>
                             <p class="comment_content">
-                                ${comments.comment}
+                                <span class="comment">${comments.comment}</span>
                                 <span class="date">${comments.created_at}</span>
-                                <a href="/c/${comments.id}/edit" class="cmt_in_edit">Edit</a>
+                                <span class="cmt_in_edit"><i class="fas fa-edit"></i></span>
+                                <a class="cmt_dlete_btn" href="/c/${comments.id}/destroy">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
                             </p>
+                            <form class="comment_edit" action="/c/${comments.id}/edit" accept-charset="UTF-8" method="post">
+                                <input name="utf8" type="hidden" value="✓">
+                                <input type="hidden" name="_method" value="patch">
+                                <input type="hidden" name="authenticity_token" value="">
+                                <div class="field">
+                                    <textarea name="comment" id="comment">${comments.comment}</textarea>
+                                </div>
+                                <label>
+                                    <button type="submit"></button>
+                                    <span class="cmt_send_btn"><i class="fas fa-paper-plane"></i></span>
+                                </label>
+                                <span class="cmt_close_btn"><i class="fas fa-times"></i></span>
+                            </form>
                         </li>`;
             return html
         }
@@ -214,15 +297,18 @@ $(document).on('turbolinks:load', function () {
             return count;
         }
 
-        function buildPostIdArea(comments) {
-            var postIdArea = comments.post_id
-            return postIdArea;
-        }
-
+        //投稿
         $(".comment_area").on("submit", function (e) {
+
+            //コメントフォーム空白
+            if ($(this).children('.field').children('textarea').val() === '') {
+                return false;
+            }
+
             e.preventDefault();
             var formData = new FormData(this);
             var url = $(this).attr('action');
+            var value = $(this).children('input[name="authenticity_token"]').val();
             $.ajax({
                     url: url,
                     type: "POST",
@@ -234,10 +320,60 @@ $(document).on('turbolinks:load', function () {
                 .done(function (data) {
                     var html = buildHTML(data);
                     var count = buildCount(data);
-                    var postIdArea = buildPostIdArea(data);
-                    $('.comment_container').prepend(html).hide().fadeIn();
-                    $('.p_cmt_box').html(count).hide().fadeIn();
-                    $('textarea#post_id_' + postIdArea).val("")
+                    $(html).prependTo('.comment_container').hide().fadeIn(500);
+                    $('form[action="/c/' + data.id + '/edit"] input[name="authenticity_token"]').val(value);
+
+                    $('.p_cmt_box').html(count).show();
+                    $('textarea#post_id_' + data.post_id).val("");
+                })
+                .fail(function () {
+                    location.reload();
+                })
+        })
+
+        //編集
+        $(document).on("submit", '.comment_edit', function (e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            var url = $(this).attr('action');
+            $.ajax({
+                    url: url,
+                    type: "PATCH",
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false
+                })
+                .done(function (data) {
+                    const id = 'li#comment_id_' + data.id
+                    $(id + ' .comment').html(data.comment);
+                    $(id + ' textarea').html(data.comment);
+                    $(id + ' form').hide();
+                    $(id + ' .comment_content').fadeIn(500);
+
+                })
+                .fail(function () {
+                    location.reload();
+                })
+        })
+
+        //削除
+        $(document).on("click", '.cmt_dlete_btn', function (e) {
+            alert('本当に削除しますか？');
+            e.preventDefault();
+            var url = $(this).attr('href');
+            $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false
+                })
+                .done(function (data) {
+                    var count = buildCount(data);
+                    $('li#comment_id_' + data.id).fadeOut(500);
+                    $('.p_cmt_box').html(count).show();
+
                 })
                 .fail(function () {
                     location.reload();
@@ -245,60 +381,101 @@ $(document).on('turbolinks:load', function () {
         })
     });
 
-    //コメント編集非同期
-    $('.cmt_in_edit').click(function () {
+    //コメント編集ボックス表示非表示
+    $(document).on("click", '.cmt_in_edit', function () {
+        //$('.cmt_in_edit').click(function () {
         var edit = $(this).parent('p')
         edit.hide();
-        edit.next('form').show();
+        edit.next('form').fadeIn(500);
         $('.cmt_close_btn').click(function () {
             var close = $(this).parent('form')
             close.hide();
-            close.prev('p').show();
+            close.prev('p').fadeIn(500);
         });
     });
 
-    // $(function () {
-    //     function buildHTML(comments) {
-    //         var html = `<li class="comment_wrap clearfix" id="comment_id_${comments.id}">
-    //                         <a href="/${comments.userid}" class="comment_user">
-    //                             <span class="com_l"><img src="${comments.userimg}"></span>
-    //                             <span class="com_r">
-    //                                 <span>${comments.username}</span>
-    //                                 <span>${comments.userid}</span>
-    //                             </span>
-    //                         </a>
-    //                         <p class="comment_content">
-    //                             ${comments.comment}
-    //                             <span class="date">${comments.created_at}</span>
-    //                             <a href="/c/${comments.id}/edit" class="cmt_in_edit">Edit</a>
-    //                         </p>
-    //                     </li>`;
-    //         return html
-    //     }
 
-    //     $(".comment_area").on("submit", function (e) {
-    //         e.preventDefault();
-    //         var formData = new FormData(this);
-    //         var url = $(this).attr('action');
-    //         $.ajax({
-    //                 url: url,
-    //                 type: "POST",
-    //                 data: formData,
-    //                 dataType: 'json',
-    //                 processData: false,
-    //                 contentType: false
-    //             })
-    //             .done(function (data) {
-    //                 var html = buildHTML(data);
-    //                 $('.comment_container').prepend(html);
-    //                 $('.p_cmt_box').html(count);
-    //                 $('textarea#post_id_' + postIdArea).val("")
-    //             })
-    //             .fail(function () {
-    //                 location.reload();
-    //             })
-    //     })
-    // });
+    //いいね非同期
+    $(function () {
+        function heartHTML(likes) {
+            var heart = `<a class="${likes.class}" href="/p/${likes.path}">
+                            <i class="fas fa-heart"></i>
+                            <span>${likes.count}</span>
+                        </a>`;
+            return heart
+        }
 
+        function likeHTML(likes) {
+            var like = `<span class="like_user_in" id="like_user_${likes.user_id}"><img src="${likes.userimg}"></span>`;
+            return like
+        }
+
+        function mordalHTML(likes) {
+            var mordal = `<li id="like_user_list_${likes.user_id}">
+                            <a href="/${likes.userid}">
+                                <span><img src="${likes.userimg}"></span>
+                                <div>
+                                    <span>${likes.username}</span>
+                                    <span>${likes.userid}</span>
+                                    <span>${likes.msg}</span>
+                                </div>
+                            </a>
+                        </li>`;
+            return mordal
+        }
+
+        //Like
+        $(document).on("click", '.unlike', function (e) {
+            e.preventDefault();
+            const url = $(this).attr('href');
+            $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false
+                })
+                .done(function (data) {
+                    const heart = heartHTML(data);
+                    const like = likeHTML(data);
+                    const mordal = mordalHTML(data);
+                    id = "#ac_post_" + data.post_id
+                    $(id + " .p_like_box_wrap").html(heart);
+                    $(like).prependTo(id + " .like_user").hide().fadeIn(500);
+                    $(id + " .m_content ul").prepend(mordal);
+
+                })
+                .fail(function () {
+                    location.reload();
+                })
+        })
+
+        //Unlike
+        $(document).on("click", '.like', function (e) {
+            e.preventDefault();
+            const url = $(this).attr('href');
+            $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false
+                })
+                .done(function (data) {
+                    const heart = heartHTML(data);
+                    const id = "#ac_post_" + data.post_id
+                    $(id + " .p_like_box_wrap").html(heart);
+                    $(id + " #like_user_" + data.user_id).fadeOut(500, function () {
+                        $(this).remove();
+                    });
+                    $(id + " #like_user_list_" + data.user_id).remove();
+
+                })
+                .fail(function () {
+                    location.reload();
+                })
+        })
+
+    });
 
 });

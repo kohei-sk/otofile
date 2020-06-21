@@ -5,6 +5,7 @@
 @import "users";
 
 section.post {
+    margin-top: -25px;
 
     .p_show {
         @include wrap();

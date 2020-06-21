@@ -1,2 +1,0 @@
-<% user = User.find_by(userid: params[:userid]) %>
-$('#follow_user_<%= user.id %>').html("<%= j(render partial: 'follows/follow', locals: { user: user }) %>");

@@ -17,12 +17,14 @@
     </span>
     <% end %>
     <p class="comment_content">
-        <%= safe_join(cmt.comment.split("\n"),tag(:br)) %>
+        <span class="comment"><%= safe_join(cmt.comment.split("\n"),tag(:br)) %></span>
         <span class="date"><%= l cmt.created_at, format: "%Y-%m-%d" %></span>
 
         <% if user.id == current_user.id %>
-        <span class="cmt_in_edit">Edit</span>
-        <%= link_to "削除", "/c/#{cmt.id}/destroy", class: 'cmt_dlete_btn', data: {confirm: "本当に削除しますか？"} %>
+        <span class="cmt_in_edit"><i class="fas fa-edit"></i></span>
+        <%= link_to "/c/#{cmt.id}/destroy", class: 'cmt_dlete_btn' do %>
+        <i class="fas fa-trash-alt"></i>
+        <% end %>
         <% end %>
     </p>
 
@@ -37,32 +39,10 @@
         <button type="submit"></button>
         <span class="cmt_send_btn"><i class="fas fa-paper-plane"></i></span>
     </label>
-    <span class="cmt_close_btn">キャンセル</i></span>
+    <span class="cmt_close_btn"><i class="fas fa-times"></i></span>
     <% end %>
 
     <% end %>
-
-
-
-    <%
-=begin%>
-    <%= form_for cmt,:url => {controller: "comments", action: "edit"} do |f| %>
-
-    <div class="field">
-        <%= f.label :comment, "コメント" %>
-        <%= f.text_area :comment, value: "#{safe_join(cmt.comment.split("\n"),tag(:br))}" %>
-    </div>
-
-    <div class="actions">
-        <%= f.submit "保存" %>
-    </div>
-
-    <% end %>
-    <%
-=end%>
-
-
-
 
 </li>
 

@@ -1,9 +1,10 @@
 class CommentsController < ApplicationController
     before_action :sign_in_required
-before_action :cmt_check, except: [:new, :create]
+    before_action :cmt_check, only: [:update, :edit, :destroy]
 
     def cmt_check
-        @cmt = Comment.find_by(id: params[:id], c_uid: current_user.id)
+        @cmt = Comment.find(params[:id])
+        @user = User.find(current_user.id)
     end
 
     def new
@@ -20,23 +21,32 @@ before_action :cmt_check, except: [:new, :create]
                 format.html
                 format.json
             end
-            redirect_to "/p/#{@cmt.post_id}", notice: '投稿できませんでした'
+            render "/p/#{@cmt.post_id}", notice: '投稿できませんでした'
         end
     end
 
     def update
         if @cmt.update(comment_update_params)
-            redirect_to "/p/#{@cmt.post_id}", notice: '更新しました'
+            respond_to do |format|
+                format.html
+                format.json
+            end
         else
-            render "/c/#{@cmt.id}/edit"
+            render "/p/#{@cmt.post_id}", notice: '更新できませんでした'
         end
     end
 
     def destroy
+        cmt = Comment.find(params[:id])
+        post = Post.find(cmt.post_id)
         if @cmt.destroy
-            redirect_to "/p/#{@cmt.post_id}", notice: '削除しました'
+            @count = Comment.where(post_id: post.id).count
+            respond_to do |format|
+                format.html
+                format.json
+            end
         else
-            render "/c/#{@cmt.id}/edit"
+            render "/p/#{@cmt.post_id}", notice: '削除できませんでした'
         end
     end
 
