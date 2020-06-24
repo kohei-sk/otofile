@@ -97,6 +97,50 @@ $(document).ready(function () {
         });
     });
 
+    //固定ボタン
+    $(function () {
+        $(document).on("click", '.fixed_nav_btn', function () {
+            var b = $('.fixed_nav_btn')
+            var c = $('.fixed_nav_content a')
+            if (b.hasClass('active')) {
+                b.removeClass('active');
+                $('#fix_btn_msg').animate({
+                    "top": "0px",
+                    "opacity": "0"
+                }, 300);
+                $('#fix_btn_post').animate({
+                    "top": "0px",
+                    "opacity": "0"
+                }, 300);
+                $('#fix_btn_prf').animate({
+                    "top": "0px",
+                    "opacity": "0"
+                }, 300);
+                c.fadeOut();
+            } else {
+                b.addClass('active');
+                c.show();
+                $('#fix_btn_msg').animate({
+                    "top": "-66px",
+                    "opacity": "1"
+                }, 300);
+                $('#fix_btn_post').animate({
+                    "top": "-132px",
+                    "opacity": "1"
+                }, 300);
+                $('#fix_btn_prf').animate({
+                    "top": "-198px",
+                    "opacity": "1"
+                }, 300);
+                $(document).on('click', function (e) {
+                    if (!$(e.target).closest('.fixed_nav_btn.active').length) {
+                        $('.fixed_nav_btn.active').trigger('click');
+                    }
+                });
+            }
+        });
+    });
+
     //検索フォーム空白
     $('.head_search').submit(function () {
         if ($(this).children("input[type='text']").val() === '') {
@@ -111,20 +155,116 @@ $(document).ready(function () {
         }
     });
 
-    //タブ切り替え
+    //検索タブ切り替え
     $(document).ready(function () {
-        $('.is-show').show();
-        $('.tab').click(function () {
+        $('.search_content .is-show').show();
+        $('.search_content .tab').click(function () {
+            $(this).siblings('.is_active').removeClass('is_active');
+            $(this).addClass('is_active');
 
-            $(this).siblings('.is-active').removeClass('is-active');
-            $(this).addClass('is-active');
-
-            const panel = $(this).parent().next().children('.panel');
+            const panel = $('.search_panel_group .panel');
             const index = $(this).index();
             panel.hide();
             panel.eq(index).show();
         });
     });
+
+    //タブ切り替え
+    $(function () {
+        var tabMenu = function () {
+
+            var $tabs = $('.tab-group');
+            var $content = $('.panel-group .panel');
+            var TAB_ACTIVE_CLASS = 'is_active';
+            var CONTENT_SHOW_CLASS = 'is_show';
+            var id_arr = $content.map(function () {
+                return '#' + $(this).attr('id');
+            }).get();
+
+            var getHash = function () {
+                var hash = window.location.hash;
+                var index = id_arr.indexOf(hash);
+                addEvent();
+
+                if (index === -1) {
+                    $tabs.find('li:first > a').trigger('click');
+                    return false;
+                } else {
+                    $('a[href="' + hash + '"]').trigger('click');
+                    return id_arr[index];
+                }
+            };
+
+            var initialize = function () {
+                var hash = getHash();
+
+                if (hash) {
+                    $tabs.find('a[href="' + hash + '"]').addClass(TAB_ACTIVE_CLASS);
+                    $(hash).addClass(CONTENT_SHOW_CLASS);
+                } else {
+                    $tabs.find('li:first > a').addClass(TAB_ACTIVE_CLASS);
+                    $($content[0]).addClass(CONTENT_SHOW_CLASS);
+                }
+            };
+
+            var addEvent = function () {
+
+                $tabs.find('a').on('click', function () {
+                    var href = $(this).attr('href');
+                    var $targetContent = $(href);
+
+                    if ($(this).hasClass(TAB_ACTIVE_CLASS)) {
+                        return false;
+                    }
+
+                    $tabs.find('a').removeClass(TAB_ACTIVE_CLASS);
+                    $content.removeClass(CONTENT_SHOW_CLASS);
+
+                    $(this).addClass(TAB_ACTIVE_CLASS);
+                    $targetContent.addClass(CONTENT_SHOW_CLASS);
+
+                    var firstLink = $tabs.find('li:first > a').attr('href');
+                    if (href === firstLink) {
+                        history.replaceState('tabs', '', location.pathname);
+                    } else {
+                        history.replaceState('tabs', '', location.pathname + href);
+                    }
+
+                    //無限スクロール発火
+                    var click = $(this).data("click");
+                    if (!click) {
+                        $(this).data("click", true);
+
+                        $(href + ' .page_wrap').infiniteScroll({
+                            path: href + ' span.next a',
+                            append: href + ' .page_wrap',
+                            history: false,
+                            scrollThreshold: 500
+                        });
+
+                    }
+
+                    return false;
+                });
+            };
+
+            return [initialize(), addEvent()];
+        };
+
+        if ($('body .tab_content_wrap').length) {
+            tabMenu();
+            topNotice();
+        } else {
+            $('.page_wrap').infiniteScroll({
+                path: 'span.next a',
+                append: '.page_wrap',
+                history: false,
+                scrollThreshold: 500
+            });
+        }
+
+    });
+
 
     //アコーディオン
     $(document).ready(function () {
@@ -148,16 +288,8 @@ $(document).ready(function () {
         });
     });
 
-    //Likes Modal
-    // $('.m_btn').show(function () {
-    //     const m_btn = $(this)
-    //     const m_content = m_btn.next();
-    //     m_btn.modaal({
-    //         content_source: m_content
-    //     });
-    // });
-
-    $(window).on('scroll', function () {
+    //Modal
+    $(document).on("scroll", function () {
         $('.m_btn').show(function () {
             const m_btn = $(this)
             const m_content = m_btn.next();
@@ -175,6 +307,16 @@ $(document).ready(function () {
         prevNextButtons: false,
         pageDots: false
     });
+    var topNotice = function () {
+        var flkty = new Flickity('.user_notice_wrapper', {
+            cellAlign: 'left',
+            wrapAround: true,
+            contain: true,
+            prevNextButtons: false,
+            pageDots: false,
+            adaptiveHeight: true
+        });
+    }
 
     //ファイルアップロード ファイル名&サムネ表示
     $('input').on('change', function () {
@@ -189,14 +331,23 @@ $(document).ready(function () {
         }
     });
 
-    //無限スクロール
     $(function () {
-        $('.page_wrap').jscroll({
-            contentSelector: '.page_wrap',
-            nextSelector: 'span.next a',
-            autoTrigger: true,
-            padding: 500,
-            loadingHtml: '<div class="loader"></div>'
+        $(document).on("click", '.tab-group li a', function () {
+            const hash = window.location.hash;
+            console.log(hash)
+            if (hash === '#activity') {
+                $('.page_wrap1').infiniteScroll({
+                    path: 'span.next1 a',
+                    append: '.page_wrap1',
+                    history: false
+                });
+            } else if (hash === '#favorite') {
+                $('.page_wrap2').infiniteScroll({
+                    path: 'span.next2 a',
+                    append: '.page_wrap2',
+                    history: false
+                });
+            }
         });
     });
 
@@ -289,10 +440,12 @@ $(document).ready(function () {
             return html
         }
 
-        function buildCount(comments) {
+        function buildCount(comments, number) {
+
+            console.log(number)
             var count = `<a href="/p/${comments.post_id}" class="cmt">
                             <i class="fas fa-comment"></i>
-                            <span>${comments.count}</span>
+                            <span>${number}</span>
                         </a>`
             return count;
         }
@@ -309,6 +462,7 @@ $(document).ready(function () {
             var formData = new FormData(this);
             var url = $(this).attr('action');
             var value = $(this).children('input[name="authenticity_token"]').val();
+            var number = Number($('a.cmt span').text()) + 1;
             $.ajax({
                     url: url,
                     type: "POST",
@@ -319,7 +473,7 @@ $(document).ready(function () {
                 })
                 .done(function (data) {
                     var html = buildHTML(data);
-                    var count = buildCount(data);
+                    var count = buildCount(data, number);
                     $(html).prependTo('.comment_container').hide().fadeIn(500);
                     $('form[action="/c/' + data.id + '/edit"] input[name="authenticity_token"]').val(value);
 
@@ -362,6 +516,8 @@ $(document).ready(function () {
             alert('本当に削除しますか？');
             e.preventDefault();
             var url = $(this).attr('href');
+            var number = Number($('a.cmt span').text()) - 1;
+            var id = $(this).attr('href').split('/')[2];
             $.ajax({
                     url: url,
                     type: "GET",
@@ -370,8 +526,10 @@ $(document).ready(function () {
                     contentType: false
                 })
                 .done(function (data) {
-                    var count = buildCount(data);
-                    $('li#comment_id_' + data.id).fadeOut(500);
+                    var count = buildCount(data, number);
+                    $('li#comment_id_' + id).fadeOut(500).queue(function () {
+                        this.remove();
+                    });
                     $('.p_cmt_box').html(count).show();
 
                 })

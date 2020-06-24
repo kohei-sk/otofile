@@ -10,7 +10,7 @@
         <div class="reco_item_container">
             <div class="reco_item_wrap">
 
-                <%= link_to "/#{user.userid}", data: {'turbolinks' => false} do %>
+                <%= link_to "/#{user.userid}" do %>
 
                 <div class="reco_item_img"><%= image_tag "#{user.userimg.l}" %></div>
                 <p class="reco_item_name">
@@ -33,7 +33,7 @@
 
         <% end %>
 
-        <% if @reco_users.count < 5 %>
+        <% if @reco_users.length < 5 %>
         <div class="reco_item_container">
             <div class="reco_item_wrap">
                 <div class="reco_item_img"><%= image_tag "fallback/default_userimg" %></div>
@@ -79,113 +79,175 @@
 <section class="tab_content_wrap clearfix">
 
     <ul class="tab-group">
-        <li class="tab is-active">Timeline</li>
-        <li class="tab">Following</i></li>
-        <li class="tab">Follower</i></li>
+        <li><a href="#timeline" class="tab">Timeline</a></li>
+        <li><a href="#following" class="tab">Following</a></li>
+        <li><a href="#follower" class="tab">Follower</a></li>
     </ul>
 
     <div class="panel-group">
 
-        <div class="panel timeline is-show">
+        <div id="timeline" class="panel timeline">
+
+            <% if !@f_users.nil? %>
+
+            <% if !@notice_items.nil? %>
+
+            <div class="user_notice_container clearfix">
+                <div class="user_notice_wrapper clearfix">
+
+                    <% @notice_items.each do |item| %>
+
+                    <div class="user_notice_item_wrapper clearfix">
+
+                        <% user = User.find_by(id: item.user_id) %>
+
+                        <% if item.has_attribute?(:free_area) %>
+
+                        <%= link_to "/#{user.userid}", class:'user_notice_item clearfix' do %>
+
+                        <div class="notice_inner">
+                            <span><%= image_tag "#{user.userimg.m}" %></span>
+                            <div class="inner_r">
+                                <span class="username">
+                                    <% if user.username.empty? %>
+                                    <%= user.userid %>
+                                    <% else %>
+                                    <%= user.username %>
+                                    <% end %>
+                                </span>
+                                <p class="notice_txt">プロフィールを変更しました
+                                    <span class="date"><%= l item.updated_at, format: "%Y-%m-%d" %></span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <% end %>
+
+                        <% elsif item.has_attribute?(:message) %>
+
+                        <%= link_to "/#{user.userid}", class:'user_notice_item clearfix' do %>
+
+                        <div class="notice_inner">
+                            <span><%= image_tag "#{user.userimg.m}" %></span>
+                            <div class="inner_r">
+                                <span class="username">
+                                    <% if user.username.empty? %>
+                                    <%= user.userid %>
+                                    <% else %>
+                                    <%= user.username %>
+                                    <% end %>
+                                </span>
+                                <p class="notice_txt"><%=safe_join(item.message.split("\n"),tag(:br))%>
+                                    <span class="date"><%= l item.updated_at, format: "%Y-%m-%d" %></span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <% end %>
+
+                        <% end %>
+
+                    </div>
+
+                    <% end %>
+
+
+
+                    <!--テスト-->
+                    <div class="user_notice_item_wrapper">
+                        <a class="user_notice_item clearfix" href="#">
+                            <div class="notice_inner">
+                                <span><%= image_tag "fallback/default_userimg" %></span>
+                                <div class="inner_r">
+                                    <span class="username">Sample user</span>
+                                    <p class="notice_txt">プロフィールを変更しました</p>
+                                    <span class="date">2020-06-11</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="user_notice_item_wrapper">
+                        <a class="user_notice_item clearfix" href="#">
+                            <div class="notice_inner">
+                                <span><%= image_tag "fallback/default_userimg" %></span>
+                                <div class="inner_r">
+                                    <span class="username">Sample user</span>
+                                    <p class="notice_txt">一言サンプル一言サンプル一言サンプル一言サンプル一言サンプル<br>一言サンプル一言サンプル一言サンプル</p>
+                                    <span class="date">2020-06-11</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="user_notice_item_wrapper">
+                        <a class="user_notice_item clearfix" href="#">
+                            <div class="notice_inner">
+                                <span><%= image_tag "fallback/default_userimg" %></span>
+                                <div class="inner_r">
+                                    <span class="username">Sample user</span>
+                                    <p class="notice_txt">プロフィールを変更しました</p>
+                                    <span class="date">2020-06-11</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="user_notice_item_wrapper">
+                        <a class="user_notice_item clearfix" href="#">
+                            <div class="notice_inner">
+                                <span><%= image_tag "fallback/default_userimg" %></span>
+                                <div class="inner_r">
+                                    <span class="username">Sample user</span>
+                                    <p class="notice_txt">一言サンプル一言サンプル一言サンプル一言サンプル一言サンプル<br>一言サンプル一言サンプル一言サンプル</p>
+                                    <span class="date">2020-06-11</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+            <% end %>
 
             <% if !@posts.nil? %>
 
-            <% @posts.each do |post| %>
+            <div class="page_wrap clearfix">
 
-            <% if post.has_attribute?(:title) %>
+                <% @posts.each do |post| %>
 
-            <%= render partial: 'posts/activity', locals: { post: post} %>
+                <%= render partial: 'posts/activity', locals: { post: post} %>
 
-            <% elsif post.has_attribute?(:trendartist) %>
-            <div class="ac_content clearfix">
+                <% end %>
 
-                <div class="ac_content_wrap">
-
-                    <p class="p_user_wrap clearfix">
-                        <% p_user = User.find(post.user_id) %>
-                        <%= link_to "/#{p_user.userid}", data: {'turbolinks' => false} do %>
-                        <span><%= image_tag "#{p_user.userimg.m}" %></span>
-                        <span>
-                            <% if p_user.username.empty? %>
-                            <%= p_user.userid %>
-                            <% else %>
-                            <%= p_user.username %>
-                            <span><%= p_user.userid %></span>
-                            <% end %>
-                        </span>
-                        <% end %>
-                    </p>
-
-                    <p class="ac_ttl"><%= link_to "プロフールを更新しました", "/#{p_user.userid}", data: {'turbolinks' => false} %></p>
-
-                    <div class="ac_content_inner tl">
-
-                        <span class="date"><%= l post.updated_at, format: "%Y-%m-%d" %></span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <% elsif post.has_attribute?(:message) %>
-            <div class="ac_content clearfix">
-
-                <div class="ac_content_wrap">
-
-                    <p class="p_user_wrap clearfix">
-                        <% p_user = User.find(post.user_id) %>
-                        <%= link_to "/#{p_user.userid}", data: {'turbolinks' => false} do %>
-                        <span><%= image_tag "#{p_user.userimg.m}" %></span>
-                        <span>
-                            <% if p_user.username.empty? %>
-                            <%= p_user.userid %>
-                            <% else %>
-                            <%= p_user.username %>
-                            <span><%= p_user.userid %></span>
-                            <% end %>
-                        </span>
-                        <% end %>
-                    </p>
-
-                    <p class="ac_ttl"><%= link_to "ひとことを更新しました", "/#{p_user.userid}", data: {'turbolinks' => false} %></p>
-
-                    <div class="ac_content_inner tl">
-
-                        <p class="ac_txt"><%=safe_join(post.message.split("\n"),tag(:br))%></p>
-
-                        <span class="date"><%= l post.updated_at, format: "%Y-%m-%d" %></span>
-
-                    </div>
-
-                </div>
+                <span class="next"><%= link_to_next_page @posts, '', param_name: 'timeline'%></span>
 
             </div>
 
             <% end %>
 
-            <% end %>
-
-            <% else %>
-            タイムラインがありません
             <% end %>
 
         </div>
 
-        <div class="panel f_l_user_list">
+        <div id="following" class="panel f_l_user_list">
 
             <div class="pl_head">
-                <p class="sttl">Following : <%= @fing_users.count %></p>
+                <p class="sttl">Following : <%= @fing_users.length %></p>
             </div>
 
             <% if !@fing_users.empty? %>
 
             <ul>
-                <% @fing_users.each do |fing_user| %>
-                <% user = User.find(fing_user.f_id) %>
-                <% msg = Onemessage.find_by(user_id: fing_user.f_id) %>
-                <%= render partial: "users/user_list", locals: { user: user, msg: msg } %>
-                <% end %>
+                <div class="page_wrap clearfix">
+                    <% @fing_users.each do |fing_user| %>
+                    <% user = User.find(fing_user.f_id) %>
+                    <% msg = Onemessage.find_by(user_id: fing_user.f_id) %>
+                    <%= render partial: "users/user_list", locals: { user: user, msg: msg } %>
+                    <% end %>
+                    <span class="next"><%= link_to_next_page @fing_users, '', param_name: 'following'%></span>
+                </div>
             </ul>
 
             <% else %>
@@ -193,20 +255,23 @@
             <% end %>
         </div>
 
-        <div class="panel f_l_user_list">
+        <div id="follower" class="panel f_l_user_list">
 
             <div class="pl_head">
-                <p class="sttl">Follower : <%= @fer_users.count %></p>
+                <p class="sttl">Follower : <%= @fer_users.length %></p>
             </div>
 
             <% if !@fer_users.empty? %>
 
             <ul>
-                <% @fer_users.each do |fer_user| %>
-                <% user = User.find(fer_user.user_id) %>
-                <% msg = Onemessage.find_by(user_id: fer_user.user_id) %>
-                <%= render partial: "users/user_list", locals: { user: user, msg: msg } %>
-                <% end %>
+                <div class="page_wrap clearfix">
+                    <% @fer_users.each do |fer_user| %>
+                    <% user = User.find(fer_user.user_id) %>
+                    <% msg = Onemessage.find_by(user_id: fer_user.user_id) %>
+                    <%= render partial: "users/user_list", locals: { user: user, msg: msg } %>
+                    <% end %>
+                    <span class="next"><%= link_to_next_page @fer_users, '', param_name: 'follower'%></span>
+                </div>
             </ul>
 
             <% else %>

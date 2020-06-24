@@ -43,7 +43,7 @@ class PostsController < ApplicationController
       render "posts/nopost"
     end
     @cmt = Comment.new
-    @p_cmt = Comment.where(post_id: params[:id]).order(created_at: "DESC")
+    @p_cmt = Comment.where(post_id: params[:id]).order(created_at: "DESC").page(params[:comment]).without_count.per(15)
   end
 
   private

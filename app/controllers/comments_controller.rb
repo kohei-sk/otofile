@@ -40,7 +40,6 @@ class CommentsController < ApplicationController
         cmt = Comment.find(params[:id])
         post = Post.find(cmt.post_id)
         if @cmt.destroy
-            @count = Comment.where(post_id: post.id).count
             respond_to do |format|
                 format.html
                 format.json

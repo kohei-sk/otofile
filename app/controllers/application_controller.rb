@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
 
   def common
     @user_name = User.find_by(userid: params[:userid])
+    if @user_name
+      gon.userid = @user_name.userid
+    end
   end
 
   protected

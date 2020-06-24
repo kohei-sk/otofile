@@ -70,14 +70,14 @@
 <section class="tab_content_wrap clearfix">
 
     <ul class="tab-group">
-        <li class="tab is-active">Profile</li>
-        <li class="tab">Activity</li>
-        <li class="tab"><i class="far fa-heart"></i></li>
+        <li><a href="#profile" class="tab">Profile</a></li>
+        <li><a href="#activity" class="tab">Activity</a></li>
+        <li><a href="#favorite" class="tab"><i class="far fa-heart"></i></a></li>
     </ul>
 
     <div class="panel-group">
 
-        <div class="panel is-show">
+        <div id="profile" class="panel">
 
             <% if !@profile.nil? %>
 
@@ -175,7 +175,7 @@
         </div>
 
 
-        <div class="panel timeline">
+        <div id="activity" class="panel timeline">
 
             <div class="pl_head">
                 <p class="sttl">
@@ -195,14 +195,15 @@
             <% if !@posts.empty? %>
 
             <div class="page_wrap clearfix">
+
                 <% @posts.each do |post| %>
 
                 <%= render partial: 'posts/activity', locals: { post: post} %>
 
                 <% end %>
 
-                <span class="next"><%= link_to_next_page @posts, 'next'%></span>
             </div>
+            <span class="next"><%= link_to_next_page @posts, '', param_name: 'activity'%></span>
 
             <% else %>
             <%= link_to 'Post activity', "/p/new", class: "pr_post" %>
@@ -210,7 +211,7 @@
 
         </div>
 
-        <div class="panel timeline">
+        <div id="favorite" class="panel timeline">
 
             <div class="pl_head">
                 <p class="sttl">
@@ -226,14 +227,19 @@
 
             <% if !@user_likes.empty? %>
 
-            <% @user_likes.each do |user_like| %>
+            <div class="page_wrap clearfix">
+                <% @user_likes.each do |user_like| %>
 
-            <% post = Post.find_by(id: user_like.post_id) %>
-            <% user = User.find_by(id: post.user_id) %>
+                <% post = Post.find_by(id: user_like.post_id) %>
+                <% user = User.find_by(id: post.user_id) %>
 
-            <%= render partial: 'posts/activity', locals: { post: post} %>
+                <%= render partial: 'posts/activity', locals: { post: post} %>
 
-            <% end %>
+                <% end %>
+
+                <span class="next"><%= link_to_next_page @user_likes, '', param_name: 'favorite'%></span>
+
+            </div>
 
         </div>
 

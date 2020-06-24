@@ -8,7 +8,6 @@ section.post {
     margin-top: -25px;
 
     .p_show {
-        @include wrap();
 
         .f_l_user {
             @include f_l_user ();

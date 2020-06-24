@@ -237,7 +237,7 @@ body.nav--opened header {
                 max-width: $main-wrap;
                 margin-top: 64px;
 
-                ul.tab-group {
+                ul.search_tab_group {
                     width: calc(100% - 50px);
                     margin: 10px auto 0;
                     display: flex;
@@ -254,7 +254,7 @@ body.nav--opened header {
                         cursor: pointer;
                         border-bottom: 2px solid $base-color;
 
-                        &.is-active {
+                        &.is_active {
                             transition: all 0.3s ease-in-out;
                             position: relative;
                             border-bottom: 2px solid $main-color;
@@ -263,10 +263,14 @@ body.nav--opened header {
                     }
                 }
 
-                .panel-group {
+                .search_panel_group {
 
                     .panel {
                         display: none;
+
+                        &.is_show {
+                            display: block;
+                        }
 
                         .head_search_wrapper {
                             max-width: 300px;
@@ -334,6 +338,105 @@ body.nav--opened header {
                     width: 100%;
                     max-width: 298px;
                     text-align: center;
+                }
+            }
+
+            #fixed_nav {
+                position: fixed;
+                right: 20px;
+                bottom: 20px;
+
+                .fixed_nav_btn {
+                    background-color: $accent-color;
+                    width: 56px;
+                    height: 56px;
+                    border-radius: 100%;
+                    transition: all .3s;
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 9;
+
+                    span {
+                        position: absolute;
+                        background-color: $base-color;
+                        z-index: 9;
+                    }
+
+                    span:nth-child(1) {
+
+                        width: 24px;
+                        height: 2px;
+                        left: 16px;
+                        top: 27px;
+
+                    }
+
+                    span:nth-child(2) {
+                        width: 2px;
+                        height: 24px;
+                        left: 27px;
+                        top: 16px;
+                    }
+
+                    &:after {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        border: solid 2px $accent-color;
+                        background-color: $accent-color;
+                        transform: scale(0.8);
+                        position: absolute;
+                        border-radius: 100%;
+                        transition: all 0.3s;
+                    }
+
+                    &:hover,
+                    &.active {
+                        transform: rotate(90deg);
+                        background-color: transparent;
+
+                        span {
+                            background-color: $accent-color;
+                        }
+
+                        &:after {
+                            transform: scale(1);
+                            background-color: $base-color;
+                        }
+
+                    }
+
+                    &.active {
+                        transform: rotate(135deg);
+
+                        &:hover {
+                            transform: rotate(225deg);
+                        }
+                    }
+                }
+
+                .fixed_nav_content {
+
+                    a {
+                        display: none;
+                        opacity: 0;
+                        width: 56px;
+                        height: 56px;
+                        background-color: $accent-color;
+                        color: $base-color;
+                        border-radius: 100%;
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+
+                        i {
+                            font-size: 18px;
+                            position: absolute;
+                            top: 18px;
+                            right: 20px;
+                        }
+
+                    }
                 }
             }
 

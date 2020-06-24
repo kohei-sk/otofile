@@ -25,7 +25,9 @@ class SearchController < ApplicationController
     end
 
     def profile
-        @search = Profile.left_joins(:histories).where(["free_area LIKE ? OR trendartist LIKE ? OR trendsong LIKE ? OR fvcate LIKE ? OR fvartist LIKE ? OR fvsong LIKE ? OR fes_sche LIKE ? OR fes_his LIKE ? OR event LIKE ?", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%"]).limit(1)
+        prf = Profile.joins(:histories)
+        @search = prf.group(:profile_id).select("profiles.*", "histories.*").where(["free_area LIKE ? OR trendartist LIKE ? OR trendsong LIKE ? OR fvcate LIKE ? OR fvartist LIKE ? OR fvsong LIKE ? OR fes_sche LIKE ? OR fes_his LIKE ? OR event LIKE ?", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%"])
+
         if @search.empty?
             redirect_to "/unmatch/#{@w}"
         end

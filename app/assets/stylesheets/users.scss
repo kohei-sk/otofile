@@ -783,20 +783,26 @@ section.tab_content_wrap {
         background-color: $base-color;
         border-bottom: 1px solid $sub-color2;
 
-        li.tab {
+        li {
             flex-grow: 1;
-            padding: 12px 0;
             list-style: none;
-            letter-spacing: .3px;
-            text-align: center;
-            cursor: pointer;
-            border-bottom: 2px solid $base-color;
 
-            &.is-active {
-                transition: all 0.3s ease-in-out;
-                position: relative;
-                border-bottom: 2px solid $main-color;
-                pointer-events: none;
+            a.tab {
+                color: $main-color;
+                display: block;
+                width: 100%;
+                padding: 12px 0;
+                letter-spacing: .3px;
+                text-align: center;
+                cursor: pointer;
+                border-bottom: 2px solid $base-color;
+
+                &.is_active {
+                    transition: all 0.3s ease-in-out;
+                    position: relative;
+                    border-bottom: 2px solid $main-color;
+                    pointer-events: none;
+                }
             }
         }
     }
@@ -807,6 +813,10 @@ section.tab_content_wrap {
             display: none;
             min-height: calc(100vh - 100px);
             @include wrap();
+
+            &.is_show {
+                display: block;
+            }
 
             &.timeline {
                 padding: 0;

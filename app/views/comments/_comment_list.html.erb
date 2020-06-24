@@ -1,49 +1,55 @@
-<% p_cmt.each do |cmt| %>
-<% user = User.find(cmt.c_uid) %>
+<div class="page_wrap clearfix">
 
-<li class="comment_wrap clearfix" id="comment_id_<%= cmt.id %>">
+    <% p_cmt.each do |cmt| %>
+    <% user = User.find(cmt.c_uid) %>
 
-    <%= link_to "/#{user.userid}", class: "comment_user" do %>
-    <span class="com_l"><%= image_tag "#{user.userimg.m}" %></span>
-    <span class="com_r">
-        <span>
-            <% if user.username.empty? %>
-            <%= user.userid %>
-            <% else %>
-            <%= user.username %>
+    <li class="comment_wrap clearfix" id="comment_id_<%= cmt.id %>">
+
+        <%= link_to "/#{user.userid}", class: "comment_user" do %>
+        <span class="com_l"><%= image_tag "#{user.userimg.m}" %></span>
+        <span class="com_r">
+            <span>
+                <% if user.username.empty? %>
+                <%= user.userid %>
+                <% else %>
+                <%= user.username %>
+            </span>
+            <span><%= user.userid %></span>
+            <% end %>
         </span>
-        <span><%= user.userid %></span>
         <% end %>
-    </span>
-    <% end %>
-    <p class="comment_content">
-        <span class="comment"><%= safe_join(cmt.comment.split("\n"),tag(:br)) %></span>
-        <span class="date"><%= l cmt.created_at, format: "%Y-%m-%d" %></span>
+        <p class="comment_content">
+            <span class="comment"><%= safe_join(cmt.comment.split("\n"),tag(:br)) %></span>
+            <span class="date"><%= l cmt.created_at, format: "%Y-%m-%d" %></span>
+
+            <% if user.id == current_user.id %>
+            <span class="cmt_in_edit"><i class="fas fa-edit"></i></span>
+            <%= link_to "/c/#{cmt.id}/destroy", class: 'cmt_dlete_btn' do %>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
+            <% end %>
+        </p>
+
 
         <% if user.id == current_user.id %>
-        <span class="cmt_in_edit"><i class="fas fa-edit"></i></span>
-        <%= link_to "/c/#{cmt.id}/destroy", class: 'cmt_dlete_btn' do %>
-        <i class="fas fa-trash-alt"></i>
+
+        <%= form_tag "/c/#{cmt.id}/edit", :method => 'patch', class: "comment_edit" do %>
+        <div class="field">
+            <textarea name="comment" id="comment"><%= cmt.comment %></textarea>
+        </div>
+        <label>
+            <button type="submit"></button>
+            <span class="cmt_send_btn"><i class="fas fa-paper-plane"></i></span>
+        </label>
+        <span class="cmt_close_btn"><i class="fas fa-times"></i></span>
         <% end %>
+
         <% end %>
-    </p>
 
-
-    <% if user.id == current_user.id %>
-
-    <%= form_tag "/c/#{cmt.id}/edit", :method => 'patch', class: "comment_edit" do %>
-    <div class="field">
-        <textarea name="comment" id="comment"><%= cmt.comment %></textarea>
-    </div>
-    <label>
-        <button type="submit"></button>
-        <span class="cmt_send_btn"><i class="fas fa-paper-plane"></i></span>
-    </label>
-    <span class="cmt_close_btn"><i class="fas fa-times"></i></span>
-    <% end %>
+    </li>
 
     <% end %>
 
-</li>
+    <span class="next"><%= link_to_next_page @p_cmt, '', param_name: 'comments'%></span>
 
-<% end %>
+</div>

@@ -4,7 +4,7 @@
 
         <p class="p_user_wrap clearfix">
             <% p_user = User.find(post.user_id) %>
-            <%= link_to "/#{p_user.userid}", data: {'turbolinks' => false} do %>
+            <%= link_to "/#{p_user.userid}" do %>
             <span><%= image_tag "#{p_user.userimg.m}" %></span>
             <span>
                 <% if p_user.username.empty? %>
@@ -44,12 +44,12 @@
                 <% if cmt_u.empty? %>
                 <%= link_to "/p/#{post.id}", class: "uncmt" do %>
                 <i class="fas fa-comment"></i>
-                <span><%= cmt.count %></span>
+                <span><%= cmt.length %></span>
                 <% end %>
                 <% else %>
                 <%= link_to "/p/#{post.id}", class: "cmt" do %>
                 <i class="fas fa-comment"></i>
-                <span><%= cmt.count %></span>
+                <span><%= cmt.length %></span>
                 <% end %>
                 <% end %>
             </div>
