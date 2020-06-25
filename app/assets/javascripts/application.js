@@ -14,7 +14,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
-//= require jquery.jscroll.min.js
 //= require jquery_nested_form
 
 //nested_form setting（フェードアウトできない）
@@ -239,7 +238,7 @@ $(document).ready(function () {
                             path: href + ' span.next a',
                             append: href + ' .page_wrap',
                             history: false,
-                            scrollThreshold: 500
+                            scrollThreshold: 600
                         });
 
                     }
@@ -304,7 +303,7 @@ $(document).ready(function () {
         cellAlign: 'left',
         wrapAround: true,
         contain: true,
-        prevNextButtons: false,
+        prevNextButtons: true,
         pageDots: false
     });
     var topNotice = function () {
@@ -513,7 +512,6 @@ $(document).ready(function () {
 
         //削除
         $(document).on("click", '.cmt_dlete_btn', function (e) {
-            alert('本当に削除しますか？');
             e.preventDefault();
             var url = $(this).attr('href');
             var number = Number($('a.cmt span').text()) - 1;

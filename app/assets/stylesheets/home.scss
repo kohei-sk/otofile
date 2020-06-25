@@ -29,13 +29,44 @@ section.head {
         margin-bottom: 15px;
         padding-left: 15px;
         letter-spacing: .5px;
+        color: $sub-color;
     }
 
     .reco_wrap {
 
+        .flickity-prev-next-button.previous {
+            left: 5px;
+        }
+
+        .flickity-prev-next-button.next {
+            right: 4px;
+        }
+
+        .flickity-prev-next-button {
+            top: 50%;
+            width: 22px;
+            height: 22px;
+            border-radius: 0;
+        }
+
+        .flickity-button {
+            background: $sub-color3;
+
+            @include sp {
+                display: none;
+            }
+        }
+
+        .flickity-prev-next-button .flickity-button-icon {
+            left: 25%;
+            top: 25%;
+            width: 50%;
+            height: 50%;
+        }
+
         .reco_item_container {
-            width: 172px;
-            padding: 0 0 0 15px;
+            width: 155px;
+            padding: 0 0 0 10px;
 
             @include sp {
                 width: calc(100% / 2.5);
@@ -133,7 +164,19 @@ section.tab_content_wrap {
         .panel {
 
             .user_notice_container {
-                border-bottom: 1px dashed $sub-color2;
+                border-bottom: 1px solid $sub-color2;
+                position: relative;
+
+                &:after {
+                    content: "";
+                    width: 120px;
+                    height: calc(100% - 2px);
+                    position: absolute;
+                    right: 0px;
+                    top: 1px;
+                    z-index: 1;
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.5), #ffffff);
+                }
 
                 .user_notice_wrapper {
 
@@ -149,7 +192,7 @@ section.tab_content_wrap {
 
                         a.user_notice_item {
                             display: block;
-                            color: #000000;
+                            color: $main-color;
                             padding: 25px 15px;
                             transition: all .2s;
 

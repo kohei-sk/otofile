@@ -1,0 +1,98 @@
+<header class="clearfix">
+
+    <nav class="clearfix">
+        <%= link_to "/", class: "nav_logo" do %>
+        <%= image_tag "logo.svg" %>
+        <% end %>
+
+        <div class="nav_btn_wrapper">
+
+            <a class="nav_btn search search_btn_trriger"></a>
+            <%= link_to '', "/#{current_user.userid}", class: 'nav_btn prf' if user_signed_in? %>
+
+            <a class="nav_btn_trriger"><span></span><span></span><span></span></a>
+        </div>
+        <div class="nav_content clearfix">
+            <% if user_signed_in? %>
+            <%= link_to 'ホーム', root_path, class: "nav_home" %>
+            <%= link_to 'ひとこと', "/m/new", class: "nav_msg" %>
+            <%= link_to 'アクティビティ', '/p/new', class: "nav_act" %>
+            <%= link_to 'アカウント設定', edit_user_registration_path, class: 'nav_setting' %>
+            <%= link_to 'ログアウト', destroy_user_session_path, class: "nav_signout", method: :delete %>
+            <%= link_to 'お問い合わせ', '#', class: "nav_contact" %>
+
+            <% else %>
+            <%= link_to 'アカウント登録', new_user_registration_path, class: "nav_signup" %>
+            <%= link_to 'ログイン', new_user_session_path, class: "nav_signin" %>
+            <%= link_to 'お問い合わせ', '#', class: "nav_contact" %>
+            <% end %>
+        </div>
+        <div class="search_content">
+
+            <ul class="search_tab_group">
+                <li class="tab is_active">User</li>
+                <li class="tab">Profile</li>
+                <li class="tab">Activity</li>
+            </ul>
+
+            <div class="search_panel_group">
+
+                <div class="panel is_show">
+                    <div class="head_search_wrapper clearfix">
+                        <%= form_tag "/search/check", :method => 'get', class: "head_search" do %>
+                        <%= text_field_tag :u_search, params[:u_search] %>
+                        <%= label_tag do %>
+                        <%= submit_tag "", :name => nil %>
+                        <i class="fas fa-search"></i>
+                        <% end %>
+                        <% end %>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="head_search_wrapper clearfix">
+                        <%= form_tag "/search/check", :method => 'get', class: "head_search" do %>
+                        <%= text_field_tag :pr_search, params[:pr_search] %>
+                        <%= label_tag do %>
+                        <%= submit_tag "", :name => nil %>
+                        <i class="fas fa-search"></i>
+                        <% end %>
+                        <% end %>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="head_search_wrapper clearfix">
+                        <%= form_tag "/search/check", :method => 'get', class: "head_search" do %>
+                        <%= text_field_tag :p_search, params[:p_search] %>
+                        <%= label_tag do %>
+                        <%= submit_tag "", :name => nil %>
+                        <i class="fas fa-search"></i>
+                        <% end %>
+                        <% end %>
+                    </div>
+                </div>
+
+            </div>
+
+            <%= link_to 'Random search :D', u_random_path, class: 'search_btn_random' %>
+
+        </div>
+
+        <div id="fixed_nav">
+            <div class="fixed_nav_btn"><span></span><span></span></div>
+            <div class="fixed_nav_content">
+                <%= link_to "/m/new", id: 'fix_btn_msg' do %><i class="fas fa-comment-dots"></i><% end %>
+                <%= link_to "/p/new", id: 'fix_btn_post' do %><i class="fas fa-music"></i><% end %>
+                <%= link_to "/pr/edit", id: 'fix_btn_prf' do %><i class="fas fa-user"></i></i><% end %>
+            </div>
+        </div>
+    </nav>
+
+    <% if notice %>
+    <p class="notice clearfix"><%= notice %></p>
+    <% end %>
+    <% if alert  %>
+    <p class="alert clearfix"><%= alert %></p>
+    <% end %>
+</header>

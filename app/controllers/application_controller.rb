@@ -1,12 +1,20 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :rank_posts
 
   def common
     @user_name = User.find_by(userid: params[:userid])
     if @user_name
       gon.userid = @user_name.userid
     end
+  end
+
+  def rank_posts
+    from = Time.current.ago(37.days)
+    to = Time.current
+    posts = Post.left_joins(:likes)
+    @rank_posts = posts.group("posts.id").select("posts.*", "count(likes.id) AS likes").where(created_at: from..to).order("likes desc").limit(10)
   end
 
   protected

@@ -24,7 +24,7 @@
 
             <% if user.id == current_user.id %>
             <span class="cmt_in_edit"><i class="fas fa-edit"></i></span>
-            <%= link_to "/c/#{cmt.id}/destroy", class: 'cmt_dlete_btn' do %>
+            <%= link_to "/c/#{cmt.id}/destroy", class: 'cmt_dlete_btn', data: {confirm: "本当に削除しますか？"} do %>
             <i class="fas fa-trash-alt"></i>
             <% end %>
             <% end %>

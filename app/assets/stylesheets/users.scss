@@ -923,7 +923,7 @@ section.tab_content_wrap {
                 padding: 12px 3px 20px;
                 line-height: 180%;
                 letter-spacing: .5px;
-                border-bottom: 1px dashed $sub-color2
+                border-bottom: 1px solid $sub-color2
             }
 
             .yt_wrap {
@@ -982,7 +982,7 @@ section.tab_content_wrap {
 
             .ac_content {
                 @include ac_content();
-                border-bottom: 1px dashed $sub-color2;
+                border-bottom: 1px solid $sub-color2;
 
                 &:last-child {
                     border: none;
