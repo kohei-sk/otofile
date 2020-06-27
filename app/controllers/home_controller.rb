@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     else
       @f_users = Follow.where(user_id: current_user.id).map { |user| user.f_id.to_i }
 
-      @posts = Post.where(user_id: @f_users).order(created_at: "DESC").page(params[:timeline]).without_count.per(3)
+      @posts = Post.where(user_id: @f_users).order(created_at: "DESC").page(params[:timeline]).without_count.per(10)
 
       notice_items = []
 

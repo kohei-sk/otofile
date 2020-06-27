@@ -166,6 +166,7 @@ section.tab_content_wrap {
             .user_notice_container {
                 border-bottom: 1px solid $sub-color2;
                 position: relative;
+                padding: 25px 0;
 
                 &:after {
                     content: "";
@@ -184,25 +185,23 @@ section.tab_content_wrap {
                         width: fit-content;
                         max-width: 290px;
                         box-sizing: border-box;
+                        padding: 0 0 0 12px;
 
                         @include sp {
                             max-width: 290px;
-                            padding: 0 6px;
+                            padding: 0 0 0 6px;
                         }
 
                         a.user_notice_item {
                             display: block;
                             color: $main-color;
-                            padding: 25px 15px;
+                            padding: 15px;
                             transition: all .2s;
-
-                            &:hover {
-                                background-color: rgba(224, 224, 224, .2);
-                            }
+                            background-color: $sub-color3;
 
                             .notice_inner {
 
-                                >span {
+                                span.userimg {
                                     display: block;
                                     width: 36px;
                                     height: 36px;
@@ -218,18 +217,31 @@ section.tab_content_wrap {
 
                                 }
 
-                                .inner_r {
-                                    display: block;
-                                    padding: 0 0 0 8px;
-                                    float: left;
-                                    width: calc(100% - 36px);
+                                .notice_inner_t {
 
                                     span.username {
-                                        font-size: 10px;
+                                        font-size: 12px;
                                         display: block;
-                                        margin-bottom: 3px;
+                                        display: block;
+                                        float: left;
+                                        width: calc(100% - 36px);
+                                        padding: 0 0 0 5px;
+                                        margin: 2px 0 0 0;
 
+                                        >span {
+                                            display: block;
+                                            font-size: 10px;
+                                            color: $sub-color;
+                                            word-break: break-all;
+                                            margin: 0 0 0 2px;
+                                            line-height: 100%;
+                                        }
                                     }
+                                }
+
+                                .notice_inner_b {
+
+                                    margin-top: 5px;
 
                                     p.notice_txt {
                                         line-height: 150%;
@@ -245,10 +257,7 @@ section.tab_content_wrap {
                                         margin-top: 3px;
                                         color: $sub-color;
                                     }
-
                                 }
-
-
                             }
                         }
                     }

@@ -896,12 +896,19 @@ body.nav--opened header {
     aside {
         width: 325px;
         margin-top: 64px;
-        padding: 34px 25px;
-        box-sizing: border-box;
         background-color: $base-color;
         border-left: 1px solid $sub-color2;
 
         .aside_inner {
+            padding: 34px 25px 25px;
+            box-sizing: border-box;
+            width: 100%;
+
+            &.side_fixed {
+                width: 325px;
+                position: fixed;
+                bottom: 0;
+            }
 
             .rank_post_container {
 

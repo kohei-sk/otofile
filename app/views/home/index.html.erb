@@ -106,16 +106,19 @@
                         <%= link_to "/#{user.userid}", class:'user_notice_item clearfix' do %>
 
                         <div class="notice_inner">
-                            <span><%= image_tag "#{user.userimg.m}" %></span>
-                            <div class="inner_r">
+                            <div class="notice_inner_t clearfix">
+                                <span class="userimg"><%= image_tag "#{user.userimg.m}" %></span>
                                 <span class="username">
                                     <% if user.username.empty? %>
                                     <%= user.userid %>
                                     <% else %>
                                     <%= user.username %>
                                     <% end %>
+                                    <span><%= user.userid %></span>
                                 </span>
-                                <p class="notice_txt">プロフィールを変更しました
+                            </div>
+                            <div class="notice_inner_b">
+                                <p class=" notice_txt">プロフィールを変更しました
                                     <span class="date"><%= l item.updated_at, format: "%Y-%m-%d" %></span>
                                 </p>
                             </div>
@@ -128,15 +131,18 @@
                         <%= link_to "/#{user.userid}", class:'user_notice_item clearfix' do %>
 
                         <div class="notice_inner">
-                            <span><%= image_tag "#{user.userimg.m}" %></span>
-                            <div class="inner_r">
+                            <div class="notice_inner_t clearfix">
+                                <span class="userimg"><%= image_tag "#{user.userimg.m}" %></span>
                                 <span class="username">
                                     <% if user.username.empty? %>
                                     <%= user.userid %>
                                     <% else %>
                                     <%= user.username %>
                                     <% end %>
+                                    <span><%= user.userid %></span>
                                 </span>
+                            </div>
+                            <div class="notice_inner_b">
                                 <p class="notice_txt"><%=safe_join(item.message.split("\n"),tag(:br))%>
                                     <span class="date"><%= l item.updated_at, format: "%Y-%m-%d" %></span>
                                 </p>
@@ -154,50 +160,74 @@
 
 
                     <!--テスト-->
-                    <div class="user_notice_item_wrapper">
+                    <div class="user_notice_item_wrapper clearfix">
                         <a class="user_notice_item clearfix" href="#">
                             <div class="notice_inner">
-                                <span><%= image_tag "fallback/default_userimg" %></span>
-                                <div class="inner_r">
-                                    <span class="username">Sample user</span>
-                                    <p class="notice_txt">プロフィールを変更しました</p>
-                                    <span class="date">2020-06-11</span>
+                                <div class="notice_inner_t clearfix">
+                                    <span class="userimg"><%= image_tag "fallback/default_userimg" %></span>
+                                    <span class="username">
+                                        Sample user
+                                        <span>Sample user</span>
+                                    </span>
+                                </div>
+                                <div class="notice_inner_b">
+                                    <p class=" notice_txt">プロフィールを変更しました
+                                        <span class="date">2020-06-11</span>
+                                    </p>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="user_notice_item_wrapper">
+                    <div class="user_notice_item_wrapper clearfix">
                         <a class="user_notice_item clearfix" href="#">
                             <div class="notice_inner">
-                                <span><%= image_tag "fallback/default_userimg" %></span>
-                                <div class="inner_r">
-                                    <span class="username">Sample user</span>
-                                    <p class="notice_txt">一言サンプル一言サンプル一言サンプル一言サンプル一言サンプル<br>一言サンプル一言サンプル一言サンプル</p>
-                                    <span class="date">2020-06-11</span>
+                                <div class="notice_inner_t clearfix">
+                                    <span class="userimg"><%= image_tag "fallback/default_userimg" %></span>
+                                    <span class="username">
+                                        Sample user
+                                        <span>Sample user</span>
+                                    </span>
+                                </div>
+                                <div class="notice_inner_b">
+                                    <p class="notice_txt">一言サンプル一言サンプル一言サンプル一言サンプル一言サンプル<br>一言サンプル一言サンプル一言サンプル
+                                        <span class="date">2020-06-11</span>
+                                    </p>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="user_notice_item_wrapper">
+                    <div class="user_notice_item_wrapper clearfix">
                         <a class="user_notice_item clearfix" href="#">
                             <div class="notice_inner">
-                                <span><%= image_tag "fallback/default_userimg" %></span>
-                                <div class="inner_r">
-                                    <span class="username">Sample user</span>
-                                    <p class="notice_txt">プロフィールを変更しました</p>
-                                    <span class="date">2020-06-11</span>
+                                <div class="notice_inner_t clearfix">
+                                    <span class="userimg"><%= image_tag "fallback/default_userimg" %></span>
+                                    <span class="username">
+                                        Sample user
+                                        <span>Sample user</span>
+                                    </span>
+                                </div>
+                                <div class="notice_inner_b">
+                                    <p class=" notice_txt">プロフィールを変更しました
+                                        <span class="date">2020-06-11</span>
+                                    </p>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="user_notice_item_wrapper">
+                    <div class="user_notice_item_wrapper clearfix">
                         <a class="user_notice_item clearfix" href="#">
                             <div class="notice_inner">
-                                <span><%= image_tag "fallback/default_userimg" %></span>
-                                <div class="inner_r">
-                                    <span class="username">Sample user</span>
-                                    <p class="notice_txt">一言サンプル一言サンプル一言サンプル一言サンプル一言サンプル<br>一言サンプル一言サンプル一言サンプル</p>
-                                    <span class="date">2020-06-11</span>
+                                <div class="notice_inner_t clearfix">
+                                    <span class="userimg"><%= image_tag "fallback/default_userimg" %></span>
+                                    <span class="username">
+                                        Sample user
+                                        <span>Sample user</span>
+                                    </span>
+                                </div>
+                                <div class="notice_inner_b">
+                                    <p class="notice_txt">一言サンプル一言サンプル一言サンプル一言サンプル一言サンプル<br>一言サンプル一言サンプル一言サンプル
+                                        <span class="date">2020-06-11</span>
+                                    </p>
                                 </div>
                             </div>
                         </a>

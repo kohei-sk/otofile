@@ -96,6 +96,26 @@ $(document).ready(function () {
         });
     });
 
+    //サイドナビ固定
+    $(function () {
+        $(window).scroll(function () {
+            var headerH = 64;
+            var mainWrap = $('main').outerHeight() + headerH;
+            var sideNav = $('.aside_inner');
+            var windowH = $(window).height();
+            var scrollTop = $(this).scrollTop();
+            var sideH = sideNav.outerHeight() + headerH;
+
+            if (sideH < mainWrap) {
+                if (sideH - windowH < scrollTop) {
+                    sideNav.addClass('side_fixed');
+                } else {
+                    sideNav.removeClass('side_fixed');
+                }
+            }
+        });
+    });
+
     //固定ボタン
     $(function () {
         $(document).on("click", '.fixed_nav_btn', function () {

@@ -1,0 +1,57 @@
+<aside class="clearfix">
+
+    <div class="aside_inner clearfix">
+
+        <div class="rank_post_container clearfix">
+
+            <% if !@rank_posts.nil? %>
+
+            <h3>Weekly <i class="far fa-heart"></i> ranking</h3>
+
+            <div class="rank_post_wrapper clearfix">
+
+                <% @rank_posts.each do |post| %>
+
+                <% user = User.find(post.user_id) %>
+
+                <%= link_to "/p/#{post.id}", class: 'rank_post_item clearfix' do %>
+
+                <p class="rank_title">
+                    <i class="far fa-heart"></i>
+                    <span class="rank_count"><%= post.likes.length %></span>
+                    <%= post.title %>
+                </p>
+
+                <% if post.img.present? %>
+                <p class="rank_img"><%= image_tag "#{post.img}"%></p>
+                <% end %>
+                <p class="rank_user">
+                    <span class="rank_userimg"><%= image_tag "#{user.userimg.m}" %></span>
+                    <span class="rank_username">
+                        <% if user.username.empty? %>
+                        <%= user.userid %>
+                        <% else %>
+                        <%= user.username %>
+                        <% end %>
+                    </span>
+                </p>
+
+                <% end %>
+
+                <% end %>
+
+            </div>
+            <% end %>
+
+        </div>
+
+        <footer>
+            <%= link_to '利用規約', '/#' %>
+            <%= link_to 'プライバシーポリシー', '/#' %>
+            <%= link_to 'Cookie', '/#' %>
+            <p>© <%= l Time.current, format: "%Y" %> OTOFILE</p>
+        </footer>
+
+    </div>
+
+</aside>
