@@ -54,7 +54,7 @@ body.nav--opened header {
 
             a.nav_logo {
                 display: block;
-                width: 140px;
+                width: 166px;
                 height: auto;
                 padding: 15px 20px;
                 float: left;
@@ -449,14 +449,12 @@ body.nav--opened header {
 
     p.notice,
     p.alert {
-        display: block;
+        display: none;
         width: 100%;
         text-align: center;
         background-color: $accent-color;
         color: $base-color;
         line-height: 100%;
-        font-weight: 300;
-        font-size: 15px;
         padding: 10px 0;
         letter-spacing: 0.5px;
     }
@@ -568,6 +566,11 @@ body.nav--opened header {
                 line-height: 180%;
                 letter-spacing: .5px;
                 background-color: $sub-color3;
+
+                &#ytid {
+                    width: 50%;
+                    display: block;
+                }
             }
 
             input:focus,
@@ -900,7 +903,7 @@ body.nav--opened header {
         border-left: 1px solid $sub-color2;
 
         .aside_inner {
-            padding: 34px 25px 25px;
+            padding: 25px;
             box-sizing: border-box;
             width: 100%;
 
@@ -965,7 +968,7 @@ body.nav--opened header {
 
                     p.rank_img {
                         width: 100%;
-                        max-height: 140px;
+                        max-height: 154px;
                         overflow: hidden;
                         margin-bottom: 10px;
                         border-radius: 5px;
@@ -974,6 +977,26 @@ body.nav--opened header {
                             width: 100%;
                             height: 100%;
                             object-fit: cover;
+                        }
+                    }
+
+                    p.rank_yt {
+                        margin-bottom: 10px;
+                        width: 100%;
+                        position: relative;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                            border-radius: 5px;
+                        }
+
+                        svg {
+                            position: absolute;
+                            top: calc(50% - 24px);
+                            left: calc(50% - 34px);
+                            width: 68px;
+                            height: 48px;
                         }
                     }
 

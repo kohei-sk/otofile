@@ -26,12 +26,17 @@ Rails.application.routes.draw do
   patch "/c/:id/edit" => "comments#update"
   get "/c/:id/destroy" => "comments#destroy"
 
+  post "/r/:id/new" => "replies#create"
+  patch "/r/:id/edit" => "replies#update"
+  get "/r/:id/destroy" => "replies#destroy"
+
   get "/search/check" => "search#check"
   get "/u/search/:word" => "search#user"
   get "/pr/search/:word" => "search#profile"
   get "/p/search/:word" => "search#post"
   get "/unmatch/:word" => "search#unmatch"
-  get "/u/random" => "search#random"
+  get "/u/s/random" => "search#user_random"
+  get "/p/s/random" => "search#post_random"
 
   resources :users, param: :userid, path: "/", only: [:show]
 

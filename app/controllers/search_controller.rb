@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-    before_action :word, except: [ :check, :random ]
+    before_action :word, except: [ :check, :user_random, :user_random ]
 
     def check
         if params[:u_search]
@@ -40,12 +40,21 @@ class SearchController < ApplicationController
         end
     end
 
-    def random
+    def user_random
         @search = User.where.not(id: current_user.id).order("RANDOM()").limit(1)[0]
         if @search.nil?
             redirect_to root_path
         else
             redirect_to "/#{@search.userid}"
+        end
+    end
+
+    def post_random
+        @search = Post.where.not(user_id: current_user.id).order("RANDOM()").limit(1)[0]
+        if @search.nil?
+            redirect_to root_path
+        else
+            redirect_to "/p/#{@search.id}"
         end
     end
 

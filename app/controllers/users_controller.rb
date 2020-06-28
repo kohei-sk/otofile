@@ -20,8 +20,8 @@ class UsersController < ApplicationController
         @histories = arr_histories.sort_by! { |a| a[:year] }.reverse!
       end
 
-      @posts = Post.where(user_id: @user_name.id).order(created_at: "DESC").page(params[:activity]).without_count.per(10)
-      @user_likes = Like.where(l_uid: @user_name.id).order(created_at: "DESC").page(params[:favorite]).without_count.per(10)
+      @posts = Post.where(user_id: @user_name.id).order(created_at: "DESC").page(params[:activity]).without_count.per(5)
+      @user_likes = Like.where(l_uid: @user_name.id).order(created_at: "DESC").page(params[:favorite]).without_count.per(5)
     end
   end
 end

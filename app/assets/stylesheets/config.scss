@@ -90,7 +90,8 @@ a {
 $base-color: #ffffff;
 $base-color2:#f5f5f5;
 $main-color: #000000;
-$accent-color: #ff533d;
+//$accent-color: #ff533d;
+$accent-color: #dc2032;
 $sub-color: #adadad;
 $sub-color2: #eaeaea;
 $sub-color3: #f9f9f9;
@@ -122,6 +123,10 @@ $sp: 630px;
         width: 100% !important;
         height: 100% !important;
     }
+}
+
+.yt_wrap {
+    @include yt_wrap();
 }
 
 @mixin btn() {

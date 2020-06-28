@@ -1,6 +1,6 @@
 <p>ようこそ <%= @email %> さん</p>
 
-<p>ファボロックにご登録いただいたメールアドレスを確認します。<br>
+<p>Otofileにご登録いただいたメールアドレスを確認します。<br>
     <strong>24時間以内</strong>に下記へアクセスし、登録を完了してください。</p>
 
 <p><%= link_to 'メールアドレスを認証', confirmation_url(@resource, confirmation_token: @token) %></p>

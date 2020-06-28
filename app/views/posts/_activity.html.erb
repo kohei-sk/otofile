@@ -1,12 +1,12 @@
 <div class="ac_content clearfix">
 
-    <div class="ac_content_wrap">
+    <div class="ac_content_wrap clearfix">
 
         <p class="p_user_wrap clearfix">
             <% p_user = User.find(post.user_id) %>
             <%= link_to "/#{p_user.userid}" do %>
             <span><%= image_tag "#{p_user.userimg.m}" %></span>
-            <span>
+            <span class="p_username">
                 <% if p_user.username.empty? %>
                 <%= p_user.userid %>
                 <% else %>
@@ -29,33 +29,67 @@
             <p class="m_content"><%= image_tag "#{post.img}" %></p>
             <% end %>
 
+            <% if post.ytid.present? %>
+            <% if current_page?("/p/#{post.id}") %>
+            <div class="yt_wrap ac_yt">
+                <iframe width="854" height="480" src="https://www.youtube.com/embed/<%= post.ytid %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <% else %>
+            <%= link_to "/p/#{post.id}", class: 'ac_yt' do %>
+            <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
+                <path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path>
+                <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+            </svg>
+            <%= image_tag "http://img.youtube.com/vi/#{post.ytid}/maxresdefault.jpg" %>
+            <% end %>
+            <% end %>
+            <% end %>
+
+            <% if current_page?("/p/#{post.id}") %>
             <% if post.user_id == current_user.id %>
             <%= link_to "Edit", "/p/#{post.id}/edit", class: 'ac_in_edit' %>
+            <% end %>
             <% end %>
 
         </div>
 
-        <div class="count_wrap">
+        <div class="btn_wrap clearfix">
 
-            <div class="p_cmt_box">
-                <% cmt = Comment.where(post_id: post.id) %>
-                <% cmt_u = Comment.where(post_id: post.id, c_uid: current_user.id) %>
+            <div class="count_wrap">
 
-                <% if cmt_u.empty? %>
-                <%= link_to "/p/#{post.id}", class: "uncmt" do %>
-                <i class="fas fa-comment"></i>
-                <span><%= cmt.length %></span>
-                <% end %>
-                <% else %>
-                <%= link_to "/p/#{post.id}", class: "cmt" do %>
-                <i class="fas fa-comment"></i>
-                <span><%= cmt.length %></span>
-                <% end %>
-                <% end %>
+                <div class="p_cmt_box">
+                    <% cmt = Comment.where(post_id: post.id) %>
+                    <% cmt_u = Comment.where(post_id: post.id, c_uid: current_user.id) %>
+
+                    <% if cmt_u.empty? %>
+                    <%= link_to "/p/#{post.id}", class: "uncmt" do %>
+                    <i class="fas fa-comment"></i>
+                    <span><%= cmt.length %></span>
+                    <% end %>
+                    <% else %>
+                    <%= link_to "/p/#{post.id}", class: "cmt" do %>
+                    <i class="fas fa-comment"></i>
+                    <span><%= cmt.length %></span>
+                    <% end %>
+                    <% end %>
+                </div>
+
+                <div class="p_like_box" id="ac_post_<%= post.id %>">
+                    <%= render partial: 'likes/like', locals: { post: post} %>
+                </div>
+
             </div>
-
-            <div class="p_like_box" id="ac_post_<%= post.id %>">
-                <%= render partial: 'likes/like', locals: { post: post} %>
+            <div class="ac_share_wrap">
+                <div class="ac_share_btn">
+                    <i class="fas fa-share-square"></i>
+                </div>
+                <div class="ac_share_content" id="/p/<%= post.id %>">
+                    <div class="share_nobg"></div>
+                    <span class="ac_twitter">
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i>Share on Twitter</a>
+                    </span>
+                    <span class="ac_link_copy"><i class="fas fa-link"></i>Copy link</span>
+                </div>
             </div>
 
         </div>

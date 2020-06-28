@@ -44,10 +44,11 @@ class PostsController < ApplicationController
     end
     @cmt = Comment.new
     @p_cmt = Comment.where(post_id: params[:id]).order(created_at: "DESC").page(params[:comment]).without_count.per(15)
+    @reply = Reply.new
   end
 
   private
     def post_params
-      params.require(:post).permit(:title, :comment, :img, :remove_img).merge( user_id: current_user.id)
+      params.require(:post).permit(:title, :comment, :img, :remove_img, :ytid).merge( user_id: current_user.id)
     end
 end

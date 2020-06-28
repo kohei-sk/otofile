@@ -16,43 +16,21 @@
 //= require_tree .
 //= require jquery_nested_form
 
-//nested_form setting（フェードアウトできない）
-// window.NestedFormEvents.prototype.insertFields = function (content, assoc, link) {
-//     var target = $(link).data('target');
-//     if (target) {
-//         return $(content).appendTo($(target)).hide().fadeIn();
-//     } else {
-//         return $(content).insertBefore(link).hide().fadeIn();
-//     }
-// }
-// window.NestedFormEvents.prototype.removeFields = function (e) {
-//     var $link = $(e.currentTarget),
-//         assoc = $link.data('association'); // Name of child to be removed
-
-//     var hiddenField = $link.prev('input[type=hidden]');
-//     hiddenField.val('1');
-
-//     var field = $link.closest('.fields');
-//     field.fadeOut();
-
-//     field
-//         .trigger({
-//             type: 'nested:fieldRemoved',
-//             field: field
-//         })
-//         .trigger({
-//             type: 'nested:fieldRemoved:' + assoc,
-//             field: field
-//         });
-//     return false;
-// }
-
 $(document).ready(function () {
 
     //フラッシュフェードアウト
-    $(function () {
-        setTimeout("$('.notice, .alert').fadeOut('slow')", 2500)
-    });
+    var notice = function () {
+        $(function () {
+            $('.notice, .alert').fadeIn(500)
+            setTimeout(function () {
+                $('.notice, .alert').fadeOut(500).queue(function () {
+                    this.remove();
+                });
+            }, 3500);
+            return false
+        });
+    }
+    notice();
 
     //メニュー
     $(function () {
@@ -157,6 +135,57 @@ $(document).ready(function () {
                     }
                 });
             }
+        });
+    });
+
+    //投稿シェアボタン
+    $(function () {
+        $(document).on("click", '.ac_share_btn', function () {
+            const ts = $(this);
+            const cn = ts.next('.ac_share_content');
+            const nm = 'active';
+            const wp = ts.parent('.ac_share_wrap');
+            const bg = $('.share_nobg')
+
+            if (wp.hasClass(nm)) {
+                cn.fadeOut(200);
+                wp.removeClass(nm);
+            } else {
+                cn.fadeIn(200);
+                wp.addClass(nm);
+                bg.click(function () {
+                    cn.fadeOut(200);
+                    wp.removeClass(nm);
+                });
+            }
+
+            //ボタン操作
+            const id = cn.attr('id');
+            const cp = ts.next().find('.ac_link_copy');
+            const tt = ts.next().find('.ac_twitter').children('a');
+            const li = location.host + id;
+            const tx = ts.parent().parent().parent('.ac_content_wrap').children('.ac_ttl').text();
+
+            //ツイッターシェア
+            tt.attr('href', 'https://twitter.com/intent/tweet?text=' + tx + '&url=' + li);
+
+            //リンクコピー
+            cp.off();
+            cp.click(function () {
+
+                var cb = $('<textarea></textarea>');
+                cb.text(li);
+                cp.append(cb);
+                cb.select();
+                document.execCommand('copy');
+                cb.remove();
+
+                cn.fadeOut(200);
+                wp.removeClass(nm);
+
+                $('<p class="notice clearfix">コピーしました</p>').appendTo('header');
+                notice();
+            });
         });
     });
 
@@ -348,12 +377,27 @@ $(document).ready(function () {
         reader.onload = function () {
             $(btn).parent().prev().html('<img src="' + reader.result + '">').hide().fadeIn();
         }
+
+        $('.yt_select_wrap').fadeOut();
     });
 
+    //画像かYouTubeかどっちか
+    $(function () {
+        const img_confirm = $('.img_wrap_confirm img');
+        const yt_confirm = $('input#ytid').val();
+
+        if (img_confirm[0]) {
+            $('.yt_select_wrap').hide();
+        }
+        if (yt_confirm !== '') {
+            $('.img_select_wrap').hide();
+        }
+    });
+
+    //無限スクロール発火
     $(function () {
         $(document).on("click", '.tab-group li a', function () {
             const hash = window.location.hash;
-            console.log(hash)
             if (hash === '#activity') {
                 $('.page_wrap1').infiniteScroll({
                     path: 'span.next1 a',
@@ -381,7 +425,6 @@ $(document).ready(function () {
         $(document).on("click", '.follow_btn.unfollow', function (e) {
             e.preventDefault();
             var url = $(this).attr('href');
-            console.log(url);
             $.ajax({
                     url: url,
                     type: "GET",
@@ -403,7 +446,6 @@ $(document).ready(function () {
         $(document).on("click", '.follow_btn.follow', function (e) {
             e.preventDefault();
             var url = $(this).attr('href');
-            console.log(url);
             $.ajax({
                     url: url,
                     type: "GET",
@@ -441,6 +483,8 @@ $(document).ready(function () {
                                 <a class="cmt_dlete_btn" href="/c/${comments.id}/destroy">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
+                                <span class="cmt_in_reply"><i class="fas fa-reply"></i></span>
+                                <span class="cmt_in_reply_close"><i class="fas fa-times"></i></span>
                             </p>
                             <form class="comment_edit" action="/c/${comments.id}/edit" accept-charset="UTF-8" method="post">
                                 <input name="utf8" type="hidden" value="✓">
@@ -455,6 +499,19 @@ $(document).ready(function () {
                                 </label>
                                 <span class="cmt_close_btn"><i class="fas fa-times"></i></span>
                             </form>
+                            <form class="reply_area" id="new_reply" action="/r/${comments.post_id}/new" accept-charset="UTF-8" method="post">
+                            <input name="utf8" type="hidden" value="✓">
+                            <input type="hidden" name="authenticity_token" value="">
+                                    <div class="field">
+                                        <input value="${comments.id}" type="hidden" name="reply[comment_id]" id="reply_comment_id">
+                                        <textarea placeholder="reply :D" id="comment_id_${comments.id}" name="reply[reply]"></textarea>
+                                        <label>
+                                            <button type="submit"></button>
+                                            <span class="reply_send_btn"><i class="fas fa-paper-plane"></i></span>
+                                        </label>
+                                    </div>
+                            </form>
+                            <ul class="reply_container" id="reply_comment_id_${comments.id}"></ul>
                         </li>`;
             return html
         }
@@ -495,6 +552,7 @@ $(document).ready(function () {
                     var count = buildCount(data, number);
                     $(html).prependTo('.comment_container').hide().fadeIn(500);
                     $('form[action="/c/' + data.id + '/edit"] input[name="authenticity_token"]').val(value);
+                    $('form[action="/r/' + data.post_id + '/new"] input[name="authenticity_token"]').val(value);
 
                     $('.p_cmt_box').html(count).show();
                     $('textarea#post_id_' + data.post_id).val("");
@@ -557,13 +615,162 @@ $(document).ready(function () {
         })
     });
 
+    //返信非同期
+    $(function () {
+        function replyHTML(replies) {
+            var html = `<li class="reply_wrap clearfix" id="reply_id_${replies.id}">
+                            <a class="reply_user" href="/${replies.userid}">
+                                <span class="reply_l"><img src="${replies.userimg}"></span>
+                                <span class="reply_r">
+                                    <span>${replies.username}</span>
+                                    <span>${replies.userid}</span>
+                                </span>
+                            </a>
+                            <p class="reply_content" style="display: block;">
+                                <span class="reply">${replies.reply}</span>
+                                <span class="date">${replies.created_at}</span>
+
+                                <span class="reply_in_edit"><i class="fas fa-edit"></i></span>
+                                <a class="reply_dlete_btn" data-confirm="本当に削除しますか？" href="/r/${replies.id}/destroy">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </p>
+                            <form class="reply_edit" action="/r/${replies.id}/edit" accept-charset="UTF-8" method="post">
+                                <input name="utf8" type="hidden" value="✓">
+                                    <input type="hidden" name="_method" value="patch">
+                                    <input type="hidden" name="authenticity_token" value="">
+                                <div class="field">
+                                    <textarea name="reply" id="reply">${replies.reply}</textarea>
+                                </div>
+                                <label>
+                                    <button type="submit"></button>
+                                    <span class="reply_send_btn"><i class="fas fa-paper-plane"></i></span>
+                                </label>
+                                <span class="reply_close_btn"><i class="fas fa-times"></i></span>
+                            </form>
+                        </li>`;
+            return html
+        }
+
+        //投稿
+        $(document).on("submit", '.reply_area', function (e) {
+
+            //コメントフォーム空白
+            if ($(this).children('.field').children('textarea').val() === '') {
+                return false;
+            }
+
+            e.preventDefault();
+            var formData = new FormData(this);
+            var url = $(this).attr('action');
+            var value = $(this).children('input[name="authenticity_token"]').val();
+
+            $.ajax({
+                    url: url,
+                    type: "POST",
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false
+                })
+                .done(function (data) {
+                    var html = replyHTML(data);
+                    $(html).prependTo('#reply_comment_id_' + data.comment_id).hide().fadeIn(500);
+                    $('form[action="/r/' + data.id + '/edit"] input[name="authenticity_token"]').val(value);
+
+                    $('textarea#comment_id_' + data.comment_id).val("");
+                    $('li#comment_id_' + data.comment_id + ' .cmt_in_reply_close').trigger('click');
+                })
+                .fail(function () {
+                    location.reload();
+                })
+        })
+
+        //編集
+        $(document).on("submit", '.reply_edit', function (e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            var url = $(this).attr('action');
+            $.ajax({
+                    url: url,
+                    type: "PATCH",
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false
+                })
+                .done(function (data) {
+                    const id = 'li#reply_id_' + data.id
+                    $(id + ' .reply').html(data.reply);
+                    $(id + ' textarea').html(data.reply);
+                    $(id + ' form').hide();
+                    $(id + ' .reply_content').fadeIn(500);
+
+                })
+                .fail(function () {
+                    location.reload();
+                })
+        })
+
+        //削除
+        $(document).on("click", '.reply_dlete_btn', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var id = $(this).attr('href').split('/')[2];
+            $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false
+                })
+                .done(function (data) {
+                    $('li#reply_id_' + id).fadeOut(500).queue(function () {
+                        this.remove();
+                    });
+
+                })
+                .fail(function () {
+                    location.reload();
+                })
+        })
+    });
+
     //コメント編集ボックス表示非表示
     $(document).on("click", '.cmt_in_edit', function () {
-        //$('.cmt_in_edit').click(function () {
         var edit = $(this).parent('p')
         edit.hide();
         edit.next('form').fadeIn(500);
         $('.cmt_close_btn').click(function () {
+            var close = $(this).parent('form')
+            close.hide();
+            close.prev('p').fadeIn(500);
+        });
+    });
+
+    //返信ボックス表示非表示
+    $(document).on("click", '.cmt_in_reply', function () {
+        var btn = $(this);
+        var close = $(this).next('.cmt_in_reply_close');
+        var box = $(this).parent().siblings('.reply_area')
+
+        box.fadeIn(500);
+        btn.fadeOut(500);
+        close.fadeIn(500);
+
+        close.click(function () {
+            box.fadeOut(500);
+            btn.fadeIn(500);
+            close.fadeOut(500);
+        });
+    });
+
+    //返信編集ボックス表示非表示
+    $(document).on("click", '.reply_in_edit', function () {
+        var edit = $(this).parent('p')
+        edit.hide();
+        edit.next('form').fadeIn(500);
+        $('.reply_close_btn').click(function () {
             var close = $(this).parent('form')
             close.hide();
             close.prev('p').fadeIn(500);

@@ -24,7 +24,7 @@
     <%= f.text_area :comment %>
 </div>
 
-<div class="field_img">
+<div class="field_img img_select_wrap">
     <div class="img_wrap_confirm">
         <% if @post.img.present? %>
         <%= image_tag "#{@post.img}"%>
@@ -40,6 +40,58 @@
     <div class="indicator"></div>
     <% end %>
 </div>
+
+<div class="field yt_select_wrap">
+    <%= f.label :ytid, "YouTube動画" %>
+    <%= f.text_field :ytid, placeholder: "YouTubeのURLをペースト", oninput: "func_id()", id: "ytid" %>
+    <p id="yt_error"></p>
+
+    <% if @post.ytid.present? %>
+    <div id="ytid_confirm_now">
+        <iframe width="854" height="480" src="https://www.youtube.com/embed/<%= @post.ytid %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <% end %>
+
+    <div id="ytid_confirm"></div>
+</div>
+
+<script>
+    function func_id() {
+        var i = document.getElementById("ytid");
+        var t = i.value;
+
+        $('#ytid_confirm, #ytid_confirm_now, #yt_error').fadeOut();
+
+        if (/watch\?v=/.test(t)) {
+            var index = t.indexOf('watch?v=');
+            var y = t.slice(index + 8);
+
+            i.value = y
+
+            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            document.getElementById('ytid_confirm').innerHTML = ytid_confirm;
+            $('#ytid_confirm').fadeIn();
+            $('.img_select_wrap').fadeOut();
+
+        } else if (/youtu\.be\//.test(t)) {
+            var index = t.indexOf('youtu.be/');
+            var y = t.slice(index + 9);
+
+            i.value = y
+
+            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            document.getElementById('ytid_confirm').innerHTML = ytid_confirm;
+            $('#ytid_confirm').fadeIn();
+            $('.img_select_wrap').fadeOut();
+
+        } else {
+            i.value = '';
+            document.getElementById('yt_error').innerHTML = "正しいURLを入力してください"
+            $('#yt_error').fadeIn();
+            $('.img_select_wrap').fadeIn();
+        }
+    }
+</script>
 
 <div class="actions">
     <%= f.submit "更新" %>
