@@ -88,6 +88,14 @@
                 <%= link_to "/pr/edit", id: 'fix_btn_prf' do %><i class="fas fa-user"></i></i><% end %>
             </div>
         </div>
+
+        <div id="sp_nav" class="clearfix">
+            <%= link_to "/m/new" do %><i class="fas fa-comment-dots"></i><% end %>
+            <%= link_to "/p/new" do %><i class="fas fa-music"></i><% end %>
+            <%= link_to "/pr/edit" do %><i class="fas fa-user"></i></i><% end %>
+            <span id="sp_search_trriger"><i class="fas fa-search"></i></span>
+            <%= link_to "/#{current_user.userid}", id: 'sp_user_btn' do %><span><%= image_tag "#{current_user.userimg.m}" %></span><% end %>
+        </div>
     </nav>
 
     <% if notice %>

@@ -80,8 +80,8 @@
 
     <ul class="tab-group">
         <li><a href="#timeline" class="tab">Timeline</a></li>
-        <li><a href="#following" class="tab">Following</a></li>
-        <li><a href="#follower" class="tab">Follower</a></li>
+        <li><a href="#following" class="tab">Following<span><%= @fing_users.length %></span></a></li>
+        <li><a href="#follower" class="tab">Follower<span><%= @fer_users.length %></span></a></li>
     </ul>
 
     <div class="panel-group">
@@ -261,11 +261,7 @@
 
         </div>
 
-        <div id="following" class="panel f_l_user_list">
-
-            <div class="pl_head">
-                <p class="sttl">Following : <%= @fing_users.length %></p>
-            </div>
+        <div id="following" class="panel f_l_user_list fl_list">
 
             <% if !@fing_users.empty? %>
 
@@ -285,11 +281,7 @@
             <% end %>
         </div>
 
-        <div id="follower" class="panel f_l_user_list">
-
-            <div class="pl_head">
-                <p class="sttl">Follower : <%= @fer_users.length %></p>
-            </div>
+        <div id="follower" class="panel f_l_user_list fl_list">
 
             <% if !@fer_users.empty? %>
 

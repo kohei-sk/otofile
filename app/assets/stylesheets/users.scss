@@ -2,963 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "config";
-
-@mixin f_l_user() {
-    ul {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-
-        li {
-            list-style: none;
-            padding: 15px 0;
-
-            &:first-child {
-                padding-top: 0;
-            }
-
-            &:last-child {
-                padding-bottom: 0;
-            }
-
-            a {
-                color: $main-color;
-
-                >span {
-
-                    &:nth-child(1) {
-                        display: inline-block;
-                        vertical-align: top;
-                        width: 50px;
-                        height: 50px;
-                        border-radius: 100%;
-                        overflow: hidden;
-
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
-                    }
-
-                }
-
-                div {
-                    display: inline-block;
-                    vertical-align: top;
-                    padding: 0 0 0 10px;
-                    max-width: calc(100% - 54px);
-
-                    >span {
-
-                        &:nth-child(1) {
-                            line-height: 100%;
-                            font-size: 15px;
-                        }
-
-                        &:nth-child(2) {
-                            display: inline-block;
-                            width: 100%;
-                            line-height: 160%;
-                            font-size: 12px;
-                            color: $sub-color;
-                            line-height: 100%;
-                        }
-
-                        &:nth-child(3) {
-                            display: inline-block;
-                            width: 100%;
-                            line-height: 160%;
-                            font-size: 13px;
-                            margin-top: 2px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@mixin ac_content() {
-    position: relative;
-
-    .ac_content_wrap {
-        padding: 25px 25px 25px 90px;
-        margin: 0;
-        position: relative;
-
-        p.p_user_wrap {
-            width: 100%;
-            margin: 0 0 15px 0;
-
-            a {
-                display: inline;
-                position: relative;
-                z-index: 2;
-
-                >span {
-                    display: inline-block;
-                    vertical-align: middle;
-                    line-height: 100%;
-                    color: $main-color;
-                    font-size: 13px;
-
-                    &.prf_up {
-                        font-size: 15px;
-                        line-height: 170%;
-                        letter-spacing: .5px;
-                    }
-
-                    &:nth-child(1) {
-                        width: 50px;
-                        height: 50px;
-                        overflow: hidden;
-                        border-radius: 100%;
-                        position: absolute;
-                        left: -65px;
-                        top: -7px;
-
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
-                    }
-
-                    &:nth-child(2) {
-                        display: inline-block;
-
-                        span {
-                            display: block;
-                            font-size: 12px;
-                            color: $sub-color;
-                            margin: 3px 0 0 0;
-                            word-break: break-all;
-                        }
-                    }
-
-
-                }
-            }
-        }
-
-        .ac_ttl {
-            font-size: 15px;
-            line-height: 170%;
-            letter-spacing: .5px;
-            margin: -4px 0 -6px;
-
-            a {
-                color: $accent-color;
-                z-index: 2;
-            }
-        }
-
-        .ac_content_inner {
-            padding: 15px 0;
-
-            a {
-                position: relative;
-                z-index: 2;
-            }
-
-            &.tl {
-                padding: 15px 0 0 0;
-            }
-
-            .ac_txt {
-                line-height: 170%;
-                letter-spacing: .5px;
-                margin: -3px 0 0 0;
-
-                a {
-                    color: $accent-color;
-                    word-break: break-all;
-                }
-
-            }
-
-            span.date {
-                font-size: 10px;
-                color: $sub-color;
-                letter-spacing: .5px;
-                display: block;
-                line-height: 170%;
-            }
-
-            .ac_img {
-                margin: 15px 0 0 0;
-                width: 100%;
-                height: 290px;
-                overflow: hidden;
-                border-radius: 5px;
-                position: relative;
-                z-index: 2;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-
-            .ac_yt {
-                margin: 15px 0 0 0;
-                width: 100%;
-                position: relative;
-                z-index: 2;
-                display: block;
-
-                img {
-                    width: 100%;
-                    height: auto;
-                    border-radius: 5px;
-                }
-
-                svg {
-                    position: absolute;
-                    top: calc(50% - 24px);
-                    left: calc(50% - 34px);
-                    width: 68px;
-                    height: 48px;
-                }
-            }
-
-            .ac_in_edit {
-                position: relative;
-                border: 1px solid $main-color;
-                border-radius: 5px;
-                line-height: 100%;
-                color: $main-color;
-                display: inline-block;
-                padding: 5px 10px;
-                margin: 22px 0 0;
-            }
-
-        }
-
-        .btn_wrap {
-
-            .count_wrap {
-                display: block;
-                float: left;
-
-                .p_cmt_box {
-                    display: inline-block;
-                    padding: 0 4px;
-
-                    a {
-                        position: relative;
-                        z-index: 2;
-
-                        i {
-                            font-size: 18px;
-                            display: inline-block;
-                            vertical-align: middle;
-                            margin-right: 3px;
-                        }
-
-                        &.cmt {
-                            color: #28af9e;
-                        }
-
-                        &.uncmt {
-                            color: $sub-color;
-
-                            &:hover {
-
-                                i {
-                                    animation: .1s linear infinite like;
-                                }
-                            }
-                        }
-
-                        span {
-                            font-size: 12px;
-                            display: inline;
-                            vertical-align: middle;
-                            line-height: 100%;
-                        }
-
-                    }
-                }
-
-                .p_like_box {
-                    display: inline-block;
-                    width: auto;
-                    padding: 0 4px;
-                    position: relative;
-                    z-index: 2;
-
-                    .p_like_box_wrap {
-                        width: auto;
-                        display: inline-block;
-                        vertical-align: middle;
-
-                        a {
-                            display: inline-block;
-
-                            i {
-                                font-size: 18px;
-                                display: inline-block;
-                                vertical-align: middle;
-                                margin-right: 3px;
-                            }
-
-                            &.like {
-                                color: $accent-color;
-                            }
-
-                            &.unlike {
-                                color: $sub-color;
-
-                                &:hover {
-
-                                    i {
-                                        animation: .1s linear infinite like;
-                                    }
-                                }
-                            }
-
-                            span {
-                                font-size: 12px;
-                                display: inline;
-                                vertical-align: middle;
-                                line-height: 100%;
-                            }
-                        }
-
-                    }
-
-                    .like_user {
-                        width: auto;
-                        display: inline-block;
-                        vertical-align: middle;
-                        line-height: 100%;
-                        margin-left: 5px;
-                        cursor: pointer;
-
-
-                        span.like_user_in {
-                            display: inline-block;
-                            width: 24px;
-                            height: 24px;
-                            overflow: hidden;
-                            border-radius: 100%;
-                            margin: 2px 0 0 3px;
-
-                            img {
-                                width: 100%;
-                                height: 100%;
-                                object-fit: cover;
-
-                            }
-                        }
-                    }
-                }
-            }
-
-            .ac_share_wrap {
-                float: right;
-                display: block;
-                position: relative;
-                z-index: 4;
-                padding-right: 3px;
-
-                &.active {
-                    z-index: 9999;
-                }
-
-                .ac_share_btn {
-                    cursor: pointer;
-                    margin-top: 5px;
-
-                    >i {
-                        font-size: 16px;
-                        color: $sub-color;
-                    }
-                }
-
-                .ac_share_content {
-                    display: none;
-                    position: absolute;
-                    right: 0;
-                    bottom: 0;
-                    background-color: $sub-color3;
-                    color: $accent-color;
-                    width: max-content;
-                    padding: 15px;
-                    letter-spacing: .3px;
-                    padding: 10px 15px;
-                    font-size: 12px;
-
-                    span {
-                        display: block;
-                        cursor: pointer;
-                        padding: 5px;
-
-                        &.ac_link_copy i {
-                            font-size: 15px;
-                        }
-
-                        i {
-                            font-size: 18px;
-                            margin: 0 5px 0 0;
-                        }
-
-                        a {
-                            color: $accent-color;
-                        }
-                    }
-
-                    .share_nobg {
-                        width: 100vw;
-                        height: 100vh;
-                        position: fixed;
-                        left: 0;
-                        top: 0;
-                        background-color: #000;
-                        z-index: -1;
-                        opacity: 0;
-                    }
-                }
-
-            }
-
-        }
-
-        form.comment_area {
-            margin: 15px 0 5px;
-            padding: 0 !important;
-
-            .field {
-                position: relative;
-                margin: 0;
-
-                textarea {
-                    height: 50px !important;
-                    min-height: 50px !important;
-                    border: 1px solid $sub-color2;
-                    padding: 12px 40px 12px 16px;
-                    transition: all .2s;
-
-                    &:hover,
-                    &:focus {
-                        height: auto !important;
-                        min-height: 100px !important;
-                        border: 1px solid $accent-color;
-                    }
-                }
-
-                label {
-                    cursor: pointer;
-                    margin: 0;
-                    padding: 0;
-                    position: absolute;
-                    right: 15px;
-                    top: 15px;
-
-                    button[type="submit"] {
-                        display: none;
-                    }
-
-                    span.btn {
-                        color: $main-color;
-                        font-size: 20px;
-                        transition: all .2s;
-
-                        &:hover {
-                            color: $accent-color;
-                        }
-                    }
-
-                }
-            }
-        }
-
-        form.reply_area {
-            margin: 15px 0 5px;
-            padding: 0 0 0 37px !important;
-
-            .field {
-                position: relative;
-                margin: 0;
-
-                textarea {
-                    height: 50px !important;
-                    min-height: 50px !important;
-                    border: 1px solid $sub-color2;
-                    padding: 12px 40px 12px 16px;
-                    transition: all .2s;
-
-                    &:hover,
-                    &:focus {
-                        height: auto !important;
-                        min-height: 100px !important;
-                        border: 1px solid $accent-color;
-                    }
-                }
-
-                label {
-                    cursor: pointer;
-                    margin: 0;
-                    padding: 0;
-                    position: absolute;
-                    right: 15px;
-                    top: 15px;
-
-                    button[type="submit"] {
-                        display: none;
-                    }
-
-                    span.btn {
-                        color: $main-color;
-                        font-size: 20px;
-                        transition: all .2s;
-
-                        &:hover {
-                            color: $accent-color;
-                        }
-                    }
-
-                }
-            }
-        }
-
-        ul.comment_container {
-            padding: 10px 0 5px;
-
-            li.comment_wrap {
-                display: inline-block;
-                width: 100%;
-                margin-bottom: 15px;
-
-                &:last-child {
-
-                    padding: 0;
-                    margin: 0;
-                    border: none;
-                }
-
-                a.comment_user {
-                    display: inline;
-                    color: $main-color;
-
-                    span.com_l {
-                        display: inline-block;
-                        width: 30px;
-                        height: 30px;
-                        border-radius: 100%;
-                        overflow: hidden;
-                        vertical-align: top;
-
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
-
-                    }
-
-                    span.com_r {
-                        display: inline-block;
-                        vertical-align: top;
-                        margin-left: 5px;
-
-                        span {
-                            display: block;
-                            line-height: 100%;
-                            margin-top: 3px;
-                            font-size: 10px;
-
-                            &:nth-child(1) {}
-
-                            &:nth-child(2) {
-                                color: $sub-color;
-                            }
-                        }
-                    }
-                }
-
-                p.comment_content {
-                    position: relative;
-
-                    width: 100%;
-                    font-size: 12px;
-                    padding-left: 38px;
-                    box-sizing: border-box;
-                    line-height: 150%;
-
-                    span.date {
-                        font-size: 10px;
-                        letter-spacing: .5px;
-                        display: block;
-                        line-height: 170%;
-                        color: $sub-color;
-                    }
-
-                    span.cmt_in_edit {
-                        color: $sub-color;
-                        font-size: 12px;
-                        line-height: 100%;
-                        position: absolute;
-                        right: 45px;
-                        bottom: 3px;
-                        text-decoration: underline;
-                        cursor: pointer;
-
-                    }
-
-                    .cmt_dlete_btn {
-                        color: $sub-color;
-                        font-size: 12px;
-                        line-height: 100%;
-                        position: absolute;
-                        right: 25px;
-                        bottom: 3px;
-                        text-decoration: underline;
-                        cursor: pointer;
-                    }
-
-                    span.cmt_in_reply,
-                    span.cmt_in_reply_close {
-                        color: $main-color;
-                        font-size: 12px;
-                        line-height: 100%;
-                        position: absolute;
-                        right: 5px;
-                        bottom: 3px;
-                        text-decoration: underline;
-                        cursor: pointer;
-
-                    }
-
-                    span.cmt_in_reply_close {
-                        display: none;
-                    }
-
-                }
-
-                form.comment_edit {
-                    display: none;
-                    margin: 8px 0;
-                    padding: 0 0 0 38px !important;
-                    position: relative;
-
-                    .field {
-                        margin: 0;
-
-                        textarea {
-                            height: 50px !important;
-                            min-height: 50px !important;
-                            border: 1px solid $sub-color2;
-                            padding: 12px 40px 12px 16px;
-                            transition: all .2s;
-
-                            &:hover,
-                            &:focus {
-                                height: auto !important;
-                                min-height: 100px !important;
-                                border: 1px solid $accent-color;
-                            }
-                        }
-
-                    }
-
-                    label {
-                        cursor: pointer;
-                        margin: 0;
-                        padding: 0;
-                        position: absolute;
-                        right: 15px;
-                        top: 15px;
-
-                        button[type="submit"] {
-                            display: none;
-                        }
-
-                        .cmt_send_btn {
-                            color: $main-color;
-                            font-size: 15px;
-                            transition: all .2s;
-
-                            &:hover {
-                                color: $accent-color;
-                            }
-                        }
-
-                    }
-
-                    .cmt_close_btn {
-                        cursor: pointer;
-                        display: block;
-                        line-height: 100%;
-                        position: absolute;
-                        right: 15px;
-                        top: -25px;
-                        font-size: 15px;
-                    }
-                }
-
-                form.reply_area {
-                    display: none;
-                    margin: 10px 0;
-                    padding: 0 0 0 38px !important;
-                    position: relative;
-
-                    .field {
-                        margin: 0;
-
-                        textarea {
-                            height: 50px !important;
-                            min-height: 50px !important;
-                            border: 1px solid $sub-color2;
-                            padding: 12px 40px 12px 16px;
-                            transition: all .2s;
-
-                            &:hover,
-                            &:focus {
-                                height: auto !important;
-                                min-height: 100px !important;
-                                border: 1px solid $accent-color;
-                            }
-                        }
-
-                    }
-
-                    label {
-                        cursor: pointer;
-                        margin: 0;
-                        padding: 0;
-                        position: absolute;
-                        right: 15px;
-                        top: 15px;
-
-                        button[type="submit"] {
-                            display: none;
-                        }
-
-                        .reply_send_btn {
-                            color: $main-color;
-                            font-size: 15px;
-                            transition: all .2s;
-
-                            &:hover {
-                                color: $accent-color;
-                            }
-                        }
-
-                    }
-                }
-
-                ul.reply_container {
-                    padding: 0 0 0 42px;
-
-                    li.reply_wrap {
-                        display: inline-block;
-                        width: 100%;
-                        margin: 0 0 15px 0;
-
-                        &:first-child {
-
-                            margin: 15px 0;
-                        }
-
-                        &:last-child {}
-
-                        a.reply_user {
-                            display: inline;
-                            color: $main-color;
-
-                            span.reply_l {
-                                display: inline-block;
-                                width: 30px;
-                                height: 30px;
-                                border-radius: 100%;
-                                overflow: hidden;
-                                vertical-align: top;
-
-                                img {
-                                    width: 100%;
-                                    height: 100%;
-                                    object-fit: cover;
-                                }
-
-                            }
-
-                            span.reply_r {
-                                display: inline-block;
-                                vertical-align: top;
-                                margin-left: 5px;
-
-                                span {
-                                    display: block;
-                                    line-height: 100%;
-                                    margin-top: 3px;
-                                    font-size: 10px;
-
-                                    &:nth-child(1) {}
-
-                                    &:nth-child(2) {
-                                        color: $sub-color;
-                                    }
-                                }
-                            }
-                        }
-
-                        p.reply_content {
-                            position: relative;
-
-                            width: 100%;
-                            font-size: 12px;
-                            padding-left: 38px;
-                            box-sizing: border-box;
-                            line-height: 150%;
-
-                            span.date {
-                                font-size: 10px;
-                                letter-spacing: .5px;
-                                display: block;
-                                line-height: 170%;
-                                color: $sub-color;
-                            }
-
-                            span.reply_in_edit {
-                                color: $sub-color;
-                                font-size: 12px;
-                                line-height: 100%;
-                                position: absolute;
-                                right: 25px;
-                                bottom: 3px;
-                                text-decoration: underline;
-                                cursor: pointer;
-
-                            }
-
-                            .reply_dlete_btn {
-                                color: $sub-color;
-                                font-size: 12px;
-                                line-height: 100%;
-                                position: absolute;
-                                right: 5px;
-                                bottom: 3px;
-                                text-decoration: underline;
-                                cursor: pointer;
-                            }
-
-                        }
-
-                        form.reply_edit {
-                            display: none;
-                            margin: 8px 0;
-                            padding: 0 0 0 38px !important;
-                            position: relative;
-
-                            .field {
-                                margin: 0;
-
-                                textarea {
-                                    height: 50px !important;
-                                    min-height: 50px !important;
-                                    border: 1px solid $sub-color2;
-                                    padding: 12px 40px 12px 16px;
-                                    transition: all .2s;
-
-                                    &:hover,
-                                    &:focus {
-                                        height: auto !important;
-                                        min-height: 100px !important;
-                                        border: 1px solid $accent-color;
-                                    }
-                                }
-
-                            }
-
-                            label {
-                                cursor: pointer;
-                                margin: 0;
-                                padding: 0;
-                                position: absolute;
-                                right: 15px;
-                                top: 15px;
-
-                                button[type="submit"] {
-                                    display: none;
-                                }
-
-                                .reply_send_btn {
-                                    color: $main-color;
-                                    font-size: 15px;
-                                    transition: all .2s;
-
-                                    &:hover {
-                                        color: $accent-color;
-                                    }
-                                }
-
-                            }
-
-                            .reply_close_btn {
-                                cursor: pointer;
-                                display: block;
-                                line-height: 100%;
-                                position: absolute;
-                                right: 15px;
-                                top: -25px;
-                                font-size: 15px;
-                            }
-                        }
-
-                    }
-
-                }
-            }
-        }
-
-
-        a.post_show {
-            position: absolute;
-            display: block;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-            z-index: 1;
-            transition: all .2s;
-
-            &:hover {
-                background-color: rgba(224, 224, 224, .2);
-            }
-        }
-    }
-}
-
-@keyframes like {
-    0% {
-        transform: translate(0px, 0px) rotateZ(0deg)
-    }
-
-    25% {
-        transform: translate(2px, 2px) rotateZ(1deg)
-    }
-
-    50% {
-        transform: translate(0px, 2px) rotateZ(0deg)
-    }
-
-    75% {
-        transform: translate(2px, 0px) rotateZ(-1deg)
-    }
-
-    100% {
-        transform: translate(0px, 0px) rotateZ(0deg)
-    }
-}
+@import "posts";
 
 .modaal-content-container,
 .f_l_user_list {
     @include f_l_user ();
+
 }
 
 section.head {
@@ -969,6 +18,10 @@ section.head {
     position: relative;
     padding: 50px 25px;
     margin: -25px 0 0;
+
+    @include sp {
+        padding: 25px 14px;
+    }
 
     &:after {
         content: '';
@@ -986,17 +39,22 @@ section.head {
 
     .head_l {
         display: inline-block;
-        width: 200px;
+        width: auto;
         height: auto;
         vertical-align: middle;
         position: relative;
         z-index: 2;
 
         p.head_img {
-            width: 100%;
+            width: 200px;
             height: 200px;
             border-radius: 100%;
             overflow: hidden;
+
+            @include sp {
+                width: 100px;
+                height: 100px;
+            }
 
             img {
                 width: 100%;
@@ -1016,22 +74,33 @@ section.head {
         position: relative;
         z-index: 2;
 
+        @include sp {
+            padding: 0 0 0 14px;
+            width: calc(100% - 105px);
+        }
+
         p.head_name {
-            font-size: 16px;
-            line-height: 140%;
-            letter-spacing: .5px;
+            font-size: 1.23rem;
+            line-height: 1.4em;
+
+            @include sp {
+                display: inline-block;
+            }
         }
 
         p.head_id {
-            font-size: 13px;
             color: $sub-color;
-            line-height: 100%;
-            margin: 5px 0 16px 0;
+            line-height: 1em;
+            margin: 0.39em 0 1.23em 0;
+
+            @include sp {
+                display: inline-block;
+                margin: 0.39em 0 0.95em 0.3em;
+            }
         }
 
         p.head_message {
-            letter-spacing: .2px;
-            line-height: 150%;
+            line-height: 1.5em;
             position: relative;
             width: 100%;
 
@@ -1050,49 +119,34 @@ section.head {
                 height: 100%;
                 top: 0;
                 left: 0;
-                color: $main-color;
 
-                // &:before {
-                //     font-family: "Font Awesome 5 free";
-                //     font-weight: 900;
-                //     content: '\f044';
-                //     font-size: 12px;
-                //     line-height: 100%;
-                //     padding: 7px;
-                //     width: 25px;
-                //     height: 25px;
-                //     display: block;
-                //     color: $base-color;
-                //     background-color: $accent-color;
-                //     position: absolute;
-                //     right: 0;
-                //     bottom: 0;
-                //     z-index: 9;
-                // }
             }
         }
 
         .head_sns {
             width: 100%;
             display: inline-block;
-            margin: 18px 0 0 0;
+            margin: 1.38em 0 0 0;
+
+            @include sp {
+                margin: 1.0em 0 0 0;
+            }
 
             a {
                 position: relative;
-                width: 20px;
-                height: 20px;
+                width: 1.54rem;
+                height: 1.54rem;
                 display: inline-block;
-                margin-right: 3px;
+                margin-right: 0.23em;
 
                 &:before {
                     font-family: "Font Awesome 5 Brands";
                     font-weight: 400;
-                    color: $main-color;
-                    font-size: 20px;
+                    font-size: 1.54rem;
                     position: absolute;
                     top: 0;
                     left: 0;
-                    line-height: 100%;
+                    line-height: 1em;
                 }
 
                 &.head_snst:before {
@@ -1115,21 +169,25 @@ section.head {
                     font-family: "Font Awesome 5 free";
                     font-weight: 900;
                     content: '\f0c1';
-                    font-size: 17px;
-                    top: 1px;
+                    font-size: 1.3rem;
+                    top: 0.077em;
                 }
             }
         }
 
         .follow_wrap {
-            margin: 17px 0 0 0;
+            margin: 1.3em 0 0 0;
             width: 50%;
             @include btn_follow();
+
+            @include sp {
+                margin: 0.9em 0 0 0;
+            }
         }
     }
 
     .fa-user-cog {
-        font-size: 16px;
+        font-size: 1.23rem;
         color: $accent-color;
         position: relative;
         z-index: 2;
@@ -1159,11 +217,9 @@ section.tab_content_wrap {
             list-style: none;
 
             a.tab {
-                color: $main-color;
                 display: block;
                 width: 100%;
-                padding: 12px 0;
-                letter-spacing: .3px;
+                padding: 0.92em 0;
                 text-align: center;
                 cursor: pointer;
                 border-bottom: 2px solid $base-color;
@@ -1174,6 +230,13 @@ section.tab_content_wrap {
                     border-bottom: 2px solid $main-color;
                     pointer-events: none;
                 }
+
+                span {
+                    display: inline-block;
+                    color: $sub-color;
+                    font-size: 0.85em;
+                    margin-left: 0.3em;
+                }
             }
         }
     }
@@ -1182,7 +245,6 @@ section.tab_content_wrap {
 
         .panel {
             display: none;
-            min-height: calc(100vh - 100px);
             @include wrap();
 
             &.is_show {
@@ -1198,19 +260,31 @@ section.tab_content_wrap {
                     a.pr_edit,
                     a.ac_post {
                         right: 25px;
+
+                        @include sp {
+                            right: 14px;
+                        }
                     }
                 }
 
             }
 
+            &.fl_list {
+                padding-top: 25px;
+
+                @include sp {
+                    padding-top: 14px;
+                }
+            }
+
             .pr_content a,
             .ac_txt a,
             td a {
-                font-size: 12px;
+                font-size: 0.92rem;
                 color: $accent-color;
                 word-break: break-all;
                 display: inline-block;
-                line-height: 120%;
+                line-height: 1.2em;
             }
 
             .pl_head {
@@ -1219,10 +293,12 @@ section.tab_content_wrap {
                 width: 100%;
                 position: relative;
 
+                @include sp {
+                    margin: 14px 0 0 0;
+                }
+
                 p.sttl {
                     display: inline;
-                    letter-spacing: .3px;
-                    font-weight: 300;
                     color: $sub-color;
                 }
 
@@ -1233,18 +309,22 @@ section.tab_content_wrap {
                     top: -9px;
                     @include btn_line();
 
+                    @include sp {
+                        top: -4px;
+                    }
+
                     &:before {
                         font-family: "Font Awesome 5 free";
                         font-weight: 900;
                         content: '\f044';
-                        font-size: 12px;
-                        line-height: 100%;
-                        padding: 7px;
+                        font-size: 0.92rem;
+                        line-height: 1em;
+                        padding: 0.54em;
                         width: 25px;
                         height: 25px;
                         position: absolute;
-                        left: 13px;
-                        top: 6px;
+                        left: 1em;
+                        top: 0.46em;
                     }
                 }
 
@@ -1262,46 +342,66 @@ section.tab_content_wrap {
                 @include btn();
                 position: absolute;
                 right: 0;
-                top: -3px;
+                top: -0.23em;
 
                 &:before {
                     font-family: "Font Awesome 5 free";
                     font-weight: 900;
                     content: '\f0fe';
-                    font-size: 12px;
-                    line-height: 100%;
-                    padding: 7px;
+                    font-size: 0.92rem;
+                    line-height: 1em;
+                    padding: 0.54em;
                     width: 25px;
                     height: 25px;
                     position: absolute;
-                    left: 13px;
-                    top: 11px;
+                    left: 1em;
+                    top: 0.85em;
                 }
             }
 
             p.pr_ttl {
-                font-size: 13px;
-                line-height: 100%;
+                line-height: 1em;
                 display: inline-block;
-                padding: 5px;
+                padding: 0.39em;
                 margin: 25px 0 0 0;
                 font-weight: 300;
                 background-color: $main-color;
                 color: $base-color;
+
+                @include sp {
+                    margin: 15px 0 0 0;
+                }
             }
 
             p.pr_content {
-                padding: 12px 3px 20px;
-                line-height: 180%;
-                letter-spacing: .5px;
-                border-bottom: 1px solid $sub-color2
+                padding: 0.88em 0.23em 25px;
+                border-bottom: 1px solid $sub-color2;
+
+                &.tag_list {
+                    padding: 0.88em 0.23em 25px 0;
+
+                    @include sp {
+                        padding: 0.92em 0.23em 16px 0;
+                    }
+
+                    span {
+                        background-color: $sub-color2;
+                        padding: 0.25em 0.5em;
+                        float: left;
+                        margin-right: 0.4em;
+                        font-size: 0.95em;
+                    }
+
+                }
+
+                @include sp {
+                    padding: 0.92em 0.23em 14px;
+                }
             }
 
             .pr_content_his {
-                padding: 20px 3px 20px 19px;
+                padding: 1.54em 0.3em 1.54em 1.46em;
                 width: 100%;
-                line-height: 180%;
-                letter-spacing: .5px;
 
                 .history_wrap {
                     position: relative;
@@ -1323,7 +423,7 @@ section.tab_content_wrap {
                     }
 
                     p.year {
-                        line-height: 100%;
+                        line-height: 1em;
                         color: $sub-color;
 
                         span {
@@ -1340,7 +440,7 @@ section.tab_content_wrap {
 
                     p.event {
                         text-align: left;
-                        padding: 10px 0 20px 10px;
+                        padding: 0.77em 0 1.54em 0.77em;
                     }
 
                 }

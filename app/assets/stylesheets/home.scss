@@ -2,12 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "users";
+@import "config";
 
 .f_l_user_list {
 
+    @include f_l_user ();
+
     .pl_head {
         margin: 25px 0 !important;
+
+        @include sp {
+            margin: 14px 0 !important;
+        }
     }
 }
 
@@ -24,11 +30,10 @@ section.head {
 
     h3 {
         font-weight: 300;
-        font-size: 18px;
-        line-height: 100%;
-        margin-bottom: 15px;
-        padding-left: 15px;
-        letter-spacing: .5px;
+        font-size: 1.38rem;
+        line-height: 1em;
+        margin-bottom: 0.83em;
+        padding-left: 0.83em;
         color: $sub-color;
     }
 
@@ -66,25 +71,18 @@ section.head {
 
         .reco_item_container {
             width: 155px;
-            padding: 0 0 0 10px;
+            padding: 0 0 0 0.77em;
 
             @include sp {
                 width: calc(100% / 2.5);
-                padding: 0 0 0 6px;
+                padding: 0 0 0 0.46em;
             }
 
             .reco_item_wrap {
                 text-align: center;
-                color: $main-color;
                 border: 1px solid $sub-color2;
-                padding: 12px 10px;
+                padding: 0.92em 0.77em;
                 width: 100%;
-
-                a {
-                    color: $main-color;
-                }
-
-                ;
 
                 .reco_item_img {
                     display: inline-block;
@@ -103,34 +101,33 @@ section.head {
                 }
 
                 .reco_item_name {
-                    line-height: 130%;
-                    padding: 5px 0;
-                    font-size: 13px;
+                    line-height: 1.3em;
+                    padding: 0.39em 0;
                 }
 
                 .reco_item_id {
-                    line-height: 100%;
-                    font-size: 11px;
+                    line-height: 1em;
+                    font-size: 0.85rem;
                     color: $sub-color;
                 }
 
                 .reco_item_msg {
-                    line-height: 140%;
-                    font-size: 11px;
-                    margin: 7px 0 0 0;
+                    line-height: 1.4em;
+                    font-size: 0.85rem;
+                    margin: 0.54em 0 0 0;
                 }
             }
         }
 
         .follow_wrap {
-            margin: 11px 0 2px 0;
+            margin: 0.85em 0 0.15em 0;
             width: 100%;
             @include btn_follow();
 
             .follow_btn {
-                font-size: 11px;
-                height: 25px;
-                line-height: 25px;
+                font-size: 0.85rem;
+                height: 2.4em;
+                line-height: 2.27em;
 
                 &.follow {
                     &:before {
@@ -167,16 +164,10 @@ section.tab_content_wrap {
                 border-bottom: 1px solid $sub-color2;
                 position: relative;
                 padding: 25px 0;
+                background-color: $sub-color3;
 
-                &:after {
-                    content: "";
-                    width: 120px;
-                    height: calc(100% - 2px);
-                    position: absolute;
-                    right: 0px;
-                    top: 1px;
-                    z-index: 1;
-                    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.5), #ffffff);
+                @include sp {
+                    padding: 14px 0;
                 }
 
                 .user_notice_wrapper {
@@ -185,19 +176,19 @@ section.tab_content_wrap {
                         width: fit-content;
                         max-width: 290px;
                         box-sizing: border-box;
-                        padding: 0 0 0 12px;
+                        padding: 0 0 0 0.92em;
 
                         @include sp {
                             max-width: 290px;
-                            padding: 0 0 0 6px;
+                            padding: 0 0 0 0.46em;
                         }
 
                         a.user_notice_item {
                             display: block;
-                            color: $main-color;
-                            padding: 15px;
+                            padding: 1.15em;
                             transition: all .2s;
-                            background-color: $sub-color3;
+                            border: 1px solid $sub-color2;
+                            background: $base-color;
 
                             .notice_inner {
 
@@ -220,41 +211,37 @@ section.tab_content_wrap {
                                 .notice_inner_t {
 
                                     span.username {
-                                        font-size: 12px;
+                                        font-size: 0.92rem;
                                         display: block;
                                         display: block;
                                         float: left;
                                         width: calc(100% - 36px);
-                                        padding: 0 0 0 5px;
-                                        margin: 2px 0 0 0;
+                                        padding: 0 0 0 0.42em;
 
                                         >span {
                                             display: block;
-                                            font-size: 10px;
+                                            font-size: 0.77rem;
                                             color: $sub-color;
                                             word-break: break-all;
-                                            margin: 0 0 0 2px;
-                                            line-height: 100%;
+                                            margin: 0 0 0 0.1em;
+                                            line-height: 1em;
                                         }
                                     }
                                 }
 
                                 .notice_inner_b {
-
-                                    margin-top: 5px;
+                                    margin-top: 0.5em;
 
                                     p.notice_txt {
-                                        line-height: 150%;
-                                        letter-spacing: .3px;
-                                        font-size: 12px;
+                                        line-height: 1.5em;
+                                        font-size: 0.92rem;
                                     }
 
                                     span.date {
-                                        font-size: 10px;
-                                        letter-spacing: .5;
-                                        line-height: 100%;
+                                        font-size: 0.77rem;
+                                        line-height: 1em;
                                         display: block;
-                                        margin-top: 3px;
+                                        margin-top: 0.3em;
                                         color: $sub-color;
                                     }
                                 }

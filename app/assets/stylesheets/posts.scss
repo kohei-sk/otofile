@@ -2,7 +2,896 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "users";
+@import "config";
+
+@mixin ac_content() {
+    position: relative;
+
+    .ac_content_wrap {
+        padding: 25px 25px 25px 90px;
+        margin: 0;
+        position: relative;
+
+        @include sp {
+            padding: 14px;
+        }
+
+        p.p_user_wrap {
+            width: 100%;
+            margin: 0 0 1.15em 0;
+
+            a {
+                display: inline;
+                position: relative;
+                z-index: 2;
+
+                >span {
+                    display: inline-block;
+                    vertical-align: middle;
+                    line-height: 1em;
+
+                    &.prf_up {
+                        font-size: 1.15rem;
+                        line-height: 1em;
+                    }
+
+                    &:nth-child(1) {
+                        width: 50px;
+                        height: 50px;
+                        overflow: hidden;
+                        border-radius: 100%;
+                        position: absolute;
+                        left: -65px;
+                        top: -4px;
+
+                        @include sp {
+                            position: relative;
+                            width: 40px;
+                            height: 40px;
+                            left: auto;
+                            top: auto;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        display: inline-block;
+
+                        @include sp {
+                            margin-left: 0.4em;
+                        }
+
+                        span {
+                            display: block;
+                            font-size: 0.92rem;
+                            color: $sub-color;
+                            margin: 0.25em 0 0 0;
+                        }
+                    }
+
+
+                }
+            }
+        }
+
+        .ac_ttl {
+            font-size: 1.15rem;
+            line-height: 1.7em;
+            margin: -0.27em 0 -0.4em;
+
+            a {
+                color: $accent-color;
+                z-index: 2;
+            }
+        }
+
+        .ac_content_inner {
+            padding: 1.15em 0;
+
+            a {
+                position: relative;
+                z-index: 2;
+            }
+
+            &.tl {
+                padding: 1.15em 0 0 0;
+            }
+
+            .ac_txt {
+                margin: -0.23em 0 0 0;
+
+                a {
+                    color: $accent-color;
+                }
+
+            }
+
+            span.date {
+                font-size: 0.77rem;
+                color: $sub-color;
+                display: block;
+                line-height: 1.7em;
+            }
+
+            .ac_img {
+                margin: 1.15em 0 0 0;
+                width: 100%;
+                height: 290px;
+                overflow: hidden;
+                border-radius: 0.39em;
+                position: relative;
+                z-index: 2;
+
+                @include sp {
+                    height: 52vw;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .ac_yt {
+                margin: 1.15em 0 0 0;
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                display: block;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 0.39em;
+                }
+
+                svg {
+                    position: absolute;
+                    top: calc(50% - 24px);
+                    left: calc(50% - 34px);
+                    width: 5.23em;
+                    height: 3.7em;
+                }
+            }
+
+            .ac_in_edit {
+                position: relative;
+                border: 1px solid $main-color;
+                border-radius: 0.39em;
+                line-height: 1em;
+                display: inline-block;
+                padding: 0.46em 0.77em;
+                margin: 1.7em 0 0;
+            }
+
+        }
+
+        .btn_wrap {
+
+            .count_wrap {
+                display: block;
+                float: left;
+
+                .p_cmt_box {
+                    display: inline-block;
+                    padding: 0 0.3em;
+
+                    a {
+                        position: relative;
+                        z-index: 2;
+
+                        i {
+                            font-size: 1.38rem;
+                            display: inline-block;
+                            vertical-align: middle;
+                            margin-right: 0.17em;
+                        }
+
+                        &.cmt {
+                            color: #28af9e;
+                        }
+
+                        &.uncmt {
+                            color: $sub-color;
+
+                            &:hover {
+
+                                i {
+                                    animation: .1s linear infinite like;
+                                }
+                            }
+                        }
+
+                        span {
+                            font-size: 0.92rem;
+                            display: inline;
+                            vertical-align: middle;
+                            line-height: 1em;
+                        }
+
+                    }
+                }
+
+                .p_like_box {
+                    display: inline-block;
+                    width: auto;
+                    padding: 0 0.3em;
+                    position: relative;
+                    z-index: 2;
+
+                    .p_like_box_wrap {
+                        width: auto;
+                        display: inline-block;
+                        vertical-align: middle;
+
+                        a {
+                            display: inline-block;
+
+                            i {
+                                font-size: 1.38rem;
+                                display: inline-block;
+                                vertical-align: middle;
+                                margin-right: 0.17em;
+                            }
+
+                            &.like {
+                                color: $accent-color;
+                            }
+
+                            &.unlike {
+                                color: $sub-color;
+
+                                &:hover {
+
+                                    i {
+                                        animation: .1s linear infinite like;
+                                    }
+                                }
+                            }
+
+                            span {
+                                font-size: 0.92rem;
+                                display: inline;
+                                vertical-align: middle;
+                                line-height: 1em;
+                            }
+                        }
+
+                    }
+
+                    .like_user {
+                        width: auto;
+                        display: inline-block;
+                        vertical-align: middle;
+                        line-height: 1em;
+                        margin-left: 0.39em;
+                        cursor: pointer;
+
+
+                        span.like_user_in {
+                            display: inline-block;
+                            width: 24px;
+                            height: 24px;
+                            overflow: hidden;
+                            border-radius: 100%;
+                            margin: 2px 0 0 3px;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            .ac_share_wrap {
+                float: right;
+                display: block;
+                position: relative;
+                z-index: 4;
+                padding-right: 0.23em;
+
+                &.active {
+                    z-index: 9999;
+                }
+
+                .ac_share_btn {
+                    cursor: pointer;
+                    margin-top: 0.45em;
+
+                    >i {
+                        font-size: 1.23rem;
+                    }
+                }
+
+                .ac_share_content {
+                    display: none;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    background-color: $sub-color3;
+                    color: $accent-color;
+                    width: max-content;
+                    padding: 1.15em;
+                    padding: 0.77em 1.15em;
+                    font-size: 0.92rem;
+
+                    span {
+                        display: block;
+                        cursor: pointer;
+                        padding: 0.39em;
+
+                        &.ac_link_copy i {
+                            font-size: 1.15rem;
+                        }
+
+                        i {
+                            font-size: 1.38rem;
+                            margin: 0 0.28em 0 0;
+                        }
+
+                        a {
+                            color: $accent-color;
+                        }
+                    }
+
+                    .share_nobg {
+                        width: 100vw;
+                        height: 100vh;
+                        position: fixed;
+                        left: 0;
+                        top: 0;
+                        background-color: #000;
+                        z-index: -1;
+                        opacity: 0;
+                    }
+                }
+
+            }
+
+        }
+
+        form.comment_area {
+            margin: 1.15em 0 0.39em;
+            padding: 0 !important;
+
+            .field {
+                position: relative;
+                margin: 0;
+
+                textarea {
+                    height: 3.85em !important;
+                    min-height: 3.85em !important;
+                    border: 1px solid $sub-color2;
+                    padding: 0.92em 3.1em 0.92em 1.23em;
+                    transition: all .2s;
+
+                    &:hover,
+                    &:focus {
+                        height: auto !important;
+                        min-height: 100px !important;
+                        border: 1px solid $accent-color;
+                    }
+                }
+
+                label {
+                    cursor: pointer;
+                    margin: 0;
+                    padding: 0;
+                    position: absolute;
+                    right: 1.15em;
+                    top: 1.15em;
+
+                    button[type="submit"] {
+                        display: none;
+                    }
+
+                    span.btn {
+                        color: $main-color;
+                        font-size: 1.54rem;
+                        transition: all .2s;
+
+                        &:hover {
+                            color: $accent-color;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        form.reply_area {
+            margin: 1.15em 0 0.39em;
+            padding: 0 0 0 2.85em !important;
+
+            .field {
+                position: relative;
+                margin: 0;
+
+                textarea {
+                    height: 53.85em !important;
+                    min-height: 3.85em !important;
+                    border: 1px solid $sub-color2;
+                    padding: 0.92em 3.1em 0.92em 1.23em;
+                    transition: all .2s;
+
+                    &:hover,
+                    &:focus {
+                        height: auto !important;
+                        min-height: 7.7em !important;
+                        border: 1px solid $accent-color;
+                    }
+                }
+
+                label {
+                    cursor: pointer;
+                    margin: 0;
+                    padding: 0;
+                    position: absolute;
+                    right: 1.15em;
+                    top: 1.15em;
+
+                    button[type="submit"] {
+                        display: none;
+                    }
+
+                    span.btn {
+                        color: $main-color;
+                        font-size: 1.54rem;
+                        transition: all .2s;
+
+                        &:hover {
+                            color: $accent-color;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        //////////////////////////////ここ///////////////
+
+
+        ul.comment_container {
+            padding: 0.77em 0 0.39em;
+
+            li.comment_wrap {
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 1.15em;
+
+                &:last-child {
+
+                    padding: 0;
+                    margin: 0;
+                    border: none;
+                }
+
+                a.comment_user {
+                    display: inline;
+
+                    span.com_l {
+                        display: inline-block;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 100%;
+                        overflow: hidden;
+                        vertical-align: top;
+
+                        @include sp {
+                            width: 26px;
+                            height: 26px;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+
+                    }
+
+                    span.com_r {
+                        display: inline-block;
+                        vertical-align: top;
+                        margin-left: 0.39em;
+
+                        span {
+                            display: block;
+                            line-height: 1em;
+                            margin-top: 0.23em;
+                            font-size: 0.77rem;
+
+                            &:nth-child(1) {}
+
+                            &:nth-child(2) {
+                                color: $sub-color;
+                            }
+                        }
+                    }
+                }
+
+                p.comment_content {
+                    position: relative;
+
+                    width: 100%;
+                    font-size: 0.92rem;
+                    padding-left: 3.17em;
+                    box-sizing: border-box;
+                    line-height: 1.5em;
+
+                    span.date {
+                        font-size: 0.77rem;
+                        display: block;
+                        line-height: 1.7em;
+                        color: $sub-color;
+                    }
+
+                    span.cmt_in_edit {
+                        color: $sub-color;
+                        font-size: 0.92rem;
+                        line-height: 1em;
+                        position: absolute;
+                        right: 4.05em;
+                        bottom: 0.23em;
+                        text-decoration: underline;
+                        cursor: pointer;
+
+                    }
+
+                    .cmt_dlete_btn {
+                        color: $sub-color;
+                        font-size: 0.92rem;
+                        line-height: 1em;
+                        position: absolute;
+                        right: 2.25em;
+                        bottom: 0.23em;
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+
+                    span.cmt_in_reply,
+                    span.cmt_in_reply_close {
+                        color: $main-color;
+                        font-size: 0.92rem;
+                        line-height: 1em;
+                        position: absolute;
+                        right: 0.39em;
+                        bottom: 0.23em;
+                        text-decoration: underline;
+                        cursor: pointer;
+
+                    }
+
+                    span.cmt_in_reply_close {
+                        display: none;
+                    }
+
+                }
+
+                form.comment_edit {
+                    display: none;
+                    margin: 0.62em 0;
+                    padding: 0 0 0 3em !important;
+                    position: relative;
+
+                    .field {
+                        margin: 0;
+
+                        textarea {
+                            height: 3.85em !important;
+                            min-height: 3.85em !important;
+                            border: 1px solid $sub-color2;
+                            padding: 0.92em 3.08em 0.92em 1.23em;
+                            transition: all .2s;
+
+                            &:hover,
+                            &:focus {
+                                height: auto !important;
+                                min-height: 7.7em !important;
+                                border: 1px solid $accent-color;
+                            }
+                        }
+
+                    }
+
+                    label {
+                        cursor: pointer;
+                        margin: 0;
+                        padding: 0;
+                        position: absolute;
+                        right: 15px;
+                        top: 15px;
+
+                        button[type="submit"] {
+                            display: none;
+                        }
+
+                        .cmt_send_btn {
+                            color: $main-color;
+                            font-size: 1.15rem;
+                            transition: all .2s;
+
+                            &:hover {
+                                color: $accent-color;
+                            }
+                        }
+
+                    }
+
+                    .cmt_close_btn {
+                        cursor: pointer;
+                        display: block;
+                        line-height: 1em;
+                        position: absolute;
+                        right: 15px;
+                        top: -25px;
+                        font-size: 1.15rem;
+                    }
+                }
+
+                form.reply_area {
+                    display: none;
+                    margin: 0.77em 0;
+                    padding: 0 0 0 2.92em !important;
+                    position: relative;
+
+                    .field {
+                        margin: 0;
+
+                        textarea {
+                            height: 3.85em !important;
+                            min-height: 3.85em !important;
+                            border: 1px solid $sub-color2;
+                            padding: 0.92em 3.08em 0.92em 1.23em;
+                            transition: all .2s;
+
+                            &:hover,
+                            &:focus {
+                                height: auto !important;
+                                min-height: 7.7em !important;
+                                border: 1px solid $accent-color;
+                            }
+                        }
+
+                    }
+
+                    label {
+                        cursor: pointer;
+                        margin: 0;
+                        padding: 0;
+                        position: absolute;
+                        right: 15px;
+                        top: 15px;
+
+                        button[type="submit"] {
+                            display: none;
+                        }
+
+                        .reply_send_btn {
+                            color: $main-color;
+                            font-size: 1.15rem;
+                            transition: all .2s;
+
+                            &:hover {
+                                color: $accent-color;
+                            }
+                        }
+
+                    }
+                }
+
+                ul.reply_container {
+                    padding: 0 0 0 3.23em;
+
+                    li.reply_wrap {
+                        display: inline-block;
+                        width: 100%;
+                        margin: 0 0 1.15em 0;
+
+                        &:first-child {
+
+                            margin: 1.15em 0;
+                        }
+
+                        a.reply_user {
+                            display: inline;
+
+                            span.reply_l {
+                                display: inline-block;
+                                width: 30px;
+                                height: 30px;
+                                border-radius: 100%;
+                                overflow: hidden;
+                                vertical-align: top;
+
+                                @include sp {
+                                    width: 26px;
+                                    height: 26px;
+                                }
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+
+                            }
+
+                            span.reply_r {
+                                display: inline-block;
+                                vertical-align: top;
+                                margin-left: 0.39em;
+
+                                span {
+                                    display: block;
+                                    line-height: 1em;
+                                    margin-top: 0.23em;
+                                    font-size: 0.77rem;
+
+                                    &:nth-child(2) {
+                                        color: $sub-color;
+                                    }
+                                }
+                            }
+                        }
+
+                        p.reply_content {
+                            position: relative;
+
+                            width: 100%;
+                            font-size: 0.92rem;
+                            padding-left: 3.16em;
+                            box-sizing: border-box;
+                            line-height: 1.5em;
+
+                            span.date {
+                                font-size: 0.77rem;
+                                display: block;
+                                line-height: 1.7em;
+                                color: $sub-color;
+                            }
+
+                            span.reply_in_edit {
+                                color: $sub-color;
+                                font-size: 0.92rem;
+                                line-height: 1em;
+                                position: absolute;
+                                right: 2.25em;
+                                bottom: 0.23em;
+                                text-decoration: underline;
+                                cursor: pointer;
+
+                            }
+
+                            .reply_dlete_btn {
+                                color: $sub-color;
+                                font-size: 0.92rem;
+                                line-height: 1em;
+                                position: absolute;
+                                right: 0.39em;
+                                bottom: 0.23em;
+                                text-decoration: underline;
+                                cursor: pointer;
+                            }
+
+                        }
+
+                        form.reply_edit {
+                            display: none;
+                            margin: 0.62em 0;
+                            padding: 0 0 0 2.92em !important;
+                            position: relative;
+
+                            .field {
+                                margin: 0;
+
+                                textarea {
+                                    height: 3.85em !important;
+                                    min-height: 3.85em !important;
+                                    border: 1px solid $sub-color2;
+                                    padding: 0.92em 3.08em 0.92em 1.23em;
+                                    transition: all .2s;
+
+                                    &:hover,
+                                    &:focus {
+                                        height: auto !important;
+                                        min-height: 7.7em !important;
+                                        border: 1px solid $accent-color;
+                                    }
+                                }
+
+                            }
+
+                            label {
+                                cursor: pointer;
+                                margin: 0;
+                                padding: 0;
+                                position: absolute;
+                                right: 15px;
+                                top: 15px;
+
+                                button[type="submit"] {
+                                    display: none;
+                                }
+
+                                .reply_send_btn {
+                                    color: $main-color;
+                                    font-size: 1.15rem;
+                                    transition: all .2s;
+
+                                    &:hover {
+                                        color: $accent-color;
+                                    }
+                                }
+
+                            }
+
+                            .reply_close_btn {
+                                cursor: pointer;
+                                display: block;
+                                line-height: 1em;
+                                position: absolute;
+                                right: 15px;
+                                top: -25px;
+                                font-size: 1.15rem;
+                            }
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+
+        a.post_show {
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            transition: all .2s;
+
+            &:hover {
+                background-color: rgba(224, 224, 224, .2);
+            }
+        }
+    }
+}
+
+@keyframes like {
+    0% {
+        transform: translate(0px, 0px) rotateZ(0deg)
+    }
+
+    25% {
+        transform: translate(2px, 2px) rotateZ(1deg)
+    }
+
+    50% {
+        transform: translate(0px, 2px) rotateZ(0deg)
+    }
+
+    75% {
+        transform: translate(2px, 0px) rotateZ(-1deg)
+    }
+
+    100% {
+        transform: translate(0px, 0px) rotateZ(0deg)
+    }
+}
 
 section.post {
     margin-top: -25px;

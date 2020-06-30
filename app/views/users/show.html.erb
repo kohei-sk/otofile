@@ -105,7 +105,12 @@
 
             <% if @profile.fvcate.present? %>
             <p class="pr_ttl">Favorite genre</p>
-            <p class="pr_content"><%= @profile.fvcate%></p>
+            <p class="pr_content tag_list clearfix">
+                <% cates = @profile.fvcate.split(',') %>
+                <% cates.each do |cate| %>
+                <span><%= cate %></span>
+                <% end %>
+            </p>
             <% end %>
 
             <% if @profile.fvartist.present? %>
@@ -177,19 +182,11 @@
 
         <div id="activity" class="panel timeline">
 
+            <% if current_user.id == @user_name.id %>
             <div class="pl_head">
-                <p class="sttl">
-                    <% if @user_name.username.empty? %>
-                    <%= @user_name.userid %>
-                    <% else %>
-                    <%= @user_name.username %>
-                    <% end %>
-                    's &nbsp; Activity
-                </p>
-                <% if current_user.id == @user_name.id %>
                 <p><%= link_to 'Post', p_new_path, class: "ac_post" %></p>
-                <% end %>
             </div>
+            <% end %>
 
 
             <% if !@posts.empty? %>
@@ -212,18 +209,6 @@
         </div>
 
         <div id="favorite" class="panel timeline">
-
-            <div class="pl_head">
-                <p class="sttl">
-                    <% if @user_name.username.empty? %>
-                    <%= @user_name.userid %>
-                    <% else %>
-                    <%= @user_name.username %>
-                    <% end %>
-                    's &nbsp; Favorite
-                </p>
-            </div>
-
 
             <% if !@user_likes.empty? %>
 

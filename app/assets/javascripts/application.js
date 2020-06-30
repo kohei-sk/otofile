@@ -38,6 +38,7 @@ $(document).ready(function () {
         var cont1 = $('.nav_content')
         var btn2 = $('.search_btn_trriger')
         var cont2 = $('.search_content')
+        var btn3 = $('#sp_search_trriger')
 
         //ハンバーガー
         btn1.click(function () {
@@ -54,6 +55,10 @@ $(document).ready(function () {
                 cont2.fadeOut();
                 btn2.removeClass('active');
             }
+            if (btn3.hasClass('active')) {
+                cont2.fadeOut();
+                btn3.removeClass('active');
+            }
         });
 
         //検索
@@ -65,6 +70,22 @@ $(document).ready(function () {
             } else {
                 cont2.fadeIn();
                 btn2.addClass('active');
+                $('body').addClass('nav--opened');
+            }
+            if (btn1.hasClass('active')) {
+                cont1.fadeOut();
+                btn1.removeClass('active');
+            }
+        });
+
+        btn3.click(function () {
+            if (btn3.hasClass('active')) {
+                cont2.fadeOut();
+                btn3.removeClass('active');
+                $('body').removeClass('nav--opened');
+            } else {
+                cont2.fadeIn();
+                btn3.addClass('active');
                 $('body').addClass('nav--opened');
             }
             if (btn1.hasClass('active')) {
@@ -287,7 +308,7 @@ $(document).ready(function () {
                             path: href + ' span.next a',
                             append: href + ' .page_wrap',
                             history: false,
-                            scrollThreshold: 600
+                            scrollThreshold: 700
                         });
 
                     }
@@ -307,7 +328,7 @@ $(document).ready(function () {
                 path: 'span.next a',
                 append: '.page_wrap',
                 history: false,
-                scrollThreshold: 500
+                scrollThreshold: 700
             });
         }
 
@@ -337,7 +358,9 @@ $(document).ready(function () {
     });
 
     //Modal
-    $(document).on("scroll", function () {
+    $(window).trigger('scroll');
+
+    $(window).on("scroll", function () {
         $('.m_btn').show(function () {
             const m_btn = $(this)
             const m_content = m_btn.next();
@@ -402,13 +425,15 @@ $(document).ready(function () {
                 $('.page_wrap1').infiniteScroll({
                     path: 'span.next1 a',
                     append: '.page_wrap1',
-                    history: false
+                    history: false,
+                    scrollThreshold: 700
                 });
             } else if (hash === '#favorite') {
                 $('.page_wrap2').infiniteScroll({
                     path: 'span.next2 a',
                     append: '.page_wrap2',
-                    history: false
+                    history: false,
+                    scrollThreshold: 700
                 });
             }
         });

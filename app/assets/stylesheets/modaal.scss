@@ -1,3 +1,5 @@
+@import "config";
+
 /*!
 	Modaal - accessible modals - v0.4.4
 	by Humaan, for all humans.
@@ -129,6 +131,10 @@ $modaal-grey: #afb7bc;
 	text-align: center;
 	padding: 80px 25px;
 
+	@include sp {
+		padding: 80px 0;
+	}
+
 	// when is fullscreen
 	.modaal-fullscreen & {
 		padding: 0;
@@ -203,7 +209,7 @@ $modaal-grey: #afb7bc;
 		width: 4px;
 		height: 22px;
 		border-radius: 4px;
-		background: #fff;
+		background: #ccc;
 		@include modaal-transition(background);
 	}
 
@@ -224,6 +230,10 @@ $modaal-grey: #afb7bc;
 
 .modaal-content-container {
 	padding: $modaal-padding;
+
+	@include sp {
+		padding: 14px;
+	}
 }
 
 
