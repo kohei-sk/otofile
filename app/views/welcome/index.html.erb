@@ -1,1 +1,20 @@
-<h2>welcome</h2>
+<section class="home_post clearfix">
+
+    <h3><i class="fas fa-music"></i> New activity</h3>
+
+    <% if !@posts.empty? %>
+
+    <div class="page_wrap clearfix">
+
+        <% @posts.each do |post| %>
+
+        <%= render partial: 'posts/activity', locals: { post: post} %>
+
+        <% end %>
+
+    </div>
+    <span class="next"><%= link_to_next_page @posts, '', param_name: 'home_post'%></span>
+
+    <% end %>
+
+</section>

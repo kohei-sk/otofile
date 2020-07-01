@@ -244,7 +244,8 @@
                                 color: $accent-color;
                             }
 
-                            &.unlike {
+                            &.unlike,
+                            &.home_unlike {
                                 color: $sub-color;
 
                                 &:hover {

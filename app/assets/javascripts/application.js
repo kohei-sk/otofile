@@ -98,19 +98,33 @@ $(document).ready(function () {
     //サイドナビ固定
     $(function () {
         $(window).scroll(function () {
-            var headerH = 64;
-            var mainWrap = $('main').outerHeight() + headerH;
+            var headerH = $('header').outerHeight();
+            var headerH2 = $('.home_head').outerHeight();
+            var mainWrap = $('main').outerHeight() + headerH + headerH2;
             var sideNav = $('.aside_inner');
+            var sideWrap = $('.aside_inner').outerHeight();
             var windowH = $(window).height();
             var scrollTop = $(this).scrollTop();
-            var sideH = sideNav.outerHeight() + headerH;
+            var sideH = sideNav.outerHeight() + headerH + headerH2;
 
             if (sideH < mainWrap) {
-                if (sideH - windowH < scrollTop) {
-                    sideNav.addClass('side_fixed');
+
+                console.log(64 + 171 + '：' + scrollTop);
+
+                if (windowH > sideWrap) {
+                    if (headerH2 < scrollTop) {
+                        sideNav.addClass('side_fixed_top');
+                    } else {
+                        sideNav.removeClass('side_fixed_top');
+                    }
                 } else {
-                    sideNav.removeClass('side_fixed');
+                    if (sideH - windowH < scrollTop) {
+                        sideNav.addClass('side_fixed');
+                    } else {
+                        sideNav.removeClass('side_fixed');
+                    }
                 }
+
             }
         });
     });

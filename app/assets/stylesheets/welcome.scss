@@ -1,3 +1,172 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "config";
+@import "posts";
+
+.container {
+
+    section.home_head {
+        padding: 25px;
+        background-color: $accent-color;
+        margin-top: 63px;
+        color: $base-color;
+        position: relative;
+        overflow: hidden;
+
+        &:before {
+            content: '';
+            position: absolute;
+            right: 22px;
+            top: -24px;
+            width: 250px;
+            height: 250px;
+            opacity: .2;
+            background: image-url('welcome_head.png');
+            background-size: 100%;
+
+            @include tab {
+                right: -22px;
+                top: -18px;
+                width: 240px;
+                height: 240px;
+                opacity: .18;
+            }
+
+            @include sp {
+                right: -39px;
+                top: 13px;
+                width: 200px;
+                height: 200px;
+                opacity: .15;
+            }
+        }
+
+        @include sp {
+            padding: 25px 14px;
+            margin-top: 48px;
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 1.8em;
+            padding: 0.2em 0 0.7em 0;
+        }
+
+        p {
+            line-height: 2em;
+        }
+    }
+
+    .wrapper {
+
+        main.welcome {
+            margin: 0;
+            padding: 0 0 25px 0;
+
+            section.home_post {
+                h3 {
+                    font-weight: 300;
+                    font-size: 1.38rem;
+                    line-height: 1em;
+                    color: $sub-color;
+                    border-bottom: 1px solid $sub-color2;
+                    padding: 1.4em 25px;
+
+                    @include sp {
+                        padding: 1.4em 14px;
+                    }
+                }
+
+                .ac_content {
+                    @include ac_content();
+                    border-bottom: 1px solid $sub-color2;
+
+                    &:last-child {
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        aside {
+            &.welcome {
+                margin-top: 0;
+            }
+
+            form {
+                padding: 0;
+
+                .field {
+                    margin-bottom: 1.3em;
+
+                    label {
+                        margin: 0 0 0.7em 0;
+                        font-size: 0.85em;
+
+                        &.check {
+                            line-height: 1.5em;
+                            padding: 0 0 0 1.8em;
+                            margin: 0.8em 0 0 0;
+                        }
+                    }
+
+                    a.home_new_pass {
+                        display: block;
+                        color: $sub-color;
+                        font-size: 0.85em;
+                    }
+
+                    input {
+                        line-height: 1.2em !important;
+                    }
+                }
+
+                [type="submit"] {
+                    border-color: $accent-color;
+                    margin-bottom: 1.3em;
+                }
+            }
+
+            .form_or {
+                text-align: center;
+                line-height: 100%;
+                margin-bottom: 1.3em;
+            }
+
+            .home_btn {
+                padding: 0.5em 0;
+                display: block;
+                border-radius: 0.39em;
+                text-align: center;
+                border: 1px solid;
+                transition: all .2s;
+                width: 100%;
+                margin-bottom: 1.3em;
+            }
+
+            a.home_signin {
+                background: $base-color;
+                color: $accent-color;
+                border-color: $accent-color;
+
+                &:hover {
+                    background-color: $accent-color;
+                    color: $base-color;
+                }
+            }
+
+            a.twitter_signin {
+                background: $base-color;
+                color: $main-color;
+                border-color: $main-color;
+
+                &:hover {
+                    background-color: $main-color;
+                    color: $base-color;
+                }
+            }
+        }
+    }
+}

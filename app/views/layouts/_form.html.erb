@@ -1,0 +1,50 @@
+<aside class="welcome clearfix">
+
+    <div class="aside_inner clearfix">
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+            <%= f.label :email %>
+            <%= f.email_field :email, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: "current-password" %>
+
+            <% if devise_mapping.rememberable? %>
+            <%= f.label :remember_me, class: "remember_me check" do %>
+            <%= f.check_box :remember_me %>
+            パスワードを記憶する
+            <div class="indicator"></div>
+            <% end %>
+            <% end %>
+
+            <%= link_to "パスワードをお忘れですか？", new_password_path(resource_name), class: 'home_new_pass' %>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "ログイン", class: "home_btn" %>
+        </div>
+        <% end %>
+
+        <p class="form_or">または</p>
+
+        <%= link_to "アカウント作成", new_registration_path(resource_name), class: 'home_btn home_signin' %>
+
+        <%- if devise_mapping.omniauthable? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+        <%= link_to "#{OmniAuth::Utils.camelize(provider)}でログイン", omniauth_authorize_path(resource_name, provider), class: 'home_btn twitter_signin' %>
+        <% end %>
+        <% end %>
+
+        <footer>
+            <%= link_to '利用規約', '/#' %>
+            <%= link_to 'プライバシーポリシー', '/#' %>
+            <%= link_to 'Cookie', '/#' %>
+            <p>© <%= l Time.current, format: "%Y" %> OTOFILE</p>
+        </footer>
+
+    </div>
+
+</aside>

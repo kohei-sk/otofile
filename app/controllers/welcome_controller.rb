@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    test = []
-    @post = Post.where(user_id: 1).page(params[:page]).per(3)
+    @posts = Post.all.order(created_at: "DESC").page(params[:home_post]).without_count.per(5)
   end
 end

@@ -11,14 +11,15 @@
 <div class="field">
     <%= f.label :password %>
     <%= f.password_field :password, autocomplete: "current-password" %>
-</div>
 
-<% if devise_mapping.rememberable? %>
-<div class="field">
+    <% if devise_mapping.rememberable? %>
+    <%= f.label :remember_me, class: "remember_me check" do %>
     <%= f.check_box :remember_me %>
-    <%= f.label :remember_me, class: "remember_me" %>
+    パスワードを記憶する
+    <div class="indicator"></div>
+    <% end %>
+    <% end %>
 </div>
-<% end %>
 
 <div class="actions">
     <%= f.submit "ログイン" %>

@@ -1,5 +1,5 @@
 <div class="form_head">
-    <h2>アカウント登録</h2>
+    <h2>アカウント作成</h2>
 </div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -7,18 +7,18 @@
 
 <div class="field">
     <%= f.label :userid %>
-    <%= f.text_field :userid, placeholder: "必須" %>
+    <%= f.text_field :userid, autofocus: true, placeholder: "必須" %>
 </div>
 
 <div class="field">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "必須" %>
+    <%= f.email_field :email, autocomplete: "email", placeholder: "必須" %>
 </div>
 
 <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <span>>（<%= @minimum_password_length %>文字以上）</span>
+    <span>（<%= @minimum_password_length %>文字以上）</span>
     <% end %>
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "必須" %>
 </div>

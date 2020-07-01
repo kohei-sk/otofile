@@ -20,13 +20,33 @@
 
         <%= render 'layouts/header' %>
 
-        <main class="clearfix">
+        <% if !user_signed_in? %>
+        <% if current_page?("/welcome") %>
+        <section class="home_head clearfix">
+            <h2>Welcome to Otofile.</h2>
+            <p>Otofile（オトフィール）は、音楽好きの仲間と繋がれるオンラインコミュニティです。<br>
+                プロフィールを充実させてシェアしたり、好きな曲やライブの感想をシェアしたり。<br>
+                アカウントを作成して音楽ライフをエンジョイしましょう♪</p>
+        </section>
+        <% end %>
+        <% end %>
 
-            <%= yield %>
+        <div class="wrapper">
 
-        </main>
+            <% if user_signed_in? %>
+            <main class="clearfix"><%= yield %></main>
+            <%= render 'layouts/aside' %>
+            <% else %>
+            <% if current_page?("/welcome") %>
+            <main class="welcome clearfix"><%= yield %></main>
+            <%= render 'layouts/form' %>
+            <% else %>
+            <main class="clearfix"><%= yield %></main>
+            <%= render 'layouts/aside' %>
+            <% end %>
+            <% end %>
 
-        <%= render 'layouts/aside' %>
+        </div>
 
     </div>
 

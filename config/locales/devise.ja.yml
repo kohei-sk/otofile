@@ -14,8 +14,8 @@ ja:
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
-        username: 表示名
-        userid: ユーザー名
+        username: ニックネーム
+        userid: ユーザーID
         userimg: プロフィール画像
         email: メールアドレス
         profile: プロフィール

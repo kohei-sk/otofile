@@ -7,8 +7,15 @@
 
         <div class="nav_btn_wrapper">
 
+            <% if !user_signed_in? %>
+            <%= link_to 'ログイン', new_user_session_path, class: "nav_btn head_nav_signin" %>
+            <%= link_to 'アカウント作成', new_user_registration_path, class: "nav_btn head_nav_signup" %>
+            <% end %>
+
+            <% if user_signed_in? %>
+            <%= link_to "/#{current_user.userid}", class: 'nav_btn prf' do %><span><%= image_tag "#{current_user.userimg.m}" %></span><% end %>
+            <% end %>
             <a class="nav_btn search search_btn_trriger"></a>
-            <%= link_to '', "/#{current_user.userid}", class: 'nav_btn prf' if user_signed_in? %>
 
             <a class="nav_btn_trriger"><span></span><span></span><span></span></a>
         </div>
@@ -22,8 +29,8 @@
             <%= link_to 'お問い合わせ', '#', class: "nav_contact" %>
 
             <% else %>
-            <%= link_to 'アカウント登録', new_user_registration_path, class: "nav_signup" %>
             <%= link_to 'ログイン', new_user_session_path, class: "nav_signin" %>
+            <%= link_to 'アカウント作成', new_user_registration_path, class: "nav_signup" %>
             <%= link_to 'お問い合わせ', '#', class: "nav_contact" %>
             <% end %>
         </div>
@@ -80,6 +87,7 @@
 
         </div>
 
+        <% if user_signed_in? %>
         <div id="fixed_nav">
             <div class="fixed_nav_btn"><span></span><span></span></div>
             <div class="fixed_nav_content">
@@ -88,13 +96,20 @@
                 <%= link_to "/pr/edit", id: 'fix_btn_prf' do %><i class="fas fa-user"></i></i><% end %>
             </div>
         </div>
+        <% end %>
 
         <div id="sp_nav" class="clearfix">
+            <% if user_signed_in? %>
+            <%= link_to "/" do %><i class="fas fa-home"></i><% end %>
             <%= link_to "/m/new" do %><i class="fas fa-comment-dots"></i><% end %>
             <%= link_to "/p/new" do %><i class="fas fa-music"></i><% end %>
             <%= link_to "/pr/edit" do %><i class="fas fa-user"></i></i><% end %>
             <span id="sp_search_trriger"><i class="fas fa-search"></i></span>
-            <%= link_to "/#{current_user.userid}", id: 'sp_user_btn' do %><span><%= image_tag "#{current_user.userimg.m}" %></span><% end %>
+            <% else %>
+            <%= link_to 'ログイン', new_user_session_path, class: "sp_nav_signin" %>
+            <%= link_to 'アカウント作成', new_user_registration_path, class: "sp_nav_signup" %>
+            <span id="sp_search_trriger"><i class="fas fa-search"></i></span>
+            <% end %>
         </div>
     </nav>
 
