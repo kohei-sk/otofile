@@ -109,8 +109,6 @@ $(document).ready(function () {
 
             if (sideH < mainWrap) {
 
-                console.log(64 + 171 + '：' + scrollTop);
-
                 if (windowH > sideWrap) {
                     if (headerH2 < scrollTop) {
                         sideNav.addClass('side_fixed_top');
@@ -153,7 +151,7 @@ $(document).ready(function () {
                 b.addClass('active');
                 c.show();
                 $('#fix_btn_msg').animate({
-                    "top": "-66px",
+                    "top": "-198px",
                     "opacity": "1"
                 }, 300);
                 $('#fix_btn_post').animate({
@@ -161,7 +159,7 @@ $(document).ready(function () {
                     "opacity": "1"
                 }, 300);
                 $('#fix_btn_prf').animate({
-                    "top": "-198px",
+                    "top": "-66px",
                     "opacity": "1"
                 }, 300);
                 $(document).on('click', function (e) {
@@ -371,10 +369,36 @@ $(document).ready(function () {
         });
     });
 
+    //textarea高さ自動
+
+    $("textarea.auto_height").on("autoheight", function (evt) {
+        var target = evt.target;
+        if (target.scrollHeight > target.offsetHeight) {
+            $(target).height(target.scrollHeight - 19);
+        }
+    });
+
+    $(document).ready(function () {
+        $("textarea.auto_height").trigger('autoheight');
+    });
+
+    $("textarea.auto_height").autoExpand();
+
+    $(document).on("click", '.add_nested_fields', function () {
+        $("textarea.auto_height").autoExpand();
+        $('html, body').animate({
+            scrollTop: $('body').get(0).scrollHeight
+        }, );
+    });
+
     //Modal
-    $(window).trigger('scroll');
+    img_mordal();
 
     $(window).on("scroll", function () {
+        img_mordal();
+    });
+
+    function img_mordal() {
         $('.m_btn').show(function () {
             const m_btn = $(this)
             const m_content = m_btn.next();
@@ -382,7 +406,8 @@ $(document).ready(function () {
                 content_source: m_content
             });
         });
-    });
+
+    }
 
     //recommendスライダー
     var flkty = new Flickity('.main-carousel', {
@@ -402,6 +427,19 @@ $(document).ready(function () {
             adaptiveHeight: true
         });
     }
+
+    //プロフカウター
+    $(function () {
+        $(document).ready(function () {
+            var counter = $('.count_bar');
+            var bar = counter.children('span');
+            var percent = counter.attr('id').split('_')[1];
+
+            setTimeout(function () {
+                bar.css('width', `${percent}%`);
+            }, 800);
+        });
+    });
 
     //ファイルアップロード ファイル名&サムネ表示
     $('input').on('change', function () {
@@ -507,6 +545,7 @@ $(document).ready(function () {
     //コメント非同期
     $(function () {
         function buildHTML(comments) {
+            var comments_text = comments.comment.replace(/<br \/>/g, '')
             var html = `<li class="comment_wrap clearfix" id="comment_id_${comments.id}">
                             <a href="/${comments.userid}" class="comment_user">
                                 <span class="com_l"><img src="${comments.userimg}"></span>
@@ -517,7 +556,7 @@ $(document).ready(function () {
                             </a>
                             <p class="comment_content">
                                 <span class="comment">${comments.comment}</span>
-                                <span class="date">${comments.created_at}</span>
+                                <span class="date">${comments.created_at}前</span>
                                 <span class="cmt_in_edit"><i class="fas fa-edit"></i></span>
                                 <a class="cmt_dlete_btn" href="/c/${comments.id}/destroy">
                                     <i class="fas fa-trash-alt"></i>
@@ -530,7 +569,7 @@ $(document).ready(function () {
                                 <input type="hidden" name="_method" value="patch">
                                 <input type="hidden" name="authenticity_token" value="">
                                 <div class="field">
-                                    <textarea name="comment" id="comment">${comments.comment}</textarea>
+                                    <textarea name="comment" id="comment" class="auto_height">${comments_text}</textarea>
                                 </div>
                                 <label>
                                     <button type="submit"></button>
@@ -543,7 +582,7 @@ $(document).ready(function () {
                             <input type="hidden" name="authenticity_token" value="">
                                     <div class="field">
                                         <input value="${comments.id}" type="hidden" name="reply[comment_id]" id="reply_comment_id">
-                                        <textarea placeholder="reply :D" id="comment_id_${comments.id}" name="reply[reply]"></textarea>
+                                        <textarea placeholder="返信 :D" id="comment_id_${comments.id}", class="auto_height" name="reply[reply]"></textarea>
                                         <label>
                                             <button type="submit"></button>
                                             <span class="reply_send_btn"><i class="fas fa-paper-plane"></i></span>
@@ -557,7 +596,6 @@ $(document).ready(function () {
 
         function buildCount(comments, number) {
 
-            console.log(number)
             var count = `<a href="/p/${comments.post_id}" class="cmt">
                             <i class="fas fa-comment"></i>
                             <span>${number}</span>
@@ -595,6 +633,7 @@ $(document).ready(function () {
 
                     $('.p_cmt_box').html(count).show();
                     $('textarea#post_id_' + data.post_id).val("");
+                    $('textarea#post_id_' + data.post_id + ".auto_height").autoExpand();
                 })
                 .fail(function () {
                     location.reload();
@@ -657,6 +696,7 @@ $(document).ready(function () {
     //返信非同期
     $(function () {
         function replyHTML(replies) {
+            var replies_text = replies.reply.replace(/<br \/>/g, '')
             var html = `<li class="reply_wrap clearfix" id="reply_id_${replies.id}">
                             <a class="reply_user" href="/${replies.userid}">
                                 <span class="reply_l"><img src="${replies.userimg}"></span>
@@ -667,7 +707,7 @@ $(document).ready(function () {
                             </a>
                             <p class="reply_content" style="display: block;">
                                 <span class="reply">${replies.reply}</span>
-                                <span class="date">${replies.created_at}</span>
+                                <span class="date">${replies.created_at}前</span>
 
                                 <span class="reply_in_edit"><i class="fas fa-edit"></i></span>
                                 <a class="reply_dlete_btn" data-confirm="本当に削除しますか？" href="/r/${replies.id}/destroy">
@@ -679,7 +719,7 @@ $(document).ready(function () {
                                     <input type="hidden" name="_method" value="patch">
                                     <input type="hidden" name="authenticity_token" value="">
                                 <div class="field">
-                                    <textarea name="reply" id="reply">${replies.reply}</textarea>
+                                    <textarea name="reply" id="reply" class="auto_height">${replies_text}</textarea>
                                 </div>
                                 <label>
                                     <button type="submit"></button>
@@ -780,6 +820,7 @@ $(document).ready(function () {
         var edit = $(this).parent('p')
         edit.hide();
         edit.next('form').fadeIn(500);
+        edit.next('form').find('textarea.auto_height').autoExpand();
         $('.cmt_close_btn').click(function () {
             var close = $(this).parent('form')
             close.hide();
@@ -794,6 +835,7 @@ $(document).ready(function () {
         var box = $(this).parent().siblings('.reply_area')
 
         box.fadeIn(500);
+        box.find('textarea.auto_height').autoExpand();
         btn.fadeOut(500);
         close.fadeIn(500);
 
@@ -809,6 +851,7 @@ $(document).ready(function () {
         var edit = $(this).parent('p')
         edit.hide();
         edit.next('form').fadeIn(500);
+        edit.next('form').find('textarea.auto_height').autoExpand();
         $('.reply_close_btn').click(function () {
             var close = $(this).parent('form')
             close.hide();

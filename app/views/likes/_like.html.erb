@@ -14,7 +14,7 @@
     <% end %>
 
     <% else %>
-    <%= link_to "/p/#{post.id}", class:'home_unlike' do %>
+    <%= link_to new_user_session_path, class:'home_unlike' do %>
     <i class="fas fa-heart"></i>
     <span><%= Like.where(post_id: post.id).length %></span>
     <% end %>
@@ -23,9 +23,16 @@
 </div>
 <div class="like_user m_btn">
     <% likes = Like.where(post_id: post.id).order(created_at: "DESC") %>
+    <% count = 1 %>
     <% likes.each do |like| %>
     <% l_user = User.find(like.l_uid) %>
     <span class="like_user_in" id="like_user_<%= l_user.id %>"><%= image_tag "#{l_user.userimg.s}" %></span>
+
+    <% count += 1 %>
+    <% if count > 14 then %>
+    <% break %>
+    <% end %>
+
     <% end %>
 </div>
 <div class="m_content">

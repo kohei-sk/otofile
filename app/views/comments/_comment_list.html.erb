@@ -20,8 +20,9 @@
         <% end %>
         <p class="comment_content">
             <span class="comment"><%= safe_join(cmt.comment.split("\n"),tag(:br)) %></span>
-            <span class="date"><%= l cmt.created_at, format: "%Y-%m-%d" %></span>
+            <span class="date"><%= time_ago_in_words(cmt.created_at) %>前</span>
 
+            <% if user_signed_in? %>
             <% if user.id == current_user.id %>
             <span class="cmt_in_edit"><i class="fas fa-edit"></i></span>
             <%= link_to "/c/#{cmt.id}/destroy", class: 'cmt_dlete_btn', data: {confirm: "本当に削除しますか？"} do %>
@@ -30,14 +31,15 @@
             <% end %>
             <span class="cmt_in_reply"><i class="fas fa-reply"></i></span>
             <span class="cmt_in_reply_close"><i class="fas fa-times"></i></span>
+            <% end %>
         </p>
 
-
+        <% if user_signed_in? %>
         <% if user.id == current_user.id %>
 
         <%= form_tag "/c/#{cmt.id}/edit", :method => 'patch', class: "comment_edit" do %>
         <div class="field">
-            <textarea name="comment" id="comment"><%= cmt.comment %></textarea>
+            <textarea name="comment" id="comment" class="auto_height"><%= cmt.comment %></textarea>
         </div>
         <label>
             <button type="submit"></button>
@@ -46,6 +48,7 @@
         <span class="cmt_close_btn"><i class="fas fa-times"></i></span>
         <% end %>
 
+        <% end %>
         <% end %>
 
 
@@ -59,7 +62,7 @@
 
         <div class="field">
             <%= f.text_field :comment_id, value: "#{cmt.id}", type: 'hidden' %>
-            <%= f.text_area :reply, placeholder: "reply :D", id: "comment_id_#{cmt.id}" %>
+            <%= f.text_area :reply, placeholder: "返信 :D", id: "comment_id_#{cmt.id}", class: "auto_height" %>
             <label>
                 <button type="submit"></button>
                 <span class="reply_send_btn"><i class="fas fa-paper-plane"></i></span>
@@ -103,22 +106,24 @@
                 <% end %>
                 <p class="reply_content">
                     <span class="reply"><%= safe_join(reply.reply.split("\n"),tag(:br)) %></span>
-                    <span class="date"><%= l reply.created_at, format: "%Y-%m-%d" %></span>
+                    <span class="date"><%= time_ago_in_words(reply.created_at) %>前</span>
 
+                    <% if user_signed_in? %>
                     <% if user.id == current_user.id %>
                     <span class="reply_in_edit"><i class="fas fa-edit"></i></span>
                     <%= link_to "/r/#{reply.id}/destroy", class: 'reply_dlete_btn', data: {confirm: "本当に削除しますか？"} do %>
                     <i class="fas fa-trash-alt"></i>
                     <% end %>
                     <% end %>
+                    <% end %>
                 </p>
 
-
+                <% if user_signed_in? %>
                 <% if user.id == current_user.id %>
 
                 <%= form_tag "/r/#{reply.id}/edit", :method => 'patch', class: "reply_edit" do %>
                 <div class="field">
-                    <textarea name="reply" id="reply"><%= reply.reply %></textarea>
+                    <textarea name="reply" id="reply" class="auto_height"><%= reply.reply %></textarea>
                 </div>
                 <label>
                     <button type="submit"></button>
@@ -127,6 +132,7 @@
                 <span class="reply_close_btn"><i class="fas fa-times"></i></span>
                 <% end %>
 
+                <% end %>
                 <% end %>
 
             </li>

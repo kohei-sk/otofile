@@ -1,7 +1,7 @@
 json.id @reply.id
 json.comment_id @reply.comment_id
 json.reply safe_join(@reply.reply.split("\n"), tag(:br))
-json.created_at @reply.created_at.strftime("%Y-%m-%d")
+json.created_at time_ago_in_words(@reply.created_at)
 
 json.userid @user.userid
 

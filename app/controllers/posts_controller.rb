@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :sign_in_required
+  # before_action :sign_in_required
   before_action :post_check
 
   def post_check
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
   def destroy
     if @post.destroy
-      redirect_to "/#{current_user.userid}", notice: '削除しました'
+      redirect_to "/#{current_user.userid}#activity", notice: '削除しました'
     else
       render "/p/#{params[:id]}/edit"
     end

@@ -60,7 +60,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
+  # def update_resource(resource, params)
+  #   resource.update_without_current_password(params)
+  # end
+
   def after_update_path_for(resource)
-    "/#{current_user.userid}"
+    root_path
   end
 end

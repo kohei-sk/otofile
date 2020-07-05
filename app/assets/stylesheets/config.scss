@@ -95,6 +95,8 @@ $attention-color: #ca0000;
 $wrap: 955px;
 $main-wrap: 630px;
 $sp: 630px;
+$sp-mid: 400px;
+$sp-min: 360px;
 
 @mixin wrap() {
     width: 100%;
@@ -176,7 +178,8 @@ $sp: 630px;
 
         &.follow,
         &.unfollow,
-        &.setting {
+        &.setting,
+        &.signout_follow {
             position: relative;
 
             &:before {
@@ -189,15 +192,16 @@ $sp: 630px;
             }
         }
 
-        &.follow {
+        &.follow,
+        &.signout_follow {
 
             &:before {
-                content: 'Follow? ;-)';
+                content: 'フォロー ;-)';
                 color: $accent-color;
             }
 
             &:hover:before {
-                content: 'Follow? :D';
+                content: 'フォロー :D';
                 background-color: $accent-color;
                 color: $base-color;
             }
@@ -206,13 +210,13 @@ $sp: 630px;
         &.unfollow {
 
             &:before {
-                content: 'Following :-)';
+                content: 'フォロー中 :-)';
                 color: $base-color;
                 background-color: $accent-color;
             }
 
             &:hover:before {
-                content: 'Unfollow? :‑(';
+                content: 'フォロー解除 :‑(';
                 background-color: $attention-color;
                 border: solid 1px $attention-color;
             }
@@ -221,12 +225,12 @@ $sp: 630px;
         &.setting {
 
             &:before {
-                content: 'Setting';
+                content: 'アカウント設定';
                 color: $accent-color;
             }
 
             &:hover:before {
-                content: 'Setting';
+                content: 'アカウント設定';
                 background-color: $accent-color;
                 color: $base-color;
             }
@@ -319,6 +323,28 @@ $sp: 630px;
     }
 }
 
+@mixin auto_height() {
+    transition: none;
+    resize: none;
+    min-height: auto;
+    height: 3.3em;
+    line-height: 1.7em;
+    padding: 0.8em 1em;
+}
+
+@mixin form_underline() {
+    transition-property: border;
+    transition-duration: .2s;
+    border: none !important;
+    border-bottom: 1px solid $sub-color !important;
+    border-radius: 0;
+
+    &:hover,
+    &:focus {
+        border-bottom: 1px solid $accent-color !important;
+    }
+}
+
 @mixin tab {
     @media (max-width: ($wrap)) {
         @content;
@@ -327,6 +353,18 @@ $sp: 630px;
 
 @mixin sp {
     @media (max-width: ($sp)) {
+        @content;
+    }
+}
+
+@mixin sp_mid {
+    @media (max-width: ($sp-mid)) {
+        @content;
+    }
+}
+
+@mixin sp_min {
+    @media (max-width: ($sp-min)) {
         @content;
     }
 }

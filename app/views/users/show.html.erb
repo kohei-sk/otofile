@@ -1,4 +1,11 @@
-<section class="head clearfix" style="<%= "background-image:url( #{@user_name.hdrimg} );" %>">
+<section class="user_head">
+
+    <div class="header_img">
+        <%= image_tag "#{@user_name.hdrimg}" %>
+    </div>
+
+</section>
+<section class="head prf_head clearfix">
 
     <div class="head_l clearfix">
         <p class="head_img"><%= image_tag "#{@user_name.userimg}" %></p>
@@ -13,25 +20,6 @@
         </p>
 
         <p class="head_id"><%= @user_name.userid %></p>
-
-        <p class="head_message">
-            <% if @msg.present? %>
-            <% if @msg.message.blank? %>
-            <span class="none">ひとことがありません</span>
-            <% else %>
-            <%= safe_join(@msg.message.split("\n"),tag(:br)) %>
-            <% end %>
-            <% else %>
-            <span class="none">ひとことがありません</span>
-            <% end %>
-
-            <% if current_user.id == @user_name.id %>
-            <i class="fas fa-edit"></i>
-            <%= link_to "", "/m/edit", class: "head_message_edit" %>
-            <% end %>
-        </p>
-
-
 
         <div class="head_sns">
             <% if @user_name.sns_t.present? %>
@@ -51,6 +39,7 @@
             <% end %>
         </div>
 
+        <% if user_signed_in? %>
         <% user = @user_name %>
         <% if user.id != current_user.id %>
         <div class="follow_wrap clearfix" id="follow_user_<%= user.id %>">
@@ -62,16 +51,46 @@
         </div>
         <% end %>
 
+        <% else %>
+        <div class="follow_wrap clearfix">
+            <%= link_to "", new_user_session_path, class: "follow_btn signout_follow" %>
+        </div>
+
+        <% end %>
+
+    </div>
+
+    <div class="head_message">
+        <% if @msg.present? %>
+        <% if @msg.message.blank? %>
+        <span class="none">ひとことがありません</span>
+        <% else %>
+        <%= safe_join(@msg.message.split("\n"),tag(:br)) %>
+        <% end %>
+        <% else %>
+        <span class="none">ひとことがありません</span>
+        <% end %>
+
+        <% if user_signed_in? %>
+        <% if current_user.id == @user_name.id %>
+        <i class="fas fa-edit"></i>
+        <%= link_to "", "/m/edit", class: "head_message_edit" %>
+        <% end %>
+        <% end %>
+    </div>
+
+    <div class="prf_count clearfix">
+        <p>プロフィール充実度：<%= @prf_count %>%</p>
+        <div class="count_bar" id="n_<%= @prf_count %>"><span></span></div>
     </div>
 
 </section>
 
-
 <section class="tab_content_wrap clearfix">
 
     <ul class="tab-group">
-        <li><a href="#profile" class="tab">Profile</a></li>
-        <li><a href="#activity" class="tab">Activity</a></li>
+        <li><a href="#profile" class="tab">プロフィール</a></li>
+        <li><a href="#activity" class="tab">アクティビティ</a></li>
         <li><a href="#favorite" class="tab"><i class="far fa-heart"></i></a></li>
     </ul>
 
@@ -82,9 +101,11 @@
             <% if !@profile.nil? %>
 
             <div class="pl_head">
-                <p class="sttl">Update : <%= l @profile.updated_at, format: "%Y-%m-%d" %></p>
+                <p class="sttl">アップデート : <%= time_ago_in_words(@profile.updated_at) %>前</p>
+                <% if user_signed_in? %>
                 <% if current_user.id == @user_name.id %>
-                <%= link_to 'Edit', "/pr/edit", class: "pr_edit" %>
+                <%= link_to '編集', "/pr/edit", class: "pr_edit" %>
+                <% end %>
                 <% end %>
             </div>
 
@@ -171,8 +192,10 @@
             <% else %>
             <div class="pl_head">
                 <p class="sttl">None profile</p>
+                <% if user_signed_in? %>
                 <% if current_user.id == @user_name.id %>
-                <%= link_to 'Post profile', "/pr/new", class: "pr_post" %>
+                <%= link_to 'プロフィール作成', "/pr/new", class: "pr_post" %>
+                <% end %>
                 <% end %>
             </div>
             <% end %>
@@ -182,10 +205,12 @@
 
         <div id="activity" class="panel timeline">
 
+            <% if user_signed_in? %>
             <% if current_user.id == @user_name.id %>
             <div class="pl_head">
-                <p><%= link_to 'Post', p_new_path, class: "ac_post" %></p>
+                <p><%= link_to '投稿', p_new_path, class: "ac_post" %></p>
             </div>
+            <% end %>
             <% end %>
 
 
@@ -203,7 +228,7 @@
             <span class="next"><%= link_to_next_page @posts, '', param_name: 'activity'%></span>
 
             <% else %>
-            <%= link_to 'Post activity', "/p/new", class: "pr_post" %>
+            <%= link_to 'アクティビティを投稿', "/p/new", class: "pr_post" %>
             <% end %>
 
         </div>

@@ -1,13 +1,15 @@
+<% if user_signed_in? %>
 <%= form_for @cmt,:url => {controller: "comments", action: "create"}, :html =>{class: "comment_area"} do |f| %>
 
 <div class="field">
-    <%= f.text_area :comment, placeholder: "comment :D", id: "post_id_#{params[:id]}" %>
+    <%= f.text_area :comment, placeholder: "コメント :D", id: "post_id_#{params[:id]}", class: "auto_height" %>
     <label>
         <button type="submit"></button>
         <span class="btn"><i class="fas fa-paper-plane"></i></span>
     </label>
 </div>
 
+<% end %>
 <% end %>
 
 <ul class="comment_container clearfix">

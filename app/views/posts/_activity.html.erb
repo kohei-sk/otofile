@@ -22,7 +22,7 @@
         <div class="ac_content_inner">
 
             <p class="ac_txt"><%=safe_join(post.comment.split("\n"),tag(:br))%></p>
-            <span class="date"><%= l post.created_at, format: "%Y-%m-%d" %></span>
+            <span class="date"><%= time_ago_in_words(post.created_at) %>前</span>
 
             <% if post.img.present? %>
             <p class="ac_img m_btn"><%= image_tag "#{post.img}"%></p>
@@ -45,9 +45,11 @@
             <% end %>
             <% end %>
 
+            <% if user_signed_in? %>
             <% if current_page?("/p/#{post.id}") %>
             <% if post.user_id == current_user.id %>
-            <%= link_to "Edit", "/p/#{post.id}/edit", class: 'ac_in_edit' %>
+            <%= link_to "編集", "/p/#{post.id}/edit", class: 'ac_in_edit' %>
+            <% end %>
             <% end %>
             <% end %>
 
@@ -75,7 +77,7 @@
                     <% end %>
 
                     <% else %>
-                    <%= link_to "/p/#{post.id}", class: "uncmt" do %>
+                    <%= link_to new_user_session_path, class: "uncmt" do %>
                     <i class="fas fa-comment"></i>
                     <span><%= cmt.length %></span>
                     <% end %>
@@ -94,9 +96,9 @@
                 <div class="ac_share_content" id="/p/<%= post.id %>">
                     <div class="share_nobg"></div>
                     <span class="ac_twitter">
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i>Share on Twitter</a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i>Twitterでシェア</a>
                     </span>
-                    <span class="ac_link_copy"><i class="fas fa-link"></i>Copy link</span>
+                    <span class="ac_link_copy"><i class="fas fa-link"></i>リンクをコピー</span>
                 </div>
             </div>
 

@@ -16,42 +16,42 @@
 
 <div class="field">
     <%= f.label :free_area, "フリースペースです。好きなことを書きましょう！" %>
-    <%= f.text_area :free_area, placeholder: "About me" %>
+    <%= f.text_area :free_area, placeholder: "About me", class: "auto_height" %>
 </div>
 
 <div class="field">
     <%= f.label :trendartist, "最近ハマっているアーティストは？" %>
-    <%= f.text_area :trendartist, placeholder: "Trend artist" %>
+    <%= f.text_area :trendartist, placeholder: "Trend artist", class: "auto_height" %>
 </div>
 
 <div class="field">
     <%= f.label :trendsong, "最近ハマっている曲は？" %>
-    <%= f.text_area :trendsong, placeholder: "Trend song" %>
+    <%= f.text_area :trendsong, placeholder: "Trend song", class: "auto_height" %>
 </div>
 
 <div class="field">
     <%= f.label :fvcate, "好きなジャンルは？" %><span>カンマ(,)で複数入力できます</span>
-    <%= f.text_field :fvcate, placeholder: "HR,J-POP,ガールズバンド" %>
+    <%= f.text_field :fvcate, placeholder: "HR,J-POP,ガールズバンド", class: "form_underline" %>
 </div>
 
 <div class="field">
     <%= f.label :fvartist, "好きなアーティストは？" %>
-    <%= f.text_area :fvartist, placeholder: "Favorite artist" %>
+    <%= f.text_area :fvartist, placeholder: "Favorite artist", class: "auto_height" %>
 </div>
 
 <div class="field">
     <%= f.label :fvsong, "好きな曲は？" %>
-    <%= f.text_area :fvsong, placeholder: "Favorite artist" %>
+    <%= f.text_area :fvsong, placeholder: "Favorite song", class: "auto_height" %>
 </div>
 
 <div class="field">
     <%= f.label :fes_sche, "参加予定のライブ・フェスは？" %>
-    <%= f.text_area :fes_sche, placeholder: "Live / Fes hchedule" %>
+    <%= f.text_area :fes_sche, placeholder: "Live / Fes hchedule", class: "auto_height" %>
 </div>
 
 <div class="field">
     <%= f.label :fes_his, "最近参加したライブ・フェスは？" %>
-    <%= f.text_area :fes_his, placeholder: "Live / Fes history" %>
+    <%= f.text_area :fes_his, placeholder: "Live / Fes history", class: "auto_height" %>
 </div>
 
 <div class="field">
@@ -98,18 +98,18 @@
 
 <div class="field">
     <%= f.label :fav_playlist, "お気に入りのプレイリストは？" %>
-    <%= f.text_area :fav_playlist, placeholder: "Favorite playlist" %>
+    <%= f.text_area :fav_playlist, placeholder: "Favorite playlist", class: "auto_height" %>
 </div>
 
 <p class="s_ttl">どんな音楽史を歩みましたか？</p>
 
 <div class="field">
     <%= f.fields_for :histories do |f| %>
-    <%= f.text_field :year, placeholder: "Year", class: "year" %>年
-    <%= f.text_area :event, placeholder: "Event" %>
+    <%= f.text_field :year, placeholder: "0000", class: "year form_underline" %>年
+    <%= f.text_area :event, placeholder: "エピソード", class: "auto_height" %>
     <%= f.link_to_remove "" %>
     <% end %>
-    <%= f.link_to_add "イベントを追加", :histories %>
+    <%= f.link_to_add "エピソードを追加", :histories %>
 </div>
 
 <div class="actions">

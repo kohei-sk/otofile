@@ -1,6 +1,6 @@
 <section class="head reco clearfix">
 
-    <h3>Recommended users</h3>
+    <h3>おすすめユーザー</h3>
 
     <% if !@reco_users.nil? %>
 
@@ -79,9 +79,9 @@
 <section class="tab_content_wrap clearfix">
 
     <ul class="tab-group">
-        <li><a href="#timeline" class="tab">Timeline</a></li>
-        <li><a href="#following" class="tab">Following<span><%= @fing_users.length %></span></a></li>
-        <li><a href="#follower" class="tab">Follower<span><%= @fer_users.length %></span></a></li>
+        <li><a href="#timeline" class="tab">タイムライン</a></li>
+        <li><a href="#following" class="tab">フォロー中<span><%= @fing_users.length %></span></a></li>
+        <li><a href="#follower" class="tab">フォロワー<span><%= @fer_users.length %></span></a></li>
     </ul>
 
     <div class="panel-group">
@@ -119,7 +119,7 @@
                             </div>
                             <div class="notice_inner_b">
                                 <p class=" notice_txt">プロフィールを変更しました
-                                    <span class="date"><%= l item.updated_at, format: "%Y-%m-%d" %></span>
+                                    <span class="date"><%= time_ago_in_words(item.updated_at) %>前</span>
                                 </p>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                             </div>
                             <div class="notice_inner_b">
                                 <p class="notice_txt"><%=safe_join(item.message.split("\n"),tag(:br))%>
-                                    <span class="date"><%= l item.updated_at, format: "%Y-%m-%d" %></span>
+                                    <span class="date"><%= time_ago_in_words(item.updated_at) %>前</span>
                                 </p>
                             </div>
                         </div>
@@ -172,7 +172,7 @@
                                 </div>
                                 <div class="notice_inner_b">
                                     <p class=" notice_txt">プロフィールを変更しました
-                                        <span class="date">2020-06-11</span>
+                                        <span class="date">1年前</span>
                                     </p>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@
                                 </div>
                                 <div class="notice_inner_b">
                                     <p class="notice_txt">一言サンプル一言サンプル一言サンプル一言サンプル一言サンプル<br>一言サンプル一言サンプル一言サンプル
-                                        <span class="date">2020-06-11</span>
+                                        <span class="date">1年前</span>
                                     </p>
                                 </div>
                             </div>
@@ -208,7 +208,7 @@
                                 </div>
                                 <div class="notice_inner_b">
                                     <p class=" notice_txt">プロフィールを変更しました
-                                        <span class="date">2020-06-11</span>
+                                        <span class="date">1年前</span>
                                     </p>
                                 </div>
                             </div>
@@ -226,7 +226,7 @@
                                 </div>
                                 <div class="notice_inner_b">
                                     <p class="notice_txt">一言サンプル一言サンプル一言サンプル一言サンプル一言サンプル<br>一言サンプル一言サンプル一言サンプル
-                                        <span class="date">2020-06-11</span>
+                                        <span class="date">1年前</span>
                                     </p>
                                 </div>
                             </div>

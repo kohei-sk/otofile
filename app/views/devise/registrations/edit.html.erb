@@ -23,7 +23,7 @@
     <i class="fas fa-images"></i>画像を選択
     <% end %>
     <span class="file"></span><br>
-    <%= f.label :remove_userimg, class: 'img_delete' do %>
+    <%= f.label :remove_userimg, class: 'check' do %>
     <%= f.check_box :remove_userimg %>画像を削除する
     <div class="indicator"></div>
     <% end %>
@@ -37,7 +37,7 @@
     <i class="fas fa-images"></i>画像を選択
     <% end %>
     <span class="file"></span><br>
-    <%= f.label :remove_hdrimg, class: 'img_delete' do %>
+    <%= f.label :remove_hdrimg, class: 'check' do %>
     <%= f.check_box :remove_hdrimg %>画像を削除する
     <div class="indicator"></div>
     <% end %>
@@ -89,10 +89,11 @@
 
     <div class="field">
         <%= f.label :password %><span>（変更しない場合は空白にしてください）</span>
+        <%= f.password_field :password, autocomplete: "new-password" %>
         <% if @minimum_password_length %>
         <span>（<%= @minimum_password_length %>文字以上）</span>
+        <span>（半角アルファベット（大文字・小文字）、半角数字を１つ以上）</span>
         <% end %>
-        <%= f.password_field :password, autocomplete: "new-password" %>
 
     </div>
 

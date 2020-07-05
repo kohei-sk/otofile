@@ -282,8 +282,8 @@ body.nav--opened header {
                         font-family: "Font Awesome 5 Free";
                         font-weight: 900;
                         position: absolute;
-                        top: 16px;
-                        left: 20px;
+                        top: 1.35em;
+                        left: 1.6em;
                         line-height: 1em;
                     }
 
@@ -358,6 +358,10 @@ body.nav--opened header {
                     background-color: $base-color;
                     border-bottom: 1px solid $sub-color2;
 
+                    @include sp {
+                        width: calc(100% - 28px);
+                    }
+
                     li.tab {
                         flex-grow: 1;
                         padding: 12px 0;
@@ -392,16 +396,16 @@ body.nav--opened header {
                             .head_search {
                                 position: relative;
                                 padding: 0;
+                                display: flex;
 
                                 input[type="text"] {
                                     border: 1px solid $sub-color2;
                                     transition: all .2s;
-                                    width: calc(100% - 50px);
+                                    width: 100%;
                                     box-sizing: border-box;
                                     outline: 0;
                                     padding: 12px 16px;
                                     line-height: 1.84em;
-                                    float: left;
                                     height: 3.69em;
                                     background-color: $sub-color3;
                                 }
@@ -412,7 +416,6 @@ body.nav--opened header {
                                 }
 
                                 label {
-                                    float: left;
 
                                     input[type="submit"] {
                                         display: none;
@@ -642,6 +645,7 @@ body.nav--opened header {
             @include wrap();
 
             p.s_ttl {
+                font-size: 0.85em;
                 margin: 0 0 1.15em 0;
             }
 
@@ -734,25 +738,33 @@ body.nav--opened header {
                     background-color: $sub-color3;
                     border-radius: 0.5em;
 
+                    &:hover,
+                    &:focus {
+                        border: 1px solid $accent-color;
+                    }
+
                     &#ytid {
                         width: 60%;
                         display: block;
                     }
                 }
 
+                input {
+                    &.form_underline {
+                        @include form_underline();
+                    }
+                }
+
                 textarea {
-                    padding: 0.7em 1em;
-                    line-height: 1.7em;
+                    &.auto_height {
+                        @include auto_height();
+                        @include form_underline();
+                    }
                 }
 
                 input:focus,
                 textarea:focus {
                     border: 1px solid $accent-color;
-                }
-
-                textarea {
-                    resize: vertical;
-                    min-height: 8.46em;
                 }
 
                 #ytid_confirm_now,
@@ -817,11 +829,18 @@ body.nav--opened header {
                 }
 
                 .pr_img {
-                    width: 150px;
-                    height: 150px;
+                    width: 140px;
+                    height: 140px;
                     overflow: hidden;
                     border-radius: 100%;
                     margin: 0 0 1.15em 0;
+
+                    @include sp {
+                        width: 27vw;
+                        height: 27vw;
+                        max-width: 100px;
+                        max-height: 100px;
+                    }
 
                     img {
                         width: 100%;
@@ -832,9 +851,13 @@ body.nav--opened header {
 
                 .hdr_img {
                     width: 100%;
-                    height: 300px;
+                    height: 150px;
                     overflow: hidden;
                     margin: 0 0 1.15em 0;
+
+                    @include sp {
+                        height: 24vw;
+                    }
 
                     img {
                         width: 100%;
@@ -913,7 +936,7 @@ body.nav--opened header {
                     margin: 0.77em 0 0 0;
 
                     li {
-                        line-height: 1em;
+                        line-height: 1.4em;
                         padding: 0.39em 0;
 
                     }
@@ -928,7 +951,7 @@ body.nav--opened header {
                 display: table;
                 border-radius: 0.39em;
                 border: 1px solid $main-color;
-                margin: 0 0 2.3em 0.077em;
+                margin: 0 0 1.3em;
                 transition: all .2s;
 
                 &:hover {
@@ -947,8 +970,8 @@ body.nav--opened header {
 
                 .field {
                     &:last-child {
-                        padding-bottom: 2.3em;
-                        border-bottom: 1px solid $main-color;
+                        padding-bottom: 1.3em;
+                        border-bottom: 1px solid $sub-color2;
                     }
                 }
 
@@ -979,7 +1002,7 @@ body.nav--opened header {
                 color: $attention-color;
                 line-height: 1em;
                 padding: 0.62em 0.92em;
-                border-radius: 0.39;
+                border-radius: 0.39em;
                 margin-bottom: 1.15em;
             }
 
@@ -989,13 +1012,15 @@ body.nav--opened header {
             @include wrap();
 
             a {
-                display: block;
+                display: inline-block;
                 transition: all .2s;
                 line-height: 1em;
                 padding: 0.62em 0.23em;
                 font-size: 0.92rem;
                 text-decoration: underline;
                 color: $sub-color;
+                float: left;
+                clear: both;
 
                 &:hover {
                     color: $accent-color;
@@ -1051,10 +1076,10 @@ body.nav--opened header {
                 .rank_post_container {
 
                     h3 {
-                        font-weight: 300;
+                        font-weight: 400;
                         color: $sub-color;
-                        font-size: 1.23rem;
-                        margin-bottom: 0.93em;
+                        font-size: 1.2rem;
+                        margin-bottom: 1em;
                     }
 
                     .rank_post_wrapper {
@@ -1135,8 +1160,8 @@ body.nav--opened header {
                         p.rank_user {
 
                             span.rank_userimg {
-                                width: 24px;
-                                height: 24px;
+                                width: 25px;
+                                height: 25px;
                                 border-radius: 100%;
                                 overflow: hidden;
                                 display: inline-block;

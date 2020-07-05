@@ -1,11 +1,25 @@
 ja:
   activerecord:
     attributes:
+      onemessage:
+        message: "ひとこと"
       post:
         title: "タイトル"
-        ytid: "動画ID"
+        comment: "コメント"
+      profile:
+        free_area: "フリースペース"
+        trendartist: "ハマっているアーティスト"
+        trendsong: "ハマっている曲"
+        fvcate: "好きなジャンル"
+        fvartist: "好きなアーティスト"
+        fvsong: "好きな曲"
+        fes_sche: "参加予定のライブは"
+        fes_his: "参加したライブ"
+        fvmv: "好きなMV"
+        fav_playlist: "プレイリスト"
       histories:
-        year: "年代"
+        year: "年数"
+        event: "音楽史"
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン

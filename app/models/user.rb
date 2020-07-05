@@ -10,8 +10,34 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :omniauthable,
          omniauth_providers: [:twitter]
 
-  #validates :username, presence: true
-  validates :userid, presence: true, uniqueness: true, format: { with: /\A[a-z\d]{1,30}+\z/i }
+  validates :username, length: { maximum: 50 }
+  validates :userid, presence: true, uniqueness: true, length: { maximum: 20 }
+  validate :password_complexity #6..20
+  validate :userid_complexity
+
+  def password_complexity
+    return if password.blank? || password =~ /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])/
+
+    errors.add :password, "には半角アルファベット（大文字・小文字）、半角数字を１つ以上入れてください"
+  end
+
+  def userid_complexity
+    return if userid =~ /(?=.*?[\A[a-zA-Z0-9]+\z])/
+
+    errors.add :userid, "は半角アルファベット（大文字・小文字）、半角数字で入力してください"
+  end
+
+  # def update_without_current_password(params, *options)
+  #   if params[:password].blank? && params[:password_confirmation].blank?
+  #     params.delete(:password)
+  #     params.delete(:password_confirmation)
+  #     params.delete(:current_password)
+
+  #     result = update_attributes(params, *options)
+  #     clean_up_passwords
+  #     result
+  #   end
+  # end
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth["provider"], uid: auth["uid"]) do |user|

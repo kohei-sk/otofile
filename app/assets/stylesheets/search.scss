@@ -19,21 +19,26 @@ section.search {
         }
 
         .pl_head {
-            margin: 0 0 25px 0 !important;
-        }
-
-        p.ttl {
-            display: block;
-            font-size: 1.23rem;
+            font-weight: 400;
+            font-size: 1.2rem;
+            line-height: 1em;
+            padding: 0.5em 0 0.8em;
+            border-bottom: 1px solid $main-color;
+            margin: 0 0 2em !important;
         }
 
         p.sttl {
-            display: block;
-            font-weight: 300;
             color: $sub-color;
             line-height: 1em;
-            margin-top: 0.39em;
+            font-size: 0.9rem;
+            margin-top: 0.7em;
         }
+    }
+
+    p.undefinde {
+        @include wrap();
+        color: $sub-color;
+        font-size: 1rem;
     }
 
     .ac_content {

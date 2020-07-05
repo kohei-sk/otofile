@@ -41,7 +41,11 @@ class SearchController < ApplicationController
     end
 
     def user_random
-        @search = User.where.not(id: current_user.id).order("RANDOM()").limit(1)[0]
+        if user_signed_in?
+            @search = User.where.not(id: current_user.id).order("RANDOM()").limit(1)[0]
+        else
+            @search = User.order("RANDOM()").limit(1)[0]
+        end
         if @search.nil?
             redirect_to root_path
         else
@@ -50,7 +54,11 @@ class SearchController < ApplicationController
     end
 
     def post_random
-        @search = Post.where.not(user_id: current_user.id).order("RANDOM()").limit(1)[0]
+        if user_signed_in?
+            @search = Post.where.not(user_id: current_user.id).order("RANDOM()").limit(1)[0]
+        else
+            @search = Post.order("RANDOM()").limit(1)[0]
+        end
         if @search.nil?
             redirect_to root_path
         else

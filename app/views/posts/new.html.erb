@@ -16,31 +16,17 @@
 
 <div class="field">
     <%= f.label :title, "タイトル" %>
-    <%= f.text_field :title, placeholder: "必須" %>
+    <%= f.text_field :title, placeholder: "必須", class: "form_underline" %>
 </div>
 
 <div class="field">
     <%= f.label :comment, "コメント" %>
-    <%= f.text_area :comment %>
-</div>
-
-<div class="field_img img_select_wrap">
-    <div class="img_wrap_confirm">
-    </div>
-    <%= f.label :img, class: "img_select" do %>
-    <%= f.file_field :img %>
-    <i class="fas fa-images"></i>画像を選択
-    <% end %>
-    <span class="file"></span><br>
-    <%= f.label :remove_img, class: 'check' do %>
-    <%= f.check_box :remove_img %>画像を削除する
-    <div class="indicator"></div>
-    <% end %>
+    <%= f.text_area :comment, class: "auto_height" %>
 </div>
 
 <div class="field yt_select_wrap">
     <%= f.label :ytid, "YouTube動画" %>
-    <%= f.text_field :ytid, placeholder: "YouTubeのURLをペースト", oninput: "func_id()", id: "ytid" %>
+    <%= f.text_field :ytid, placeholder: "YouTubeのURLをペースト", oninput: "func_id()", id: "ytid", class: "form_underline" %>
     <p id="yt_error"></p>
     <div id="ytid_confirm"></div>
 </div>
@@ -81,6 +67,20 @@
         }
     }
 </script>
+
+<div class="field_img img_select_wrap">
+    <div class="img_wrap_confirm">
+    </div>
+    <%= f.label :img, class: "img_select" do %>
+    <%= f.file_field :img %>
+    <i class="fas fa-images"></i>画像を選択
+    <% end %>
+    <span class="file"></span><br>
+    <%= f.label :remove_img, class: 'check' do %>
+    <%= f.check_box :remove_img %>画像を削除する
+    <div class="indicator"></div>
+    <% end %>
+</div>
 
 <div class="actions">
     <%= f.submit "投稿" %>

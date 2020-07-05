@@ -173,10 +173,11 @@
         }
 
         .btn_wrap {
+            display: flex;
 
             .count_wrap {
                 display: block;
-                float: left;
+                width: 100%;
 
                 .p_cmt_box {
                     display: inline-block;
@@ -273,7 +274,7 @@
                         line-height: 1em;
                         margin-left: 0.39em;
                         cursor: pointer;
-
+                        overflow: hidden;
 
                         span.like_user_in {
                             display: inline-block;
@@ -289,13 +290,30 @@
                                 object-fit: cover;
 
                             }
+
+                            @include sp {
+                                &:nth-child(n + 10) {
+                                    display: none;
+                                }
+                            }
+
+                            @include sp_mid {
+                                &:nth-child(n + 9) {
+                                    display: none;
+                                }
+                            }
+
+                            @include sp_min {
+                                &:nth-child(n + 7) {
+                                    display: none;
+                                }
+                            }
                         }
                     }
                 }
             }
 
             .ac_share_wrap {
-                float: right;
                 display: block;
                 position: relative;
                 z-index: 4;
@@ -370,17 +388,10 @@
                 margin: 0;
 
                 textarea {
-                    height: 3.85em !important;
-                    min-height: 3.85em !important;
-                    border: 1px solid $sub-color2;
-                    padding: 0.92em 3.1em 0.92em 1.23em;
-                    transition: all .2s;
 
-                    &:hover,
-                    &:focus {
-                        height: auto !important;
-                        min-height: 100px !important;
-                        border: 1px solid $accent-color;
+                    &.auto_height {
+                        @include auto_height();
+                        @include form_underline();
                     }
                 }
 
@@ -389,8 +400,8 @@
                     margin: 0;
                     padding: 0;
                     position: absolute;
-                    right: 1.15em;
-                    top: 1.15em;
+                    right: 1em;
+                    top: 1.2em;
 
                     button[type="submit"] {
                         display: none;
@@ -398,7 +409,7 @@
 
                     span.btn {
                         color: $main-color;
-                        font-size: 1.54rem;
+                        font-size: 1.3rem;
                         transition: all .2s;
 
                         &:hover {
@@ -419,17 +430,10 @@
                 margin: 0;
 
                 textarea {
-                    height: 53.85em !important;
-                    min-height: 3.85em !important;
-                    border: 1px solid $sub-color2;
-                    padding: 0.92em 3.1em 0.92em 1.23em;
-                    transition: all .2s;
 
-                    &:hover,
-                    &:focus {
-                        height: auto !important;
-                        min-height: 7.7em !important;
-                        border: 1px solid $accent-color;
+                    &.auto_height {
+                        @include auto_height();
+                        @include form_underline();
                     }
                 }
 
@@ -438,8 +442,8 @@
                     margin: 0;
                     padding: 0;
                     position: absolute;
-                    right: 1.15em;
-                    top: 1.15em;
+                    right: 1.0em;
+                    top: 1.2em;
 
                     button[type="submit"] {
                         display: none;
@@ -458,8 +462,6 @@
                 }
             }
         }
-
-        //////////////////////////////ここ///////////////
 
 
         ul.comment_container {
@@ -589,17 +591,10 @@
                         margin: 0;
 
                         textarea {
-                            height: 3.85em !important;
-                            min-height: 3.85em !important;
-                            border: 1px solid $sub-color2;
-                            padding: 0.92em 3.08em 0.92em 1.23em;
-                            transition: all .2s;
 
-                            &:hover,
-                            &:focus {
-                                height: auto !important;
-                                min-height: 7.7em !important;
-                                border: 1px solid $accent-color;
+                            &.auto_height {
+                                @include auto_height();
+                                @include form_underline();
                             }
                         }
 
@@ -610,8 +605,9 @@
                         margin: 0;
                         padding: 0;
                         position: absolute;
-                        right: 15px;
-                        top: 15px;
+                        right: 1em;
+                        top: 1.2em;
+                        line-height: 100%;
 
                         button[type="submit"] {
                             display: none;
@@ -650,17 +646,10 @@
                         margin: 0;
 
                         textarea {
-                            height: 3.85em !important;
-                            min-height: 3.85em !important;
-                            border: 1px solid $sub-color2;
-                            padding: 0.92em 3.08em 0.92em 1.23em;
-                            transition: all .2s;
 
-                            &:hover,
-                            &:focus {
-                                height: auto !important;
-                                min-height: 7.7em !important;
-                                border: 1px solid $accent-color;
+                            &.auto_height {
+                                @include auto_height();
+                                @include form_underline();
                             }
                         }
 
@@ -671,8 +660,8 @@
                         margin: 0;
                         padding: 0;
                         position: absolute;
-                        right: 15px;
-                        top: 15px;
+                        right: 1em;
+                        top: 1.2em;
 
                         button[type="submit"] {
                             display: none;
@@ -682,6 +671,7 @@
                             color: $main-color;
                             font-size: 1.15rem;
                             transition: all .2s;
+                            line-height: 100%;
 
                             &:hover {
                                 color: $accent-color;
@@ -797,17 +787,10 @@
                                 margin: 0;
 
                                 textarea {
-                                    height: 3.85em !important;
-                                    min-height: 3.85em !important;
-                                    border: 1px solid $sub-color2;
-                                    padding: 0.92em 3.08em 0.92em 1.23em;
-                                    transition: all .2s;
 
-                                    &:hover,
-                                    &:focus {
-                                        height: auto !important;
-                                        min-height: 7.7em !important;
-                                        border: 1px solid $accent-color;
+                                    &.auto_height {
+                                        @include auto_height();
+                                        @include form_underline();
                                     }
                                 }
 
@@ -818,8 +801,9 @@
                                 margin: 0;
                                 padding: 0;
                                 position: absolute;
-                                right: 15px;
-                                top: 15px;
+                                right: 1em;
+                                top: 1.2em;
+                                line-height: 100%;
 
                                 button[type="submit"] {
                                     display: none;
