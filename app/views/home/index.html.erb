@@ -14,7 +14,7 @@
 
                 <div class="reco_item_img"><%= image_tag "#{user.userimg.l}" %></div>
                 <p class="reco_item_name">
-                    <% if user.username.empty? %>
+                    <% if user.username.blank? %>
                     <%= user.userid %>
                     <% else %>
                     <%= user.username %>
@@ -109,7 +109,7 @@
                             <div class="notice_inner_t clearfix">
                                 <span class="userimg"><%= image_tag "#{user.userimg.m}" %></span>
                                 <span class="username">
-                                    <% if user.username.empty? %>
+                                    <% if user.username.blank? %>
                                     <%= user.userid %>
                                     <% else %>
                                     <%= user.username %>
@@ -134,7 +134,7 @@
                             <div class="notice_inner_t clearfix">
                                 <span class="userimg"><%= image_tag "#{user.userimg.m}" %></span>
                                 <span class="username">
-                                    <% if user.username.empty? %>
+                                    <% if user.username.blank? %>
                                     <%= user.userid %>
                                     <% else %>
                                     <%= user.username %>
@@ -244,7 +244,6 @@
             <% if !@posts.nil? %>
 
             <div class="page_wrap clearfix">
-
                 <% @posts.each do |post| %>
 
                 <%= render partial: 'posts/activity', locals: { post: post} %>
@@ -252,8 +251,9 @@
                 <% end %>
 
                 <span class="next"><%= link_to_next_page @posts, '', param_name: 'timeline'%></span>
-
             </div>
+
+            <%= render 'posts/loader' %>
 
             <% end %>
 
@@ -274,6 +274,7 @@
                     <% end %>
                     <span class="next"><%= link_to_next_page @fing_users, '', param_name: 'following'%></span>
                 </div>
+                <%= render 'posts/loader' %>
             </ul>
 
             <% else %>
@@ -294,6 +295,7 @@
                     <% end %>
                     <span class="next"><%= link_to_next_page @fer_users, '', param_name: 'follower'%></span>
                 </div>
+                <%= render 'posts/loader' %>
             </ul>
 
             <% else %>

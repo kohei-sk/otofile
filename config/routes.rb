@@ -38,6 +38,13 @@ Rails.application.routes.draw do
   get "/u/s/random" => "search#user_random"
   get "/p/s/random" => "search#post_random"
 
+  get "/h/help" => "helps#help"
+  get "/h/terms" => "helps#terms"
+  get "/h/privacy" => "helps#privacy"
+  get "/h/cookie" => "helps#cookie"
+  get "/h/howto" => "helps#howto"
+  get "/h/contact" => "helps#contact"
+
   resources :users, param: :userid, path: "/", only: [:show]
 
   get "/:userid/follow" => "follows#create"

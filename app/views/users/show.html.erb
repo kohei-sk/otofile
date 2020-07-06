@@ -12,7 +12,7 @@
     </div>
     <div class="head_r clearfix">
         <p class="head_name">
-            <% if @user_name.username.empty? %>
+            <% if @user_name.username.blank? %>
             <%= @user_name.userid %>
             <% else %>
             <%= @user_name.username %>
@@ -21,6 +21,7 @@
 
         <p class="head_id"><%= @user_name.userid %></p>
 
+        <% if @user_name.sns_t.present? || @user_name.sns_f.present? || @user_name.sns_i.present? || @user_name.sns_l.present? ||@user_name.userlink.present? %>
         <div class="head_sns">
             <% if @user_name.sns_t.present? %>
             <%= link_to "", "#{@user_name.sns_t}",target: "_blank", class: "head_snst" %>
@@ -38,6 +39,7 @@
             <%= link_to "", "#{@user_name.userlink}",target: "_blank", class: "head_userlink" %>
             <% end %>
         </div>
+        <% end %>
 
         <% if user_signed_in? %>
         <% user = @user_name %>
@@ -98,7 +100,7 @@
 
         <div id="profile" class="panel">
 
-            <% if !@profile.nil? %>
+            <% if !@profile.blank? %>
 
             <div class="pl_head">
                 <p class="sttl">アップデート : <%= time_ago_in_words(@profile.updated_at) %>前</p>
@@ -191,7 +193,7 @@
 
             <% else %>
             <div class="pl_head">
-                <p class="sttl">None profile</p>
+                <p class="sttl">プロフィールがありません</p>
                 <% if user_signed_in? %>
                 <% if current_user.id == @user_name.id %>
                 <%= link_to 'プロフィール作成', "/pr/new", class: "pr_post" %>
@@ -208,7 +210,12 @@
             <% if user_signed_in? %>
             <% if current_user.id == @user_name.id %>
             <div class="pl_head">
+                <% if !@posts.empty? %>
                 <p><%= link_to '投稿', p_new_path, class: "ac_post" %></p>
+                <% else %>
+                <p class="sttl">アクティビティがありません</p>
+                <p><%= link_to '投稿', p_new_path, class: "ac_post" %></p>
+                <% end %>
             </div>
             <% end %>
             <% end %>
@@ -224,11 +231,11 @@
 
                 <% end %>
 
-            </div>
-            <span class="next"><%= link_to_next_page @posts, '', param_name: 'activity'%></span>
+                <span class="next"><%= link_to_next_page @posts, '', param_name: 'activity'%></span>
 
-            <% else %>
-            <%= link_to 'アクティビティを投稿', "/p/new", class: "pr_post" %>
+            </div>
+            <%= render 'posts/loader' %>
+
             <% end %>
 
         </div>
@@ -248,15 +255,18 @@
                 <% end %>
 
                 <span class="next"><%= link_to_next_page @user_likes, '', param_name: 'favorite'%></span>
-
             </div>
+
+            <%= render 'posts/loader' %>
+
 
         </div>
 
         <% else %>
-        いいねした投稿がありません
+        <div class="pl_head">
+            <p class="sttl">いいねした投稿がありません</p>
+        </div>
         <% end %>
-
     </div>
 
 </section>

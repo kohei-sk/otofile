@@ -18,7 +18,7 @@ class SearchController < ApplicationController
     end
 
     def user
-        @search = User.where(["username LIKE ? OR userid LIKE ?", "%#{@w}%", "%#{@w}%"])
+        @search = User.where(["username LIKE ? OR userid LIKE ?", "%#{@w}%", "%#{@w}%"]).order(created_at: "DESC")
         if @search.empty?
             redirect_to "/unmatch/#{@w}"
         end
@@ -26,7 +26,7 @@ class SearchController < ApplicationController
 
     def profile
         prf = Profile.joins(:histories)
-        @search = prf.group(:profile_id).select("profiles.*", "histories.*").where(["free_area LIKE ? OR trendartist LIKE ? OR trendsong LIKE ? OR fvcate LIKE ? OR fvartist LIKE ? OR fvsong LIKE ? OR fes_sche LIKE ? OR fes_his LIKE ? OR event LIKE ?", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%"])
+        @search = prf.group(:profile_id).select("profiles.*", "histories.*").where(["free_area LIKE ? OR trendartist LIKE ? OR trendsong LIKE ? OR fvcate LIKE ? OR fvartist LIKE ? OR fvsong LIKE ? OR fes_sche LIKE ? OR fes_his LIKE ? OR event LIKE ?", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%", "%#{@w}%"]).order(created_at: "DESC")
 
         if @search.empty?
             redirect_to "/unmatch/#{@w}"
@@ -34,7 +34,7 @@ class SearchController < ApplicationController
     end
 
     def post
-        @search = Post.where(["title LIKE ? OR comment LIKE ?", "%#{@w}%", "%#{@w}%"])
+        @search = Post.where(["title LIKE ? OR comment LIKE ?", "%#{@w}%", "%#{@w}%"]).order(created_at: "DESC")
         if @search.empty?
             redirect_to "/unmatch/#{@w}"
         end

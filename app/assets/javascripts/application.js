@@ -20,15 +20,13 @@ $(document).ready(function () {
 
     //フラッシュフェードアウト
     var notice = function () {
-        $(function () {
-            $('.notice, .alert').fadeIn(500)
-            setTimeout(function () {
-                $('.notice, .alert').fadeOut(500).queue(function () {
-                    this.remove();
-                });
-            }, 3500);
-            return false
-        });
+        $('.notice, .alert').fadeIn(500);
+        setTimeout(function () {
+            $('.notice, .alert').fadeOut(500).queue(function () {
+                this.remove();
+            });
+        }, 3500);
+        return false
     }
     notice();
 
@@ -320,7 +318,8 @@ $(document).ready(function () {
                             path: href + ' span.next a',
                             append: href + ' .page_wrap',
                             history: false,
-                            scrollThreshold: 700
+                            scrollThreshold: 700,
+                            status: href + ' .page_load_status'
                         });
 
                     }
@@ -340,7 +339,8 @@ $(document).ready(function () {
                 path: 'span.next a',
                 append: '.page_wrap',
                 history: false,
-                scrollThreshold: 700
+                scrollThreshold: 700,
+                status: '.page_load_status'
             });
         }
 
@@ -467,28 +467,6 @@ $(document).ready(function () {
         if (yt_confirm !== '') {
             $('.img_select_wrap').hide();
         }
-    });
-
-    //無限スクロール発火
-    $(function () {
-        $(document).on("click", '.tab-group li a', function () {
-            const hash = window.location.hash;
-            if (hash === '#activity') {
-                $('.page_wrap1').infiniteScroll({
-                    path: 'span.next1 a',
-                    append: '.page_wrap1',
-                    history: false,
-                    scrollThreshold: 700
-                });
-            } else if (hash === '#favorite') {
-                $('.page_wrap2').infiniteScroll({
-                    path: 'span.next2 a',
-                    append: '.page_wrap2',
-                    history: false,
-                    scrollThreshold: 700
-                });
-            }
-        });
     });
 
     //フォローボタン非同期

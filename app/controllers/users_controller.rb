@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       @user_likes = Like.where(l_uid: @user_name.id).order(created_at: "DESC").page(params[:favorite]).without_count.per(5)
 
       @prf_count = 0
-      if !@profile.nil? || !@profile.empty?
+      if @profile.present?
         @prf_count += 1 if @profile.free_area.present?
         @prf_count += 1 if @profile.trendartist.present?
         @prf_count += 1 if @profile.trendsong.present?

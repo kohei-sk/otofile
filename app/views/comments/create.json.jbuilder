@@ -5,7 +5,7 @@ json.created_at time_ago_in_words(@cmt.created_at)
 
 json.userid @user.userid
 
-if @user.username.empty?
+if @user.username.blank?
   json.username @user.userid
 else
   json.username @user.username

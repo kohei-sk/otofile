@@ -26,13 +26,18 @@
             <%= link_to 'アクティビティ', '/p/new', class: "nav_act" %>
             <%= link_to 'アカウント設定', edit_user_registration_path, class: 'nav_setting' %>
             <%= link_to 'ログアウト', destroy_user_session_path, class: "nav_signout", method: :delete %>
-            <%= link_to 'お問い合わせ', '#', class: "nav_contact" %>
 
             <% else %>
             <%= link_to 'ログイン', new_user_session_path, class: "nav_signin" %>
             <%= link_to 'アカウント作成', new_user_registration_path, class: "nav_signup" %>
-            <%= link_to 'お問い合わせ', '#', class: "nav_contact" %>
             <% end %>
+
+            <div class="sub_nav clearfix">
+                <%= link_to 'ヘルプ', '/h/help' %>
+                <%= link_to '利用規約', '/h/terms' %>
+                <%= link_to 'プライバシーポリシー', '/h/privacy' %>
+                <%= link_to 'Cookie', '/h/cookie' %>
+            </div>
         </div>
         <div class="search_content">
 

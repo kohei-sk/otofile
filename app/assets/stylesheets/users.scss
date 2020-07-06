@@ -48,7 +48,7 @@ section.head {
         display: inline-block;
         width: auto;
         height: auto;
-        vertical-align: middle;
+        vertical-align: top;
         position: relative;
         z-index: 2;
 
@@ -380,7 +380,7 @@ section.tab_content_wrap {
 
             a.pr_post {
                 position: relative;
-                @include btn();
+                @include btn_line();
                 position: absolute;
                 right: 0;
                 top: -0.23em;
@@ -396,7 +396,7 @@ section.tab_content_wrap {
                     height: 25px;
                     position: absolute;
                     left: 1em;
-                    top: 0.85em;
+                    top: 0.65em;
                 }
             }
 

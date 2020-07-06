@@ -270,7 +270,7 @@ body.nav--opened header {
                     margin: 48px 0 0 0;
                 }
 
-                a {
+                >a {
                     display: inline-block;
                     width: 100%;
                     position: relative;
@@ -315,16 +315,23 @@ body.nav--opened header {
                         content: '\f2f6';
                     }
 
-                    &.nav_contact:before {
-                        content: '\f0e0';
-                    }
-
-                    &.nav_destroy:before {
-                        content: '\f4fa';
-                    }
-
                     &:hover {
                         background-color: $base-color2;
+                    }
+                }
+
+                .sub_nav {
+                    @include wrap();
+                    margin-top: 2rem;
+
+                    a {
+                        color: $sub-color;
+                        font-size: 0.85rem;
+                        display: block;
+                        float: left;
+                        clear: both;
+                        margin: 0 0 1em 0;
+                        line-height: 100%;
                     }
                 }
             }
@@ -1158,6 +1165,7 @@ body.nav--opened header {
                         }
 
                         p.rank_user {
+                            display: flex;
 
                             span.rank_userimg {
                                 width: 25px;
@@ -1178,6 +1186,15 @@ body.nav--opened header {
 
                             span.rank_username {
                                 font-size: 0.92rem;
+                                width: calc(100% - 25px);
+                                padding-left: 0.6em;
+                                line-height: 1.4em;
+
+                                span {
+                                    color: $sub-color;
+                                    font-size: 0.85em;
+                                    display: block;
+                                }
                             }
 
                         }
@@ -1191,10 +1208,10 @@ body.nav--opened header {
 
                 a {
                     color: $sub-color;
-                    display: inline-block;
-                    margin: 0 0.77em 0.77em 0;
+                    margin: 0 0.85em 0.85em 0;
                     font-size: 0.85rem;
                     line-height: 1em;
+                    float: left;
                 }
 
                 p {
@@ -1204,5 +1221,72 @@ body.nav--opened header {
                 }
             }
         }
+    }
+}
+
+.spinner {
+    display: none;
+    margin: 3em auto;
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.spinner>div {
+    background-color: #333;
+    height: 100%;
+    width: 4px;
+    display: inline-block;
+
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+
+    0%,
+    40%,
+    100% {
+        -webkit-transform: scaleY(0.4)
+    }
+
+    20% {
+        -webkit-transform: scaleY(1.0)
+    }
+}
+
+@keyframes sk-stretchdelay {
+
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4);
+    }
+
+    20% {
+        transform: scaleY(1.0);
+        -webkit-transform: scaleY(1.0);
     }
 }

@@ -45,14 +45,24 @@
             <span><%= image_tag "#{l_user.userimg.m}" %></span>
             <div>
                 <span>
-                    <% if l_user.username.empty? %>
+                    <% if l_user.username.blank? %>
                     <%= l_user.userid %>
                     <% else %>
                     <%= l_user.username %>
                     <% end %>
                 </span>
                 <span><%= l_user.userid %></span>
-                <span><%= msg.message %></span>
+                <span>
+                    <% if msg.present? %>
+                    <% if msg.message.blank? %>
+                    ひとことがありません
+                    <% else %>
+                    <%= safe_join(msg.message.split("\n"),tag(:br)) %>
+                    <% end %>
+                    <% else %>
+                    ひとことがありません
+                    <% end %>
+                </span>
             </div>
             <% end %>
         </li>

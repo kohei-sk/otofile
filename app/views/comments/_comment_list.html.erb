@@ -9,13 +9,13 @@
         <span class="com_l"><%= image_tag "#{user.userimg.m}" %></span>
         <span class="com_r">
             <span>
-                <% if user.username.empty? %>
+                <% if user.username.blank? %>
                 <%= user.userid %>
                 <% else %>
                 <%= user.username %>
+                <% end %>
             </span>
             <span><%= user.userid %></span>
-            <% end %>
         </span>
         <% end %>
         <p class="comment_content">
@@ -95,13 +95,13 @@
                 <span class="reply_l"><%= image_tag "#{user.userimg.m}" %></span>
                 <span class="reply_r">
                     <span>
-                        <% if user.username.empty? %>
+                        <% if user.username.blank? %>
                         <%= user.userid %>
                         <% else %>
                         <%= user.username %>
+                        <% end %>
                     </span>
                     <span><%= user.userid %></span>
-                    <% end %>
                 </span>
                 <% end %>
                 <p class="reply_content">
@@ -143,15 +143,6 @@
 
         </ul>
 
-
-
-
-
-
-
-
-
-
     </li>
 
     <% end %>
@@ -159,3 +150,5 @@
     <span class="next"><%= link_to_next_page @p_cmt, '', param_name: 'comment'%></span>
 
 </div>
+
+<%= render 'posts/loader' %>

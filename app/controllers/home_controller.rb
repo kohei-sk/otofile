@@ -19,7 +19,11 @@ class HomeController < ApplicationController
         notice_items.push(omsgs)
       end
 
-      @notice_items = notice_items.flatten!.sort_by! { |a| a[:updated_at] }.reverse!
+      if notice_items.empty? || notice_items.nil?
+        @notice_items = []
+      else
+        @notice_items = notice_items.flatten!.sort_by! { |a| a[:updated_at] }.reverse!
+      end
 
       @reco_users = User.where.not(id: current_user.id).order("RANDOM()").limit(10)
 

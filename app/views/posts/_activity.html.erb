@@ -7,12 +7,12 @@
             <%= link_to "/#{p_user.userid}" do %>
             <span><%= image_tag "#{p_user.userimg.m}" %></span>
             <span class="p_username">
-                <% if p_user.username.empty? %>
+                <% if p_user.username.blank? %>
                 <%= p_user.userid %>
                 <% else %>
                 <%= p_user.username %>
-                <span><%= p_user.userid %></span>
                 <% end %>
+                <span><%= p_user.userid %></span>
             </span>
             <% end %>
         </p>

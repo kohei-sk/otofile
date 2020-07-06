@@ -14,7 +14,14 @@ section.search {
             padding: 0;
 
             .pl_head {
-                padding: 0 25px;
+                @include wrap();
+                padding-top: 0.5em;
+                padding-bottom: 0.8em;
+
+                @include sp {
+                    padding-top: 0.5em;
+                    padding-bottom: 0.8em;
+                }
             }
         }
 
@@ -24,7 +31,7 @@ section.search {
             line-height: 1em;
             padding: 0.5em 0 0.8em;
             border-bottom: 1px solid $main-color;
-            margin: 0 0 2em !important;
+            margin: 0 0 1.2em !important;
         }
 
         p.sttl {
@@ -43,6 +50,7 @@ section.search {
 
     .ac_content {
         @include ac_content();
+        border-bottom: 1px solid $sub-color2;
     }
 
 }

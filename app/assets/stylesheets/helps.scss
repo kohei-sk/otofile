@@ -1,0 +1,45 @@
+// Place all the styles related to the singles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "config";
+
+.help_nav {
+    @include wrap();
+
+    a {
+        display: block;
+        line-height: 1em;
+        padding: 1em 0.5em;
+        transition: all .2s;
+
+        &:hover {
+            background-color: $sub-color3;
+        }
+    }
+}
+
+.text_box_in {
+    @include wrap();
+
+    h3 {
+        font-size: 1.1rem;
+        line-height: 2.5em;
+        font-weight: 500;
+        padding-top: 1.25em;
+
+        &:first-of-type {
+            padding-top: 0;
+        }
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.5em;
+        text-align: justify;
+
+        a {
+            color: $accent-color;
+        }
+    }
+}

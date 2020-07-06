@@ -3,7 +3,7 @@
     <span><%= image_tag "#{user.userimg.m}" %></span>
     <div>
         <span>
-            <% if user.username.empty? %>
+            <% if user.username.blank? %>
             <%= user.userid %>
             <% else %>
             <%= user.username %>
@@ -14,7 +14,17 @@
         <% if current_page?("/pr/search/#{params[:word]}") %>
         <span><%= profile.free_area %></span>
         <% else %>
-        <span><%= msg.message %></span>
+        <span>
+            <% if msg.present? %>
+            <% if msg.message.blank? %>
+            ひとことがありません
+            <% else %>
+            <%= msg.message %>
+            <% end %>
+            <% else %>
+            ひとことがありません
+            <% end %>
+        </span>
         <% end %>
 
     </div>

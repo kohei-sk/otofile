@@ -299,7 +299,7 @@ Devise.setup do |config|
 
   config.omniauth :twitter, "AK1FiXTT3Hc13cIT58TBttDGY", "KmteI9Q7htezZsoWtSByTPQLkxY41EZFF7QVIYSIAsyhe3hDBA"
 
-  #config.mailer_sender = "soo.kohei@gmail.com"
+  config.mailer_sender = "otofile.info@gmail.com"
 
   # lock sessings
   config.unlock_strategy = :email
