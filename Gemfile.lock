@@ -159,6 +159,7 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
+    pg (1.2.3)
     public_suffix (4.0.5)
     puma (3.12.6)
     rack (2.2.3)
@@ -272,6 +273,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   nested_form
   omniauth-twitter
+  pg
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.2)
   rails-i18n
