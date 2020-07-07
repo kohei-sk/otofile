@@ -68,7 +68,7 @@
 
                         @include sp {
                             margin-left: 0.8em;
-                            width: calc(100% - 40px);
+                            width: calc(100% - 40px - 0.8em);
                         }
 
                         span {
@@ -124,6 +124,7 @@
             }
 
             .ac_img {
+                display: block;
                 margin: 1.15em 0 0 0;
                 width: 100%;
                 height: 290px;
@@ -188,7 +189,7 @@
                     display: inline-block;
                     padding: 0 0.3em;
 
-                    a {
+                    >a {
                         position: relative;
                         z-index: 2;
 
@@ -205,13 +206,6 @@
 
                         &.uncmt {
                             color: $sub-color;
-
-                            &:hover {
-
-                                i {
-                                    animation: .1s linear infinite like;
-                                }
-                            }
                         }
 
                         span {
@@ -253,13 +247,6 @@
                             &.unlike,
                             &.home_unlike {
                                 color: $sub-color;
-
-                                &:hover {
-
-                                    i {
-                                        animation: .1s linear infinite like;
-                                    }
-                                }
                             }
 
                             span {
@@ -871,28 +858,6 @@
                 background-color: rgba(224, 224, 224, .2);
             }
         }
-    }
-}
-
-@keyframes like {
-    0% {
-        transform: translate(0px, 0px) rotateZ(0deg)
-    }
-
-    25% {
-        transform: translate(2px, 2px) rotateZ(1deg)
-    }
-
-    50% {
-        transform: translate(0px, 2px) rotateZ(0deg)
-    }
-
-    75% {
-        transform: translate(2px, 0px) rotateZ(-1deg)
-    }
-
-    100% {
-        transform: translate(0px, 0px) rotateZ(0deg)
     }
 }
 

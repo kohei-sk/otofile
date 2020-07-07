@@ -25,8 +25,9 @@
             <span class="date"><%= time_ago_in_words(post.created_at) %>前</span>
 
             <% if post.img.present? %>
-            <p class="ac_img m_btn"><%= image_tag "#{post.img}"%></p>
-            <p class="m_content img_wrap"><%= image_tag "#{post.img}" %></p>
+            <%= link_to "#{post.img}", class: 'ac_img m_img' do %>
+            <%= image_tag "#{post.img}"%>
+            <% end %>
             <% end %>
 
             <% if post.ytid.present? %>
@@ -60,28 +61,7 @@
             <div class="count_wrap">
 
                 <div class="p_cmt_box">
-                    <% cmt = Comment.where(post_id: post.id) %>
-                    <% if user_signed_in? %>
-                    <% cmt_u = Comment.where(post_id: post.id, c_uid: current_user.id) %>
-
-                    <% if cmt_u.empty? %>
-                    <%= link_to "/p/#{post.id}", class: "uncmt" do %>
-                    <i class="fas fa-comment"></i>
-                    <span><%= cmt.length %></span>
-                    <% end %>
-                    <% else %>
-                    <%= link_to "/p/#{post.id}", class: "cmt" do %>
-                    <i class="fas fa-comment"></i>
-                    <span><%= cmt.length %></span>
-                    <% end %>
-                    <% end %>
-
-                    <% else %>
-                    <%= link_to new_user_session_path, class: "uncmt" do %>
-                    <i class="fas fa-comment"></i>
-                    <span><%= cmt.length %></span>
-                    <% end %>
-                    <% end %>
+                    <%= render partial: 'comments/comment_count', locals: { post: post} %>
                 </div>
 
                 <div class="p_like_box" id="ac_post_<%= post.id %>">
@@ -107,7 +87,6 @@
         <% if current_page?("/p/#{post.id}") %>
 
         <%= render partial: "comments/comment", locals: { p_cmt: p_cmt } %>
-
 
         <% else %>
         <%= link_to "", "/p/#{post.id}", class: "post_show" %>

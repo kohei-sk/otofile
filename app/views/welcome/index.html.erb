@@ -12,8 +12,11 @@
 
         <% end %>
 
+        <span class="next"><%= link_to_next_page @posts, '', param_name: 'home_post'%></span>
+
     </div>
-    <span class="next"><%= link_to_next_page @posts, '', param_name: 'home_post'%></span>
+
+    <%= render 'posts/loader' %>
 
     <% end %>
 

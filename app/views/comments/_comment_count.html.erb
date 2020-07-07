@@ -1,0 +1,22 @@
+<% cmt = Comment.where(post_id: post.id) %>
+<% if user_signed_in? %>
+<% cmt_u = Comment.where(post_id: post.id, c_uid: current_user.id) %>
+
+<% if cmt_u.empty? %>
+<%= link_to "/p/#{post.id}", class: "uncmt" do %>
+<i class="fas fa-comment"></i>
+<span><%= cmt.length %></span>
+<% end %>
+<% else %>
+<%= link_to "/p/#{post.id}", class: "cmt" do %>
+<i class="fas fa-comment"></i>
+<span><%= cmt.length %></span>
+<% end %>
+<% end %>
+
+<% else %>
+<%= link_to new_user_session_path, class: "uncmt" do %>
+<i class="fas fa-comment"></i>
+<span><%= cmt.length %></span>
+<% end %>
+<% end %>

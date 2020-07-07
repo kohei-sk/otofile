@@ -21,7 +21,7 @@
 
     <% end %>
 </div>
-<div class="like_user m_btn">
+<a href="#m_content_<%= post.id %>" class="like_user m_btn">
     <% likes = Like.where(post_id: post.id).order(created_at: "DESC") %>
     <% count = 1 %>
     <% likes.each do |like| %>
@@ -34,9 +34,10 @@
     <% end %>
 
     <% end %>
-</div>
-<div class="m_content">
-    <ul>
+</a>
+<div id="m_content_<%= post.id %>" class="m_content mfp-hide">
+    <div class="m_close">×</div>
+    <ul class="m_wrap">
         <% likes.each do |like| %>
         <% l_user = User.find(like.l_uid) %>
         <% msg = Onemessage.find_by(user_id: like.l_uid) %>
