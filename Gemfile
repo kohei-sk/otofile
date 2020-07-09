@@ -75,6 +75,8 @@ gem 'carrierwave'
 #gem 'mini_magick'
 gem 'rmagick'
 
+gem 'fog-aws'
+
 gem 'gon'
 
 gem "nested_form"
