@@ -61,5 +61,11 @@ class UserImageUploader < CarrierWave::Uploader::Base
     0..5.megabytes
   end
 
-  storage :fog
+  if Rails.env.development?
+    storage :file
+  elsif Rails.env.test?
+    storage :file
+  else
+    storage :fog
+  end
 end

@@ -82,8 +82,8 @@ body.nav--opened header {
                 float: left;
 
                 @include sp {
-                    width: 138px;
-                    padding: 9px 14px;
+                    width: 139px;
+                    padding: 10px 17px;
                 }
             }
 
@@ -95,12 +95,12 @@ body.nav--opened header {
                     transition: all .2s;
                     box-sizing: border-box;
                     position: relative;
-                    margin: 20px 20px 0 0;
+                    margin: 20px 25px 0 0;
                     width: 30px;
                     height: 23px;
 
                     @include sp {
-                        margin: 14px 14px 0 0;
+                        margin: 14px 24px 0 0;
                         width: 24px;
                         height: 18px;
                     }
@@ -192,12 +192,12 @@ body.nav--opened header {
                     border-radius: 100%;
                     overflow: hidden;
                     vertical-align: middle;
-                    margin: 13px 15px 0 0;
+                    margin: 13px 20px 0 0;
 
                     @include sp {
                         width: 28px;
                         height: 28px;
-                        margin: 9px 13px 0 0;
+                        margin: 9px 25px 0 0;
                     }
 
                     img {
@@ -1142,7 +1142,7 @@ body.nav--opened header {
 
                         p.rank_img {
                             width: 100%;
-                            max-height: 154px;
+                            height: 154px;
                             overflow: hidden;
                             margin-bottom: 0.77em;
                             border-radius: 0.39em;

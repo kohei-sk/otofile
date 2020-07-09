@@ -1,5 +1,8 @@
 CarrierWave.configure do |config|
-  if Rails.env.production? || Rails.env.development?
+  if Rails.env.development? || Rails.env.test?
+    config.storage :file
+    config.enable_processing = false if Rails.env.test?
+  else
     config.storage :fog
     config.fog_provider = "fog/aws"
     config.fog_directory = "otofile"
@@ -11,8 +14,5 @@ CarrierWave.configure do |config|
       aws_secret_access_key: "rbsz/pFhr3WGE4G1R3Pk9ajwMfbjsYb81coBkSJC",
       region: "ap-northeast-1",
     }
-  else
-    config.storage :file
-    config.enable_processing = false if Rails.env.test?
   end
 end

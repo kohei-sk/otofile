@@ -56,7 +56,7 @@
 
 <div class="field">
     <%= f.label :fvmv, "好きなMVは？" %>
-    <%= f.text_field :fvmv, placeholder: "YouTubeのURLをペースト", oninput: "func_id()", id: "ytid" %>
+    <%= f.text_field :fvmv, placeholder: "YouTubeのURLをペースト", oninput: "func_id()", id: "ytid", class: "form_underline" %>
     <p id="yt_error"></p>
 
     <% if @profile.fvmv.present? %>

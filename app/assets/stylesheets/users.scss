@@ -149,19 +149,29 @@ section.head {
 
             a {
                 position: relative;
-                width: 1.8rem;
-                height: 1.8rem;
+                width: 1.5rem;
+                height: 1.5rem;
                 display: inline-block;
-                margin-right: 0.23em;
+                margin-right: 0.4em;
+
+                @include sp {
+                    width: 1.8rem;
+                    height: 1.8rem;
+                    margin-right: 0.5em;
+                }
 
                 &:before {
                     font-family: "Font Awesome 5 Brands";
                     font-weight: 400;
-                    font-size: 1.8rem;
+                    font-size: 1.5rem;
                     position: absolute;
                     top: 0;
                     left: 0;
                     line-height: 1em;
+
+                    @include sp {
+                        font-size: 1.8rem;
+                    }
                 }
 
                 &.head_snst:before {
@@ -184,8 +194,12 @@ section.head {
                     font-family: "Font Awesome 5 free";
                     font-weight: 900;
                     content: '\f0c1';
-                    font-size: 1.5rem;
-                    top: 0.03em;
+                    font-size: 1.35rem;
+                    top: 0.045em;
+
+                    @include sp {
+                        font-size: 1.5rem;
+                    }
                 }
             }
         }
@@ -268,7 +282,11 @@ section.head {
 
 .m_btn {
     cursor: pointer;
-    min-height: 27px;
+    min-height: 28px;
+
+    @include sp {
+        min-height: 31px;
+    }
 }
 
 .m_content {}
