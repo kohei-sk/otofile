@@ -52,4 +52,12 @@ class UserHdrimgUploader < CarrierWave::Uploader::Base
   def size_range
     0..5.megabytes
   end
+
+  if Rails.env.development?
+    storage :file
+  elsif Rails.env.test?
+    storage :file
+  else
+    storage :fog
+  end
 end

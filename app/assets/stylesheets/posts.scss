@@ -378,6 +378,10 @@
 
                         &.ac_link_copy i {
                             font-size: 1.15rem;
+
+                            @include sp {
+                                font-size: 1.35rem;
+                            }
                         }
 
                         i {
