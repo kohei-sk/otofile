@@ -1,2 +1,4 @@
 /.bundle
 log/development.log
+/public/uploads/post
+/public/uploads/user

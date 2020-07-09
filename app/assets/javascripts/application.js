@@ -400,17 +400,18 @@ $(document).ready(function () {
         $('.m_img').magnificPopup({
             type: 'image',
             closeOnContentClick: true,
+            fixedContentPos: true,
             zoom: {
                 enabled: true,
-                duration: 300,
-                easing: 'ease-in-out'
+                duration: 300
             }
         });
 
         $('.m_btn').magnificPopup({
             type: 'inline',
             preloader: false,
-            showCloseBtn: false
+            showCloseBtn: false,
+            fixedContentPos: true
         });
     }
 

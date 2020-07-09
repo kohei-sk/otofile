@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+* {
+    -webkit-appearance: none;
+}
+
 ul[class],
 ol[class] {
     padding: 0;
@@ -329,9 +333,9 @@ $sp-min: 360px;
     transition: none;
     resize: none;
     min-height: auto;
-    height: 3.3em;
     line-height: 1.7em;
-    padding: 0.8em 1em;
+    height: 3.9em;
+    padding: 1.1em;
 }
 
 @mixin form_underline() {

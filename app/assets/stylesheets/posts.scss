@@ -121,6 +121,10 @@
                 color: $sub-color;
                 display: block;
                 line-height: 1.7em;
+
+                @include sp {
+                    font-size: 0.85rem;
+                }
             }
 
             .ac_img {
@@ -198,6 +202,10 @@
                             display: inline-block;
                             vertical-align: middle;
                             margin-right: 0.17em;
+
+                            @include sp {
+                                font-size: 1.8rem;
+                            }
                         }
 
                         &.cmt {
@@ -213,6 +221,10 @@
                             display: inline;
                             vertical-align: middle;
                             line-height: 1em;
+
+                            @include sp {
+                                font-size: 1.1rem;
+                            }
                         }
 
                     }
@@ -238,6 +250,10 @@
                                 display: inline-block;
                                 vertical-align: middle;
                                 margin-right: 0.17em;
+
+                                @include sp {
+                                    font-size: 1.8rem;
+                                }
                             }
 
                             &.like {
@@ -254,6 +270,10 @@
                                 display: inline;
                                 vertical-align: middle;
                                 line-height: 1em;
+
+                                @include sp {
+                                    font-size: 1.1rem;
+                                }
                             }
                         }
 
@@ -276,6 +296,11 @@
                             border-radius: 100%;
                             margin: 2px 0 0 3px;
 
+                            @include sp {
+                                width: 28px;
+                                height: 28px;
+                            }
+
                             img {
                                 width: 100%;
                                 height: 100%;
@@ -284,19 +309,19 @@
                             }
 
                             @include sp {
-                                &:nth-child(n + 10) {
+                                &:nth-child(n + 8) {
                                     display: none;
                                 }
                             }
 
                             @include sp_mid {
-                                &:nth-child(n + 9) {
+                                &:nth-child(n + 7) {
                                     display: none;
                                 }
                             }
 
                             @include sp_min {
-                                &:nth-child(n + 7) {
+                                &:nth-child(n + 5) {
                                     display: none;
                                 }
                             }
@@ -321,6 +346,10 @@
 
                     >i {
                         font-size: 1.23rem;
+
+                        @include sp {
+                            font-size: 1.55rem;
+                        }
                     }
                 }
 
@@ -332,9 +361,14 @@
                     background-color: $sub-color3;
                     color: $accent-color;
                     width: max-content;
+                    min-width: 12.7em;
                     padding: 1.15em;
                     padding: 0.77em 1.15em;
                     font-size: 0.92rem;
+
+                    @include sp {
+                        font-size: 1.15rem;
+                    }
 
                     span {
                         display: block;
@@ -348,6 +382,11 @@
                         i {
                             font-size: 1.38rem;
                             margin: 0 0.28em 0 0;
+
+                            @include sp {
+                                font-size: 1.6rem;
+                            }
+
                         }
 
                         a {
@@ -406,6 +445,10 @@
 
                         &:hover {
                             color: $accent-color;
+                        }
+
+                        @include sp {
+                            font-size: 1.5rem;
                         }
                     }
 
@@ -477,15 +520,10 @@
 
                     span.com_l {
                         display: inline-block;
-                        width: 30px;
-                        height: 30px;
+                        width: 32px;
+                        height: 32px;
                         border-radius: 100%;
                         overflow: hidden;
-
-                        @include sp {
-                            width: 26px;
-                            height: 26px;
-                        }
 
                         img {
                             width: 100%;
@@ -499,11 +537,7 @@
                         display: inline-block;
                         vertical-align: top;
                         margin-left: 0.55em;
-                        max-width: calc(100% - 30px - 0.55em);
-
-                        @include sp {
-                            max-width: calc(100% - 26px - 0.55em);
-                        }
+                        max-width: calc(100% - 32px - 0.55em);
 
                         span {
                             display: block;
@@ -526,12 +560,12 @@
 
                     width: 100%;
                     font-size: 0.92rem;
-                    padding-left: 3.17em;
+                    padding-left: 3.3em;
                     box-sizing: border-box;
                     line-height: 1.5em;
 
                     span.date {
-                        font-size: 0.77rem;
+                        font-size: 0.85rem;
                         display: block;
                         line-height: 1.7em;
                         color: $sub-color;
@@ -547,6 +581,10 @@
                         text-decoration: underline;
                         cursor: pointer;
 
+                        @include sp {
+                            font-size: 1.3em;
+                        }
+
                     }
 
                     .cmt_dlete_btn {
@@ -558,6 +596,10 @@
                         bottom: 0.23em;
                         text-decoration: underline;
                         cursor: pointer;
+
+                        @include sp {
+                            font-size: 1.3em;
+                        }
                     }
 
                     span.cmt_in_reply,
@@ -570,6 +612,10 @@
                         bottom: 0.23em;
                         text-decoration: underline;
                         cursor: pointer;
+
+                        @include sp {
+                            font-size: 1.5em;
+                        }
 
                     }
 
@@ -619,6 +665,10 @@
                             &:hover {
                                 color: $accent-color;
                             }
+
+                            @include sp {
+                                font-size: 1.5rem;
+                            }
                         }
 
                     }
@@ -631,6 +681,11 @@
                         right: 15px;
                         top: -25px;
                         font-size: 1.15rem;
+
+                        @include sp {
+                            top: -28px;
+                            font-size: 1.4rem;
+                        }
                     }
                 }
 
@@ -674,6 +729,10 @@
                             &:hover {
                                 color: $accent-color;
                             }
+
+                            @include sp {
+                                font-size: 1.5rem;
+                            }
                         }
 
                     }
@@ -698,16 +757,11 @@
 
                             span.reply_l {
                                 display: inline-block;
-                                width: 30px;
-                                height: 30px;
+                                width: 32px;
+                                height: 32px;
                                 border-radius: 100%;
                                 overflow: hidden;
                                 vertical-align: top;
-
-                                @include sp {
-                                    width: 26px;
-                                    height: 26px;
-                                }
 
                                 img {
                                     width: 100%;
@@ -721,11 +775,7 @@
                                 display: inline-block;
                                 vertical-align: top;
                                 margin-left: 0.55em;
-                                max-width: calc(100% - 30px - 0.55em);
-
-                                @include sp {
-                                    max-width: calc(100% - 26px - 0.55em);
-                                }
+                                max-width: calc(100% - 32px - 0.55em);
 
                                 span {
                                     display: block;
@@ -746,12 +796,12 @@
 
                             width: 100%;
                             font-size: 0.92rem;
-                            padding-left: 3.16em;
+                            padding-left: 3.3em;
                             box-sizing: border-box;
                             line-height: 1.5em;
 
                             span.date {
-                                font-size: 0.77rem;
+                                font-size: 0.85rem;
                                 display: block;
                                 line-height: 1.7em;
                                 color: $sub-color;
@@ -767,6 +817,10 @@
                                 text-decoration: underline;
                                 cursor: pointer;
 
+                                @include sp {
+                                    font-size: 1.3em;
+                                }
+
                             }
 
                             .reply_dlete_btn {
@@ -778,6 +832,10 @@
                                 bottom: 0.23em;
                                 text-decoration: underline;
                                 cursor: pointer;
+
+                                @include sp {
+                                    font-size: 1.3em;
+                                }
                             }
 
                         }

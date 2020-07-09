@@ -32,7 +32,7 @@ class UserHdrimgUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process resize_to_fit: [50, 50]
   # end
-  process resize_to_fill: [1000, 600]
+  process resize_to_fill: [800, 500]
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

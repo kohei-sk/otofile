@@ -149,15 +149,15 @@ section.head {
 
             a {
                 position: relative;
-                width: 1.54rem;
-                height: 1.54rem;
+                width: 1.8rem;
+                height: 1.8rem;
                 display: inline-block;
                 margin-right: 0.23em;
 
                 &:before {
                     font-family: "Font Awesome 5 Brands";
                     font-weight: 400;
-                    font-size: 1.54rem;
+                    font-size: 1.8rem;
                     position: absolute;
                     top: 0;
                     left: 0;
@@ -184,8 +184,8 @@ section.head {
                     font-family: "Font Awesome 5 free";
                     font-weight: 900;
                     content: '\f0c1';
-                    font-size: 1.3rem;
-                    top: 0.077em;
+                    font-size: 1.5rem;
+                    top: 0.03em;
                 }
             }
         }
