@@ -53,6 +53,14 @@ class UserHdrimgUploader < CarrierWave::Uploader::Base
     0..5.megabytes
   end
 
+  def move_to_cache
+    true
+  end
+
+  def move_to_store
+    true
+  end
+
   if Rails.env.development?
     storage :file
   elsif Rails.env.test?
