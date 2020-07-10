@@ -85,6 +85,8 @@ gem 'kaminari'
 
 gem 'dotenv-rails'
 
+gem 'rack-user_agent'
+
 group :development, :test do
   gem 'sqlite3'
 end

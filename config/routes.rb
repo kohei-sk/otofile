@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get "/u/s/random" => "search#user_random"
   get "/p/s/random" => "search#post_random"
 
+  get "/f/count" => "home#follow_count"
+
   get "/h/help" => "helps#help"
   get "/h/terms" => "helps#terms"
   get "/h/privacy" => "helps#privacy"

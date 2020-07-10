@@ -448,19 +448,6 @@ $(document).ready(function () {
         });
     }
 
-    //プロフカウター
-    $(function () {
-        $(document).ready(function () {
-            var counter = $('.count_bar');
-            var bar = counter.children('span');
-            var percent = counter.attr('id').split('_')[1];
-
-            setTimeout(function () {
-                bar.css('width', `${percent}%`);
-            }, 800);
-        });
-    });
-
     //ファイルアップロード ファイル名&サムネ表示
     $('input').on('change', function () {
         var btn = this
@@ -939,6 +926,36 @@ $(document).ready(function () {
                 })
         })
 
+    });
+
+    //プロフカウター
+    $(window).load(function () {
+        var counter = $('.count_bar');
+        if (counter[0]) {
+            var bar = counter.children('span');
+            var percent = counter.attr('id').split('_')[1];
+
+            setTimeout(function () {
+                bar.css('width', `${percent}%`);
+            }, 800);
+        }
+    });
+
+    //フォローカウント非同期
+    $(window).load(function () {
+        if ($("a[href^='#following']")[0]) {
+            $.ajax({
+                    url: '/f/count',
+                    type: "GET",
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false
+                })
+                .done(function (data) {
+                    $("a[href^='#following'] span").html(data.following_count);
+                    $("a[href^='#follower'] span").html(data.follower_count);
+                })
+        }
     });
 
 });

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_request_variant
   before_action :rank_posts
 
   def common
@@ -40,5 +41,9 @@ class ApplicationController < ActionController::Base
 
   def sign_in_required
     redirect_to new_user_session_url unless user_signed_in?
+  end
+
+  def set_request_variant
+    request.variant = request.device_variant
   end
 end

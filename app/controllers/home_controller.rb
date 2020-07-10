@@ -29,6 +29,16 @@ class HomeController < ApplicationController
 
       @fing_users = Follow.where(user_id: current_user.id).order(created_at: "DESC").page(params[:following]).without_count.per(15)
       @fer_users = Follow.where(f_id: current_user.id).order(created_at: "DESC").page(params[:follower]).without_count.per(15)
+
+      def follow_count
+        @fing_users = Follow.where(user_id: current_user.id).length
+        @fer_users = Follow.where(f_id: current_user.id).length
+
+        respond_to do |format|
+          format.html
+          format.json
+        end
+      end
     end
   end
 end

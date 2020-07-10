@@ -35,14 +35,14 @@
 
             <% if user_signed_in? %>
             <main class="clearfix"><%= yield %></main>
-            <%= render 'layouts/aside' %>
+            <%= render 'layouts/aside' if request.from_pc? %>
             <% else %>
             <% if current_page?("/welcome") %>
             <main class="welcome clearfix"><%= yield %></main>
-            <%= render 'layouts/form' %>
+            <%= render 'layouts/form' if request.from_pc? %>
             <% else %>
             <main class="clearfix"><%= yield %></main>
-            <%= render 'layouts/aside' %>
+            <%= render 'layouts/aside' if request.from_pc? %>
             <% end %>
             <% end %>
 
