@@ -397,15 +397,24 @@ $(document).ready(function () {
     });
 
     function mordal() {
-        $('.m_img').magnificPopup({
-            type: 'image',
-            closeOnContentClick: true,
-            fixedContentPos: true,
-            zoom: {
-                enabled: true,
-                duration: 300
-            }
-        });
+        var ua = navigator.userAgent;
+        if ((ua.indexOf('iPhone') > 0 || ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) && ua.indexOf('Mobile') > 0) {
+            $('.m_img').magnificPopup({
+                type: 'image',
+                closeOnContentClick: true,
+                fixedContentPos: true
+            });
+        } else {
+            $('.m_img').magnificPopup({
+                type: 'image',
+                closeOnContentClick: true,
+                fixedContentPos: true,
+                zoom: {
+                    enabled: true,
+                    duration: 300
+                }
+            });
+        }
 
         $('.m_btn').magnificPopup({
             type: 'inline',

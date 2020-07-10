@@ -21,6 +21,17 @@ body {
     @include sp {
         font-size: 13px;
     }
+
+    &.mordal_open {
+        touch-action: none !important;
+        pointer-events: none !important;
+    }
+
+    .mfp-wrap {
+        touch-action: auto !important;
+        pointer-events: visible !important;
+    }
+
 }
 
 a {

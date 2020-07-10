@@ -265,6 +265,7 @@ $sp-min: 360px;
 
             a {
                 color: $main-color;
+                display: flex;
 
                 >span {
 
@@ -291,13 +292,11 @@ $sp-min: 360px;
                 }
 
                 div {
-                    display: inline-block;
-                    vertical-align: top;
-                    padding: 0 0 0 0.75em;
-                    max-width: calc(100% - 54px);
+                    margin: 0 0 0 0.75em;
+                    max-width: calc(100% - 54px - 0.75em);
 
                     @include sp {
-                        max-width: calc(100% - 46px);
+                        max-width: calc(100% - 46px - 0.75em);
                     }
 
                     >span {
