@@ -83,6 +83,8 @@ gem "nested_form"
 
 gem 'kaminari'
 
+gem 'dotenv-rails'
+
 group :development, :test do
   gem 'sqlite3'
 end

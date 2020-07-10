@@ -297,9 +297,9 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
 
-  config.omniauth :twitter, "AK1FiXTT3Hc13cIT58TBttDGY", "KmteI9Q7htezZsoWtSByTPQLkxY41EZFF7QVIYSIAsyhe3hDBA"
+  config.omniauth :twitter, ENV["TWITTER_ACCESS_KEY_ID"], ENV["TWITTER_SECRET_ACCESS_KEY"]
 
-  config.mailer_sender = "otofile.info@gmail.com"
+  config.mailer_sender = ENV["MAIL_USER_NAME"]
 
   # lock sessings
   config.unlock_strategy = :email

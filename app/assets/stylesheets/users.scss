@@ -264,6 +264,7 @@ section.head {
             position: relative;
 
             span {
+                -webkit-transition: -webkit-transform 3s;
                 transition: all 3s;
                 display: block;
                 width: 0%;
@@ -313,7 +314,8 @@ section.tab_content_wrap {
                 border-bottom: 2px solid $base-color;
 
                 &.is_active {
-                    transition: all 0.3s ease-in-out;
+                    -webkit-transition: -webkit-transform 0.2s;
+                    transition: all 0.2s;
                     position: relative;
                     border-bottom: 2px solid $main-color;
                     pointer-events: none;

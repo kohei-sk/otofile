@@ -4,7 +4,7 @@ class PostImgUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  #storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -52,7 +52,7 @@ class PostImgUploader < CarrierWave::Uploader::Base
   end
 
   def size_range
-    0..5.megabytes
+    0..3.megabytes
   end
 
   def move_to_cache

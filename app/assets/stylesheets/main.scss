@@ -103,6 +103,7 @@ body.nav--opened header {
 
                 a.nav_btn_trriger {
                     display: inline-block;
+                    -webkit-transition: -webkit-transform 0.2s;
                     transition: all .2s;
                     box-sizing: border-box;
                     position: relative;
@@ -118,6 +119,7 @@ body.nav--opened header {
 
                     span {
                         display: inline-block;
+                        -webkit-transition: -webkit-transform 0.2s;
                         transition: all .2s;
                         box-sizing: border-box;
                         position: absolute;
@@ -219,6 +221,7 @@ body.nav--opened header {
                 }
 
                 &.search {
+                    -webkit-transition: -webkit-transform 0.2s;
                     transition: all .2s;
 
                     &:before {
@@ -399,7 +402,8 @@ body.nav--opened header {
                         border-bottom: 2px solid $base-color;
 
                         &.is_active {
-                            transition: all 0.3s ease-in-out;
+                            -webkit-transition: -webkit-transform 0.2s;
+                            transition: all 0.3s;
                             position: relative;
                             border-bottom: 2px solid $main-color;
                             pointer-events: none;
@@ -428,6 +432,7 @@ body.nav--opened header {
 
                                 input[type="text"] {
                                     border: 1px solid $sub-color2;
+                                    -webkit-transition: -webkit-transform 0.2s;
                                     transition: all .2s;
                                     width: 100%;
                                     box-sizing: border-box;
@@ -459,6 +464,7 @@ body.nav--opened header {
                                         width: 2.4em;
                                         height: 2.4em;
                                         cursor: pointer;
+                                        -webkit-transition: -webkit-transform 0.2s;
                                         transition: all .2s;
                                         border: 1px solid $accent-color;
 
@@ -498,7 +504,8 @@ body.nav--opened header {
                     width: 56px;
                     height: 56px;
                     border-radius: 100%;
-                    transition: all .3s;
+                    -webkit-transition: -webkit-transform 0.2s;
+                    transition: all .2s;
                     cursor: pointer;
                     position: relative;
                     z-index: 9;
@@ -534,7 +541,8 @@ body.nav--opened header {
                         transform: scale(0.8);
                         position: absolute;
                         border-radius: 100%;
-                        transition: all 0.3s;
+                        -webkit-transition: -webkit-transform 0.2s;
+                        transition: all 0.2s;
                     }
 
                     &:hover,
@@ -700,6 +708,7 @@ body.nav--opened header {
                     a.remove_nested_fields {
                         @include btn();
                         padding: 0.62em 0.77em;
+                        -webkit-transition: -webkit-transform 0.2s;
                         transition: all .2s;
                         position: absolute;
                         top: 0.9em;
@@ -730,6 +739,7 @@ body.nav--opened header {
                     position: relative;
                     padding: 0.77em 1.54em 0.77em 2.85em;
                     margin: 0 0 0.77em 0.077em;
+                    -webkit-transition: -webkit-transform 0.2s;
                     transition: all .2s;
                     background-color: $base-color;
                     border: 1px solid $accent-color;
@@ -757,6 +767,7 @@ body.nav--opened header {
                 input,
                 textarea {
                     border: 1px solid $sub-color2;
+                    -webkit-transition: -webkit-transform 0.2s;
                     transition: all .2s;
                     width: 100%;
                     box-sizing: border-box;
@@ -772,7 +783,7 @@ body.nav--opened header {
                     }
 
                     &#ytid {
-                        width: 60%;
+                        width: 65%;
                         display: block;
                     }
                 }
@@ -980,6 +991,7 @@ body.nav--opened header {
                 border-radius: 0.39em;
                 border: 1px solid $main-color;
                 margin: 0 0 1.3em;
+                -webkit-transition: -webkit-transform 0.2s;
                 transition: all .2s;
 
                 &:hover {
@@ -1012,6 +1024,7 @@ body.nav--opened header {
                 border: 0;
                 cursor: pointer;
                 color: $base-color;
+                -webkit-transition: -webkit-transform 0.2s;
                 transition: all .2s;
                 padding: 0.8em 0;
                 margin-bottom: 2em;
@@ -1041,6 +1054,7 @@ body.nav--opened header {
 
             a {
                 display: inline-block;
+                -webkit-transition: -webkit-transform 0.2s;
                 transition: all .2s;
                 line-height: 1em;
                 padding: 0.62em 0.23em;
@@ -1134,6 +1148,7 @@ body.nav--opened header {
                                 vertical-align: middle;
                                 line-height: 1.5em;
                                 margin-bottom: 0.77em;
+                                -webkit-transition: -webkit-transform 0.2s;
                                 transition: all .2s;
 
                                 i {

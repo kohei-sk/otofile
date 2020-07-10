@@ -11,6 +11,7 @@
         display: block;
         line-height: 1em;
         padding: 1em 0.5em;
+        -webkit-transition: -webkit-transform 0.2s;
         transition: all .2s;
 
         &:hover {
