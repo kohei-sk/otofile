@@ -11,7 +11,6 @@
     <link rel="shortcut icon" href="/assets/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -20,7 +19,6 @@
 
         <%= render 'layouts/header' %>
 
-        <% if !user_signed_in? %>
         <% if current_page?("/welcome") %>
         <section class="home_head clearfix">
             <h2>Welcome to Otofile.</h2>
@@ -29,20 +27,24 @@
                 アカウントを作成して音楽ライフをエンジョイしましょう♪</p>
         </section>
         <% end %>
-        <% end %>
 
         <div class="wrapper">
 
             <% if user_signed_in? %>
+            <% if current_page?("/welcome") %>
+            <main class="welcome clearfix"><%= yield %></main>
+            <%= render_async rank_posts_path if request.from_pc? %>
+            <% else %>
             <main class="clearfix"><%= yield %></main>
-            <%= render 'layouts/aside' if request.from_pc? %>
+            <%= render_async rank_posts_path if request.from_pc? %>
+            <% end %>
             <% else %>
             <% if current_page?("/welcome") %>
             <main class="welcome clearfix"><%= yield %></main>
             <%= render 'layouts/form' if request.from_pc? %>
             <% else %>
             <main class="clearfix"><%= yield %></main>
-            <%= render 'layouts/aside' if request.from_pc? %>
+            <%= render_async rank_posts_path if request.from_pc? %>
             <% end %>
             <% end %>
 
@@ -51,8 +53,15 @@
     </div>
 
     <%= Gon::Base.render_data %>
+    <%= content_for :render_async %>
+
     <%= javascript_include_tag 'application' %>
 
+    <script>
+        echo.init({
+            offset: 200
+        });
+    </script>
 </body>
 
 </html>

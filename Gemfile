@@ -72,7 +72,7 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 
 gem 'carrierwave'
-#gem 'mini_magick'
+
 gem 'rmagick'
 
 gem 'fog-aws'
@@ -86,6 +86,8 @@ gem 'kaminari'
 gem 'dotenv-rails'
 
 gem 'rack-user_agent'
+
+gem 'render_async'
 
 group :development, :test do
   gem 'sqlite3'

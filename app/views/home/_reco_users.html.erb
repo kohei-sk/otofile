@@ -1,0 +1,72 @@
+<% if !@reco_users.nil? %>
+
+<div class="reco_wrap main-carousel">
+    <% @reco_users.each do |user| %>
+
+    <div class="reco_item_container">
+        <div class="reco_item_wrap">
+
+            <%= link_to "/#{user.userid}" do %>
+
+            <div class="reco_item_img"><%= image_tag "#{user.userimg.l}" %></div>
+            <p class="reco_item_name">
+                <% if user.username.blank? %>
+                <%= user.userid %>
+                <% else %>
+                <%= user.username %>
+                <% end %>
+            </p>
+            <p class="reco_item_id"><%= user.userid %></p>
+
+            <% end %>
+
+            <div class="follow_wrap clearfix" id="follow_user_<%= user.id %>">
+                <%= render partial: "follows/follow", locals: { user: user } %>
+            </div>
+
+        </div>
+    </div>
+
+    <% end %>
+
+    <% if @reco_users.length < 5 %>
+    <div class="reco_item_container">
+        <div class="reco_item_wrap">
+            <div class="reco_item_img"><%= image_tag "fallback/default_userimg" %></div>
+            <p class="reco_item_name">Sample user</p>
+            <p class="reco_item_id">sample_user</p>
+            <div class="follow_wrap clearfix"><span class="follow_btn follow"></span></div>
+        </div>
+    </div>
+    <div class="reco_item_container">
+        <div class="reco_item_wrap">
+            <div class="reco_item_img"><%= image_tag "fallback/default_userimg" %></div>
+            <p class="reco_item_name">Sample user</p>
+            <p class="reco_item_id">sample_user</p>
+            <div class="follow_wrap clearfix"><span class="follow_btn follow"></span></div>
+        </div>
+    </div>
+    <div class="reco_item_container">
+        <div class="reco_item_wrap">
+            <div class="reco_item_img"><%= image_tag "fallback/default_userimg" %></div>
+            <p class="reco_item_name">Sample user</p>
+            <p class="reco_item_id">sample_user</p>
+            <div class="follow_wrap clearfix"><span class="follow_btn follow"></span></div>
+        </div>
+    </div>
+    <div class="reco_item_container">
+        <div class="reco_item_wrap">
+            <div class="reco_item_img"><%= image_tag "fallback/default_userimg" %></div>
+            <p class="reco_item_name">Sample user</p>
+            <p class="reco_item_id">sample_user</p>
+            <div class="follow_wrap clearfix"><span class="follow_btn follow"></span></div>
+        </div>
+    </div>
+    <% end %>
+
+    <% else %>
+    おすすめユーザーはいません
+
+</div>
+
+<% end %>

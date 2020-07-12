@@ -47,6 +47,10 @@ Rails.application.routes.draw do
   get "/h/howto" => "helps#howto"
   get "/h/contact" => "helps#contact"
 
+  get :rank_posts, controller: :application
+  get :reco_users, controller: :home
+  get :notice_items, controller: :home
+
   resources :users, param: :userid, path: "/", only: [:show]
 
   get "/:userid/follow" => "follows#create"

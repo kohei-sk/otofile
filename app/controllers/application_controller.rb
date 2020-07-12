@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_request_variant
-  before_action :rank_posts
 
   def common
     @user_name = User.find_by(userid: params[:userid])
@@ -12,10 +11,12 @@ class ApplicationController < ActionController::Base
   end
 
   def rank_posts
-    from = Time.current.ago(37.days) #7day
+    from = Time.current.ago(7.days)
     to = Time.current
     posts = Post.left_joins(:likes)
     @rank_posts = posts.group("posts.id").select("posts.*", "count(likes.id) AS likes").where(created_at: from..to).order("likes desc").order(created_at: "DESC").limit(10)
+
+    render partial: "layouts/aside"
   end
 
   protected

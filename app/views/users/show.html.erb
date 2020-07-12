@@ -1,14 +1,14 @@
 <section class="user_head">
 
     <div class="header_img">
-        <%= image_tag "#{@user_name.hdrimg}" %>
+        <img src="/assets/fallback/post_dummy.jpg" data-echo="<%= @user_name.hdrimg %>" />
     </div>
 
 </section>
 <section class="head prf_head clearfix">
 
     <div class="head_l clearfix">
-        <p class="head_img"><%= image_tag "#{@user_name.userimg}" %></p>
+        <p class="head_img"><img src="/assets/fallback/post_dummy.jpg" data-echo="<%= @user_name.userimg %>" /></p>
     </div>
     <div class="head_r clearfix">
         <p class="head_name">

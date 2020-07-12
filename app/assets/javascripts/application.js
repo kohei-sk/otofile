@@ -331,7 +331,6 @@ $(document).ready(function () {
 
         if ($('body .tab_content_wrap').length) {
             tabMenu();
-            topNotice();
         } else {
             $('.page_wrap').infiniteScroll({
                 path: 'span.next a',
@@ -428,25 +427,6 @@ $(document).ready(function () {
         e.preventDefault();
         $.magnificPopup.close();
     });
-
-    //recommendスライダー
-    var flkty = new Flickity('.main-carousel', {
-        cellAlign: 'left',
-        wrapAround: true,
-        contain: true,
-        prevNextButtons: true,
-        pageDots: false
-    });
-    var topNotice = function () {
-        var flkty = new Flickity('.user_notice_wrapper', {
-            cellAlign: 'left',
-            wrapAround: true,
-            contain: true,
-            prevNextButtons: false,
-            pageDots: false,
-            adaptiveHeight: true
-        });
-    }
 
     //ファイルアップロード ファイル名&サムネ表示
     $('input').on('change', function () {
@@ -928,8 +908,8 @@ $(document).ready(function () {
 
     });
 
-    //プロフカウター
     $(window).load(function () {
+        //プロフカウター
         var counter = $('.count_bar');
         if (counter[0]) {
             var bar = counter.children('span');
@@ -939,10 +919,8 @@ $(document).ready(function () {
                 bar.css('width', `${percent}%`);
             }, 800);
         }
-    });
 
-    //フォローカウント非同期
-    $(window).load(function () {
+        //フォローカウント非同期
         if ($("a[href^='#following']")[0]) {
             $.ajax({
                     url: '/f/count',
@@ -956,6 +934,32 @@ $(document).ready(function () {
                     $("a[href^='#follower'] span").html(data.follower_count);
                 })
         }
+    });
+
+    //スライダー
+    $('section.reco').hide();
+    $('.user_notice_container').hide();
+
+    $(document).ajaxStop(function () {
+        $('section.reco').fadeIn();
+        $('.user_notice_container').fadeIn();
+
+        var flkty = new Flickity('.main-carousel', {
+            cellAlign: 'left',
+            wrapAround: true,
+            contain: true,
+            prevNextButtons: true,
+            pageDots: false
+        });
+
+        var flkty = new Flickity('.user_notice_wrapper', {
+            cellAlign: 'left',
+            wrapAround: true,
+            contain: true,
+            prevNextButtons: false,
+            pageDots: false,
+            adaptiveHeight: true
+        });
     });
 
 });

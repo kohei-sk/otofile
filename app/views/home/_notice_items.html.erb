@@ -1,0 +1,145 @@
+<% if !@notice_items.nil? %>
+<div class="user_notice_wrapper clearfix">
+
+    <% @notice_items.each do |item| %>
+
+    <div class="user_notice_item_wrapper clearfix">
+
+        <% user = User.find_by(id: item.user_id) %>
+
+        <% if item.has_attribute?(:free_area) %>
+
+        <%= link_to "/#{user.userid}", class:'user_notice_item clearfix' do %>
+
+        <div class="notice_inner">
+            <div class="notice_inner_t clearfix">
+                <span class="userimg"><%= image_tag "#{user.userimg.m}" %></span>
+                <span class="username">
+                    <% if user.username.blank? %>
+                    <%= user.userid %>
+                    <% else %>
+                    <%= user.username %>
+                    <% end %>
+                    <span><%= user.userid %></span>
+                </span>
+            </div>
+            <div class="notice_inner_b">
+                <p class=" notice_txt">プロフィールを変更しました
+                    <span class="date"><%= time_ago_in_words(item.updated_at) %>前</span>
+                </p>
+            </div>
+        </div>
+
+        <% end %>
+
+        <% elsif item.has_attribute?(:message) %>
+
+        <%= link_to "/#{user.userid}", class:'user_notice_item clearfix' do %>
+
+        <div class="notice_inner">
+            <div class="notice_inner_t clearfix">
+                <span class="userimg"><%= image_tag "#{user.userimg.m}" %></span>
+                <span class="username">
+                    <% if user.username.blank? %>
+                    <%= user.userid %>
+                    <% else %>
+                    <%= user.username %>
+                    <% end %>
+                    <span><%= user.userid %></span>
+                </span>
+            </div>
+            <div class="notice_inner_b">
+                <p class="notice_txt"><%=safe_join(item.message.split("\n"),tag(:br))%>
+                    <span class="date"><%= time_ago_in_words(item.updated_at) %>前</span>
+                </p>
+            </div>
+        </div>
+
+        <% end %>
+
+        <% end %>
+
+    </div>
+
+    <% end %>
+
+
+
+    <!--テスト-->
+    <div class="user_notice_item_wrapper clearfix">
+        <a class="user_notice_item clearfix" href="#">
+            <div class="notice_inner">
+                <div class="notice_inner_t clearfix">
+                    <span class="userimg"><%= image_tag "fallback/default_userimg" %></span>
+                    <span class="username">
+                        Sample user
+                        <span>Sample user</span>
+                    </span>
+                </div>
+                <div class="notice_inner_b">
+                    <p class=" notice_txt">プロフィールを変更しました
+                        <span class="date">1年前</span>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="user_notice_item_wrapper clearfix">
+        <a class="user_notice_item clearfix" href="#">
+            <div class="notice_inner">
+                <div class="notice_inner_t clearfix">
+                    <span class="userimg"><%= image_tag "fallback/default_userimg" %></span>
+                    <span class="username">
+                        Sample user
+                        <span>Sample user</span>
+                    </span>
+                </div>
+                <div class="notice_inner_b">
+                    <p class="notice_txt">一言サンプル一言サンプル一言サンプル一言サンプル一言サンプル<br>一言サンプル一言サンプル一言サンプル
+                        <span class="date">1年前</span>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="user_notice_item_wrapper clearfix">
+        <a class="user_notice_item clearfix" href="#">
+            <div class="notice_inner">
+                <div class="notice_inner_t clearfix">
+                    <span class="userimg"><%= image_tag "fallback/default_userimg" %></span>
+                    <span class="username">
+                        Sample user
+                        <span>Sample user</span>
+                    </span>
+                </div>
+                <div class="notice_inner_b">
+                    <p class=" notice_txt">プロフィールを変更しました
+                        <span class="date">1年前</span>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="user_notice_item_wrapper clearfix">
+        <a class="user_notice_item clearfix" href="#">
+            <div class="notice_inner">
+                <div class="notice_inner_t clearfix">
+                    <span class="userimg"><%= image_tag "fallback/default_userimg" %></span>
+                    <span class="username">
+                        Sample user
+                        <span>Sample user</span>
+                    </span>
+                </div>
+                <div class="notice_inner_b">
+                    <p class="notice_txt">一言サンプル一言サンプル一言サンプル一言サンプル一言サンプル<br>一言サンプル一言サンプル一言サンプル
+                        <span class="date">1年前</span>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<% else %>
+お知らせがありません
+<% end %>
