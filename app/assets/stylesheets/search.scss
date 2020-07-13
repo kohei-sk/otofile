@@ -46,6 +46,11 @@ section.search {
         @include wrap();
         color: $sub-color;
         font-size: 1rem;
+
+        a {
+            color: $accent-color;
+            text-decoration: underline;
+        }
     }
 
     .ac_content {

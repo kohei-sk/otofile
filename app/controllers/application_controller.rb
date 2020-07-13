@@ -19,23 +19,20 @@ class ApplicationController < ActionController::Base
     render partial: "layouts/aside"
   end
 
+  if Rails.env.production?
+    rescue_from ActiveRecord::RecordNotFound, with: :render_404
+    rescue_from ActionController::RoutingError, with: :render_404
+  end
+
+  def routing_error
+    raise ActionController::RoutingError, params[:path]
+  end
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :userid])
-    devise_parameter_sanitizer.permit(:account_update, keys: [
-                                                         :username,
-                                                         :userid,
-                                                         :userimg,
-                                                         :remove_userimg,
-                                                         :hdrimg,
-                                                         :remove_hdrimg,
-                                                         :sns_t,
-                                                         :sns_f,
-                                                         :sns_i,
-                                                         :sns_l,
-                                                         :userlink,
-                                                       ])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :userid, :userimg, :remove_userimg, :hdrimg, :remove_hdrimg, :sns_t, :sns_f, :sns_i, :sns_l, :userlink])
   end
 
   private
@@ -46,5 +43,9 @@ class ApplicationController < ActionController::Base
 
   def set_request_variant
     request.variant = request.device_variant
+  end
+
+  def render_404
+    render "error/404", status: :not_found
   end
 end

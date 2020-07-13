@@ -26,7 +26,7 @@
 
             </div>
 
-            <% if !@posts.nil? %>
+            <% if @posts.present? %>
 
             <div class="page_wrap clearfix">
                 <% @posts.each do |post| %>
