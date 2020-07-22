@@ -65,7 +65,8 @@
 
 
 
-    <!--テスト-->
+    <% if @notice_items.length < 5 %>
+    <% 3.times do %>
     <div class="user_notice_item_wrapper clearfix">
         <a class="user_notice_item clearfix" href="#">
             <div class="notice_inner">
@@ -78,7 +79,7 @@
                 </div>
                 <div class="notice_inner_b">
                     <p class=" notice_txt">プロフィールを変更しました
-                        <span class="date">1年前</span>
+                        <span class="date">5日前</span>
                     </p>
                 </div>
             </div>
@@ -95,49 +96,15 @@
                     </span>
                 </div>
                 <div class="notice_inner_b">
-                    <p class="notice_txt">一言サンプル一言サンプル一言サンプル一言サンプル一言サンプル<br>一言サンプル一言サンプル一言サンプル
-                        <span class="date">1年前</span>
+                    <p class="notice_txt">Sample userのひとことSample userのひとこと
+                        <span class="date">5日前</span>
                     </p>
                 </div>
             </div>
         </a>
     </div>
-    <div class="user_notice_item_wrapper clearfix">
-        <a class="user_notice_item clearfix" href="#">
-            <div class="notice_inner">
-                <div class="notice_inner_t clearfix">
-                    <span class="userimg"><%= image_tag "fallback/default_userimg" %></span>
-                    <span class="username">
-                        Sample user
-                        <span>Sample user</span>
-                    </span>
-                </div>
-                <div class="notice_inner_b">
-                    <p class=" notice_txt">プロフィールを変更しました
-                        <span class="date">1年前</span>
-                    </p>
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="user_notice_item_wrapper clearfix">
-        <a class="user_notice_item clearfix" href="#">
-            <div class="notice_inner">
-                <div class="notice_inner_t clearfix">
-                    <span class="userimg"><%= image_tag "fallback/default_userimg" %></span>
-                    <span class="username">
-                        Sample user
-                        <span>Sample user</span>
-                    </span>
-                </div>
-                <div class="notice_inner_b">
-                    <p class="notice_txt">一言サンプル一言サンプル一言サンプル一言サンプル一言サンプル<br>一言サンプル一言サンプル一言サンプル
-                        <span class="date">1年前</span>
-                    </p>
-                </div>
-            </div>
-        </a>
-    </div>
+    <% end %>
+    <% end %>
 </div>
 
 <% else %>

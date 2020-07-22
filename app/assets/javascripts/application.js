@@ -915,9 +915,6 @@ $(document).ready(function () {
             var bar = counter.children('span');
             var percent = counter.attr('id').split('_')[1];
 
-            // setTimeout(function () {
-            //     bar.css('width', `${percent}%`);
-            // }, 800);
             setTimeout(function () {
                 bar.animate({
                     "width": `${percent}%`
