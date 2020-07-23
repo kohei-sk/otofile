@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root :to => "home#index"
   get "/welcome" => "welcome#index"
 
+  get "/ytplayer" => "ytplayer#index"
+  get "/ytlist" => "ytplayer#ytlist"
+  post "/ytpost" => "ytplayer#ytpost"
+
   get "/m/new" => "onemessages#new"
   post "/m/new" => "onemessages#create"
   get "/m/edit" => "onemessages#edit"

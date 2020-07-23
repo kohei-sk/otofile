@@ -110,6 +110,7 @@ body.nav--opened header {
                     margin: 20px 25px 0 0;
                     width: 30px;
                     height: 23px;
+                    cursor: pointer;
 
                     @include sp {
                         margin: 14px 24px 0 0;
@@ -183,11 +184,6 @@ body.nav--opened header {
                 width: 23px;
                 height: 23px;
 
-
-                @include sp {
-                    display: none;
-                }
-
                 &:before {
                     font-family: "Font Awesome 5 Free";
                     font-weight: 900;
@@ -223,6 +219,7 @@ body.nav--opened header {
                 &.search {
                     -webkit-transition: -webkit-transform 0.2s;
                     transition: all .2s;
+                    cursor: pointer;
 
                     &:before {
                         content: '\f002';
@@ -230,7 +227,27 @@ body.nav--opened header {
 
                     &.active:before {
                         content: '\f057';
+                    }
 
+                    @include sp {
+                        display: none;
+                    }
+                }
+
+                &.player {
+
+                    &:before {
+                        content: '\f144';
+
+                        @include sp {
+                            font-size: 29px;
+                        }
+                    }
+
+                    @include sp {
+                        margin: 9px 25px 0 0;
+                        width: 29px;
+                        height: 29px;
                     }
                 }
 

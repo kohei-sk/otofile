@@ -2,4 +2,5 @@
 /public/uploads/post
 /public/uploads/user
 /log/development.log
+/temp
 .env

@@ -951,7 +951,8 @@ $(document).ready(function () {
             wrapAround: true,
             contain: true,
             prevNextButtons: true,
-            pageDots: false
+            pageDots: false,
+            freeScroll: true
         });
 
         var flkty = new Flickity('.user_notice_wrapper', {
@@ -960,7 +961,8 @@ $(document).ready(function () {
             contain: true,
             prevNextButtons: false,
             pageDots: false,
-            adaptiveHeight: true
+            adaptiveHeight: true,
+            freeScroll: true
         });
     });
 
