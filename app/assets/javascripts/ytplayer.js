@@ -80,7 +80,7 @@ function onPlayerStateChange(event) {
 }
 
 function onPlayerError() {
-    nextVideo();
+    player.nextVideo();
 }
 
 function ytPost(post) {
