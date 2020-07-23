@@ -14,7 +14,8 @@ function onYouTubeIframeAPIReady() {
         width: '640',
         events: {
             'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
+            'onStateChange': onPlayerStateChange,
+            'onError': onPlayerError
         }
     });
 }
@@ -76,6 +77,10 @@ function onPlayerStateChange(event) {
             })
     }
 
+}
+
+function onPlayerError() {
+    nextVideo();
 }
 
 function ytPost(post) {
