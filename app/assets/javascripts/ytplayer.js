@@ -33,7 +33,7 @@ function onPlayerReady() {
             ytlist.push(data.ytid);
             ytlist.push(data.postid);
 
-            player.loadPlaylist({
+            player.cuePlaylist({
                 'playlist': ytlist[0]
             });
 
@@ -50,12 +50,8 @@ function onPlayerStateChange(event) {
 
     let ytStatus = event.data;
 
-    if (ytStatus == YT.PlayerState.ENDED) {
-        let i = player.getPlaylistIndex();
-        let l = ytlist[1].lenght();
-        if (i !== l - 1) {
-            player.nextVideo();
-        }
+    if (ytStatus == YT.PlayerState.CUED) {
+        player.playVideo();
     }
 
     if (ytStatus == YT.PlayerState.PLAYING || ytStatus == YT.PlayerState.CUED) {
