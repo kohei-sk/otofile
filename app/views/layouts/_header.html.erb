@@ -14,8 +14,9 @@
 
             <% if user_signed_in? %>
             <%= link_to "/#{current_user.userid}", class: 'nav_btn prf' do %><span><%= image_tag "#{current_user.userimg.m}" %></span><% end %>
-            <%= link_to '', '/ytplayer', class: "nav_btn player" %>
             <% end %>
+
+            <%= link_to '', '/ytplayer', class: "nav_btn player" %>
             <a class="nav_btn search search_btn_trriger"></a>
 
             <a class="nav_btn_trriger"><span></span><span></span><span></span></a>
