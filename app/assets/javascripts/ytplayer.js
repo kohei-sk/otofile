@@ -29,7 +29,6 @@ function onPlayerReady() {
             contentType: false
         })
         .done(function (data) {
-            console.log(data);
 
             ytlist.push(data.ytid);
             ytlist.push(data.postid);
@@ -37,6 +36,10 @@ function onPlayerReady() {
             player.loadPlaylist({
                 'playlist': ytlist[0]
             });
+
+            player.setLoop({
+                'loopPlaylists': true
+            })
         })
         .fail(function () {
             alert('エラーが発生しました');
@@ -47,10 +50,17 @@ function onPlayerStateChange(event) {
 
     let ytStatus = event.data;
 
-    if (ytStatus == YT.PlayerState.PLAYING) {
+    if (ytStatus == YT.PlayerState.ENDED) {
+        let i = player.getPlaylistIndex();
+        let l = ytlist[1].lenght();
+        if (i !== l - 1) {
+            player.nextVideo();
+        }
+    }
+
+    if (ytStatus == YT.PlayerState.PLAYING || ytStatus == YT.PlayerState.CUED) {
         let i = player.getPlaylistIndex();
         let postid = ytlist[1][i];
-        console.log(postid);
 
         $.ajax({
                 url: '/ytpost',
@@ -62,7 +72,6 @@ function onPlayerStateChange(event) {
             })
 
             .done(function (data) {
-                console.log(data);
 
                 let html = ytPost(data);
                 $('.ac_content').remove();
