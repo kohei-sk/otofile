@@ -31,16 +31,23 @@ function onPlayerReady() {
         })
         .done(function (data) {
 
-            ytlist.push(data.ytid);
-            ytlist.push(data.postid);
+            if (data.ytid.length > 0 || data.postid.length > 0) {
 
-            player.cuePlaylist({
-                'playlist': ytlist[0]
-            });
+                ytlist.push(data.ytid);
+                ytlist.push(data.postid);
 
-            player.setLoop({
-                'loopPlaylists': true
-            })
+                player.cuePlaylist({
+                    'playlist': ytlist[0]
+                });
+
+                player.setLoop({
+                    'loopPlaylists': true
+                })
+
+            } else {
+                alert('再生できる動画がありません');
+                window.history.back();
+            }
         })
         .fail(function () {
             alert('エラーが発生しました');
