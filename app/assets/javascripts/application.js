@@ -961,7 +961,6 @@ $(document).ready(function () {
             contain: true,
             prevNextButtons: false,
             pageDots: false,
-            adaptiveHeight: true,
             freeScroll: true
         });
     });

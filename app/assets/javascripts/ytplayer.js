@@ -74,7 +74,6 @@ function onPlayerStateChange(event) {
                     id: postid
                 }
             })
-
             .done(function (data) {
 
                 let html = ytPost(data);

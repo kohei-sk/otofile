@@ -5,6 +5,8 @@ class HomeController < ApplicationController
     if !user_signed_in?
       redirect_to "/welcome/"
     else
+      @f_users = @f_users.push(current_user.id, 5)
+      logger.debug(@f_users)
       @posts = Post.where(user_id: @f_users).order(created_at: "DESC").page(params[:timeline]).without_count.per(3)
 
       @fing_users = Follow.where(user_id: current_user.id).order(created_at: "DESC").page(params[:following]).without_count.per(10)

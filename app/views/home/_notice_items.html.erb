@@ -24,9 +24,8 @@
                 </span>
             </div>
             <div class="notice_inner_b">
-                <p class=" notice_txt">プロフィールを変更しました
-                    <span class="date"><%= time_ago_in_words(item.updated_at) %>前</span>
-                </p>
+                <p class=" notice_txt">プロフィールを変更しました</p>
+                <p class="notice_txt_date"><%= time_ago_in_words(item.updated_at) %>前</p>
             </div>
         </div>
 
@@ -49,9 +48,8 @@
                 </span>
             </div>
             <div class="notice_inner_b">
-                <p class="notice_txt"><%=safe_join(item.message.split("\n"),tag(:br))%>
-                    <span class="date"><%= time_ago_in_words(item.updated_at) %>前</span>
-                </p>
+                <p class="notice_txt"><%=safe_join(item.message.split("\n"),tag(:br))%></p>
+                <p class="notice_txt_date"><%= time_ago_in_words(item.updated_at) %>前</p>
             </div>
         </div>
 
@@ -78,9 +76,8 @@
                     </span>
                 </div>
                 <div class="notice_inner_b">
-                    <p class=" notice_txt">プロフィールを変更しました
-                        <span class="date">5日前</span>
-                    </p>
+                    <p class=" notice_txt">プロフィールを変更しました</p>
+                    <p class="notice_txt_date">5日前</p>
                 </div>
             </div>
         </a>
@@ -96,9 +93,8 @@
                     </span>
                 </div>
                 <div class="notice_inner_b">
-                    <p class="notice_txt">Sample userのひとことSample userのひとこと
-                        <span class="date">5日前</span>
-                    </p>
+                    <p class="notice_txt">Sample userのひとことSample userのひとこと</p>
+                    <p class="notice_txt_date">5日前</p>
                 </div>
             </div>
         </a>
