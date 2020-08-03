@@ -90,6 +90,8 @@ gem 'rack-user_agent'
 gem 'render_async'
 
 gem 'meta-tags'
+gem 'sitemap_generator'
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'sqlite3'

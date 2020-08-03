@@ -2,6 +2,7 @@
 /public/uploads/post
 /public/uploads/user
 /public/uploads/tmp
+/public/sitemap.xml.gz
 /log/development.log
 /tmp
 .env
