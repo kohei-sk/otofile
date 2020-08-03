@@ -1,3 +1,15 @@
+<%
+    if @msg.present? && !@msg.message.blank? && @profile.present? && @profile.free_area.present?
+        set_meta_tags title: "#{@user_name.username}「#{@msg.message}」", description: @profile.free_area
+    elsif @msg.present? && !@msg.message.blank?
+        set_meta_tags title: "#{@user_name.username}「#{@msg.message}」"
+    elsif @profile.present? && @profile.free_area.present?
+        set_meta_tags title: "#{@user_name.username}", description: @profile.free_area
+    else
+        set_meta_tags title: "#{@user_name.username}"
+    end
+%>
+
 <section class="user_head">
 
     <div class="header_img">
@@ -11,13 +23,13 @@
         <p class="head_img"><img src="/assets/fallback/post_dummy.jpg" data-echo="<%= @user_name.userimg %>" /></p>
     </div>
     <div class="head_r clearfix">
-        <p class="head_name">
+        <h1 class="head_name">
             <% if @user_name.username.blank? %>
             <%= @user_name.userid %>
             <% else %>
             <%= @user_name.username %>
             <% end %>
-        </p>
+        </h1>
 
         <p class="head_id"><%= @user_name.userid %></p>
 
@@ -159,7 +171,9 @@
             <% if @profile.fvmv.present? %>
             <p class="pr_ttl">Favorite video</p>
             <div class="yt_wrap">
-                <iframe width="854" height="480" src="https://www.youtube.com/embed/<%= @profile.fvmv %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="854" height="480" src="https://www.youtube.com/embed/<%= @profile.fvmv %>"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
             <% end %>
 

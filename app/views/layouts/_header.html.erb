@@ -2,7 +2,7 @@
 
     <nav class="clearfix">
         <%= link_to "/", class: "nav_logo" do %>
-        <%= image_tag "logo.svg" %>
+        <h1><%= image_tag "logo.svg", alt: "#{@title} | #{@sitename}" %></h1>
         <% end %>
 
         <div class="nav_btn_wrapper">

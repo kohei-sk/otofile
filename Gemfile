@@ -89,6 +89,8 @@ gem 'rack-user_agent'
 
 gem 'render_async'
 
+gem 'meta-tags'
+
 group :development, :test do
   gem 'sqlite3'
 end

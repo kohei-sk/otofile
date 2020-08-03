@@ -2,14 +2,13 @@
 <html>
 
 <head>
-    <title>Otofile</title>
+    <%= display_meta_tags(default_meta_tags) %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <link rel="shortcut icon" href="/assets/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -23,7 +22,7 @@
 
         <% if current_page?("/welcome") %>
         <section class="home_head clearfix">
-            <h2>Welcome to Otofile.</h2>
+            <h1>Welcome to Otofile.</h1>
             <p>Otofile（オトファイル）は、音楽好きの仲間と繋がれるオンラインコミュニティです。<br>
                 プロフィールを充実させてシェアしたり、好きな曲やライブの感想をシェアしたり。<br>
                 アカウントを作成して音楽ライフをエンジョイしましょう♪</p>

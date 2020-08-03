@@ -118,7 +118,7 @@ section.head {
             width: calc(100% - 105px);
         }
 
-        p.head_name {
+        .head_name {
             font-size: 1.2rem;
             line-height: 1.4em;
 
@@ -127,7 +127,7 @@ section.head {
             }
         }
 
-        p.head_id {
+        .head_id {
             color: $sub-color;
             line-height: 1em;
             margin: 0.3em 0 0.8em;

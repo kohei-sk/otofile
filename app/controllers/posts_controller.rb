@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   # before_action :sign_in_required
   before_action :post_check
+  before_action :common
 
   def post_check
     @post = Post.find_by(id: params[:id])

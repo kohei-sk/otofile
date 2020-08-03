@@ -1,6 +1,7 @@
 /.bundle
 /public/uploads/post
 /public/uploads/user
+/public/uploads/tmp
 /log/development.log
 /tmp
 .env

@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
     if @user_name
       gon.userid = @user_name.userid
     end
+    @sitename = "Otofile（オトファイル）"
+    @title = "音楽好きと繋がるオンラインコミュニティ"
   end
 
   def rank_posts

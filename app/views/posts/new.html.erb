@@ -1,5 +1,7 @@
+<% set_meta_tags title: 'アクティビティ投稿' %>
+
 <div class="form_head">
-    <h2>アクティビティ</h2>
+    <h2>アクティビティ投稿</h2>
 </div>
 
 <%= form_for @post,:url => {controller: "posts", action: "create"} do |f| %>
@@ -45,7 +47,8 @@
 
             i.value = y
 
-            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y +
+                '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             document.getElementById('ytid_confirm').innerHTML = ytid_confirm;
             $('#ytid_confirm').fadeIn();
 
@@ -55,7 +58,8 @@
 
             i.value = y
 
-            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y +
+                '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             document.getElementById('ytid_confirm').innerHTML = ytid_confirm;
             $('#ytid_confirm').fadeIn();
 

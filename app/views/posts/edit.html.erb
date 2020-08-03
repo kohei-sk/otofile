@@ -1,3 +1,5 @@
+<% set_meta_tags title: 'アクティビティ編集' %>
+
 <div class="form_head">
     <h2>アクティビティ編集</h2>
 </div>
@@ -31,7 +33,8 @@
 
     <% if @post.ytid.present? %>
     <div id="ytid_confirm_now">
-        <iframe width="854" height="480" src="https://www.youtube.com/embed/<%= @post.ytid %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="854" height="480" src="https://www.youtube.com/embed/<%= @post.ytid %>" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <% end %>
 
@@ -51,7 +54,8 @@
 
             i.value = y
 
-            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y +
+                '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             document.getElementById('ytid_confirm').innerHTML = ytid_confirm;
             $('#ytid_confirm').fadeIn();
             $('.img_select_wrap').fadeOut();
@@ -62,7 +66,8 @@
 
             i.value = y
 
-            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y +
+                '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             document.getElementById('ytid_confirm').innerHTML = ytid_confirm;
             $('#ytid_confirm').fadeIn();
             $('.img_select_wrap').fadeOut();

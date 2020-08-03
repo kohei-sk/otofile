@@ -1,3 +1,5 @@
+<% set_meta_tags title: 'プロフィール変更' %>
+
 <div class="form_head">
     <h2>プロフィール変更</h2>
 </div>
@@ -61,7 +63,8 @@
 
     <% if @profile.fvmv.present? %>
     <div id="ytid_confirm_now">
-        <iframe width="854" height="480" src="https://www.youtube.com/embed/<%= @profile.fvmv %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="854" height="480" src="https://www.youtube.com/embed/<%= @profile.fvmv %>" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <% end %>
 
@@ -81,7 +84,8 @@
 
             i.value = y
 
-            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y +
+                '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             document.getElementById('ytid_confirm').innerHTML = ytid_confirm;
             $('#ytid_confirm').fadeIn();
 
@@ -91,7 +95,8 @@
 
             i.value = y
 
-            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            var ytid_confirm = '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + y +
+                '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             document.getElementById('ytid_confirm').innerHTML = ytid_confirm;
             $('#ytid_confirm').fadeIn();
 
