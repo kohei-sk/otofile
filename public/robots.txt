@@ -1,4 +1,4 @@
 # See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
 
-Sitemap: https://otofile.s3.amazonaws.com/sitemaps/sitemap.xml.gz
+Sitemap: https://otofile.s3-ap-northeast-1.amazonaws.com/sitemaps/sitemap.xml.gz
 

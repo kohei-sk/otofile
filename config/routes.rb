@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   match "(*any)", to: redirect(subdomain: ""), via: :all, constraints: { subdomain: "www" }
-  get "sitemap", to: redirect("http://s3-ap-northeast-1.amazonaws.com/otofile/sitemaps/sitemap.xml.gz")
+  get "sitemap", to: redirect("https://otofile.s3-ap-northeast-1.amazonaws.com/sitemaps/sitemap.xml.gz")
 
   root :to => "home#index"
   get "/welcome" => "welcome#index"
